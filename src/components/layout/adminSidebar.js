@@ -75,7 +75,6 @@ class AdminSidebar extends React.Component {
 
 
     renderUserSiderBar(){
-
         if(UserManager.GetUserInfo()==null){
             return <div></div>
         }

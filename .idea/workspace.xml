@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d050046-4885-41d3-bb31-f4819082e07e" name="Default Changelist" comment="" />
+    <list default="true" id="3d050046-4885-41d3-bb31-f4819082e07e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/adminSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/adminSidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sendcode/sendcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sendcode/sendcode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/register/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/register/register.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +44,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -30,10 +58,52 @@
       <option name="presentableId" value="Default" />
       <updated>1603586751592</updated>
       <workItem from="1603586753852" duration="14000" />
+      <workItem from="1603587051483" duration="1259000" />
+      <workItem from="1603588612836" duration="1938000" />
+      <workItem from="1603590667138" duration="783000" />
+      <workItem from="1603591494168" duration="889000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="115" key="#Deployment" timestamp="1603592052591">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="115" key="#Deployment/0.0.1440.900@0.0.1440.900" timestamp="1603592052591" />
+    <state x="345" y="129" key="#Options" timestamp="1603590908535">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="345" y="129" key="#Options/0.0.1440.900@0.0.1440.900" timestamp="1603590908535" />
+    <state x="304" y="102" key="#SSH_Configurations" timestamp="1603589178696">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="304" y="102" key="#SSH_Configurations/0.0.1440.900@0.0.1440.900" timestamp="1603589178696" />
+    <state x="418" y="205" width="604" height="490" key="find.popup" timestamp="1603592424259">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="418" y="205" width="604" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1603592424259" />
+    <state x="413" y="292" width="365" height="525" key="ftp.server.browser" timestamp="1603589637687">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="413" y="292" width="365" height="525" key="ftp.server.browser/0.0.1440.900@0.0.1440.900" timestamp="1603589637687" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1603591240849">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1603591240849" />
   </component>
 </project>

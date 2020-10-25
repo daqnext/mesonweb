@@ -94,6 +94,12 @@ class RegisterPage extends React.Component {
             {phonecountrycode:'+'+this.phoneinput.countrycode,
                 phonenumber:this.phoneinput.number}).then(  (response)=>{
                     console.log(response);
+
+                    if(response.data.status==2003){
+                        this.props.alert.error("sorry Phone is already registered!");
+                        return;
+                    }
+
                     if(response&&response.data.status==102){
                         this.props.alert.error("please wait 60 seconds before you send verify code again");
                     }
@@ -143,6 +149,7 @@ class RegisterPage extends React.Component {
                     return;
                 }
 
+
                 if(response.data.status==0){
                     console.log(response);
                     UserManager.SetUserToken(response.data.data);
@@ -150,7 +157,7 @@ class RegisterPage extends React.Component {
                     return;
                 }
 
-                console.log(response);
+                //console.log(response);
                 this.props.alert.error("some thing wrong,please contact us!");
         });
 

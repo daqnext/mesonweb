@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1cfa3dc8-175d-4071-8e7d-4f27fa2511cc" name="aws_dev">
+        <fileTransfer accessType="SFTP" host="18.163.173.244" port="22" sshConfigId="7d81f3ac-cf0d-47cf-a18a-c0206ba64f19" sshConfig="root@18.163.173.244:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="8554df53-1e70-4c4b-91d7-3a983e8e2234" name="dev_aliyun">
+        <fileTransfer accessType="SFTP" host="47.102.47.9" port="22" sshConfigId="8b5d3e49-69bc-4ab4-88ee-a568d794cc57" sshConfig="root@47.102.47.9:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

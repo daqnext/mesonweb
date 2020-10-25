@@ -40,7 +40,7 @@ class SendCode extends React.Component {
            return;
        }
 
-       this.state.pasttime=5;
+       this.state.pasttime=61;
        this.triggerTimer();
     }
 
