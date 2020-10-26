@@ -20,24 +20,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d050046-4885-41d3-bb31-f4819082e07e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/adminSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/adminSidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sendcode/sendcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sendcode/sendcode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/usertypes/usertypeselector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/usertypes/usertypeselector.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/register/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/register/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/test/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/test/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/welcome/welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/welcome/welcome.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jLcKaNlgajWc3fKpkvWIgjEhSB" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -46,6 +58,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -61,7 +74,15 @@
       <workItem from="1603587051483" duration="1259000" />
       <workItem from="1603588612836" duration="1938000" />
       <workItem from="1603590667138" duration="783000" />
-      <workItem from="1603591494168" duration="889000" />
+      <workItem from="1603591494168" duration="1187000" />
+      <workItem from="1603594005359" duration="1158000" />
+      <workItem from="1603675805792" duration="1459000" />
+      <workItem from="1603677710839" duration="1594000" />
+      <workItem from="1603679527078" duration="1335000" />
+      <workItem from="1603681355611" duration="1361000" />
+      <workItem from="1603683225773" duration="1711000" />
+      <workItem from="1603685043330" duration="1625000" />
+      <workItem from="1603686853467" duration="1597000" />
     </task>
     <servers />
   </component>

@@ -76,7 +76,8 @@ class RegisterPage extends React.Component {
 
 
     checkusertype(){
-        if(this.usertype==""){
+
+        if(this.usertype.length==0){
             this.props.alert.error("please select usertype");
             return false;
         }
@@ -148,7 +149,6 @@ class RegisterPage extends React.Component {
                     this.props.alert.error("sorry verify code wrong!");
                     return;
                 }
-
 
                 if(response.data.status==0){
                     console.log(response);

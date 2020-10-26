@@ -68,10 +68,27 @@ class AdminSidebar extends React.Component {
                     UserManager
                 </a>
             </div>
-
         )
 
     }
+
+    renderUserClientSiderBar(){
+        if(!UserManager.checkUserHasAuth(UserManager.UserAuth.client)){
+            return (<div></div>)
+        }
+
+        return (
+            <div>
+                <div className="sidenav-menu-heading">CDN-Client-Pannel</div>
+                <a className="nav-link " href="/binddomain" aria-controls="collapseDashboards">
+                    <div className="nav-link-icon"><i data-feather="activity"></i></div>
+                    BindDomain
+                </a>
+            </div>
+        )
+
+    }
+
 
 
     renderUserSiderBar(){
@@ -80,7 +97,7 @@ class AdminSidebar extends React.Component {
         }
 
         const UserAdminSiderBar=this.renderUserAdminSiderBar();
-
+        const UserClientSiderBar=this.renderUserClientSiderBar();
         return (
 
             <div>
@@ -97,6 +114,7 @@ class AdminSidebar extends React.Component {
                 </a>
 
                 {UserAdminSiderBar}
+                {UserClientSiderBar}
 
                 <div className="sidenav-footer">
                     <div className="sidenav-footer-content">

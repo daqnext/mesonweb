@@ -20495,3 +20495,9 @@ pre[class*=language-] {
 .token.variable {
   color: #ff6666;
 }
+
+
+
+.tablebluehead thead th{
+  color: #0061f2;
+}

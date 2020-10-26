@@ -1,0 +1,257 @@
+
+import React from 'react';
+import AdminLayout from "../../components/layout/adminLayout";
+import AdminContent from "../../components/layout/adminContent";
+import usermanager from "../../manager/usermanager";
+import UserManager from "../../manager/usermanager";
+import './binddomain.css'
+import axios from "axios";
+import { withAlert } from "react-alert";
+
+class BindDomain extends React.Component {
+
+
+    constructor(props) {
+        super(props);
+        this.state={
+            dataready:false,
+            inputurl:'',
+            inputurlerror:false,
+        };
+
+        this.randomhash=this.makeid(6);
+
+        this.coldcdnDomainPrefix="aqnext.com/api/cdn/"+this.randomhash;
+    }
+
+
+    makeid(length) {
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+
+
+    async componentDidMount() {
+        if(UserManager.GetUserInfo()==null){
+            await UserManager.UpdateUserInfo();
+        }
+        UserManager.TokenCheckAndRedirectLogin();
+        this.setState({
+            dataready:true,
+            inputurl:this.state.inputurl,
+            inputurlerror:this.state.inputurlerror,
+
+        });
+    }
+
+
+    urlcheck(str){
+        var pattern = new RegExp(
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+            '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+        return !!pattern.test(str);
+    }
+
+
+    removeinputUrlPrefix(str){
+        if(str.startsWith("https://")){
+            return str.slice(8);
+        }
+
+        if(str.startsWith("http://")){
+            return str.slice(7);
+        }
+
+        if(str.startsWith("https")){
+            return str.slice(5);
+        }
+
+        if(str.startsWith("http:")){
+            return str.slice(6);
+        }
+
+        return str;
+    }
+
+
+    changeinputUrl(str){
+
+        let inputurlerror_=false;
+
+        if(str.length!=0){
+            if(!this.urlcheck(str)){
+                inputurlerror_=true;
+            }
+        }
+
+        this.setState({
+            dataready:this.state.dataready,
+            inputurl:str,
+            inputurlerror:inputurlerror_
+        });
+    }
+
+
+
+    addRecord(){
+
+        if(this.state.inputurl.length==0||this.state.inputurlerror){
+            this.props.alert.error("please input the correct localtion url first");
+            return;
+        }
+
+
+            axios.post("https://coldcdn.com/api/v1/client/newdomain",
+                {
+                    BindName:this.randomhash,
+                    OriginUrl:this.state.inputurl,
+                },{headers: {
+                        Authorization: "Bearer "+UserManager.GetUserToken()
+                    }})
+                .then(  (response)=>{
+
+
+                    if(response.data.status==1001){
+                        this.props.alert.error("some thing wrong please try again");
+                        window.location.href="/binddomain";
+                        return;
+                    }
+
+                    if(response.data.status==1002){
+                        this.props.alert.error("sorry you already have a record with the same input url ");
+                        return;
+                    }
+
+                    if(response.data.status==0){
+                        this.props.alert.error("add successfully");
+                        setTimeout(function(){ window.location.href="/binddomain";}, 2000);
+                        return;
+                    }
+
+                    this.props.alert.error("some thing wrong,please contact us!");
+                });
+
+    }
+
+
+    renderContent(){
+        if(!this.state.dataready||!UserManager.checkUserHasAuth(UserManager.UserAuth.client)){
+            return (<div className="alert alert-danger" role="alert">Auth Required</div>);
+        }
+
+
+        let inputurlerrordisplay=(<div></div>)
+        if(this.state.inputurlerror){
+            inputurlerrordisplay=<div><span className="badge badge-danger">format error</span></div>
+        }
+
+        let toastbody=(<div></div>)
+        if(!this.state.inputurlerror&&this.state.inputurl.length!==0){
+            toastbody= (
+
+                <div className="form-group col-md-9">
+                    <div className="  toast fade show" id="toastBasic" role="alert" aria-live="assertive" aria-atomic="true"
+                         data-delay="5000">
+                        <div className="toast-header">
+                            <i data-feather="bell"></i>
+                            <strong className="mr-auto">Note</strong>
+                            <button className="ml-2 mb-1 close" type="button" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div className="toast-body">
+                            simply replace your url with our url in your application,all your files will be accerlated
+                            e.g :
+                            <span className="badge badge-light" >{"https://"+this.state.inputurl+"/yourfile"}</span>
+                            will become
+                            <span className="badge badge-light" >{"https://"+this.coldcdnDomainPrefix+"/yourfile"}</span>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+
+        return (
+            <form>
+                <div className="form-group">
+                    <label >add your location</label>
+                    {inputurlerrordisplay}
+                    <input className="form-control"
+                           //value={this.state.inputurl}
+                           onBlur={(event)=>{
+                               event.target.value=this.removeinputUrlPrefix(event.target.value.trim());
+                               this.changeinputUrl(event.target.value.trim());
+                           }}
+                           type="text"
+                           placeholder="input your location here e.g: www.mydomain.com/myfolder"/>
+                </div>
+
+
+                <div  className="form-group" >
+                    <label>For http accerlation in your own application replace your location url to :</label>
+                    <div className="input-group input-group-joined input-group-solid">
+                        <input  value={"http://"+this.coldcdnDomainPrefix} className="form-control" type="text" placeholder="Input group append..." aria-label="Search"/>
+                            <div className="input-group-append">
+                                <span className="input-group-text"><i data-feather="search"></i></span>
+                            </div>
+                    </div>
+                </div>
+
+                <div  className="form-group" >
+                    <label >For https accerlation in your own application replace your location url to </label>
+                    <div className="input-group input-group-joined input-group-solid">
+                        <input  value={"https://"+this.coldcdnDomainPrefix} className="form-control" type="text" placeholder="Input group append..." aria-label="Search"/>
+                        <div className="input-group-append">
+                            <span className="input-group-text"><i data-feather="search"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className="form-row">
+
+                    <div className="form-group col-md-3">
+                        <button
+                            onClick={()=>{
+                                this.addRecord();
+                            }}
+                            className="btn btn-success" type="button">Add Record</button>
+                    </div>
+
+                    {toastbody}
+                </div>
+
+
+
+            </form>
+        )
+    }
+
+
+
+
+
+    render() {
+
+        const Content=this.renderContent();
+
+        return (
+            <AdminLayout
+                name="BindDomain"
+                description="Bind your domain"
+            >
+                {Content}
+            </AdminLayout>
+        );
+    }
+}
+
+export default withAlert()(BindDomain)

@@ -7,8 +7,10 @@ class UserTypeSelector extends React.Component {
         super(props);
         this.callback=this.props.callback;
 
+        this.usertypes=[];
+
         this.state={
-            usertypes:[]
+            selectedUsertypes:[]
         }
     }
 
@@ -18,9 +20,12 @@ class UserTypeSelector extends React.Component {
             {})
             .then(  (response)=>{
                 if(response.status==200){
+
+                    this.usertypes=response.data.data;
                     this.setState({
-                        usertypes:response.data.data
+                        selectedUsertypes: JSON.parse(JSON.stringify(this.usertypes))
                     });
+                    this.callback(this.state.selectedUsertypes);
                 }
             });
     }
@@ -41,12 +46,50 @@ class UserTypeSelector extends React.Component {
         return usertype;
     }
 
+    //flag true for add false for remove
+    updateUserTypes(type,flag){
+
+        let curselectedUserteyps=this.state.selectedUsertypes;
+
+        if(curselectedUserteyps.includes(type)){
+            if(flag==false){
+                this.removeElement(curselectedUserteyps,type);
+            }
+        }else{
+            if(flag==true){
+                curselectedUserteyps.push(type);
+            }
+        }
+
+        this.setState({
+            selectedUsertypes:curselectedUserteyps
+        });
+
+        this.callback(curselectedUserteyps);
+
+    }
+
+    removeElement(array, elem) {
+        var index = array.indexOf(elem);
+        if (index > -1) {
+            array.splice(index, 1);
+        }
+    }
+
+
     render() {
 
-        const renData = this.state.usertypes.map((data, idx) => {
-            return (<div className="custom-control custom-radio">
-                <input onClick={()=>{this.callback(data);}} className="custom-control-input" id={"customRadio"+idx} type="radio" name="customRadio"/>
-                <label className="custom-control-label" htmlFor={"customRadio"+idx}>{this.displayname(data)}</label>
+        const renData = this.usertypes.map((data, idx) => {
+            return (<div className="custom-control custom-checkbox">
+                <input value={data}
+                       //checked={false}
+                    checked={this.state.selectedUsertypes.includes(data)}
+                    onChange={e => {
+                        this.updateUserTypes(e.target.value,e.target.checked)
+                    }}
+                    //onClick={()=>{this.callback(data);}}
+                    className="custom-control-input" id={"customCheck"+idx} type="checkbox"  />
+                <label className="custom-control-label" htmlFor={"customCheck"+idx}>{this.displayname(data)}</label>
             </div>)
         });
         return (<div>{renData}</div>)
