@@ -21,11 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3d050046-4885-41d3-bb31-f4819082e07e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/adminSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/adminSidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/datatable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/datatable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/client/binddomain.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/client/binddomain.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/register/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/register/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/welcome/welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/welcome/welcome.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -98,7 +97,20 @@
       <workItem from="1603765480637" duration="1791000" />
       <workItem from="1603767309547" duration="1757000" />
       <workItem from="1603769120867" duration="1711000" />
-      <workItem from="1603770935417" duration="22000" />
+      <workItem from="1603770935417" duration="256000" />
+      <workItem from="1603771500935" duration="61000" />
+      <workItem from="1603782719311" duration="284000" />
+      <workItem from="1603789852507" duration="696000" />
+      <workItem from="1603791733873" duration="1265000" />
+      <workItem from="1603793541744" duration="1688000" />
+      <workItem from="1603795359784" duration="1026000" />
+      <workItem from="1603805041688" duration="1068000" />
+      <workItem from="1603807003691" duration="1452000" />
+      <workItem from="1603808815269" duration="1672000" />
+      <workItem from="1603810788761" duration="1697000" />
+      <workItem from="1603812602598" duration="1597000" />
+      <workItem from="1603839611110" duration="1476000" />
+      <workItem from="1603841503342" duration="201000" />
     </task>
     <servers />
   </component>
@@ -130,10 +142,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="304" y="102" key="#SSH_Configurations/0.0.1440.900@0.0.1440.900" timestamp="1603589178696" />
-    <state x="418" y="205" width="604" height="490" key="find.popup" timestamp="1603592424259">
+    <state x="418" y="205" width="604" height="490" key="find.popup" timestamp="1603811426654">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="418" y="205" width="604" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1603592424259" />
+    <state x="418" y="205" width="604" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1603811426654" />
     <state x="413" y="292" width="365" height="525" key="ftp.server.browser" timestamp="1603589637687">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

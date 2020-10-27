@@ -12,16 +12,30 @@ class DataTable extends React.Component {
         this.renderRowItem=props.renderRowItem;
         this.gettableupdateconfig=props.gettableupdateconfig;
         this.updatetable=props.updatetable;
+        this.refreshtable=props.refreshtable;
+
         this.state={
             table_data:[],
             expand_rows:{},
-            tableupdateconfig:{}
+            tableupdateconfig:{},
         }
     }
 
+
+
+    componentWillUnmount() {
+        if(this.refreshtable){
+            clearInterval(this.refreshtableHandle);
+        }
+    }
+
+
     async componentDidMount() {
 
-        let tableupdateconfig= await  this.gettableupdateconfig();
+        let tableupdateconfig=null;
+        if(this.gettableupdateconfig){
+            tableupdateconfig= await  this.gettableupdateconfig();
+        }
         let table_data=  await this.gettabledata();
 
         this.setState({
@@ -29,6 +43,24 @@ class DataTable extends React.Component {
             expand_rows:{},
             tableupdateconfig:tableupdateconfig,
         });
+
+
+        if(this.refreshtable){
+            this.refreshtableHandle = setInterval(
+                () => {
+                    this.gettabledata().then(  (data)=>{
+                        this.setState({
+                            table_data:data,
+                            expand_rows:this.state.expand_rows,
+                            tableupdateconfig:this.state.tableupdateconfig,
+                        });
+                    });
+
+                },
+                1000*this.refreshtable
+            );
+        }
+
     }
 
 
@@ -46,11 +78,22 @@ class DataTable extends React.Component {
         const table_header =  this.fieldkeys.map((data, idx) => {
             return (<th>{this.fieldnames[data]}</th>);});
 
+        if(this.gettableupdateconfig){
+            table_header.push(<th>settings</th>);
+        }
+
 
         const table_rows = this.state.table_data.map((data, rownum) => {
 
             let table_row_items= this.fieldkeys.map((key, idx) => {
                 return this.renderRowItem(data,key) });
+
+
+            if(!this.gettableupdateconfig){
+               return (<tr className="tr1">{table_row_items}</tr>)
+            }
+
+
 
             let tr1=(<tr class="tr1">{table_row_items}
                 <td><button onClick={()=>{
@@ -68,8 +111,6 @@ class DataTable extends React.Component {
             if(!this.state.expand_rows[rownum]||!this.state.tableupdateconfig){
                 return tr1;
             }
-
-
 
 
 
@@ -179,7 +220,6 @@ class DataTable extends React.Component {
                 <thead>
                 <tr>
                     {table_header}
-                    <th>settings</th>
                 </tr>
                 </thead>
 

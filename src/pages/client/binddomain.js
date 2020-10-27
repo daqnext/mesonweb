@@ -135,7 +135,7 @@ class BindDomain extends React.Component {
                     }
 
                     if(response.data.status==0){
-                        this.props.alert.error("add successfully");
+                        this.props.alert.success("add successfully");
                         setTimeout(function(){ window.location.href="/binddomain";}, 2000);
                         return;
                     }

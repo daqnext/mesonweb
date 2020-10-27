@@ -116,6 +116,14 @@ class AdminSidebar extends React.Component {
                 {UserAdminSiderBar}
                 {UserClientSiderBar}
 
+                <div className="sidenav-menu-heading">Finance</div>
+                <a className="nav-link " href="/balance"
+                   aria-controls="collapseDashboards">
+                    <div className="nav-link-icon"><i data-feather="activity"></i></div>
+                    My-Balance
+                </a>
+
+
                 <div className="sidenav-footer">
                     <div className="sidenav-footer-content">
                         <div className="sidenav-footer-subtitle">Logged in as:</div>
