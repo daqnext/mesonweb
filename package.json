@@ -10,6 +10,7 @@
     "react": "^16.14.0",
     "react-alert": "^7.0.2",
     "react-alert-template-basic": "^1.0.0",
+    "react-device-detect": "^1.14.0",
     "react-dom": "^16.14.0",
     "react-phone-input-2": "^2.13.8",
     "react-scripts": "3.4.3"

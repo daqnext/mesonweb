@@ -1,0 +1,16 @@
+.datatable .btn-datatable
+{
+    width:auto !important;
+}
+
+.table th, .table td {
+
+    padding: 0.75rem;
+    border-top: 1px solid #e3e6ec;
+    vertical-align: middle !important;
+}
+
+.table th, .table .tr1 td {
+    text-align: center;
+}
+

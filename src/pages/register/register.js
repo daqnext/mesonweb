@@ -13,7 +13,6 @@ import UserManager from "../../manager/usermanager";
 
 
 
-
 class RegisterPage extends React.Component {
 
 

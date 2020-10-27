@@ -1,6 +1,8 @@
 
 import React from 'react';
 import AdminLayout from "../../components/layout/adminLayout";
+import UserManager from "../../manager/usermanager";
+import {isMobile} from 'react-device-detect';
 
 class WelcomePage extends React.Component {
 
@@ -8,57 +10,45 @@ class WelcomePage extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            dataready:"xxxx"
+            dataready:false
         };
     }
 
-    updatetable(){
-        this.setState({dataready:"yyy"});
+
+    async componentDidMount() {
+        if(UserManager.GetUserInfo()==null){
+            await UserManager.UpdateUserInfo();
+        }
+        UserManager.TokenCheckAndRedirectLogin();
+        this.setState({
+            dataready:true
+        });
     }
 
     render() {
+
+        if(!this.state.dataready){
+            return (<div></div>);
+        }
+
+        let mobilewarning=(<div></div>)
+        if (isMobile) {
+            mobilewarning=(<div className="alert alert-danger" role="alert">
+                Mobile web browser is not supported.
+                Please use desktop web browser.
+            </div>)
+        }
+
+
         return (
             <AdminLayout
-                name="welcome"
-                description="this is welcome"
+                name="Welcome"
+                description="Welcome"
             >
 
-                <div className="datatable " onClick={()=>{this.updatetable()}}>
-                    <table className="table tablebluehead table-bordered table-hover" id="dataTable" width="100%" cellSpacing="0">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800{this.state.dataready}</td>
-                            <td>
-                                <div className="badge badge-primary badge-pill">Full-time</div>
-                            </td>
-                            <td>
-                                <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i
-                                    data-feather="more-vertical"></i></button>
-                                <button className="btn btn-datatable btn-icon btn-transparent-dark"><i
-                                    data-feather="trash-2"></i></button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <div>Welcome:{UserManager.userinfo.username}</div>
+                <div>CurentTime :{new Date().toLocaleString()}</div>
+                {mobilewarning}
 
             </AdminLayout>
         );

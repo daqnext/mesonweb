@@ -7,6 +7,7 @@ import UserManager from "../../manager/usermanager";
 import './binddomain.css'
 import axios from "axios";
 import { withAlert } from "react-alert";
+import GetallDomains from "./getalldomains";
 
 class BindDomain extends React.Component {
 
@@ -17,6 +18,7 @@ class BindDomain extends React.Component {
             dataready:false,
             inputurl:'',
             inputurlerror:false,
+            checkandadd:false, //false means you need to check
         };
 
         this.randomhash=this.makeid(6);
@@ -45,6 +47,7 @@ class BindDomain extends React.Component {
             dataready:true,
             inputurl:this.state.inputurl,
             inputurlerror:this.state.inputurlerror,
+            checkandadd:this.state.checkandadd,
 
         });
     }
@@ -95,7 +98,8 @@ class BindDomain extends React.Component {
         this.setState({
             dataready:this.state.dataready,
             inputurl:str,
-            inputurlerror:inputurlerror_
+            inputurlerror:inputurlerror_,
+            checkandadd:false
         });
     }
 
@@ -170,13 +174,37 @@ class BindDomain extends React.Component {
                         <div className="toast-body">
                             simply replace your url with our url in your application,all your files will be accerlated
                             e.g :
-                            <span className="badge badge-light" >{"https://"+this.state.inputurl+"/yourfile"}</span>
+                            <span className="badge badge-light" >{"https://"+this.state.inputurl+"/*"}</span>
                             will become
-                            <span className="badge badge-light" >{"https://"+this.coldcdnDomainPrefix+"/yourfile"}</span>
+                            <span className="badge badge-light" >{"https://"+this.coldcdnDomainPrefix+"/*"}</span>
                         </div>
                     </div>
                 </div>
             )
+        }
+
+
+
+        let checkandadd=(
+            <button
+                onClick={()=>{
+                    let inputurl_=this.removeinputUrlPrefix(this.state.inputurl);
+                    this.setState({
+                        dataready:this.state.dataready,
+                        inputurl:inputurl_,
+                        inputurlerror:!this.urlcheck(inputurl_),
+                        checkandadd:this.urlcheck(inputurl_)
+                    });
+
+                }}
+                className="btn btn-primary" type="button">Check Input Url</button>
+        );
+        if(this.state.checkandadd){
+            checkandadd=( <button
+                onClick={()=>{
+                    this.addRecord();
+                }}
+                className="btn btn-success" type="button">Add Record</button>);
         }
 
         return (
@@ -186,6 +214,14 @@ class BindDomain extends React.Component {
                     {inputurlerrordisplay}
                     <input className="form-control"
                            //value={this.state.inputurl}
+                            onChange={()=>{
+                                this.setState({
+                                    dataready:this.state.dataready,
+                                    inputurl:this.state.inputurl,
+                                    inputurlerror:this.state.inputurlerror,
+                                    checkandadd:false
+                                });
+                            }}
                            onBlur={(event)=>{
                                event.target.value=this.removeinputUrlPrefix(event.target.value.trim());
                                this.changeinputUrl(event.target.value.trim());
@@ -219,23 +255,15 @@ class BindDomain extends React.Component {
                 <div className="form-row">
 
                     <div className="form-group col-md-3">
-                        <button
-                            onClick={()=>{
-                                this.addRecord();
-                            }}
-                            className="btn btn-success" type="button">Add Record</button>
+                        {checkandadd}
                     </div>
 
                     {toastbody}
                 </div>
 
-
-
             </form>
         )
     }
-
-
 
 
 
@@ -249,6 +277,13 @@ class BindDomain extends React.Component {
                 description="Bind your domain"
             >
                 {Content}
+
+
+                <div style={{marginTop:'10px'}}>
+                    <div>Your Records:</div>
+                    <GetallDomains ></GetallDomains>
+                </div>
+
             </AdminLayout>
         );
     }
