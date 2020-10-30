@@ -63,9 +63,18 @@ class AdminSidebar extends React.Component {
         return (
             <div>
                 <div className="sidenav-menu-heading">Admin-Pannel</div>
+                <a className="nav-link " href="/test"
+                   aria-controls="collapseDashboards">
+                    <div className="nav-link-icon"><i data-feather="activity"></i></div>
+                    Test
+                </a>
                 <a className="nav-link " href="/usermanager" aria-controls="collapseDashboards">
                     <div className="nav-link-icon"><i data-feather="activity"></i></div>
                     UserManager
+                </a>
+                <a className="nav-link " href="/monitoring" aria-controls="collapseDashboards">
+                    <div className="nav-link-icon"><i data-feather="activity"></i></div>
+                    Monitoring
                 </a>
             </div>
         )
@@ -106,11 +115,6 @@ class AdminSidebar extends React.Component {
                    aria-controls="collapseDashboards">
                     <div className="nav-link-icon"><i data-feather="activity"></i></div>
                     Dashboards
-                </a>
-                <a className="nav-link " href="/test"
-                   aria-controls="collapseDashboards">
-                    <div className="nav-link-icon"><i data-feather="activity"></i></div>
-                    Test
                 </a>
 
                 {UserAdminSiderBar}

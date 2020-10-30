@@ -26,46 +26,55 @@ class TestPage extends React.Component {
         });
     }
 
+
+
+    renderContent(){
+        if(!this.state.dataready||!UserManager.checkUserHasAuth(UserManager.UserAuth.admin)){
+            return (<div className="alert alert-danger" role="alert">Auth Required</div>);
+        }
+
+
+        return(<div>
+            <div onClick={()=>{
+
+                usermanager.getuserinfo("dSyyh3wPoKGuNHSqHjOGWg==")
+
+            }}>test userinfo</div>
+
+            <div onClick={()=>{
+
+                UserManager.SetUserToken("xxxx");
+
+            }}>set user token</div>
+
+            <div onClick={()=>{
+
+                localStorage.coldcdnusertoken=null;
+                console.log(localStorage.coldcdnusertoken);
+
+            }}>unset user token</div>
+
+
+            <div onClick={()=>{
+
+                console.log(UserManager.GetUserInfo());
+
+            }}>log userinfo</div>
+        </div>);
+    }
+
+
     render() {
 
-        if(!this.state.dataready){
-            return (<div></div>);
-        }
+
+        const Content=this.renderContent();
 
         return (
             <AdminLayout
                 name="test"
                 description="testpage"
             >
-                <div onClick={()=>{
-
-                    usermanager.getuserinfo("dSyyh3wPoKGuNHSqHjOGWg==")
-
-                }}>test userinfo</div>
-
-                <div onClick={()=>{
-
-                   UserManager.SetUserToken("xxxx");
-
-                }}>set user token</div>
-
-                <div onClick={()=>{
-
-                    localStorage.coldcdnusertoken=null;
-                    console.log(localStorage.coldcdnusertoken);
-
-                }}>unset user token</div>
-
-
-                <div onClick={()=>{
-
-                    console.log(UserManager.GetUserInfo());
-
-                }}>log userinfo</div>
-
-
-
-
+                {Content}
             </AdminLayout>
         );
     }

@@ -767,10 +767,28 @@ section {
 }
 
 .about .video-box {
-  background: url("../img/about.png") center center no-repeat;
+
   background-size: contain;
   min-height: 300px;
 }
+.about .mining {
+  background: url("../img/mining.png") center center no-repeat;
+  background-size: contain;
+  min-height: 300px;
+}
+
+.about .client {
+  background: url("../img/success.png") center center no-repeat;
+  background-size: contain;
+  min-height: 300px;
+}
+
+.about .develop {
+  background: url("../img/develop.png") center center no-repeat;
+  background-size: contain;
+  min-height: 300px;
+}
+
 
 .about .play-btn {
   width: 94px;

@@ -9,6 +9,8 @@ import RegisterPage from "./pages/register/register";
 import UserManagerPage from "./pages/user/usermanager";
 import BindDomain from "./pages/client/binddomain";
 import BalancePage from "./pages/account/balance";
+import MonitorPage from "./pages/monitoring/monitor";
+import TerminalPage from "./pages/terminal/terminals";
 
 function App() {
 
@@ -21,6 +23,8 @@ function App() {
         'test': TestPage,
         'usermanager':UserManagerPage,
         'balance':BalancePage,
+        'monitoring':MonitorPage,
+        'terminals':TerminalPage,
 
         /////blow for client pages
         'binddomain':BindDomain,

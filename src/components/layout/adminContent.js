@@ -35,7 +35,7 @@ class AdminContent extends React.Component {
                     <footer className="footer mt-auto footer-light">
                         <div className="container-fluid">
                             <div className="row">
-                                <div className="col-md-6 small">Copyright &copy; Your Website 2020</div>
+                                <div className="col-md-6 small">Copyright &copy; coldcdn.com 2020</div>
                                 <div className="col-md-6 text-md-right small">
                                     <a href="#!">Privacy Policy</a>
                                     &middot;

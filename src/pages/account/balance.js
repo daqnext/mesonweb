@@ -30,8 +30,10 @@ class BalancePage extends React.Component {
 
         this.fieldnames={
             RecordType:'Type',
+            Status:'Status',
             TransactionHex:'TransactionHash',
-            Value:'value',
+            Value:'Value',
+            CreatedAt:'Time',
         };
     }
 
@@ -77,6 +79,19 @@ class BalancePage extends React.Component {
         if(key=='Value'){
             return <td>{data[key]/1000000000}</td>
         }
+
+        if(key=='Status'){
+            if(data[key]=='success'){
+                return(<td><span className="badge badge-success">{data[key]}</span></td>);
+            }else if(data[key]=='failure'){
+                return (<td><span className="badge badge-danger">{data[key]}</span></td>);
+            }else{
+                return (<td><span className="badge badge-light">{data[key]}</span></td>)
+            }
+        }
+
+
+
         return <td>{data[key]}</td>
     }
 
