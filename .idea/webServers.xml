@@ -9,8 +9,8 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
-      <webServer id="8554df53-1e70-4c4b-91d7-3a983e8e2234" name="dev_aliyun">
-        <fileTransfer accessType="SFTP" host="47.102.47.9" port="22" sshConfigId="8b5d3e49-69bc-4ab4-88ee-a568d794cc57" sshConfig="root@47.102.47.9:22 password">
+      <webServer id="7cf45eec-5c60-4bfc-a8a1-b6fa6320a7e7" name="aliyundev">
+        <fileTransfer accessType="SFTP" host="139.224.255.31" port="22" sshConfigId="50af90c6-1f2f-4eb1-b5d6-bd2c6eec671f" sshConfig="root@139.224.255.31:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
