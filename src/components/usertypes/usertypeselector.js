@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-11-02 12:31:01
+ * @LastEditTime: 2020-11-10 08:35:37
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /coldCDNWeb/src/components/usertypes/usertypeselector.js
+ */
 import React from "react";
 import axios from "axios";
 
@@ -16,7 +24,7 @@ class UserTypeSelector extends React.Component {
 
      componentDidMount() {
 
-         axios.get("https://coldcdn.com/api/v1/common/usertype",
+         axios.get("/api/v1/common/usertype",
             {})
             .then(  (response)=>{
                 if(response.status==200){

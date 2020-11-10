@@ -1,0 +1,15 @@
+.status-on{
+    display:inline-block;
+    width:10px;
+    height:10px;
+    background-color: green;
+    border-radius: 10px;
+}
+
+.status-down{
+    display:inline-block;
+    width:10px;
+    height:10px;
+    background-color: gray;
+    border-radius: 10px;
+}

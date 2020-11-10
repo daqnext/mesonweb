@@ -14,6 +14,8 @@ class DataTable extends React.Component {
         this.updatetable=props.updatetable;
         this.refreshtable=props.refreshtable;
 
+        this.renderExtend = props.renderExtend;
+
         this.state={
             table_data:[],
             expand_rows:{},
@@ -80,6 +82,10 @@ class DataTable extends React.Component {
 
         if(this.gettableupdateconfig){
             table_header.push(<th>settings</th>);
+        }
+
+        if (this.renderExtend) {
+            table_header.push(<th></th>)
         }
 
 

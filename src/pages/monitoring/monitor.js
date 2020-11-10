@@ -29,7 +29,7 @@ class MonitorPage extends React.Component {
         });
 
 
-        axios.get("https://coldcdn.com/api/v1/admin/walletjob", {headers: {
+        axios.get("/api/v1/admin/walletjob", {headers: {
                     Authorization: "Bearer "+UserManager.GetUserToken()
                 }}).then( (response)=>{
 

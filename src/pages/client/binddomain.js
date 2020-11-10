@@ -113,7 +113,7 @@ class BindDomain extends React.Component {
         }
 
 
-            axios.post("https://coldcdn.com/api/v1/client/newdomain",
+            axios.post("/api/v1/client/newdomain",
                 {
                     BindName:this.randomhash,
                     OriginUrl:this.state.inputurl,
