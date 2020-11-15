@@ -131,6 +131,17 @@ class AdminSidebar extends React.Component {
                     </div>
                     Profit
                 </a>
+                <div className="sidenav-menu-heading">Bonus-Pannel</div>
+                <a
+                    className="nav-link "
+                    href="/terminalbonus"
+                    aria-controls="collapseDashboards"
+                >
+                    <div className="nav-link-icon">
+                        <i data-feather="activity"></i>
+                    </div>
+                    Bonus
+                </a>
             </div>
         );
     }

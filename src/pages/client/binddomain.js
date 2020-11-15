@@ -23,7 +23,7 @@ class BindDomain extends React.Component {
 
         this.randomhash=this.makeid(6);
 
-        this.coldcdnDomainPrefix="aqnext.com/api/cdn/"+this.randomhash;
+        this.coldcdnDomainPrefix="coldcdn.com/api/cdn/"+this.randomhash;
     }
 
 

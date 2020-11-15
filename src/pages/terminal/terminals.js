@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-11-10 17:57:47
+ * @LastEditTime: 2020-11-11 16:09:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -164,7 +164,7 @@ class TerminalPage extends React.Component {
         }
 
         if (key == "machine_status") {
-            if (data[key].machine_status === "up") {
+            if (data[key] === "up") {
                 return (
                     <td>
                         <span className="status-on"></span> &nbsp;ON

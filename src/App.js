@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-11-02 12:31:01
+ * @LastEditTime: 2020-11-15 15:55:23
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /coldCDNWeb/src/App.js
+ */
 import React from 'react';
 import './app.css'
 
@@ -13,6 +21,7 @@ import MonitorPage from "./pages/monitoring/monitor";
 import TerminalPage from "./pages/terminal/terminals";
 import ClientTraffic from './pages/clientTraffic/clientTraffic';
 import TerminalProfit from './pages/terminalProfit/terminalProfit';
+import TerminalBonus from "./pages/terminalBonus/terminalBonus";
 
 function App() {
 
@@ -30,6 +39,7 @@ function App() {
         //for terminal pages
         terminals: TerminalPage,
         terminalprofit: TerminalProfit,
+        terminalbonus: TerminalBonus,
 
         /////blow for client pages
         binddomain: BindDomain,
