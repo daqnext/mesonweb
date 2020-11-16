@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-10 19:56:44
- * @LastEditTime: 2020-11-15 22:58:08
+ * @LastEditTime: 2020-11-16 23:15:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminalProfit/terminalProfit.js
@@ -14,26 +14,55 @@ import UserManager from "../../manager/usermanager";
 import axios from "axios";
 import DataTable from "../../components/table/datatable";
 import moment from "moment";
- 
+import ReactDataGrid from "@inovua/reactdatagrid-community";
+import DateRangePicker from "react-bootstrap-daterangepicker";
+//import "bootstrap-daterangepicker/daterangepicker.css";
+
 class TerminalBonus extends React.Component {
     constructor(props) {
         super(props);
 
-        this.bonusInPlanPerSecond = 0
-        this.lastPayBonusTime = 0
-        this.todayRecord = []
+        this.bonusInPlanPerSecond = 0;
+        this.lastPayBonusTime = 0;
+        this.todayRecord = [];
         this.queryRecord = [];
 
-        this.fieldnames = {
-            //id: "id",
-            timestamp: "date",
-            machine_mac: "mac addr",
-            amount: "amount",
-        };
+        this.columns = [
+            {
+                name: "timestamp",
+                header: "Date",
+                minWidth: 50,
+                defaultFlex: 1,
+                render: ({ value }) => {
+                    return moment(value * 1000).format("YYYY-MM-DD");
+                },
+            },
+            {
+                name: "machine_mac",
+                header: "Mac Addr",
+                maxWidth: 1000,
+                defaultFlex: 1,
+            },
+            {
+                name: "amount",
+                header: "Amount",
+                maxWidth: 1000,
+                defaultFlex: 1,
+                render: ({ value }) => {
+                    return <div>${(value / 1e9).toFixed(5)}</div>;
+                },
+            },
+        ];
+
         this.state = {
             dataready: false,
             paidBonus: 0,
-            bonusInPlan:0,
+            bonusInPlan: 0,
+            queryRecord: [],
+
+            queryStart: moment().subtract(31, "days"),
+            queryEnd: moment(),
+            isMergeTerminals: true,
         };
     }
 
@@ -45,10 +74,36 @@ class TerminalBonus extends React.Component {
         this.setState({
             dataready: true,
         });
+
+        this.getBonusInfo();
+        this.getBonusRecord(
+            this.state.queryStart.valueOf(),
+            this.state.queryEnd.valueOf()
+        );
     }
 
-    async gettabledata() {
+    async getBonusRecord(startTime, endTime) {
+        let response = await axios.post(
+            "/api/v1/terminal/bonusrecord",
+            {
+                startTime: Math.floor(startTime / 1000),
+                endTime: Math.floor(endTime / 1000),
+            },
+            {
+                headers: {
+                    Authorization: "Bearer " + UserManager.GetUserToken(),
+                },
+            }
+        );
 
+        if (response.data.status != 0) {
+            return;
+        }
+
+        this.setState({ queryRecord: response.data.data });
+    }
+
+    async getBonusInfo() {
         const last30 = moment().subtract("days", 30).valueOf();
         const startTime = last30;
         const endTime = moment().valueOf();
@@ -66,66 +121,159 @@ class TerminalBonus extends React.Component {
             }
         );
 
-        if (response.data.status == 0) {
-            this.bonusInPlanPerSecond = response.data.data.bonusInPlanPerSecond;
-            this.lastPayBonusTime = response.data.data.lastPayBonusTime;
-            this.todayRecord = response.data.data.todayRecord;
-            this.queryRecord = response.data.data.queryRecord;
+        if (response.data.status != 0) {
+            return;
         }
+
+        this.bonusInPlanPerSecond = response.data.data.bonusInPlanPerSecond;
+        this.lastPayBonusTime = response.data.data.lastPayBonusTime;
+        this.todayRecord = response.data.data.todayRecord;
 
         //bonus in plan
         setInterval(() => {
-            let nowStamp=Math.floor(moment().valueOf()/1000)
-            let bonusInPlan=(nowStamp-this.lastPayBonusTime)*this.bonusInPlanPerSecond
+            let nowStamp = Math.floor(moment().valueOf() / 1000);
+            let bonusInPlan =
+                (nowStamp - this.lastPayBonusTime) * this.bonusInPlanPerSecond;
             console.log("bonus in plan:", bonusInPlan);
             this.setState({ bonusInPlan: bonusInPlan });
-        },1000)
-        
+        }, 1000);
+
         //paidBonus
-        let paidBonus=0
+        let paidBonus = 0;
         for (let index = 0; index < this.todayRecord.length; index++) {
             const element = this.todayRecord[index];
-            paidBonus+=element.amount
+            paidBonus += element.amount;
         }
         console.log("paid bonus:", paidBonus);
-        this.setState({paidBonus:paidBonus})
-
-        return this.queryRecord
-    }
-
-    renderRowItem(data, key) {
-        if (key == "timestamp") {
-            let item_ar = data[key] * 1000;
-            return (
-                <td style={{ width: "20%" }}>
-                    {moment(item_ar).format("YYYY-MM-DD")}
-                </td>
-            );
-        }
-
-        if (key == "amount") {
-            let money = data[key] / 1000000000;
-            return <td style={{ width: "20%" }}>$&ensp;{money.toFixed(5)}</td>;
-        }
-
-        return <td>{data[key]}</td>;
+        this.setState({ paidBonus: paidBonus });
     }
 
     render() {
+        let label =
+            this.state.queryStart.format("YYYY-MM-DD") +
+            " ~ " +
+            this.state.queryEnd.format("YYYY-MM-DD");
         return (
             <AdminLayout name="TerminalBonus" description="Bonus">
                 {/* {Content} */}
 
-                <div>{this.state.paidBonus}</div>
-                <div>{this.state.bonusInPlan}</div>
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div
+                            class="card h-100 border-left-lg border-left-success"
+                            style={{ boxShadow: "none" }}
+                        >
+                            <div class="card-body" style={{ padding: "10px" }}>
+                                <div class="small text-muted">
+                                    Today Paid Bonus
+                                </div>
+                                <div class="h3 d-flex align-items-center">
+                                    ${(this.state.paidBonus / 1e9).toFixed(5)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div
+                            class="card h-100 border-left-lg border-left-primary"
+                            style={{ boxShadow: "none" }}
+                        >
+                            <div class="card-body" style={{ padding: "10px" }}>
+                                <div class="small text-muted">
+                                    Next Round Estimate Bonus
+                                </div>
+                                <div class="h3" style={{ color: "grey" }}>
+                                    ${(this.state.bonusInPlan / 1e9).toFixed(5)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <DateRangePicker
+                        className="col-4"
+                        initialSettings={{
+                            startDate: this.state.queryStart.toDate(),
+                            endDate: this.state.queryEnd.toDate(),
+                            ranges: {
+                                Today: [moment().toDate(), moment().toDate()],
+                                Yesterday: [
+                                    moment().subtract(1, "days").toDate(),
+                                    moment().subtract(1, "days").toDate(),
+                                ],
+                                "Last 7 Days": [
+                                    moment().subtract(6, "days").toDate(),
+                                    moment().toDate(),
+                                ],
+                                "Last 30 Days": [
+                                    moment().subtract(29, "days").toDate(),
+                                    moment().toDate(),
+                                ],
+                                "This Month": [
+                                    moment().startOf("month").toDate(),
+                                    moment().endOf("month").toDate(),
+                                ],
+                                "Last Month": [
+                                    moment()
+                                        .subtract(1, "month")
+                                        .startOf("month")
+                                        .toDate(),
+                                    moment()
+                                        .subtract(1, "month")
+                                        .endOf("month")
+                                        .toDate(),
+                                ],
+                            },
+                        }}
+                        onCallback={(start, end) => {
+                            // console.log(start.valueOf());
+                            // console.log(end.valueOf());
+                            this.setState({
+                                queryStart: start,
+                                queryEnd: end,
+                            });
+                        }}
+                    >
+                        <div
+                            id="reportrange"
+                            className="btn btn-light btn-sm line-height-normal p-2"
+                            style={{ marginLeft: "5px" }}
+                        >
+                            <i
+                                className="mr-2 text-primary"
+                                data-feather="calendar"
+                            ></i>
+                            <span>{label}</span>
+                            <i className="ml-1" data-feather="chevron-down"></i>
+                        </div>
+                    </DateRangePicker>
+                    <button
+                        class="btn btn-primary btn-xs"
+                        type="button"
+                        style={{ marginLeft: "5px" }}
+                        onClick={() => {
+                            //console.log("click");
+                            let start = this.state.queryStart.valueOf();
+                            let end = this.state.queryEnd.valueOf();
+                            this.getBonusRecord(start, end);
+                        }}
+                    >
+                        Query Record
+                    </button>
+                </div>
 
                 <div style={{ marginTop: "10px" }}>
-                    <div>Terminal Bonus:</div>
-                    <DataTable
-                        fieldnames={this.fieldnames}
-                        gettabledata={this.gettabledata}
-                        renderRowItem={this.renderRowItem}
-                    ></DataTable>
+                    <div>Terminal Bonus Record:</div>
+                    <ReactDataGrid
+                        idProperty="id"
+                        columns={this.columns}
+                        dataSource={this.state.queryRecord}
+                        pagination
+                        defaultLimit={10}
+                        style={{ minHeight: 485 }}
+                    ></ReactDataGrid>
                 </div>
             </AdminLayout>
         );
