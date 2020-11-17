@@ -1,13 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-11-16 23:17:36
+ * @LastEditTime: 2020-11-17 08:54:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
  */
 
-import React from "react";
+import React,{useCallback} from "react";
 import AdminLayout from "../../components/layout/adminLayout";
 import { withAlert } from "react-alert";
 import AdminContent from "../../components/layout/adminContent";
@@ -149,61 +149,90 @@ class TerminalPage extends React.Component {
             dataready: true,
         });
 
-        this.gettabledata();
+        this.loadData();
     }
 
-    async gettabledata() {
-        let response = await axios.post(
-            "/api/v1/terminal/getmachineinfo",
-            {
-                limit: 999999,
-                offset: 0,
-            },
-            {
-                headers: {
-                    Authorization: "Bearer " + UserManager.GetUserToken(),
-                },
-            }
-        );
-
-        if (response.data.status != 0) {
-            return;
-        }
-
-        console.log(response);
-        let terminalInfos = response.data.data.data;
-        let tableData = [];
-        for (let index = 0; index < terminalInfos.length; index++) {
-            const terminalInfo = terminalInfos[index];
-            let tData = {
-                id: terminalInfo.id,
-                machine_mac: terminalInfo.machine_mac,
-                machine_ip: terminalInfo.machine_ip,
-                port: terminalInfo.port,
-                region: terminalInfo.region,
-                disk_usage: (
-                    ((terminalInfo.machine_total_disk -
-                        terminalInfo.machine_available_disk) /
-                        terminalInfo.machine_total_disk) *
-                    100
-                ).toFixed(2),
-                memory_usage: (
-                    ((terminalInfo.machine_total_memory -
-                        terminalInfo.machine_free_memory) /
-                        terminalInfo.machine_total_memory) *
-                    100
-                ).toFixed(2),
-                machine_status: terminalInfo.machine_status,
-                info: terminalInfo,
+    loadData = null;
+    DataGrid = () => {
+        const loadData = useCallback(() => {
+            const data = ({ skip, limit, sortInfo }) => {
+                console.log(skip, limit);
+                return axios
+                    .post(
+                        "/api/v1/terminal/getmachineinfo",
+                        {
+                            limit: limit,
+                            offset: skip,
+                        },
+                        {
+                            headers: {
+                                Authorization:
+                                    "Bearer " + UserManager.GetUserToken(),
+                            },
+                        }
+                    )
+                    .then((response) => {
+                        if (response.data.status != 0) {
+                            return [];
+                        }
+                        let responseData = response.data.data;
+                        console.log(responseData);
+                        
+                        let terminalInfos = responseData.data;
+                        let tableData = [];
+                        for (
+                            let index = 0;
+                            index < terminalInfos.length;
+                            index++
+                        ) {
+                            const terminalInfo = terminalInfos[index];
+                            let tData = {
+                                id: terminalInfo.id,
+                                machine_mac: terminalInfo.machine_mac,
+                                machine_ip: terminalInfo.machine_ip,
+                                port: terminalInfo.port,
+                                region: terminalInfo.region,
+                                disk_usage: (
+                                    ((terminalInfo.machine_total_disk -
+                                        terminalInfo.machine_available_disk) /
+                                        terminalInfo.machine_total_disk) *
+                                    100
+                                ).toFixed(2),
+                                memory_usage: (
+                                    ((terminalInfo.machine_total_memory -
+                                        terminalInfo.machine_free_memory) /
+                                        terminalInfo.machine_total_memory) *
+                                    100
+                                ).toFixed(2),
+                                machine_status: terminalInfo.machine_status,
+                                info: terminalInfo,
+                            };
+                            tableData.push(tData);
+                        }
+                        return {
+                            data: tableData,
+                            count: parseInt(responseData.total),
+                        };
+                    });
             };
-            tableData.push(tData);
-        }
+            this.setState({ tableData: data });
+        }, []);
+        this.loadData = loadData;
 
-        this.setState({
-            dataready: true,
-            tableData: tableData,
-        });
-    }
+        return (
+            <div>
+                <div></div>
+                <ReactDataGrid
+                    idProperty="id"
+                    columns={this.columns}
+                    dataSource={this.state.tableData}
+                    pagination
+                    defaultLimit={10}
+                    style={{ minHeight: 485 }}
+                ></ReactDataGrid>
+            </div>
+        );
+    };
 
     renderContent() {
         if (
@@ -219,14 +248,7 @@ class TerminalPage extends React.Component {
 
         return (
             <div>
-                <ReactDataGrid
-                    idProperty="id"
-                    columns={this.columns}
-                    dataSource={this.state.tableData}
-                    pagination
-                    defaultLimit={10}
-                    style={{ minHeight: 485 }}
-                ></ReactDataGrid>
+                <this.DataGrid></this.DataGrid>
             </div>
         );
     }

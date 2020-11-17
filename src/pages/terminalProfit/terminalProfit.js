@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-10 19:56:44
- * @LastEditTime: 2020-11-17 00:48:09
+ * @LastEditTime: 2020-11-17 08:14:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminalProfit/terminalProfit.js
@@ -133,9 +133,11 @@ class TerminalProfit extends React.Component {
                         if (response.data.status != 0) {
                             return [];
                         }
+                        let responseData = response.data.data
+                        console.log(responseData);
                         return {
-                            data: response.data.data,
-                            count: parseInt(response.data.data.length),
+                            data: responseData.data,
+                            count: parseInt(responseData.total),
                         };
                     });
             };
