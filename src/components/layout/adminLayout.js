@@ -1,26 +1,32 @@
-
 import React from 'react';
 import AdminTop from "./adminTop";
 import AdminSidebar from "./adminSidebar";
 import AdminContent from "./adminContent";
+import "./adminlayout.css"
 
 class AdminLayout extends React.Component {
     render() {
         return (
-            <div>
-                <AdminTop></AdminTop>
-                <div id="layoutSidenav"   style={{minHeight: "800px"}} >
-                    <AdminSidebar></AdminSidebar>
-                    <AdminContent
-                    name={this.props.name}
-                    description={this.props.description}
-                    >
-                        {this.props.children}
-                    </AdminContent>
+            <div className="container-fluid bg-soft">
+                <div className="row">
+                    <div className="col-12">
+                        <AdminSidebar></AdminSidebar>
+                        <AdminContent >
+                            <nav className="contenthead" aria-label="breadcrumb">
+                                <ol className="breadcrumb breadcrumb-transparent">
+                                    <li className="breadcrumb-item"><a href="#">{this.props.name}</a></li>
+                                    <li className="breadcrumb-item"><a href="#">{this.props.description}</a></li>
+                                    <li className="breadcrumb-item active" aria-current="page">Data</li>
+                                </ol>
+                            </nav>
+                            {this.props.children}
+                        </AdminContent>
+                    </div>
                 </div>
             </div>
-        );
-    }
-}
+    );
 
-export  default  AdminLayout;
+    }
+    }
+
+    export  default  AdminLayout;

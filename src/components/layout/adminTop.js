@@ -10,6 +10,7 @@ class AdminTop extends React.Component {
 
     render() {
         return (
+
             <nav className="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
                 <div className="navbar-brand" href="#">ColdCDN</div>
 
@@ -38,7 +39,8 @@ class AdminTop extends React.Component {
                     </li>
                 </ul>
             </nav>
-        );
+
+          );
     }
 }
 

@@ -53,9 +53,10 @@ class SendCode extends React.Component {
 
     render() {
 
+
         if(this.state.pasttime>0){
             return (
-                <button className="btn btn-outline-blue" type="button" disabled
+                <button  class="btn mb-2 mr-2 btn-light" type="button" disabled
                 >SendAgain:{this.state.pasttime}</button>
             )
         }else{
@@ -67,7 +68,7 @@ class SendCode extends React.Component {
                     this.sendMeCode();
                     this.click();
                      }}
-                className="btn btn-outline-blue" type="button">SendMeCode</button>);
+                class="btn mb-2 mr-2 btn-primary" type="button">SendMeCode</button>);
         }
 
     }

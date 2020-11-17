@@ -1,8 +1,6 @@
 
 import React from 'react';
-import AdminLayout from "../../components/layout/adminLayout";
-import AdminContent from "../../components/layout/adminContent";
-import usermanager from "../../manager/usermanager";
+import Global from "../../global/global";
 import UserManager from "../../manager/usermanager";
 import axios from "axios";
 import DataTable from "../../components/table/datatable";
@@ -41,7 +39,7 @@ class GetallDomains extends React.Component {
 
    async updatetable(rowdata){
 
-       let response = await axios.post("/api/v1/client/modifydomainstate" ,{
+       let response = await axios.post(Global.apiHost+"/api/v1/client/modifydomainstate" ,{
            Id:rowdata["id"],
            State:rowdata["state"],
            ActiveRegion:rowdata["active_region"],
@@ -60,7 +58,7 @@ class GetallDomains extends React.Component {
 
    async gettabledata(){
 
-         let response = await axios.get("/api/v1/client/getdomains", {headers: {
+         let response = await axios.get(Global.apiHost+"/api/v1/client/getdomains", {headers: {
                     Authorization: "Bearer "+UserManager.GetUserToken()
                 }})
 
@@ -75,7 +73,7 @@ class GetallDomains extends React.Component {
         if(this.updatecoloumsconfig){
             return this.updatecoloumsconfig;
         }
-        let response_rp = await axios.get("/api/v1/common/regionprice", {headers: {
+        let response_rp = await axios.get(Global.apiHost+"/api/v1/common/regionprice", {headers: {
                 Authorization: "Bearer "+UserManager.GetUserToken()
             }})
 

@@ -1,10 +1,9 @@
 
 import React from 'react';
 import AdminLayout from "../../components/layout/adminLayout";
-import AdminContent from "../../components/layout/adminContent";
-import usermanager from "../../manager/usermanager";
 import UserManager from "../../manager/usermanager";
 import axios from "axios";
+import Global from "../../global/global";
 
 class MonitorPage extends React.Component {
 
@@ -29,7 +28,7 @@ class MonitorPage extends React.Component {
         });
 
 
-        axios.get("/api/v1/admin/walletjob", {headers: {
+        axios.get(Global.apiHost+"/api/v1/admin/walletjob", {headers: {
                     Authorization: "Bearer "+UserManager.GetUserToken()
                 }}).then( (response)=>{
 
@@ -50,14 +49,19 @@ class MonitorPage extends React.Component {
             return (<div></div>);
         }
 
+
+
+
+
         let monitorcontent=Object.keys(this.state.data).map((key,id) => {
             return(
-                <div className="card card-progress" style={{marginTop:'10px'}}>
-                    <div className="card-header text-success">{key}</div>
-                    <div className="card-body">{this.state.data[key]}</div>
-                    <div className="progress rounded-0"  >
-                        <div className="progress-bar bg-success" role="progressbar" style={{width:'100%'}}
-                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+
+                <div className="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div className="toast-header text-primary">
+                        <strong className="mr-auto ml-2">{key}</strong>
+                    </div>
+                    <div className="toast-body">
+                        {this.state.data[key]}
                     </div>
                 </div>
             );

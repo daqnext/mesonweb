@@ -15,6 +15,7 @@ import axios from "axios";
 import moment from "moment";
 import ReactDataGrid from "@inovua/reactdatagrid-community";
 import DateRangePicker from "react-bootstrap-daterangepicker";
+import Global from "../../global/global";
  
 class ClientTraffic extends React.Component {
     constructor(props) {
@@ -110,7 +111,7 @@ class ClientTraffic extends React.Component {
                 console.log(skip, limit);
                 return axios
                     .post(
-                        "/api/v1/client/traffic",
+                        Global.apiHost+"/api/v1/client/traffic",
                         {
                             startTime: Math.floor(
                                 this.state.queryStart.valueOf() / 1000
@@ -149,83 +150,86 @@ class ClientTraffic extends React.Component {
             " ~ " +
             this.state.queryEnd.format("YYYY-MM-DD");
         return (
-            <div>
-                <div className="row">
-                    <DateRangePicker
-                        className="col-4"
-                        initialSettings={{
-                            startDate: this.state.queryStart.toDate(),
-                            endDate: this.state.queryEnd.toDate(),
-                            ranges: {
-                                Today: [moment().toDate(), moment().toDate()],
-                                Yesterday: [
-                                    moment().subtract(1, "days").toDate(),
-                                    moment().subtract(1, "days").toDate(),
-                                ],
-                                "Last 7 Days": [
-                                    moment().subtract(6, "days").toDate(),
-                                    moment().toDate(),
-                                ],
-                                "Last 30 Days": [
-                                    moment().subtract(29, "days").toDate(),
-                                    moment().toDate(),
-                                ],
-                                "This Month": [
-                                    moment().startOf("month").toDate(),
-                                    moment().endOf("month").toDate(),
-                                ],
-                                "Last Month": [
-                                    moment()
-                                        .subtract(1, "month")
-                                        .startOf("month")
-                                        .toDate(),
-                                    moment()
-                                        .subtract(1, "month")
-                                        .endOf("month")
-                                        .toDate(),
-                                ],
-                            },
-                        }}
-                        onCallback={(start, end) => {
-                            this.setState({
-                                queryStart: start,
-                                queryEnd: end,
-                            });
-                        }}
-                    >
-                        <div
-                            id="reportrange"
-                            className="btn btn-light btn-sm line-height-normal p-2"
-                            style={{ marginLeft: "5px" }}
+            <div className="card border-light shadow-sm" style={{marginTop:'20px'}}>
+                <div className="card-body">
+
+                    <div className="row">
+                        <DateRangePicker
+                            className="col-4"
+                            initialSettings={{
+                                startDate: this.state.queryStart.toDate(),
+                                endDate: this.state.queryEnd.toDate(),
+                                ranges: {
+                                    Today: [moment().toDate(), moment().toDate()],
+                                    Yesterday: [
+                                        moment().subtract(1, "days").toDate(),
+                                        moment().subtract(1, "days").toDate(),
+                                    ],
+                                    "Last 7 Days": [
+                                        moment().subtract(6, "days").toDate(),
+                                        moment().toDate(),
+                                    ],
+                                    "Last 30 Days": [
+                                        moment().subtract(29, "days").toDate(),
+                                        moment().toDate(),
+                                    ],
+                                    "This Month": [
+                                        moment().startOf("month").toDate(),
+                                        moment().endOf("month").toDate(),
+                                    ],
+                                    "Last Month": [
+                                        moment()
+                                            .subtract(1, "month")
+                                            .startOf("month")
+                                            .toDate(),
+                                        moment()
+                                            .subtract(1, "month")
+                                            .endOf("month")
+                                            .toDate(),
+                                    ],
+                                },
+                            }}
+                            onCallback={(start, end) => {
+                                this.setState({
+                                    queryStart: start,
+                                    queryEnd: end,
+                                });
+                            }}
                         >
-                            <i
-                                className="mr-2 text-primary"
-                                data-feather="calendar"
-                            ></i>
-                            <span>{label}</span>
-                            <i className="ml-1" data-feather="chevron-down"></i>
-                        </div>
-                    </DateRangePicker>
-                    <button
-                        className="btn btn-primary btn-xs"
-                        type="button"
-                        style={{ marginLeft: "5px" }}
-                        onClick={() => {
-                            loadData();
-                        }}
-                    >
-                        Query Record
-                    </button>
+                            <div
+                                id="reportrange"
+                                className="btn btn-light btn-sm line-height-normal p-2"
+                                style={{ marginLeft: "15px" }}
+                            >
+                                <i
+                                    className="mr-2 text-primary"
+                                    data-feather="calendar"
+                                ></i>
+                                <span>{label}</span>
+                                <i className="ml-1" data-feather="chevron-down"></i>
+                            </div>
+                        </DateRangePicker>
+                        <button
+                            className="btn btn-primary btn-xs"
+                            type="button"
+                            style={{ marginLeft: "5px" }}
+                            onClick={() => {
+                                loadData();
+                            }}
+                        >
+                            Query Record
+                        </button>
+                    </div>
+
+                    <ReactDataGrid
+                        idProperty="id"
+                        columns={this.columns}
+                        dataSource={this.state.tableData}
+                        pagination
+                        defaultLimit={10}
+                        style={{marginTop:'20px',minHeight: 485 }}
+                    ></ReactDataGrid>
                 </div>
-                <div>Traffic Record:</div>
-                <ReactDataGrid
-                    idProperty="id"
-                    columns={this.columns}
-                    dataSource={this.state.tableData}
-                    pagination
-                    defaultLimit={10}
-                    style={{ minHeight: 485 }}
-                ></ReactDataGrid>
             </div>
         );
     };

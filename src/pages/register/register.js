@@ -9,6 +9,7 @@ import axios from "axios";
 import { withAlert } from "react-alert";
 import UserTypeSelector from "../../components/usertypes/usertypeselector";
 import UserManager from "../../manager/usermanager";
+import Global from "../../global/global";
 
 
 
@@ -90,7 +91,7 @@ class RegisterPage extends React.Component {
         if(!this.checkphonenumber()){
             return;
         }
-        axios.post("/api/v1/user/getvcode",
+        axios.post(Global.apiHost+"/api/v1/user/getvcode",
             {phonecountrycode:'+'+this.phoneinput.countrycode,
                 phonenumber:this.phoneinput.number}).then(  (response)=>{
                     console.log(response);
@@ -133,7 +134,7 @@ class RegisterPage extends React.Component {
         }
 
 
-        axios.post("/api/v1/user/register",
+        axios.post(Global.apiHost+"/api/v1/user/register",
             {
                 username:this.username,
                 phonecountrycode:'+'+this.phoneinput.countrycode,
@@ -169,7 +170,10 @@ class RegisterPage extends React.Component {
 
             <AdminLayout name="Register" description="Register page">
 
-                <div className="card-body"  >
+
+                <div className="card border-light shadow-sm">
+                    <div className="card-body">
+
                     <form>
                         <div className="form-group">
                             <label className="small mb-1" htmlFor="inputFirstName">UserName</label>
@@ -260,6 +264,8 @@ class RegisterPage extends React.Component {
                 </div>
                 <div className="card-footer text-center">
                     <div className="small"><a href="auth-login-basic.html">Have an account? Go to login</a></div>
+                </div>
+
                 </div>
             </AdminLayout>
 

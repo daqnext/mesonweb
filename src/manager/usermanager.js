@@ -7,6 +7,7 @@
  * @FilePath: /coldCDNWeb/src/manager/usermanager.js
  */
 import axios from "axios";
+import Global from "../global/global";
 
 var userinfo=null;
 
@@ -55,7 +56,7 @@ class UserManager
 
     static async UpdateUserInfo(){
             //axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            let response=  await axios.get("/api/v1/user/userinfo",{headers: {
+            let response=  await axios.get(Global.apiHost+"/api/v1/user/userinfo",{headers: {
                     Authorization: "Bearer "+UserManager.GetUserToken()
                 }});
 

@@ -129,7 +129,7 @@ class DataTable extends React.Component {
 
                     const multiselitems =  this.state.tableupdateconfig[configkey].data.map((mselitem, mselitem_idx) => {
 
-                        return (<div className="custom-control custom-checkbox">
+                        return (<div className="form-check">
                             <input value={mselitem}
                                    checked={data[configkey].includes(mselitem)}
                                    onChange={e => {
@@ -141,8 +141,8 @@ class DataTable extends React.Component {
                                         this.setState(this.state);
                                    }}
 
-                                   className="custom-control-input" id={""+mselitem_idx+rownum+configkey} type="checkbox"  />
-                            <label className="custom-control-label" htmlFor={""+mselitem_idx+rownum+configkey}>{mselitem}</label>
+                                   className="form-check-input" id={""+mselitem_idx+rownum+configkey} type="checkbox"  />
+                            <label className="form-check-label" htmlFor={""+mselitem_idx+rownum+configkey}>{mselitem}</label>
                         </div>)
                     });
 
@@ -150,27 +150,27 @@ class DataTable extends React.Component {
 
                 }else if (this.state.tableupdateconfig[configkey].type=='singlesel'){
 
-                    itemcontent=(<div>
-                        <div className="custom-control custom-radio">
-                            <input className="custom-control-input"
+                    itemcontent=(<fieldset style={{marginLeft:'20px'}}>
+                        <div  >
+                            <input className="form-check-input"
                                    checked={data[configkey]}
                                    onClick={()=>{
                                        this.state.table_data[rownum][configkey]=true;
                                        this.setState(this.state);
                                    }}
                                    id={"sel1"+rownum+configkey} type="radio" name={""+rownum+configkey} />
-                                <label className="custom-control-label"
+                                <label
                                        htmlFor={"sel1"+rownum+configkey}>{this.state.tableupdateconfig[configkey].data[0]}</label>
                         </div>
-                        <div className="custom-control custom-radio">
+                        <div  >
                             <input onClick={()=>{
                                 this.state.table_data[rownum][configkey]=false;
                                 this.setState(this.state);
-                            }}   checked={!data[configkey]} className="custom-control-input" id={"sel2"+rownum+configkey} type="radio" name={""+rownum+configkey} />
-                                <label className="custom-control-label"
+                            }}   checked={!data[configkey]} className="form-check-input" id={"sel2"+rownum+configkey} type="radio" name={""+rownum+configkey} />
+                                <label
                                        htmlFor={"sel2"+rownum+configkey}>{this.state.tableupdateconfig[configkey].data[1]}</label>
                         </div>
-                    </div>);
+                        </fieldset>);
 
                 }else {
                     itemcontent=(<input className="form-control"  value={data[configkey]} onChange={(e)=>{
@@ -221,9 +221,9 @@ class DataTable extends React.Component {
 
 
        return (
-           <div className="datatable">
-            <table className="table table-bordered table-hover" id="dataTable" width="100%" cellSpacing="0">
-                <thead>
+           <div className="table-responsive">
+            <table className="table table-centered table-nowrap mb-0 rounded" id="dataTable" width="100%" cellSpacing="0">
+                <thead className="thead-light">
                 <tr>
                     {table_header}
                 </tr>

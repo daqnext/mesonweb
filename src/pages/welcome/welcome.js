@@ -46,9 +46,14 @@ class WelcomePage extends React.Component {
                 description="Welcome"
             >
 
-                <div>Welcome:{UserManager.userinfo.username}</div>
-                <div>CurentTime :{new Date().toLocaleString()}</div>
-                {mobilewarning}
+                <div className="card border-light shadow-sm">
+                    <div className="card-body">
+
+                            <div>Welcome:{UserManager.userinfo.username}</div>
+                            <div>CurentTime :{new Date().toLocaleString()}</div>
+                            {mobilewarning}
+                    </div>
+                </div>
 
             </AdminLayout>
         );

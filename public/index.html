@@ -10,19 +10,28 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+
+    <!--
     <link rel="icon" href="%PUBLIC_URL%/static/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/static/logo192.png" />
+    -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="coldCDN"/>
-    <link href="%PUBLIC_URL%/static/css/styles.css" rel="stylesheet" />
+    <!--<meta name="theme-color" content="#000000" />-->
+    <meta name="description" content="meson.network"/>
+
+    <link type="text/css" href="%PUBLIC_URL%/static/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+    <link href="%PUBLIC_URL%/static/css/rocket.css" rel="stylesheet" />
 
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/static/manifest.json" />
+    <!--
     <script src="%PUBLIC_URL%/static/js/feather.min.js"></script>
+    -->
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -32,10 +41,10 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>ColdCDN</title>
+    <title>Meson.Network</title>
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+  <body style="background: #f5f8fb">
+   <!-- <noscript>You need to enable JavaScript to run this app.</noscript>-->
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -50,9 +59,18 @@
   </body>
 
 
+  <!--
   <script src="%PUBLIC_URL%/static/js/jquery-3.5.1.min.js"  ></script>
   <script src="%PUBLIC_URL%/static/js/bootstrap.bundle.min.js"  ></script>
-  <script src="%PUBLIC_URL%/static/js/scripts.js"></script>
+
+  -->
+
+  <script src="%PUBLIC_URL%/static/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="%PUBLIC_URL%/static/vendor/jquery-countdown/dist/jquery.countdown.min.js"></script>
+  <script src="%PUBLIC_URL%/static/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+  <script src="%PUBLIC_URL%/static/vendor/popper.js/dist/umd/popper.min.js"></script>
+  <script src="%PUBLIC_URL%/static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="%PUBLIC_URL%/static/js/rocket.js"></script>
 
 
 </html>

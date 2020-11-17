@@ -1,13 +1,12 @@
 
 import React from 'react';
 import AdminLayout from "../../components/layout/adminLayout";
-import AdminContent from "../../components/layout/adminContent";
-import usermanager from "../../manager/usermanager";
 import UserManager from "../../manager/usermanager";
 import './binddomain.css'
 import axios from "axios";
 import { withAlert } from "react-alert";
 import GetallDomains from "./getalldomains";
+import Global from "../../global/global";
 
 class BindDomain extends React.Component {
 
@@ -113,7 +112,7 @@ class BindDomain extends React.Component {
         }
 
 
-            axios.post("/api/v1/client/newdomain",
+            axios.post(Global.apiHost+"/api/v1/client/newdomain",
                 {
                     BindName:this.randomhash,
                     OriginUrl:this.state.inputurl,
@@ -208,60 +207,66 @@ class BindDomain extends React.Component {
         }
 
         return (
-            <form>
-                <div className="form-group">
-                    <label >add your location</label>
-                    {inputurlerrordisplay}
-                    <input className="form-control"
-                           //value={this.state.inputurl}
-                            onChange={()=>{
-                                this.setState({
-                                    dataready:this.state.dataready,
-                                    inputurl:this.state.inputurl,
-                                    inputurlerror:this.state.inputurlerror,
-                                    checkandadd:false
-                                });
-                            }}
-                           onBlur={(event)=>{
-                               event.target.value=this.removeinputUrlPrefix(event.target.value.trim());
-                               this.changeinputUrl(event.target.value.trim());
-                           }}
-                           type="text"
-                           placeholder="input your location here e.g: www.mydomain.com/myfolder"/>
-                </div>
 
+            <div className="card border-light shadow-sm">
+                <div className="card-body">
 
-                <div  className="form-group" >
-                    <label>For http accerlation in your own application replace your location url to :</label>
-                    <div className="input-group input-group-joined input-group-solid">
-                        <input  value={"http://"+this.coldcdnDomainPrefix} className="form-control" type="text" placeholder="Input group append..." aria-label="Search"/>
-                            <div className="input-group-append">
-                                <span className="input-group-text"><i data-feather="search"></i></span>
-                            </div>
-                    </div>
-                </div>
-
-                <div  className="form-group" >
-                    <label >For https accerlation in your own application replace your location url to </label>
-                    <div className="input-group input-group-joined input-group-solid">
-                        <input  value={"https://"+this.coldcdnDomainPrefix} className="form-control" type="text" placeholder="Input group append..." aria-label="Search"/>
-                        <div className="input-group-append">
-                            <span className="input-group-text"><i data-feather="search"></i></span>
+                    <form>
+                        <div className="form-group">
+                            <label >add your location</label>
+                            {inputurlerrordisplay}
+                            <input className="form-control"
+                                   //value={this.state.inputurl}
+                                    onChange={()=>{
+                                        this.setState({
+                                            dataready:this.state.dataready,
+                                            inputurl:this.state.inputurl,
+                                            inputurlerror:this.state.inputurlerror,
+                                            checkandadd:false
+                                        });
+                                    }}
+                                   onBlur={(event)=>{
+                                       event.target.value=this.removeinputUrlPrefix(event.target.value.trim());
+                                       this.changeinputUrl(event.target.value.trim());
+                                   }}
+                                   type="text"
+                                   placeholder="input your location here e.g: www.mydomain.com/myfolder"/>
                         </div>
-                    </div>
+
+
+                        <div  className="form-group" >
+                            <label>For http accerlation in your own application replace your location url to :</label>
+                            <div className="input-group input-group-joined input-group-solid">
+                                <input  value={"http://"+this.coldcdnDomainPrefix} className="form-control" type="text" placeholder="Input group append..." aria-label="Search"/>
+                                    <div className="input-group-append">
+                                        <span className="input-group-text"><i data-feather="search"></i></span>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div  className="form-group" >
+                            <label >For https accerlation in your own application replace your location url to </label>
+                            <div className="input-group input-group-joined input-group-solid">
+                                <input  value={"https://"+this.coldcdnDomainPrefix} className="form-control" type="text" placeholder="Input group append..." aria-label="Search"/>
+                                <div className="input-group-append">
+                                    <span className="input-group-text"><i data-feather="search"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div className="form-row">
+
+                            <div className="form-group col-md-3">
+                                {checkandadd}
+                            </div>
+
+                            {toastbody}
+                        </div>
+
+                    </form>
                 </div>
-
-
-                <div className="form-row">
-
-                    <div className="form-group col-md-3">
-                        {checkandadd}
-                    </div>
-
-                    {toastbody}
-                </div>
-
-            </form>
+            </div>
         )
     }
 
@@ -279,9 +284,13 @@ class BindDomain extends React.Component {
                 {Content}
 
 
-                <div style={{marginTop:'10px'}}>
-                    <div>Your Records:</div>
-                    <GetallDomains ></GetallDomains>
+                <div className="card border-light shadow-sm" style={{marginTop:'20px'}}>
+                    <div className="card-body">
+
+                        <div style={{marginTop:'10px'}}>
+                            <GetallDomains ></GetallDomains>
+                        </div>
+                    </div>
                 </div>
 
             </AdminLayout>

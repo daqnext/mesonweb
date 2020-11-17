@@ -6,6 +6,8 @@
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/global/global.js
  */
-export class Global{
-    static apiHost = process.env.NODE_ENV === "production" ? "" : "http://127.0.0.1:9090";
+class Global{
+    static apiHost="https://meson.network";
 }
+
+export default Global;

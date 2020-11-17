@@ -8,6 +8,7 @@
  */
 import React from "react";
 import axios from "axios";
+import Global from "../../global/global";
 
 class UserTypeSelector extends React.Component {
 
@@ -24,7 +25,7 @@ class UserTypeSelector extends React.Component {
 
      componentDidMount() {
 
-         axios.get("/api/v1/common/usertype",
+         axios.get(Global.apiHost+"/api/v1/common/usertype",
             {})
             .then(  (response)=>{
                 if(response.status==200){
@@ -41,15 +42,11 @@ class UserTypeSelector extends React.Component {
 
     displayname(usertype){
         if(usertype=='terminal'){
-            return (<div>
-                <div className = "badge badge-success" style={{textAlign:"left",whiteSpace:"inherit"}} > [Terminal] Mine coldCDN-tokens by providing resource to us  </div>
-
-            </div>)
+            return (<div> [Terminal] Mine coldCDN-tokens by providing resource to us </div>)
         }
 
         if(usertype=='client'){
-            return (<div><span className="badge badge-success"
-                                 >[CDN-User] to use our global CDN service</span></div>)
+            return (<div>[CDN-User] to use our global CDN service</div>)
         }
         return usertype;
     }
@@ -85,10 +82,14 @@ class UserTypeSelector extends React.Component {
     }
 
 
-    render() {
+
+
+
+
+render() {
 
         const renData = this.usertypes.map((data, idx) => {
-            return (<div className="custom-control custom-checkbox">
+            return (<div style={{marginLeft:'20px'}}>
                 <input value={data}
                        //checked={false}
                     checked={this.state.selectedUsertypes.includes(data)}
@@ -96,8 +97,8 @@ class UserTypeSelector extends React.Component {
                         this.updateUserTypes(e.target.value,e.target.checked)
                     }}
                     //onClick={()=>{this.callback(data);}}
-                    className="custom-control-input" id={"customCheck"+idx} type="checkbox"  />
-                <label className="custom-control-label" htmlFor={"customCheck"+idx}>{this.displayname(data)}</label>
+                    className="form-check-input" id={"customCheck"+idx} type="checkbox"  />
+                <label className="form-check-label" htmlFor={"customCheck"+idx}>{this.displayname(data)}</label>
             </div>)
         });
         return (<div>{renData}</div>)

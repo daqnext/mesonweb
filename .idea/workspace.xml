@@ -20,12 +20,197 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d050046-4885-41d3-bb31-f4819082e07e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore.swp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/demo/chart-area-demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/demo/chart-bar-demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/demo/chart-pie-demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/demo/datatables-demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/demo/date-range-picker-demo-single.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/demo/date-range-picker-demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-Black.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-BlackItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-Bold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-BoldItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-ExtraBold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-ExtraBoldItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-ExtraLight.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-ExtraLightItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-Light.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-LightItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-Medium.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-MediumItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-Regular.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-RegularItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-SemiBold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-SemiBoldItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-Thin.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/Metropolis-ThinItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/fonts/metropolis/SIL Open Font License.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/400-error-bad-request-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/401-error-unauthorized-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/403-error-forbidden-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/404-error-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/404-error-with-a-cute-animal-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/500-internal-server-error-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/503-error-service-unavailable-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/504-error-gateway-timeout-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/at-work-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/browser-stats-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/data-report-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/problem-solving-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/processing-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/profiles/profile-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/profiles/profile-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/profiles/profile-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/profiles/profile-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/profiles/profile-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/profiles/profile-6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/statistics-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/team-spirit-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/freepik/windows-pana.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/logo-invoice.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/pattern-shapes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/pug.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/assets/img/waves/wave.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/css/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/favicon.ico_" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/Readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/about-img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/about.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/cta-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/details-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/details-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/details-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/details-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/develop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/favicon.png_" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/gallery/gallery-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/gallery/gallery-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/gallery/gallery-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/gallery/gallery-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/gallery/gallery-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/gallery/gallery-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/gallery/gallery-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/gallery/gallery-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/hero-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/hero-img.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/miner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/mining.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/success.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/team/team-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/team/team-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/team/team-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/team/team-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/testimonials/testimonials-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/testimonials/testimonials-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/testimonials/testimonials-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/testimonials/testimonials-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/img/testimonials/testimonials-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/aos/aos.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/aos/aos.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/bootstrap/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/boxicons/css/animations.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/boxicons/css/boxicons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/boxicons/css/boxicons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/boxicons/css/transformations.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/boxicons/fonts/boxicons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/boxicons/fonts/boxicons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/boxicons/fonts/boxicons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/boxicons/fonts/boxicons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/boxicons/fonts/boxicons.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/counterup/counterup.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/icofont/fonts/icofont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/icofont/fonts/icofont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/icofont/icofont.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/jquery.easing/jquery.easing.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/jquery/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/jquery/jquery.min.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/owl.carousel/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/owl.carousel/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/owl.carousel/assets/ajax-loader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/owl.carousel/assets/owl.carousel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/owl.carousel/assets/owl.carousel.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/owl.carousel/assets/owl.theme.default.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/owl.carousel/assets/owl.theme.default.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/owl.carousel/assets/owl.theme.green.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/owl.carousel/assets/owl.theme.green.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/owl.carousel/assets/owl.video.play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/owl.carousel/owl.carousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/owl.carousel/owl.carousel.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/php-email-form/changelog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/php-email-form/validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/remixicon/remixicon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/remixicon/remixicon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/remixicon/remixicon.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/remixicon/remixicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/remixicon/remixicon.symbol.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/remixicon/remixicon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/remixicon/remixicon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/remixicon/remixicon.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/venobox/venobox.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/venobox/venobox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/venobox/venobox.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/venobox/venobox.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/assets/vendor/waypoints/jquery.waypoints.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/changelog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/forms/Readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/forms/contact.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/homepage/inner-page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/js/feather.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/js/jquery-3.5.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/js/scripts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/logo192.png_" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/logo512.png_" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/apiPath.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/adminContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/adminContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/adminLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/adminLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/adminSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/adminSidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/adminTop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/adminTop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/sidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sendcode/sendcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sendcode/sendcode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/datatable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/datatable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/usertypes/usertypeselector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/usertypes/usertypeselector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/global.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/usermanager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/usermanager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/client/binddomain.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/client/binddomain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/client/getalldomains.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/client/getalldomains.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/clientTraffic/clientTraffic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/clientTraffic/clientTraffic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/monitoring/monitor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/monitoring/monitor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/register/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/register/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/welcome/welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/welcome/welcome.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +220,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -55,19 +240,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/static/docs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/static/vendor" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/static/docs" />
-      <recent name="$PROJECT_DIR$/public/static/download" />
-      <recent name="$PROJECT_DIR$/build/static/download" />
-      <recent name="$PROJECT_DIR$/public/static/homepage/assets/img" />
-      <recent name="$PROJECT_DIR$/public/static" />
+      <recent name="$PROJECT_DIR$/public/static/vendor" />
+      <recent name="$PROJECT_DIR$/src/pages/login" />
+      <recent name="$PROJECT_DIR$/src/components/layout" />
+      <recent name="$PROJECT_DIR$/public/static/assets" />
+      <recent name="$PROJECT_DIR$/public/static/css" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -156,6 +342,18 @@
       <workItem from="1604050774491" duration="238000" />
       <workItem from="1604063739140" duration="418000" />
       <workItem from="1604289070269" duration="942000" />
+      <workItem from="1605578357404" duration="1367000" />
+      <workItem from="1605580144357" duration="1435000" />
+      <workItem from="1605581961101" duration="1757000" />
+      <workItem from="1605583771537" duration="1542000" />
+      <workItem from="1605585608165" duration="644000" />
+      <workItem from="1605587441167" duration="720000" />
+      <workItem from="1605589612485" duration="732000" />
+      <workItem from="1605590391696" duration="1663000" />
+      <workItem from="1605593485096" duration="1091000" />
+      <workItem from="1605595582211" duration="1532000" />
+      <workItem from="1605597405903" duration="1280000" />
+      <workItem from="1605599575022" duration="738000" />
     </task>
     <servers />
   </component>
@@ -195,10 +393,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="430" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1604026089330" />
-    <state x="418" y="205" width="604" height="490" key="find.popup" timestamp="1603811426654">
+    <state x="466" y="312" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605580359698">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="418" y="205" width="604" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1603811426654" />
+    <state x="466" y="312" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1440.900@0.0.1440.900" timestamp="1605580359698" />
+    <state x="418" y="205" width="604" height="490" key="find.popup" timestamp="1605581780217">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="418" y="205" width="604" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1605581780217" />
     <state x="413" y="292" width="365" height="525" key="ftp.server.browser" timestamp="1604049226387">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

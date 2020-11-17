@@ -11,6 +11,12 @@ class AdminSidebar extends React.Component {
         };
     }
 
+
+    logout(){
+        UserManager.UnsetTokenAndRedirectHome();
+    }
+
+
     async componentDidMount() {
         if (UserManager.GetUserToken() == null) {
             this.setState({
@@ -26,39 +32,18 @@ class AdminSidebar extends React.Component {
         });
     }
 
-    renderLoginRegbar() {
-        if (UserManager.GetUserInfo() != null) {
-            return <div></div>;
+
+
+
+    getActive(key){
+        if(window.location.href.includes(key)){
+            return 'active';
+        }else{
+            return '';
         }
-
-        return (
-            <div>
-                <div className="sidenav-menu-heading">Login/Register</div>
-
-                <a
-                    className="nav-link "
-                    href="/login"
-                    aria-controls="collapseDashboards"
-                >
-                    <div className="nav-link-icon">
-                        <i data-feather="log-in"></i>
-                    </div>
-                    Login
-                </a>
-
-                <a
-                    className="nav-link "
-                    href="/register"
-                    aria-controls="collapseDashboards"
-                >
-                    <div className="nav-link-icon">
-                        <i data-feather="plus"></i>
-                    </div>
-                    Register
-                </a>
-            </div>
-        );
     }
+
+
 
     renderUserAdminSiderBar() {
         if (!UserManager.checkUserHasAuth(UserManager.UserAuth.admin)) {
@@ -66,39 +51,29 @@ class AdminSidebar extends React.Component {
         }
 
         return (
-            <div>
-                <div className="sidenav-menu-heading">Admin-Pannel</div>
-                <a
-                    className="nav-link "
-                    href="/test"
-                    aria-controls="collapseDashboards"
-                >
-                    <div className="nav-link-icon">
-                        <i data-feather="activity"></i>
-                    </div>
-                    Test
+
+            <li className="nav-item">
+                <a className="nav-link d-flex justify-content-between align-items-center"
+                   href="#submenu-adminbar" data-toggle="collapse"
+                   data-target="#submenu-adminbar" aria-expanded="true">
+                        <span>
+                            <span className="sidebar-icon">
+                                <span className="fas fa-pager"></span>
+                            </span>
+                            Admin
+                        </span>
+                    <span className="link-arrow">
+                            <span className="fas fa-chevron-right"></span>
+                        </span>
                 </a>
-                <a
-                    className="nav-link "
-                    href="/usermanager"
-                    aria-controls="collapseDashboards"
-                >
-                    <div className="nav-link-icon">
-                        <i data-feather="activity"></i>
-                    </div>
-                    UserManager
-                </a>
-                <a
-                    className="nav-link "
-                    href="/monitoring"
-                    aria-controls="collapseDashboards"
-                >
-                    <div className="nav-link-icon">
-                        <i data-feather="activity"></i>
-                    </div>
-                    Monitoring
-                </a>
-            </div>
+                <div className="multi-level collapse show" role="list" id="submenu-adminbar" aria-expanded="false">
+                    <ul className="flex-column nav">
+                        <li  className= {this.getActive("/test")+" nav-item"} ><a className="nav-link" href="/test"><span>Test</span></a></li>
+                        <li  className= {this.getActive("/usermanager")+" nav-item"}  ><a className="nav-link" href="/usermanager"><span>UserManager</span></a></li>
+                        <li className= {this.getActive("/monitoring")+" nav-item"}  ><a className="nav-link" href="/monitoring"><span>Monitoring</span></a></li>
+                    </ul>
+                </div>
+            </li>
         );
     }
 
@@ -108,41 +83,30 @@ class AdminSidebar extends React.Component {
         }
 
         return (
-            <div>
-                <div className="sidenav-menu-heading">Terminal-Pannel</div>
-                <a
-                    className="nav-link "
-                    href="/terminals"
-                    aria-controls="collapseDashboards"
-                >
-                    <div className="nav-link-icon">
-                        <i data-feather="activity"></i>
-                    </div>
-                    Terminals
+
+            <li className="nav-item">
+                <a className="nav-link d-flex justify-content-between align-items-center"
+                   href="#submenu-terminal" data-toggle="collapse"
+                   data-target="#submenu-terminal" aria-expanded="true">
+                        <span>
+                            <span className="sidebar-icon">
+                                <span className="fas fa-pager"></span>
+                            </span>
+                            Client
+                        </span>
+                    <span className="link-arrow">
+                            <span className="fas fa-chevron-right"></span>
+                        </span>
                 </a>
-                <div className="sidenav-menu-heading">Profit-Pannel</div>
-                <a
-                    className="nav-link "
-                    href="/terminalprofit"
-                    aria-controls="collapseDashboards"
-                >
-                    <div className="nav-link-icon">
-                        <i data-feather="activity"></i>
-                    </div>
-                    Profit
-                </a>
-                <div className="sidenav-menu-heading">Bonus-Pannel</div>
-                <a
-                    className="nav-link "
-                    href="/terminalbonus"
-                    aria-controls="collapseDashboards"
-                >
-                    <div className="nav-link-icon">
-                        <i data-feather="activity"></i>
-                    </div>
-                    Bonus
-                </a>
-            </div>
+                <div className="multi-level collapse show" role="list" id="submenu-terminal" aria-expanded="false">
+                    <ul className="flex-column nav">
+                        <li className= {this.getActive("/terminals")+" nav-item"}><a className="nav-link" href="/terminals"><span>Terminals</span></a></li>
+                        <li className= {this.getActive("/terminalprofit")+" nav-item"}><a className="nav-link" href="/terminalprofit"><span>Profit</span></a></li>
+                        <li className= {this.getActive("/terminalbonus")+" nav-item"}><a className="nav-link" href="/terminalbonus"><span>Bonus</span></a></li>
+                    </ul>
+                </div>
+            </li>
+
         );
     }
 
@@ -152,29 +116,57 @@ class AdminSidebar extends React.Component {
         }
 
         return (
+            <li className="nav-item">
+                <a className="nav-link d-flex justify-content-between align-items-center"
+                   href="#submenu-client" data-toggle="collapse"
+                   data-target="#submenu-client" aria-expanded="true">
+                        <span>
+                            <span className="sidebar-icon">
+                                <span className="fas fa-pager"></span>
+                            </span>
+                            Client
+                        </span>
+                    <span className="link-arrow">
+                            <span className="fas fa-chevron-right"></span>
+                        </span>
+                </a>
+                <div className="multi-level collapse show" role="list" id="submenu-client" aria-expanded="false">
+                    <ul className="flex-column nav">
+                        <li  className= {this.getActive("/binddomain")+" nav-item"}><a className="nav-link" href="/binddomain"><span>BindDomain</span></a></li>
+                        <li className= {this.getActive("/clienttraffic")+" nav-item"}><a className="nav-link" href="/clienttraffic"><span>Traffic</span></a></li>
+                    </ul>
+                </div>
+            </li>
+        );
+    }
+
+
+
+    ///////////////////////////////
+    renderLoginRegbar() {
+        if (UserManager.GetUserInfo() != null) {
+            return <div></div>;
+        }
+
+        return (
             <div>
-                <div className="sidenav-menu-heading">CDN-Client-Pannel</div>
-                <a
-                    className="nav-link "
-                    href="/binddomain"
-                    aria-controls="collapseDashboards"
-                >
-                    <div className="nav-link-icon">
-                        <i data-feather="activity"></i>
-                    </div>
-                    BindDomain
-                </a>
-                <div className="sidenav-menu-heading">Traffic-Pannel</div>
-                <a
-                    className="nav-link "
-                    href="/clienttraffic"
-                    aria-controls="collapseDashboards"
-                >
-                    <div className="nav-link-icon">
-                        <i data-feather="activity"></i>
-                    </div>
-                    Traffic
-                </a>
+                <li className=  {this.getActive("/login")+" nav-item"} >
+                    <a href="/login" className="nav-link"  >
+                        <span className="sidebar-icon">
+                            <span className="fas fa-key"></span>
+                        </span>
+                        <span>Login</span>
+                    </a>
+                </li>
+
+                <li className= {this.getActive("/register")+" nav-item"} >
+                    <a href="/register" className="nav-link">
+                        <span className="sidebar-icon">
+                            <span className="fas fa-registered"></span>
+                        </span>
+                        <span>Register</span>
+                    </a>
+                </li>
             </div>
         );
     }
@@ -189,70 +181,105 @@ class AdminSidebar extends React.Component {
         const UserTerminalSiderBar = this.renderUserTerminalSiderBar();
         return (
             <div>
-                <div className="sidenav-menu-heading">Welcome</div>
-                <a
-                    className="nav-link "
-                    href="/welcome"
-                    aria-controls="collapseDashboards"
-                >
-                    <div className="nav-link-icon">
-                        <i data-feather="activity"></i>
-                    </div>
-                    Dashboards
-                </a>
+
+                <li className= {this.getActive("/welcome")+" nav-item"}>
+                    <a href="/welcome" className="nav-link">
+                        <span className="sidebar-icon">
+                            <span className="fas fa-chart-pie"></span>
+                        </span>
+                        <span>Dashboards</span>
+                    </a>
+                </li>
 
                 {UserAdminSiderBar}
                 {UserClientSiderBar}
                 {UserTerminalSiderBar}
 
-                <div className="sidenav-menu-heading">Finance</div>
-                <a
-                    className="nav-link "
-                    href="/balance"
-                    aria-controls="collapseDashboards"
-                >
-                    <div className="nav-link-icon">
-                        <i data-feather="activity"></i>
-                    </div>
-                    My-Balance
-                </a>
 
-                <div className="sidenav-footer">
-                    <div className="sidenav-footer-content">
-                        <div className="sidenav-footer-subtitle">
-                            Logged in as:
-                        </div>
-                        <div className="sidenav-footer-title">
-                            {UserManager.GetUserInfo().username}
-                        </div>
+
+                <li className="nav-item">
+                    <a className="nav-link d-flex justify-content-between align-items-center"
+                            href="#submenu-finance" data-toggle="collapse"
+                            data-target="#submenu-finance" aria-expanded="true">
+                        <span>
+                            <span className="sidebar-icon">
+                                <span className="fas fa-pager"></span>
+                            </span>
+                            Finance
+                        </span>
+                        <span className="link-arrow">
+                            <span className="fas fa-chevron-right"></span>
+                        </span>
+                    </a>
+                    <div className="multi-level collapse show" role="list" id="submenu-finance" aria-expanded="false">
+                        <ul className="flex-column nav">
+                            <li  className= {this.getActive("/balance")+" nav-item"}><a className="nav-link" href="/balance"><span>FMy-Balance</span></a></li>
+                        </ul>
                     </div>
-                </div>
+                </li>
+
             </div>
         );
     }
 
+    renderHeader(){
+        if (UserManager.GetUserInfo() == null) {
+            return (
+                <div className="user-card d-flex align-items-center justify-content-between justify-content-md-center pb-4">
+                    <div className="d-flex align-items-center">
+                        <div className="d-block">
+                            <h2 className="h6">Please Login</h2>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+
+        return (
+            <div className="user-card d-flex align-items-center justify-content-between justify-content-md-center pb-4">
+                <div className="d-flex align-items-center">
+                    <div className="d-block">
+                        <h2 className="h6">{UserManager.userinfo.username}</h2>
+                        <a  onClick={()=>{ this.logout(); }} className="btn btn-secondary btn-xs">
+                                                <span className="mr-2">
+                                                    <span className="fas fa-sign-out-alt"></span>
+                                                </span>
+                            Sign Out
+                        </a>
+                    </div>
+                </div>
+            </div>
+        );
+
+
+    }
+
+
+
+
     render() {
+
         if (!this.state.dataready) {
             return <div></div>;
         }
 
+        const headeruser= this.renderHeader();
         const LoginRegbar = this.renderLoginRegbar();
         const UserSiderBar = this.renderUserSiderBar();
 
         return (
-            <div
-                id="layoutSidenav_nav"
-                style={{ borderRight: "1px solid #dedede" }}
-            >
-                <nav className="sidenav sidenav-light">
-                    <div className="sidenav-menu">
-                        <div className="nav">
-                            {UserSiderBar}
-                            {LoginRegbar}
-                        </div>
-                    </div>
-                </nav>
-            </div>
+
+            <nav id="sidebarMenu" className="sidebar d-md-block bg-primary text-white collapse px-4">
+                <div className="sidebar-sticky pt-4 mx-auto">
+                    {headeruser}
+                    <ul className="nav flex-column mt-4">
+                        {LoginRegbar}
+                        {UserSiderBar}
+                    </ul>
+                </div>
+            </nav>
+
         );
     }
 }
