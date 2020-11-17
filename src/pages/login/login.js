@@ -39,7 +39,7 @@ class LoginPage extends React.Component {
             return;
         }
 
-        axios.post("https://coldcdn.com/api/v1/user/login",
+        axios.post("/api/v1/user/login",
             {
                 user: this.user,
                 password: this.passwd,

@@ -1,5 +1,15 @@
+/*
+ * @Author: your name
+ * @Date: 2020-11-02 12:31:01
+ * @LastEditTime: 2020-11-16 22:33:03
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /coldCDNWeb/src/App.js
+ */
 import React from 'react';
 import './app.css'
+import "@inovua/reactdatagrid-community/index.css";
+import "bootstrap-daterangepicker/daterangepicker.css";
 
 import HomePage from "./pages/home/home";
 import LoginPage from "./pages/login/login";
@@ -11,23 +21,31 @@ import BindDomain from "./pages/client/binddomain";
 import BalancePage from "./pages/account/balance";
 import MonitorPage from "./pages/monitoring/monitor";
 import TerminalPage from "./pages/terminal/terminals";
+import ClientTraffic from './pages/clientTraffic/clientTraffic';
+import TerminalProfit from './pages/terminalProfit/terminalProfit';
+import TerminalBonus from "./pages/terminalBonus/terminalBonus";
 
 function App() {
 
     ///routing to the right page
-    let router_map={
-        'home':HomePage,
-        'login':LoginPage,
-        'register':RegisterPage,
-        'welcome':WelcomePage,
-        'test': TestPage,
-        'usermanager':UserManagerPage,
-        'balance':BalancePage,
-        'monitoring':MonitorPage,
-        'terminals':TerminalPage,
+    let router_map = {
+        home: HomePage,
+        login: LoginPage,
+        register: RegisterPage,
+        welcome: WelcomePage,
+        test: TestPage,
+        usermanager: UserManagerPage,
+        balance: BalancePage,
+        monitoring: MonitorPage,
+
+        //for terminal pages
+        terminals: TerminalPage,
+        terminalprofit: TerminalProfit,
+        terminalbonus: TerminalBonus,
 
         /////blow for client pages
-        'binddomain':BindDomain,
+        binddomain: BindDomain,
+        clienttraffic: ClientTraffic,
     };
 
     for (const urlkey in router_map) {

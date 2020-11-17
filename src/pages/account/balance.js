@@ -40,7 +40,7 @@ class BalancePage extends React.Component {
 
     updatebalance(){
 
-        axios.get("https://coldcdn.com/api/v1/client/getbalance", {headers: {
+        axios.get("/api/v1/user/getbalance", {headers: {
                 Authorization: "Bearer "+UserManager.GetUserToken()
             }}).then( (response_rp)=>{
             if(response_rp.data.status==0){
@@ -59,10 +59,15 @@ class BalancePage extends React.Component {
 
         this.updatebalance();
         /////////////////////
-        let tabledata= await axios.post("https://coldcdn.com/api/v1/client/getdepositrecord",{}, {headers: {
+        let tabledata= await axios.post("/api/v1/client/getdepositrecord",{}, {headers: {
                 Authorization: "Bearer "+UserManager.GetUserToken()
-            }});
-        return tabledata.data.data.records;
+        }
+        });
+        if (tabledata.data.status==0) {
+            return tabledata.data.data.records;
+        }
+        
+        return []
 
     }
 
@@ -120,7 +125,7 @@ class BalancePage extends React.Component {
 
     updatewallet(){
 
-        axios.get("https://coldcdn.com/api/v1/client/walletaddress", {headers: {
+        axios.get("/api/v1/user/walletaddress", {headers: {
                 Authorization: "Bearer "+UserManager.GetUserToken()
             }}).then( (response_rp)=>{
             if(response_rp.data.status==0){
@@ -174,7 +179,7 @@ class BalancePage extends React.Component {
 
         if(this.state.currentpaymethod=='Erc20'){
 
-            let erc20img="https://coldcdn.com/api/v1/common/walletqrcode?token="+UserManager.GetUserToken();
+            let erc20img="/api/v1/user/walletqrcode?token="+UserManager.GetUserToken();
 
             paymentbody=(
                 <div>

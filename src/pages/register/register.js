@@ -90,7 +90,7 @@ class RegisterPage extends React.Component {
         if(!this.checkphonenumber()){
             return;
         }
-        axios.post("https://coldcdn.com/api/v1/user/getvcode",
+        axios.post("/api/v1/user/getvcode",
             {phonecountrycode:'+'+this.phoneinput.countrycode,
                 phonenumber:this.phoneinput.number}).then(  (response)=>{
                     console.log(response);
@@ -133,7 +133,7 @@ class RegisterPage extends React.Component {
         }
 
 
-        axios.post("https://coldcdn.com/api/v1/user/register",
+        axios.post("/api/v1/user/register",
             {
                 username:this.username,
                 phonecountrycode:'+'+this.phoneinput.countrycode,

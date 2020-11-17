@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-11-02 12:31:01
+ * @LastEditTime: 2020-11-10 08:34:39
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /coldCDNWeb/src/manager/usermanager.js
+ */
 import axios from "axios";
 
 var userinfo=null;
@@ -47,7 +55,7 @@ class UserManager
 
     static async UpdateUserInfo(){
             //axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            let response=  await axios.get("https://coldcdn.com/api/v1/user/userinfo",{headers: {
+            let response=  await axios.get("/api/v1/user/userinfo",{headers: {
                     Authorization: "Bearer "+UserManager.GetUserToken()
                 }});
 

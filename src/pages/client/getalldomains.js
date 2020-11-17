@@ -41,7 +41,7 @@ class GetallDomains extends React.Component {
 
    async updatetable(rowdata){
 
-       let response = await axios.post("https://coldcdn.com/api/v1/client/modifydomainstate" ,{
+       let response = await axios.post("/api/v1/client/modifydomainstate" ,{
            Id:rowdata["id"],
            State:rowdata["state"],
            ActiveRegion:rowdata["active_region"],
@@ -60,7 +60,7 @@ class GetallDomains extends React.Component {
 
    async gettabledata(){
 
-         let response = await axios.get("https://coldcdn.com/api/v1/client/getdomains", {headers: {
+         let response = await axios.get("/api/v1/client/getdomains", {headers: {
                     Authorization: "Bearer "+UserManager.GetUserToken()
                 }})
 
@@ -75,7 +75,7 @@ class GetallDomains extends React.Component {
         if(this.updatecoloumsconfig){
             return this.updatecoloumsconfig;
         }
-        let response_rp = await axios.get("https://coldcdn.com/api/v1/common/regionprice", {headers: {
+        let response_rp = await axios.get("/api/v1/common/regionprice", {headers: {
                 Authorization: "Bearer "+UserManager.GetUserToken()
             }})
 

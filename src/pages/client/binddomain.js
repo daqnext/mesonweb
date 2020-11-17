@@ -23,7 +23,7 @@ class BindDomain extends React.Component {
 
         this.randomhash=this.makeid(6);
 
-        this.coldcdnDomainPrefix="aqnext.com/api/cdn/"+this.randomhash;
+        this.coldcdnDomainPrefix="coldcdn.com/api/cdn/"+this.randomhash;
     }
 
 
@@ -113,7 +113,7 @@ class BindDomain extends React.Component {
         }
 
 
-            axios.post("https://coldcdn.com/api/v1/client/newdomain",
+            axios.post("/api/v1/client/newdomain",
                 {
                     BindName:this.randomhash,
                     OriginUrl:this.state.inputurl,
