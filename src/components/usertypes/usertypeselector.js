@@ -42,11 +42,11 @@ class UserTypeSelector extends React.Component {
 
     displayname(usertype){
         if(usertype=='terminal'){
-            return (<div> [Terminal] Mine coldCDN-tokens by providing resource to us </div>)
+            return (<div> [Terminal] Mine meson-tokens by connecting to meson.network </div>)
         }
 
         if(usertype=='client'){
-            return (<div>[CDN-User] to use our global CDN service</div>)
+            return (<div>[CDN-User] To use our global accleration service</div>)
         }
         return usertype;
     }
