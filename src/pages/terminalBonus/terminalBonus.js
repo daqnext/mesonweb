@@ -17,6 +17,7 @@ import moment from "moment";
 import ReactDataGrid from "@inovua/reactdatagrid-community";
 import DateRangePicker from "react-bootstrap-daterangepicker";
 //import "bootstrap-daterangepicker/daterangepicker.css";
+import Global from "../../global/global";
 
 class TerminalBonus extends React.Component {
     constructor(props) {
@@ -86,7 +87,7 @@ class TerminalBonus extends React.Component {
                 console.log(skip, limit);
                 return axios
                     .post(
-                        "/api/v1/terminal/bonusrecord",
+                        Global.apiHost+"/api/v1/terminal/bonusrecord",
                         {
                             startTime: Math.floor(
                                 this.state.queryStart.valueOf() / 1000
@@ -172,7 +173,7 @@ class TerminalBonus extends React.Component {
                         <div
                             id="reportrange"
                             className="btn btn-light btn-sm line-height-normal p-2"
-                            style={{ marginLeft: "5px" }}
+                            style={{ marginLeft: "15px" }}
                         >
                             <i
                                 className="mr-2 text-primary"
@@ -193,14 +194,14 @@ class TerminalBonus extends React.Component {
                         Query Record
                     </button>
                 </div>
-                <div>Terminal Bonus Record:</div>
+
                 <ReactDataGrid
                     idProperty="id"
                     columns={this.columns}
                     dataSource={this.state.tableData}
                     pagination
                     defaultLimit={10}
-                    style={{ minHeight: 485 }}
+                    style={{ minHeight: 485,marginTop:'20px' }}
                 ></ReactDataGrid>
             </div>
         );
@@ -212,7 +213,7 @@ class TerminalBonus extends React.Component {
         const endTime = moment().valueOf();
 
         let response = await axios.post(
-            "/api/v1/terminal/bonus",
+            Global.apiHost+"/api/v1/terminal/bonus",
             {
                 startTime: Math.floor(startTime / 1000),
                 endTime: Math.floor(endTime / 1000),
@@ -253,13 +254,13 @@ class TerminalBonus extends React.Component {
 
     render() {
         return (
-            <AdminLayout name="TerminalBonus" description="Bonus">
+
+
+
+            <AdminLayout name="Terminal" description="Bonus">
                 <div class="row">
                     <div class="col-lg-4 mb-4">
-                        <div
-                            class="card h-100 border-left-lg border-left-success"
-                            style={{ boxShadow: "none" }}
-                        >
+                        <div class="card  border-light shadow-sm">
                             <div class="card-body" style={{ padding: "10px" }}>
                                 <div class="small text-muted">
                                     Today Paid Bonus
@@ -272,10 +273,7 @@ class TerminalBonus extends React.Component {
                     </div>
 
                     <div class="col-lg-4 mb-4">
-                        <div
-                            class="card h-100 border-left-lg border-left-primary"
-                            style={{ boxShadow: "none" }}
-                        >
+                        <div class="card card  border-light shadow-sm">
                             <div class="card-body" style={{ padding: "10px" }}>
                                 <div class="small text-muted">
                                     Next Round Estimate Bonus
@@ -287,7 +285,12 @@ class TerminalBonus extends React.Component {
                         </div>
                     </div>
                 </div>
-                <this.DataGrid></this.DataGrid>
+
+                <div className="card border-light shadow-sm">
+                    <div className="card-body">
+                        <this.DataGrid></this.DataGrid>
+                    </div>
+                </div>
             </AdminLayout>
         );
     }

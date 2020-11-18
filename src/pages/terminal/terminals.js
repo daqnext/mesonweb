@@ -10,12 +10,11 @@
 import React,{useCallback} from "react";
 import AdminLayout from "../../components/layout/adminLayout";
 import { withAlert } from "react-alert";
-import AdminContent from "../../components/layout/adminContent";
 import UserManager from "../../manager/usermanager";
 import axios from "axios";
-import DataTable from "../../components/table/datatable";
 import "./terminals.css";
 import ReactDataGrid from "@inovua/reactdatagrid-community";
+import Global from "../../global/global";
 
 class TerminalPage extends React.Component {
     constructor(props) {
@@ -159,7 +158,7 @@ class TerminalPage extends React.Component {
                 console.log(skip, limit);
                 return axios
                     .post(
-                        "/api/v1/terminal/getmachineinfo",
+                        Global.apiHost+"/api/v1/terminal/getmachineinfo",
                         {
                             limit: limit,
                             offset: skip,
@@ -247,8 +246,10 @@ class TerminalPage extends React.Component {
         }
 
         return (
-            <div>
-                <this.DataGrid></this.DataGrid>
+            <div className="card border-light shadow-sm">
+                <div className="card-body">
+                     <this.DataGrid></this.DataGrid>
+                </div>
             </div>
         );
     }
@@ -257,7 +258,7 @@ class TerminalPage extends React.Component {
         const Content = this.renderContent();
 
         return (
-            <AdminLayout name="Terminals" description="terminals">
+            <AdminLayout name="Terminal" description="terminals">
                 {Content}
             </AdminLayout>
         );

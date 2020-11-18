@@ -69,7 +69,7 @@ class MonitorPage extends React.Component {
 
         return (
             <AdminLayout
-                name="monitoring"
+                name="Admin"
                 description="monitoring"
             >
                 {monitorcontent}

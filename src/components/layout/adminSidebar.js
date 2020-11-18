@@ -58,7 +58,7 @@ class AdminSidebar extends React.Component {
                    data-target="#submenu-adminbar" aria-expanded="true">
                         <span>
                             <span className="sidebar-icon">
-                                <span className="fas fa-pager"></span>
+                                <span className="fas fa-users-cog"></span>
                             </span>
                             Admin
                         </span>
@@ -90,9 +90,9 @@ class AdminSidebar extends React.Component {
                    data-target="#submenu-terminal" aria-expanded="true">
                         <span>
                             <span className="sidebar-icon">
-                                <span className="fas fa-pager"></span>
+                                <span className="fas fa-server"></span>
                             </span>
-                            Client
+                            Terminal
                         </span>
                     <span className="link-arrow">
                             <span className="fas fa-chevron-right"></span>
@@ -122,7 +122,7 @@ class AdminSidebar extends React.Component {
                    data-target="#submenu-client" aria-expanded="true">
                         <span>
                             <span className="sidebar-icon">
-                                <span className="fas fa-pager"></span>
+                                <span className="fas fa-skiing"></span>
                             </span>
                             Client
                         </span>
@@ -134,6 +134,7 @@ class AdminSidebar extends React.Component {
                     <ul className="flex-column nav">
                         <li  className= {this.getActive("/binddomain")+" nav-item"}><a className="nav-link" href="/binddomain"><span>BindDomain</span></a></li>
                         <li className= {this.getActive("/clienttraffic")+" nav-item"}><a className="nav-link" href="/clienttraffic"><span>Traffic</span></a></li>
+                        <li className= {this.getActive("/balance")+" nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>
                     </ul>
                 </div>
             </li>
@@ -196,28 +197,6 @@ class AdminSidebar extends React.Component {
                 {UserTerminalSiderBar}
 
 
-
-                <li className="nav-item">
-                    <a className="nav-link d-flex justify-content-between align-items-center"
-                            href="#submenu-finance" data-toggle="collapse"
-                            data-target="#submenu-finance" aria-expanded="true">
-                        <span>
-                            <span className="sidebar-icon">
-                                <span className="fas fa-pager"></span>
-                            </span>
-                            Finance
-                        </span>
-                        <span className="link-arrow">
-                            <span className="fas fa-chevron-right"></span>
-                        </span>
-                    </a>
-                    <div className="multi-level collapse show" role="list" id="submenu-finance" aria-expanded="false">
-                        <ul className="flex-column nav">
-                            <li  className= {this.getActive("/balance")+" nav-item"}><a className="nav-link" href="/balance"><span>FMy-Balance</span></a></li>
-                        </ul>
-                    </div>
-                </li>
-
             </div>
         );
     }
@@ -237,7 +216,7 @@ class AdminSidebar extends React.Component {
 
 
         return (
-            <div className="user-card d-flex align-items-center justify-content-between justify-content-md-center pb-4">
+            <div className="user-card d-flex align-items-center justify-content-between   pb-4">
                 <div className="d-flex align-items-center">
                     <div className="d-block">
                         <h2 className="h6">{UserManager.userinfo.username}</h2>

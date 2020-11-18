@@ -71,8 +71,8 @@ class TestPage extends React.Component {
 
         return (
             <AdminLayout
-                name="test"
-                description="testpage"
+                name="Admin"
+                description="test"
             >
                 {Content}
             </AdminLayout>

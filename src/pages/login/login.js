@@ -98,7 +98,7 @@ class LoginPage extends React.Component {
                                             this.passwd=event.target.value.trim();}}
                                         placeholder="Password" />
                             </div>
-                            <div type="submit" className="btn btn-primary" onClick={()=>{this.submitlogin();}}>Login</div>
+                            <div   className="btn btn-primary" onClick={()=>{this.submitlogin();}}>Login</div>
                         </form>
                         <div className="card-footer text-center ">
                             <div className="small">

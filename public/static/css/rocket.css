@@ -15,9 +15,10 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800&display=swap");
 
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Lora:400i,700i&display=swap");
+
 /*
  * 	Default theme - Owl Carousel CSS File
  */
@@ -39976,7 +39977,7 @@ textarea[resize="horizontal"] {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-image: url("../assets/img/patterns/wave.svg");
+    background-image: url("../assets/patterns/wave.svg");
     background-repeat: repeat-x;
     background-position: bottom;
     background-size: 1450px 160px;

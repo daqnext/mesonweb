@@ -1,12 +1,11 @@
 
 import React from 'react';
 import AdminLayout from "../../components/layout/adminLayout";
-import AdminContent from "../../components/layout/adminContent";
-import usermanager from "../../manager/usermanager";
 import UserManager from "../../manager/usermanager";
 import axios from "axios";
-import GetallDomains from "../client/getalldomains";
 import DataTable from "../../components/table/datatable";
+import Global from "../../global/global";
+import AdminContent from "../../components/layout/adminContent";
 
 class BalancePage extends React.Component {
 
@@ -40,7 +39,7 @@ class BalancePage extends React.Component {
 
     updatebalance(){
 
-        axios.get("/api/v1/user/getbalance", {headers: {
+        axios.get(Global.apiHost+"/api/v1/user/getbalance", {headers: {
                 Authorization: "Bearer "+UserManager.GetUserToken()
             }}).then( (response_rp)=>{
             if(response_rp.data.status==0){
@@ -59,7 +58,7 @@ class BalancePage extends React.Component {
 
         this.updatebalance();
         /////////////////////
-        let tabledata= await axios.post("/api/v1/client/getdepositrecord",{}, {headers: {
+        let tabledata= await axios.post(Global.apiHost+"/api/v1/client/getdepositrecord",{}, {headers: {
                 Authorization: "Bearer "+UserManager.GetUserToken()
         }
         });
@@ -125,7 +124,7 @@ class BalancePage extends React.Component {
 
     updatewallet(){
 
-        axios.get("/api/v1/user/walletaddress", {headers: {
+        axios.get(Global.apiHost+"/api/v1/user/walletaddress", {headers: {
                 Authorization: "Bearer "+UserManager.GetUserToken()
             }}).then( (response_rp)=>{
             if(response_rp.data.status==0){
@@ -179,23 +178,17 @@ class BalancePage extends React.Component {
 
         if(this.state.currentpaymethod=='Erc20'){
 
-            let erc20img="/api/v1/user/walletqrcode?token="+UserManager.GetUserToken();
+            let erc20img=Global.apiHost+"/api/v1/user/walletqrcode?token="+UserManager.GetUserToken();
 
             paymentbody=(
                 <div>
+                    <div style={{marginBottom:'20px'}}>
+                        <span>[ We only support USDT USDC Now ! Don't transfer other coins!]</span>
 
+                        <input className="form-control"  style={{margin:'20px 0px'}} type="text" value={this.state.erc20wallet} />
 
-                    <div style={{padding:'2px 10px'}}>
-
-                        <div className="bg-light border-left border-lg rounded border-primary p-3 mb-3">
-                            [ We only support USDT USDC Now ! Don't transfer other coins!]
-                        </div>
-
-                        <input className="form-control"  type="text" value={this.state.erc20wallet} />
-
-                        <img src={erc20img} style={{margin:'20px'}} />
+                        <img src={erc20img} style={{border:'1px solid #ececec'}} />
                     </div>
-
 
                     <DataTable
                         fieldnames={this.fieldnames}
@@ -212,25 +205,19 @@ class BalancePage extends React.Component {
 
         if(this.state.currentpaymethod=='Alipay[支付宝]'){
             paymentbody=(<div style={{padding:'2px 10px'}}>
-                <div className="bg-light border-left border-lg rounded border-primary p-3 mb-3">
-                    [ Alipay[支付宝] is under development ]
-                </div>
+                 <span>[ Alipay[支付宝] is under development ]</span>
             </div>);
         }
 
         if(this.state.currentpaymethod=='Wechat'){
             paymentbody=(<div style={{padding:'2px 10px'}}>
-                <div className="bg-light border-left border-lg rounded border-primary p-3 mb-3">
-                    [ Wechat is under development ]
-                </div>
+                <span> [ Wechat is under development ]</span>
             </div>);
         }
 
         if(this.state.currentpaymethod=='Paypal'){
             paymentbody=(<div style={{padding:'2px 10px'}}>
-                <div className="bg-light border-left border-lg rounded border-primary p-3 mb-3">
-                    [ Paypal is under development ]
-                </div>
+                <span>[ Paypal is under development ]</span>
             </div>);
         }
 
@@ -240,23 +227,25 @@ class BalancePage extends React.Component {
                 name="Balance"
                 description="Balance"
             >
-                <div className="card h-100 border-left-lg border-left-primary">
+
+                <div className="card border-light shadow-sm">
                     <div className="card-body">
                         <div className="small text-muted">Current Account Balance</div>
                         <div className="h3">${this.state.balance}</div>
                     </div>
                 </div>
 
-                <div className="card mb-4" style={{marginTop:'35px'}}>
-                    <div className="card-header">Pay</div>
-                    <div className="card-body p-0" style={{backgroundColor:'#f8f8f9'}}>
-                        <nav className="nav nav-borders" style={{margin:'10px 20px'}}>
-                            {paymentheaders}
-                        </nav>
+
+
+                <div className="nav nav-tabs" style={{marginTop:'20px'}}>
+                    {paymentheaders}
+                </div>
+
+                <div className="card border-light shadow-sm" style={{borderRadius:'0px'}}>
+                    <div className="card-body">
                         {paymentbody}
                     </div>
                 </div>
-
 
             </AdminLayout>
         );

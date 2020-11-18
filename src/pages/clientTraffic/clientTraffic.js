@@ -237,7 +237,8 @@ class ClientTraffic extends React.Component {
 
     render() {
         return (
-            <AdminLayout name="ClientTraffic" description="BindDomain Traffic">
+            <AdminLayout name="Client"
+                         description="Traffic">
                 <this.DataGrid></this.DataGrid>
             </AdminLayout>
         );

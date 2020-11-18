@@ -1,699 +1,594 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Primary Meta Tags -->
+    <title>Meson.Network</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="meson network">
+    <meta name="author" content="meson.network">
+    <meta name="description" content="meson network provides fast,stable,cheap content delivery globally">
+    <meta name="keywords" content="meson network video streaming game cdn fast stable cheap ">
 
-  <title>coldcdn.com - a cool cdn -</title>
-  <meta content="coldcdn" name="descriptison">
-  <meta content="coldcdn" name="keywords">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meson.network/">
+    <meta property="og:title" content="meson network">
+    <meta property="og:description" content="meson network provides fast,stable,cheap content delivery globally">
+    <!-- <meta property="og:image" content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/rocket/rocket-preview.jpg">-->
 
-  <!-- Favicons -->
-  <link href="static/homepage/assets/img/favicon.png" rel="icon">
-  <link href="static/homepage/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="meson network">
+    <meta property="twitter:url" content="https://meson.network/">
+    <meta property="twitter:title" content="meson network">
+    <meta property="twitter:description" content="meson network provides fast,stable,cheap content delivery globally">
+    <!-- <meta property="twitter:image" content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/rocket/rocket-preview.jpg">-->
 
-  <!-- Google Fonts -->
-  <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">-->
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="120x120" href="/static/assets/brand/logo120.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/assets/brand/logo32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/assets/brand/logo16.png">
+    <!-- <link rel="manifest" href="/static/assets/img/favicon/site.webmanifest">-->
+    <!--<link rel="mask-icon" href="/static/assets/img/favicon/safari-pinned-tab.svg" color="#ffffff">-->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
 
-  <!-- Vendor CSS Files -->
-  <link href="static/homepage/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="static/homepage/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="static/homepage/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="static/homepage/assets/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="static/homepage/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="static/homepage/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="static/homepage/assets/vendor/aos/aos.css" rel="stylesheet">
+    <!-- Fontawesome -->
+    <link type="text/css" href="/static/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="static/homepage/assets/css/style.css" rel="stylesheet">
+    <!-- Prism -->
+    <!--<link type="text/css" href="/static/vendor/prismjs/themes/prism.css" rel="stylesheet">-->
 
+    <!-- VectorMap -->
+    <link rel="stylesheet" href="/static/vendor/jqvmap/dist/jqvmap.min.css">
 
-  <!-- =======================================================
-  * Template Name: Bootslander - v2.2.0
-  * Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <!-- Rocket CSS -->
+    <link type="text/css" href="/static/css/rocket.css" rel="stylesheet">
 
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-
+    <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 
 </head>
 
-
-
-<style>
-  .frontbtn{
-    display: inline-block;
-    margin: 15px 0px 0px 0px;
-    padding: 10px 50px;
-    color: white;
-    font-size: 22px;
-    border: 1px dashed white;
-    cursor: pointer;
-  }
-  .frontbtn:hover{
-    background: #0d0f77;
-  }
-</style>
-
-
-
 <body>
+<header class="header-global">
+    <nav id="navbar-main"
+         class="navbar navbar-main navbar-expand-lg navbar-dark navbar-theme-primary headroom py-lg-2 px-lg-6 headroom--not-bottom headroom--pinned headroom--top">
+        <div class="container">
+            <a class="navbar-brand @@logo_classes" href="../index.html">
+                <div class="d-flex align-items-center">
+                    <img class="navbar-brand-dark rotate-logo" style="height: 70px" src="/static/assets/brand/logo.svg"
+                         alt="Logo light">
+                    <img class="navbar-brand-light rotate-logo" style="height: 70px" src="/static/assets/brand/logo.svg"
+                         alt="Logo dark">
+                </div>
+            </a>
+            <div class="navbar-collapse collapse" id="navbar_global">
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
-    <div class="container d-flex align-items-center">
+                <ul class="navbar-nav navbar-nav-hover justify-content-center">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link scrollto">HOME</a>
+                    </li>
 
-      <div class="logo mr-auto">
-        <h1  style="padding: 5px 10px;border: 1px solid white;border-radius: 5px;" class="text-light"><a href="index.html"><span>ColdCDN</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="static/homepage/assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link scrollto">ABOUT</a>
+                    </li>
 
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#problem">Problem</a></li>
-          <li><a href="#solution">Solution</a></li>
+                    <li class="nav-item">
+                        <a href="#dev" class="nav-link scrollto">DEVELOP</a>
+                    </li>
 
-          <li><a href="#miner">Miner</a></li>
-          <li><a href="#client">Client</a></li>
-          <li><a href="#developer">Developer</a></li>
+                    <li class="nav-item">
+                        <a href="#faq" class="nav-link scrollto">FAQ</a>
+                    </li>
 
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#faq">FAQ</a></li>
+                    <li class="nav-item">
+                        <a href="#pricing" class="nav-link scrollto">PRICING</a>
+                    </li>
 
-          <li><a href="/login">Login</a></li>
+                </ul>
+            </div>
 
-        </ul>
-      </nav><!-- .nav-menu -->
+
+            <div class="d-none d-lg-block">
+                <a href="https://themesberg.com/docs/rocket/getting-started/overview/" target="_blank"
+                   class="btn btn-outline-white btn-docs animate-up-2"><i class="fas fa-book mr-2"></i> White Paper</a>
+            </div>
+            <div class="d-flex d-lg-none align-items-center ml-auto">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global"
+                        aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+
+    <div class="preloader bg-soft flex-column justify-content-center align-items-center" style="display: none;">
+        <img class="loader-element" src="/static/assets/brand/logo.svg" height="50" alt="Rocket logo">
+    </div>
+
+    <!-- Hero -->
+    <section id="home" class="section-header pb-11 pb-lg-13 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 text-center ">
+                    <!-- <h1 class="display-1 mb-4">Imagine what we will accomplish together</h1>-->
+
+
+                    <span style="
+                        font-weight: 100;
+                        font-size: 100px;
+                    ">Meson</span>
+
+                    <span style="
+                        font-weight: 100;
+                        font-size: 100px;
+                    ">.network</span>
+
+                    <p class="lead mb-5 px-lg-5">以商业实际应用为导向，开放标准让用户接入网络，释放被巨头所垄断的利润</p>
+
+                    <div style="width: 100%;height: 10px;">
+
+                    </div>
+
+                    <div>current : DEV-1.1 test network</div>
+                    <div>
+                        <span id="autoprint"> </span>
+                    </div>
+                    <div>
+                        <span id="autoprint2"></span>
+                    </div>
+
+
+                    <!-- Button Modal -->
+                    <div style="margin-top: 50px">
+                        <a type="button" class="btn btn-secondary" href="/login"><span class="mr-2"><i
+                                class="fas fa-hand-pointer"></i></span> START</a>
+                        <a class="btn  btn-outline-white btn-docs animate-up-2 ml-3"
+                           href="./dashboard/dashboard.html"><i class="fas fa-book mr-2"></i>White Paper</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="pattern bottom"></div>
+    </section>
+
+
+    <section id="about" class="section section-lg pt-6">
+        <div class="container">
+            <div class="row justify-content-center mb-5 mb-lg-6">
+                <div class="col-12 col-md-8 text-center"><h2 class="h1 font-weight-bolder mb-4">Use Meson</h2>
+                    <p class="lead">这里是小标题，xxxxxxxx</p></div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 text-center">
+                    <div class="card border-light p-4">
+                        <div class="card-header pb-0">
+                            <div class="image-md"><img src="/static/assets/icons/marketing.svg" alt="icon"></div>
+                            <h2 class="h4 mt-3">企业</h2>
+                            <p class="mb-0">深度合作</p></div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex text-left pl-0"><span class="list-icon"><i
+                                        class="fas fa-check-circle text-success"></i></span>
+                                    <div>深度绑定</div>
+                                </li>
+                                <li class="list-group-item d-flex text-left pl-0"><span class="list-icon"><i
+                                        class="fas fa-check-circle text-success"></i></span>
+                                    <div>哈哈哈哈</div>
+                                </li>
+                                <li class="list-group-item d-flex text-left pl-0"><span class="list-icon"><i
+                                        class="fas fa-check-circle text-success"></i></span>
+                                    <div>呵呵呵呵呵</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer pt-0"><a href="/login"
+                                                         class="btn btn-block btn-primary">start<span
+                                class="icon icon-xs ml-2"><i class="fas fa-arrow-right"></i></span></a></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 text-center">
+                    <div class="card border-light p-4">
+                        <div class="card-header pb-0">
+                            <div class="image-md"><img src="/static/assets/icons/research.svg" alt="icon"></div>
+                            <h2 class="h4 mt-3">Client</h2>
+                            <p class="mb-0">使用meson.network 加速您的应用</p></div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex text-left pl-0"><span class="list-icon"><i
+                                        class="fas fa-check-circle text-success"></i></span>
+                                    <div>注册用户,选择client</div>
+                                </li>
+                                <li class="list-group-item d-flex text-left pl-0"><span class="list-icon"><i
+                                        class="fas fa-check-circle text-success"></i></span>
+                                    <div>替换链接,直接全球加速</div>
+                                </li>
+                                <li class="list-group-item d-flex text-left pl-0"><span class="list-icon"><i
+                                        class="fas fa-check-circle text-success"></i></span>
+                                    <div>全球更稳定更便宜的加速</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer pt-0"><a href="/login"
+                                                         class="btn btn-block btn-primary">start<span
+                                class="icon icon-xs ml-2"><i class="fas fa-arrow-right"></i></span></a></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 text-center">
+                    <div class="card border-light p-4">
+                        <div class="card-header pb-0">
+                            <div class="image-md"><img src="/static/assets/icons/sales.svg" alt="icon"></div>
+                            <h2 class="h4 mt-3">Miner</h2>
+                            <p class="mb-0">接入网络获取token</p></div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex text-left pl-0"><span class="list-icon"><i
+                                        class="fas fa-check-circle text-success"></i></span>
+                                    <div>注册用户,选择terminal</div>
+                                </li>
+                                <li class="list-group-item d-flex text-left pl-0"><span class="list-icon"><i
+                                        class="fas fa-check-circle text-success"></i></span>
+                                    <div>终端一键部署</div>
+                                </li>
+                                <li class="list-group-item d-flex text-left pl-0"><span class="list-icon"><i
+                                        class="fas fa-check-circle text-success"></i></span>
+                                    <div>实时获取收益</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer pt-0"><a href="/login"
+                                                         class="btn btn-block btn-primary">start<span
+                                class="icon icon-xs ml-2"><i class="fas fa-arrow-right"></i></span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dev" class="section section-lg pb-5 bg-soft" style="
+    padding-top: 0px;
+    padding-bottom: 12rem !important;
+    background-color: white !important;
+
+">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5"><h2 class="mb-4">Join Dev Team</h2>
+                    <p class="lead mb-5">Join dev team to get extra<span class="font-weight-bolder"> Tokens</span> </p><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-github-alt"></span> </a><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-aws"></span> </a><a href="#" class="icon icon-lg text-gray"><span class="fab fa-node"></span></a></div>
+                <div class="col-12 text-center">
+                    <a  href="https://github.com/daqnext" type="button" class="btn btn-secondary animate-up-2" ><span class="mr-2"><i class="fab fa-github-alt"></i></span>https://github.com/daqnext</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section section-lg bg-primary text-white">
+        <div class="container">
+            <div class="row row-grid align-items-center">
+                <div class="col-12 col-lg-5">
+
+                    <h2 class="h1 font-weight-bolder mb-4">The Problem Meson Solved</h2>
+
+                </div>
+                <div class="col-12 col-lg-6 ml-lg-auto">
+                    <div class="row">
+                        <div class="col-12 col-sm-6">
+                            <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                                <div class="px-3 px-lg-4 py-5 text-center"><span class="icon icon-lg mb-4"><span
+                                        class="fas fa-hand-pointer"></span></span><h5
+                                        class="font-weight-normal text-primary">打破巨头垄断</h5>
+                                    <p>以 TikTok、Netflix、Youtube 等为代表的视频直播类流媒体每年向内容分发网络(cdn)
+                                        提供商支付了数百亿美元的费用。市场的定价及利润被几大巨头厂商所瓜分，能提供同等配置的普通终端无法获取该收益。</p></div>
+                            </div>
+                            <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                                <div class="px-3 px-lg-4 py-5 text-center"><span class="icon icon-lg mb-4"><span
+                                        class="fas fa-poll"></span></span><h5 class="font-weight-normal text-primary">
+                                    沉没成本变现</h5>
+                                    <p>全球云计算发展迅速，但许多 IDC 机房的服务器及带宽未充分使用，闲置率不低且没有较好的变现渠道</p></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 pt-lg-5">
+                            <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                                <div class="px-3 px-lg-4 py-5 text-center"><span class="icon icon-lg mb-4"><span
+                                        class="fas fa-file-invoice-dollar"></span></span><h5
+                                        class="font-weight-normal text-primary">区块链里商业闭环的缺失</h5>
+                                    <p>多数区块链项目缺乏商业闭环，不具备可持续发展的能力</p></div>
+                            </div>
+                            <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                                <div class="px-3 px-lg-4 py-5 text-center"><span class="icon icon-lg mb-4"><span
+                                        class="fab fa-discourse"></span></span><h5
+                                        class="font-weight-normal text-primary">Make it simple</h5>
+                                    <p>Drive revenue and offset costs in engagement centers</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pattern bottom"></div>
+    </section>
+
+
+    <div class="container" id="faq">
+        <div class="row justify-content-center mb-4 mb-lg-6" style="    margin: 120px 0px 0px 0px !important;">
+            <div class="col-12 col-lg-8 text-center"><h1 class="display-3 mb-4">FAQ</h1></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="accordion">
+                    <div class="card card-sm card-body border border-light rounded mb-3">
+                        <div data-target="#panel-1" class="accordion-panel-header" data-toggle="collapse" role="button"
+                             aria-expanded="false" aria-controls="panel-1"><span class="h6 mb-0">How to prevent the scenario where terminal users used IP pools to fake a large amount of access requests and maliciously earn tokens?</span>
+                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
+                        <div class="collapse" id="panel-1">
+                            <div class="pt-3"><p class="mb-0">We would obfuscate file names and hide the original urls.
+                                We also use IP statistical analysis to screen out cheating terminal nodes.</p></div>
+                        </div>
+                    </div>
+                    <div class="card card-sm card-body border border-light rounded mb-3">
+                        <div data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button"
+                             aria-expanded="false" aria-controls="panel-2"><span class="h6 mb-0">What would happen if users used coldCDN to cache illegal content?</span>
+                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
+                        <div class="collapse" id="panel-2">
+                            <div class="pt-3"><p class="mb-0">We could use AI systems to discover and delete illegal
+                                content.</p></div>
+                        </div>
+                    </div>
+                    <div class="card card-sm card-body border border-light rounded mb-3">
+                        <div data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button"
+                             aria-expanded="false" aria-controls="panel-3"><span class="h6 mb-0">CDN companies in China need to apply for licenses, will this be a problem for coldCDN?</span>
+                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
+                        <div class="collapse" id="panel-3">
+                            <div class="pt-3"><p class="mb-0">Decentralized and distributed nodes do not have such
+                                problems.</p></div>
+                        </div>
+                    </div>
+                    <div class="card card-sm card-body border border-light rounded mb-3">
+                        <div data-target="#panel-4" class="accordion-panel-header" data-toggle="collapse" role="button"
+                             aria-expanded="false" aria-controls="panel-4"><span class="h6 mb-0">What is the safety assurance for enterprise level users?</span>
+                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
+                        <div class="collapse" id="panel-4">
+                            <div class="pt-3"><p class="mb-0">The code is open source so any users can check and verify
+                                the security of the protocol.</p></div>
+                        </div>
+                    </div>
+                    <div class="card card-sm card-body border border-light rounded mb-3">
+                        <div data-target="#panel-5" class="accordion-panel-header" data-toggle="collapse" role="button"
+                             aria-expanded="false" aria-controls="panel-5"><span class="h6 mb-0">How to deal with terminal nodes that cheat and do not transmit data?</span>
+                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
+                        <div class="collapse" id="panel-5">
+                            <div class="pt-3"><p class="mb-0">All terminal nodes need to stake token, once cheating
+                                behaviors are discovered, penalties will be given out to terminal nodes.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero">
 
 
-    <div class="container" style="margin-bottom: 80px;">
+    <section id="pricing" class="section-header bg-primary text-white pb-7 pb-lg-11"
+             style="margin-top: 100px; padding-bottom: 0px !important;">
+        <div class="container">
+            <div class="row   mb-3">
+                <div class="col-12 col-md-10  "><h1 class="display-2 mb-3">CDN Pricing</h1>
+
+                </div>
+            </div>
+            <div class="row text-gray">
+                <div class="col-12 col-lg-6">
+                    <div class="card shadow-soft mb-5 mb-lg-6 px-2">
+                        <div class="card-header border-light py-5 px-4">
+                            <div class="d-flex mb-3"><span class="h5 mb-0">$</span> <span class="price display-2 mb-0"
+                                                                                          data-annual="0"
+                                                                                          data-monthly="0">0</span>
+                                <span class="h6 font-weight-normal align-self-end">/month</span></div>
+                            <h4 class="mb-3 text-black">Free trial</h4>
+                            <p class="font-weight-normal mb-0">Free use with 10GB global accerlation</p>
+                        </div>
+                        <div class="card-body pt-5">
+                            <ul class="list-group simple-list">
+                                <li class="list-group-item font-weight-normal"><span class="icon-gray"><i
+                                        class="fas fa-check"></i></span>Global Support
+                                </li>
+                                <li class="list-group-item font-weight-normal"><span class="icon-gray"><i
+                                        class="fas fa-check"></i></span>Free
+                                </li>
+                                <li class="list-group-item font-weight-normal"><span class="icon-gray"><i
+                                        class="fas fa-check"></i></span>10GB Limit
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="card shadow-soft mb-5 mb-lg-6">
+                        <div class="card-header border-light py-5 px-4">
+                            <div class="d-flex mb-3 text-primary"><span class="h5 mb-0">$</span> <span
+                                    class="price display-2 text-primary mb-0" data-annual="199"
+                                    data-monthly="99">0.003 </span> <span class="h6 font-weight-normal align-self-end">/GB</span>
+                            </div>
+                            <h4 class="mb-3 text-black">FAST/STABLE/CHEAP</h4>
+                            <p class="font-weight-normal mb-0">No bandwidth limit</p>
+                        </div>
+                        <div class="card-body pt-5">
+                            <ul class="list-group simple-list">
+                                <li class="list-group-item font-weight-normal"><span class="icon-primary"><i
+                                        class="fas fa-check"></i></span>Global Support(220+ countries)
+                                </li>
+                                <li class="list-group-item font-weight-normal"><span class="icon-primary"><i
+                                        class="fas fa-check"></i></span>All features on <span
+                                        class="font-weight-bolder">FREE</span> plan
+                                </li>
+                                <li class="list-group-item font-weight-normal"><span class="icon-primary"><i
+                                        class="fas fa-check"></i></span>No bandwidth limit
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col col-md-10 text-center"><a href="/login" target="_blank"
+                                                          class="btn btn-secondary animate-up-2">Start free<span
+                        class="icon icon-xs ml-3"><i class="fas fa-arrow-right"></i></span></a></div>
+            </div>
+        </div>
+
+    </section>
 
 
-      <div class="row">
-        <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
-          <div data-aos="zoom-out">
+    <footer class="footer section pt-6 pt-md-8 pt-lg-10 pb-3 bg-primary text-white overflow-hidden">
 
-            <!--
- <pre style="color:white">
- ______     ______     __         _____     ______     _____     __   __
-/\  ___\   /\  __ \   /\ \       /\  __-.  /\  ___\   /\  __-.  /\ "-.\ \
-\ \ \____  \ \ \/\ \  \ \ \____  \ \ \/\ \ \ \ \____  \ \ \/\ \ \ \ \-.  \
- \ \_____\  \ \_____\  \ \_____\  \ \____-  \ \_____\  \ \____-  \ \_\\"\_\
-  \/_____/   \/_____/   \/_____/   \/____/   \/_____/   \/____/   \/_/ \/_/
-</pre>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0"><a class="footer-brand mr-lg-5 d-flex" href="./index.html"><img
+                        src="/static/assets/brand/logo.svg" class="mr-3" alt="Footer logo"><h4>Rocket</h4></a>
+                </div>
+                <div class="col-6 col-sm-3 col-lg-2 mb-4 mb-lg-0"><h5></h5>
+                    <ul class="links-vertical">
+
+                    </ul>
+                </div>
+                <div class="col-6 col-sm-3 col-lg-2 mb-4 mb-lg-0"><h5>Meson.Network</h5>
+                    <ul class="links-vertical">
+                        <li><a href="#home" class="scrollto">HOME</a></li>
+                        <li><a href="#about" class="scrollto">ABOUT</a></li>
+                        <li><a href="#faq" class="scrollto">FAQ</a></li>
+                        <li><a href="#dev" class="scrollto">DEVELOP</a></li>
+                        <li><a href="#pricing" class="scrollto">PRICING</a></li>
+                        <li><a href="https://themesberg.com/docs/rocket/getting-started/overview/">DOCS</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4" style="font-size: 25px"><h5>Community</h5>
+                    <a href="https://daqnext.medium.com/"><i class="fab fa-medium-m mr-2"></i></a>
+                    <a href="https://twitter.com/daqnext/"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto: daqnext@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <hr class="my-4 my-lg-5">
+            <div class="row">
+                <div class="col pb-4 mb-md-0">
+                    <div class="d-flex text-center justify-content-center align-items-center"><p
+                            class="font-weight-normal font-small mb-0">Copyright © <a href="https://meson.network"
+                                                                                      target="_blank">meson.network</a>
+                        <span class="current-year">2020</span>. All rights reserved.</p></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        var typed2 = new Typed('#autoprint2', {
+            typeSpeed: 30,
+            loop: false,
+            onComplete: (self) => {
+                setTimeout(() => {
+                    typed.reset();
+                }, 5000);
+            },
+            strings: ['',
+                '# a cdn with faster cheaper and more stable service. ']
+        });
+
+
+        typed2.stop();
+
+        var typed = new Typed('#autoprint', {
+            typeSpeed: 50,
+            loop: false,
+            onComplete: (self) => {
+                typed2.start();
+                typed2.reset();
+            },
+            strings: ['',
+                '# the next generation distributed cdn network.',
+            ]
+        });
+
+    </script>
+
+
+    <script>
+        // Smooth scroll for the navigation menu and links with .scrollto classes
+        var scrolltoOffset = $('#avbar-main').outerHeight() - 21;
+        $(document).on('click', '.scrollto', function (e) {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                if (target.length) {
+                    e.preventDefault();
+
+                    var scrollto = target.offset().top - scrolltoOffset;
+
+                    if ($(this).attr("href") == '#header') {
+                        scrollto = 0;
+                    }
+
+                    $('html, body').animate({
+                        scrollTop: scrollto
+                    }, 1500, 'easeInOutExpo');
+
+                    if ($(this).parents('.nav-menu, .mobile-nav').length) {
+                        $('.nav-menu .active, .mobile-nav .active').removeClass('active');
+                        $(this).closest('li').addClass('active');
+                    }
+
+                    if ($('body').hasClass('mobile-nav-active')) {
+                        $('body').removeClass('mobile-nav-active');
+                        $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
+                        $('.mobile-nav-overly').fadeOut();
+                    }
+                    return false;
+                }
+            }
+        });
+    </script>
+
+
+</main>
+
+<!-- Core -->
+<script src="/static/vendor/jquery/dist/jquery.min.js"></script>
+<script src="/static/vendor/popper.js/dist/umd/popper.min.js"></script>
+<script src="/static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/static/vendor/headroom.js/dist/headroom.min.js"></script>
+<!--
+
+
 -->
 
-<pre style="color:white;display: inline-block;margin: 10px 0px 0px 0px;">
- ______  ______  __      _____
-/\  ___\/\  __ \/\ \    /\  __-.
-\ \ \___\ \ \/\ \ \ \___\ \ \/\ \
- \ \_____\ \_____\ \_____\ \____-
-  \/_____/\/_____/\/_____/\/____/
+<!-- Vendor JS -->
+<script src="/static/vendor/jquery-countdown/dist/jquery.countdown.min.js"></script>
+<script src="/static/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<!--
+<script src="/static/vendor/countup.js/dist/countUp.min.js"></script>
+
+<script src="/static/vendor/prismjs/prism.js"></script>
+-->
+
+<!-- Chartist -->
+<!--
+<script src="/static/vendor/chartist/dist/chartist.min.js"></script>
+<script src="/static/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+-->
+
+<!-- Vector Maps -->
+<!--
+<script src="/static/vendor/jqvmap/dist/jquery.vmap.min.js"></script>
+<script src="/static/vendor/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+-->
+
+<!-- Rocket JS -->
+<script src="/static/js/rocket.js"></script>
 
-</pre>
-
-<pre style="color:white;display: inline-block;margin: 10px 0px 0px 0px;">
- ______  _____   __   __
-/\  ___\/\  __-./\ "-.\ \
-\ \ \___\ \ \/\ \ \ \-.  \
- \ \_____\ \____-\ \_\\"\_\
-  \/_____/\/____/ \/_/ \/_/
-
-</pre>
-
-
-            <div style="    margin-top: 10px;
-    margin-bottom: 5px;">
-
-              <div>
-                <span style="color: white;font-size: 15px" >Beta-v0.0.1 [in-dev] </span>
-              </div>
-
-              <div>
-                <span style="color: white;font-size: 15px" >Test-Net will be online during 2020/11/15-2020/11/30</span>
-              </div>
-
-              <div>
-                <span style="color: white;font-size: 15px" id="autoprint"> </span>
-              </div>
-
-              <div>
-                <span style="color: white;font-size: 15px" id="autoprint2"></span>
-              </div>
-
-            </div>
-
-            <script>
-
-              var typed2 = new Typed('#autoprint2', {
-                typeSpeed: 30,
-                loop:false,
-                onComplete: (self) => {
-                  setTimeout(()=>{
-                    typed.reset();
-                  },5000);
-                },
-                strings: ['',
-                  '$ A CDN with faster cheaper and more stable service. ']
-              });
-
-
-              typed2.stop();
-
-
-              var typed = new Typed('#autoprint', {
-                typeSpeed: 50,
-                loop:false,
-                onComplete: (self) => {
-                  typed2.start();
-                  typed2.reset();
-                },
-                strings: ['',
-                  '$ The next generation distributed CDN network.',
-                  ]
-              });
-
-            </script>
-
-            <div class="text-lg-left">
-              <a class="frontbtn " href="/static/docs/coldCDN-v0.1.1.pdf">Download Whitepaper</a>
-              <a class="frontbtn " href="/login">Start</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-
-    </div>
-
-    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
-      <defs><path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/></defs>
-      <g class="wave1"><use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)"/>
-      <g class="wave2"><use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)"/>
-      <g class="wave3"><use xlink:href="#wave-path" x="50" y="9" fill="#fff"/>
-    </svg>
-
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-
-    <!-- ======= Details Section ======= -->
-    <section id="problem" class="details" style="margin-top: 50px">
-      <div class="container">
-        <div class="section-title aos-init aos-animate" data-aos="fade-up">
-          <h2>PROBLEM</h2>
-          <p>PROBLEMS TO SOLVE</p>
-        </div>
-        <div class="row content">
-          <div class="col-md-4" data-aos="fade-right">
-            <img src="static/homepage/assets/img/details-1.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-8 pt-4" data-aos="fade-up">
-            <ul>
-              <li><i class="icofont-error"></i> <span style="font-weight: bold;font-size:20px">Subpar service quality</span>-Global demand for CDN is exploding, but due to the complex network environment and deployment method, access experience for end users is hard to guarantee.</li>
-              <li><i class="icofont-error"></i> <span style="font-weight: bold;font-size:20px">Inefficient use of network resources</span>-Standardized global planning and optimization is highly difficult due to the multitude of CDN providers and scheduling methods coexisting in the market, putting a ceiling to global network usage efficiency.</li>
-              <li><i class="icofont-error"></i> <span style="font-weight: bold;font-size:20px">Central node bottleneck</span>-Users have been increasingly demanding better quality in terms of picture, video streaming, which puts higher and higher loads on the network that a centralized service model finds harder and harder to keep up.</li>
-              <li><i class="icofont-error"></i> <span style="font-weight: bold;font-size:20px">Global CDN pricing difference is significant</span>-Due to the rising acquisition cost of server resources and different usage models, the prices many CDN service providers quote are high and varied. </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section><!-- End Details Section -->
-
-    <!-- ======= Details Section ======= -->
-    <section id="solution" class="details">
-      <div class="container">
-        <div class="section-title aos-init aos-animate" data-aos="fade-up">
-          <h2>Solution</h2>
-          <p>coldCDN Solution</p>
-        </div>
-        <div class="row content">
-          <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
-            <img src="static/homepage/assets/img/details-4.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
-            <h3>Using token incentivized distributed CDN, we can unlock the potential of all idle server resources and a variety of node types through a standardized open protocol that will significantly improve network usage efficiency and decrease cost</h3>
-
-            <ul>
-              <li><i class="icofont-check"></i><span style="font-weight: bold;font-size:20px">A standardized protocol</span></li>
-              <li><i class="icofont-check"></i><span style="font-weight: bold;font-size:20px">Users can choose to voluntarily contribute resources to the network in exchange for token rewards</span></li>
-              <li><i class="icofont-check"></i><span style="font-weight: bold;font-size:20px">Decrease the cost of using CDN</span></li>
-            </ul>
-            <span>Profit generation happens mainly off-chain. Users access and pay for CDN service. The additional cost of running existing terminal nodes is minimal because most of the investment and operating cost of existing servers that have idle capacity is sunk cost. Terminal nodes are incentivized by token rewards to voluntarily contribute resources to the network. The effectiveness of the network increases exponentially with the increase in the number of network nodes. Consequently, end users will be willing to pay a higher fee for the CDN service that is still very competitively priced compare with other centralized CDN providers. We take the revenue earned to repurchase and burn outstanding tokens to align the interests of every ecosystem participant and the interest of the protocol as a whole.</span>
-          </div>
-        </div>
-      </div>
-    </section><!-- End Details Section -->
-
-
-    <!-- ======= About Section ======= -->
-    <section id="miner" class="about">
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-xl-5 col-lg-6 mining d-flex justify-content-center align-items-stretch"
-
-               data-aos="fade-right">
-
-          </div>
-
-
-          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
-
-            <div class="section-title aos-init aos-animate" data-aos="fade-up"  style="padding-bottom:0px !important;">
-              <h2>Miner</h2>
-              <p>Miner Solution</p>
-            </div>
-
-
-            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-              <div class="icon"><i class="bx bx-cloud-download"></i></div>
-              <h4 class="title"><a href="">1.Install terminal</a></h4>
-              <p class="description">
-                <span>Download and install:</span> <br/>
-                <!--<span>for mac:<a href="https://coldcdn.com/downloadlinkxxxx">https://coldcdn.com/download/terminalmac</a></span> <br/>-->
-                <span>for linux :<a href="https://github.com/daqnext/coldcdn-terminal/blob/main/terminallinux.zip">https://github.com/daqnext/coldcdn-terminal/blob/main/terminallinux.zip</a></span>
-              </p>
-            </div>
-
-            <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-              <div class="icon"><i class="bx bxs-component"></i></div>
-              <h4 class="title"><a href="">2.Easy configuaration</a></h4>
-              <p class="description">
-                <span>Configuration and Run Docs:</span><br/>
-                <span> <a href="https://github.com/daqnext/coldcdn-terminal/blob/main/README.md">https://github.com/daqnext/coldcdn-terminal/blob/main/README.md</a></span>
-              </p>
-            </div>
-
-            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
-              <div class="icon"><i class="bx bx-dollar"></i></div>
-              <h4 class="title"><a href="">3.Enjoy your profit</a></h4>
-              <p class="description">Sell your coldCDN token on uniswap</p>
-            </div>
-
-            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
-              <div class="icon"><i class="bx bx-desktop"></i></div>
-              <h4 class="title"><a href="">Only for developer :</a></h4>
-              <p class="description">
-                <span>source code:</span><br/>
-                <span><a href="https://github.com/daqnext">https://github.com/daqnext</a></span>
-              </p>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-
-
-    <!-- ======= About Section ======= -->
-    <section id="client" class="about">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-xl-5 col-lg-6 client d-flex justify-content-center align-items-stretch" data-aos="fade-right">
-
-          </div>
-
-           <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
-            <div class="section-title aos-init aos-animate" data-aos="fade-up" style="padding-bottom:0px !important;">
-              <h2>Client</h2>
-              <p>Client Solution</p>
-            </div>
-
-
-            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-              <div class="icon"><i class="bx bx-globe"></i></div>
-              <h4 class="title">Global coverage</h4>
-              <p class="description">
-                <span>Europe & North America</span><br/>
-                <span>Asia & Oceania</span><br/>
-                <span>South America</span><br/>
-                <span>Middle East & Africa</span>
-              </p>
-            </div>
-
-            <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-              <div class="icon"><i class="bx bx-gift"></i></div>
-              <h4 class="title"><a href="">Free to test</a></h4>
-              <p class="description">
-                Register&Test without cost
-              </p>
-            </div>
-
-            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
-              <div class="icon"><i class="bx bx-dollar"></i></div>
-              <h4 class="title"><a href="">Low price</a></h4>
-              <p class="description">
-                lower price with faster accerlation
-              </p>
-            </div>
-
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-
-
-
-
-    <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing">
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-          <h2>Pricing</h2>
-          <p>Check our Pricing</p>
-        </div>
-
-        <div class="row" data-aos="fade-left">
-
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <h3>Europe & North America</h3>
-              <h4><sup>$</sup>0.003<span> / GB</span></h4>
-              <ul>
-                <li>$0.002 for 1PB</li>
-                <li>$0.001 for over 5PB</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <h3>Asia & Oceania</h3>
-              <h4><sup>$</sup>0.01<span> / GB</span></h4>
-              <ul>
-                <li>$0.005 for 1PB</li>
-                <li>$0.002 for over 5PB</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <h3>South America</h3>
-              <h4><sup>$</sup>0.02<span> / GB</span></h4>
-              <ul>
-                <li>$0.01 for 1PB</li>
-                <li>$0.005 for over 5PB</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <h3>Middle East & Africa</h3>
-              <h4><sup>$</sup>0.02<span> / GB</span></h4>
-              <ul>
-                <li>$0.015 for 1PB</li>
-                <li>$0.01 for over 5PB</li>
-              </ul>
-            </div>
-          </div>
-
-
-
-        </div>
-
-      </div>
-    </section><!-- End Pricing Section -->
-
-
-
-    <!-- ======= About Section ======= -->
-    <section id="developer" class="about">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-xl-5 col-lg-6 develop d-flex justify-content-center align-items-stretch" data-aos="fade-right">
-
-          </div>
-
-          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
-            <div class="section-title aos-init aos-animate" data-aos="fade-up" style="padding-bottom:0px !important;">
-              <h2>Developer</h2>
-              <p>Developer Solution</p>
-            </div>
-
-              <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-                <div class="icon"><i class="bx bx-code"></i></div>
-                <h4 class="title"><a href="">1.Source Code:</a></h4>
-                <p class="description"><a href="https://github.com/daqnext">https://github.com/daqnext</a></p>
-              </div>
-
-              <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-                <div class="icon"><i class="bx bx-file"></i></div>
-                <h4 class="title"><a href="">2.API docs:</a></h4>
-                <p class="description"><a href="https://github.com/daqnext/coldcdn-design/blob/main/api-website/api-website.yml">Go to api DOC</a></p>
-              </div>
-
-          </div>
-
-        </div>
-    </section><!-- End About Section -->
-
-
-
-    <!-- ======= F.A.Q Section ======= -->
-    <section id="faq" class="faq section-bg">
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-          <h2>F.A.Q</h2>
-          <p>Frequently Asked Questions</p>
-        </div>
-
-        <div class="faq-list">
-          <ul>
-            <li data-aos="fade-up">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-1">
-              How to prevent the scenario where terminal users used IP pools to fake a large amount of access requests and maliciously earn tokens<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
-                <p>
-                  We would obfuscate file names and hide the original urls. We also use IP statistical analysis to screen out cheating terminal nodes.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2" class="collapsed">What would happen if users used coldCDN to cache illegal content?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-2" class="collapse" data-parent=".faq-list">
-                <p>
-                  We could use AI systems to discover and delete illegal content.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-3" class="collapsed">CDN companies in China need to apply for licenses, will this be a problem for coldCDN? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-3" class="collapse" data-parent=".faq-list">
-                <p>
-                  Decentralized and distributed nodes do not have such problems.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="300">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-4" class="collapsed">What is the safety assurance for enterprise level users? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-4" class="collapse" data-parent=".faq-list">
-                <p>
-                  The code is open source so any users can check and verify the security of the protocol.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="400">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-5" class="collapsed">How to deal with terminal nodes that cheat and do not transmit data?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-5" class="collapse" data-parent=".faq-list">
-                <p>
-                  All terminal nodes need to stake token, once cheating behaviors are discovered, penalties will be given out to terminal nodes.
-                </p>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-
-      </div>
-    </section><!-- End F.A.Q Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <!--
-   <section id="contact" class="contact">
-     <div class="container">
-
-       <div class="section-title" data-aos="fade-up">
-         <h2>Contact</h2>
-         <p>Contact Us</p>
-       </div>
-
-       <div class="row">
-
-         <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
-           <div class="info">
-             <div class="address">
-               <i class="icofont-google-map"></i>
-               <h4>Location:</h4>
-               <p>A108 Adam Street, New York, NY 535022</p>
-             </div>
-
-             <div class="email">
-               <i class="icofont-envelope"></i>
-               <h4>Email:</h4>
-               <p>info@example.com</p>
-             </div>
-
-             <div class="phone">
-               <i class="icofont-phone"></i>
-               <h4>Call:</h4>
-               <p>+1 5589 55488 55s</p>
-             </div>
-
-           </div>
-
-         </div>
-
-         <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
-
-           <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-             <div class="form-row">
-               <div class="col-md-6 form-group">
-                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                 <div class="validate"></div>
-               </div>
-               <div class="col-md-6 form-group">
-                 <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                 <div class="validate"></div>
-               </div>
-             </div>
-             <div class="form-group">
-               <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-               <div class="validate"></div>
-             </div>
-             <div class="form-group">
-               <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-               <div class="validate"></div>
-             </div>
-             <div class="mb-3">
-               <div class="loading">Loading</div>
-               <div class="error-message"></div>
-               <div class="sent-message">Your message has been sent. Thank you!</div>
-             </div>
-             <div class="text-center"><button type="submit">Send Message</button></div>
-           </form>
-
-         </div>
-
-       </div>
-
-     </div>
-   </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="footer-info">
-              <h3>coldCDN</h3>
-                <strong>Email:</strong> admin@coldcdn.com<br>
-              </p>
-              <div class="social-links mt-3">
-                <a href="https://twitter.com/daqnext/" class="twitter"><i class="bx bxl-twitter"></i></a>
-               <!--
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                -->
-              </div>
-            </div>
-          </div>
-
-          <!--
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-
-          </div>
-          -->
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>coldCDN</span></strong>. All Rights Reserved
-      </div>
-
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="static/homepage/assets/vendor/jquery/jquery.min.js"></script>
-  <script src="static/homepage/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="static/homepage/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="static/homepage/assets/vendor/php-email-form/validate.js"></script>
-  <script src="static/homepage/assets/vendor/venobox/venobox.min.js"></script>
-  <script src="static/homepage/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="static/homepage/assets/vendor/counterup/counterup.min.js"></script>
-  <script src="static/homepage/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="static/homepage/assets/vendor/aos/aos.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="static/homepage/assets/js/main.js"></script>
 
 </body>
-
 </html>

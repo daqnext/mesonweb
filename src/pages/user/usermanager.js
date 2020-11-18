@@ -40,8 +40,8 @@ class UserManagerPage extends React.Component {
 
         return (
             <AdminLayout
-                name="UserManager"
-                description="Admin UserManager Page"
+                name="Admin"
+                description="UserManager"
             >
                 {Content}
             </AdminLayout>

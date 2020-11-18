@@ -12,10 +12,10 @@ import { withAlert } from "react-alert";
 import AdminLayout from "../../components/layout/adminLayout";
 import UserManager from "../../manager/usermanager";
 import axios from "axios";
-import DataTable from "../../components/table/datatable";
 import moment from "moment";
 import ReactDataGrid from "@inovua/reactdatagrid-community";
 import DateRangePicker from "react-bootstrap-daterangepicker";
+import Global from "../../global/global";
 
 class TerminalProfit extends React.Component {
     constructor(props) {
@@ -111,7 +111,7 @@ class TerminalProfit extends React.Component {
                 console.log(skip,limit);
                 return axios
                     .post(
-                        "/api/v1/terminal/profit",
+                        Global.apiHost+"/api/v1/terminal/profit",
                         {
                             startTime: Math.floor(
                                 this.state.queryStart.valueOf() / 1000
@@ -150,7 +150,9 @@ class TerminalProfit extends React.Component {
             " ~ " +
             this.state.queryEnd.format("YYYY-MM-DD");
         return (
-            <div>
+
+            <div className="card border-light shadow-sm">
+                <div className="card-body">
                 <div className="row">
                     <DateRangePicker
                         className="col-4"
@@ -197,7 +199,7 @@ class TerminalProfit extends React.Component {
                         <div
                             id="reportrange"
                             className="btn btn-light btn-sm line-height-normal p-2"
-                            style={{ marginLeft: "5px" }}
+                            style={{ marginLeft: "15px" }}
                         >
                             <i
                                 className="mr-2 text-primary"
@@ -218,22 +220,23 @@ class TerminalProfit extends React.Component {
                         Query Record
                     </button>
                 </div>
-                <div>Terminal Traffic:</div>
+
                 <ReactDataGrid
                     idProperty="id"
                     columns={this.columns}
                     dataSource={this.state.tableData}
                     pagination
                     defaultLimit={10}
-                    style={{ minHeight: 485 }}
+                    style={{ minHeight: 485,marginTop:'20px' }}
                 ></ReactDataGrid>
+            </div>
             </div>
         );
     };
 
     render() {
         return (
-            <AdminLayout name="TerminalProfit" description="Profit">
+            <AdminLayout name="Terminal" description="Profit">
                 <div style={{ marginTop: "10px" }}>
                     <this.DataGrid></this.DataGrid>
                 </div>

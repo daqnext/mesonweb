@@ -278,8 +278,8 @@ class BindDomain extends React.Component {
 
         return (
             <AdminLayout
-                name="BindDomain"
-                description="Bind your domain"
+                name="Client"
+                description="BindDomain"
             >
                 {Content}
 

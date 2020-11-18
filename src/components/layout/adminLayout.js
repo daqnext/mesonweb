@@ -1,5 +1,4 @@
 import React from 'react';
-import AdminTop from "./adminTop";
 import AdminSidebar from "./adminSidebar";
 import AdminContent from "./adminContent";
 import "./adminlayout.css"
@@ -16,7 +15,6 @@ class AdminLayout extends React.Component {
                                 <ol className="breadcrumb breadcrumb-transparent">
                                     <li className="breadcrumb-item"><a href="#">{this.props.name}</a></li>
                                     <li className="breadcrumb-item"><a href="#">{this.props.description}</a></li>
-                                    <li className="breadcrumb-item active" aria-current="page">Data</li>
                                 </ol>
                             </nav>
                             {this.props.children}
