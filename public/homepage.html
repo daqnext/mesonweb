@@ -44,6 +44,8 @@
     <!-- Rocket CSS -->
     <link type="text/css" href="/static/css/rocket.css" rel="stylesheet">
 
+
+
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 
@@ -90,7 +92,7 @@
 
 
             <div class="d-none d-lg-block">
-                <a href="https://themesberg.com/docs/rocket/getting-started/overview/" target="_blank"
+                <a href="/static/docs/Meson-Network-v1.2.pdf" target="_blank"
                    class="btn btn-outline-white btn-docs animate-up-2"><i class="fas fa-book mr-2"></i> White Paper</a>
             </div>
             <div class="d-flex d-lg-none align-items-center ml-auto">
@@ -117,12 +119,12 @@
 
                     <span style="
                         font-weight: 100;
-                        font-size: 100px;
+                        font-size: 80px;
                     ">Meson</span>
 
                     <span style="
                         font-weight: 100;
-                        font-size: 100px;
+                        font-size: 80px;
                     ">.network</span>
 
                     <p class="lead mb-5 px-lg-5">以商业实际应用为导向，开放标准让用户接入网络，释放被巨头所垄断的利润</p>
@@ -145,7 +147,7 @@
                         <a type="button" class="btn btn-secondary" href="/login"><span class="mr-2"><i
                                 class="fas fa-hand-pointer"></i></span> START</a>
                         <a class="btn  btn-outline-white btn-docs animate-up-2 ml-3"
-                           href="./dashboard/dashboard.html"><i class="fas fa-book mr-2"></i>White Paper</a>
+                           href="/static/docs/Meson-Network-v1.2.pdf"><i class="fas fa-book mr-2"></i>White Paper</a>
                     </div>
 
                 </div>
@@ -309,71 +311,13 @@
             </div>
         </div>
 
-        <div class="pattern bottom"></div>
+
     </section>
 
 
-    <div class="container" id="faq">
-        <div class="row justify-content-center mb-4 mb-lg-6" style="    margin: 120px 0px 0px 0px !important;">
-            <div class="col-12 col-lg-8 text-center"><h1 class="display-3 mb-4">FAQ</h1></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-8">
-                <div class="accordion">
-                    <div class="card card-sm card-body border border-light rounded mb-3">
-                        <div data-target="#panel-1" class="accordion-panel-header" data-toggle="collapse" role="button"
-                             aria-expanded="false" aria-controls="panel-1"><span class="h6 mb-0">How to prevent the scenario where terminal users used IP pools to fake a large amount of access requests and maliciously earn tokens?</span>
-                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
-                        <div class="collapse" id="panel-1">
-                            <div class="pt-3"><p class="mb-0">We would obfuscate file names and hide the original urls.
-                                We also use IP statistical analysis to screen out cheating terminal nodes.</p></div>
-                        </div>
-                    </div>
-                    <div class="card card-sm card-body border border-light rounded mb-3">
-                        <div data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button"
-                             aria-expanded="false" aria-controls="panel-2"><span class="h6 mb-0">What would happen if users used coldCDN to cache illegal content?</span>
-                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
-                        <div class="collapse" id="panel-2">
-                            <div class="pt-3"><p class="mb-0">We could use AI systems to discover and delete illegal
-                                content.</p></div>
-                        </div>
-                    </div>
-                    <div class="card card-sm card-body border border-light rounded mb-3">
-                        <div data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button"
-                             aria-expanded="false" aria-controls="panel-3"><span class="h6 mb-0">CDN companies in China need to apply for licenses, will this be a problem for coldCDN?</span>
-                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
-                        <div class="collapse" id="panel-3">
-                            <div class="pt-3"><p class="mb-0">Decentralized and distributed nodes do not have such
-                                problems.</p></div>
-                        </div>
-                    </div>
-                    <div class="card card-sm card-body border border-light rounded mb-3">
-                        <div data-target="#panel-4" class="accordion-panel-header" data-toggle="collapse" role="button"
-                             aria-expanded="false" aria-controls="panel-4"><span class="h6 mb-0">What is the safety assurance for enterprise level users?</span>
-                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
-                        <div class="collapse" id="panel-4">
-                            <div class="pt-3"><p class="mb-0">The code is open source so any users can check and verify
-                                the security of the protocol.</p></div>
-                        </div>
-                    </div>
-                    <div class="card card-sm card-body border border-light rounded mb-3">
-                        <div data-target="#panel-5" class="accordion-panel-header" data-toggle="collapse" role="button"
-                             aria-expanded="false" aria-controls="panel-5"><span class="h6 mb-0">How to deal with terminal nodes that cheat and do not transmit data?</span>
-                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
-                        <div class="collapse" id="panel-5">
-                            <div class="pt-3"><p class="mb-0">All terminal nodes need to stake token, once cheating
-                                behaviors are discovered, penalties will be given out to terminal nodes.</p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
 
 
-    <section id="pricing" class="section-header bg-primary text-white pb-7 pb-lg-11"
-             style="margin-top: 100px; padding-bottom: 0px !important;">
+    <section id="pricing" class="section-header bg-primary text-white pb-7 pb-lg-11" style="padding-top: 10px">
         <div class="container">
             <div class="row   mb-3">
                 <div class="col-12 col-md-10  "><h1 class="display-2 mb-3">CDN Pricing</h1>
@@ -440,21 +384,80 @@
             </div>
         </div>
 
+        <div class="pattern bottom"></div>
+
     </section>
 
 
-    <footer class="footer section pt-6 pt-md-8 pt-lg-10 pb-3 bg-primary text-white overflow-hidden">
+    <div class="container" id="faq" style="margin-bottom: 100px">
+        <div class="row justify-content-center mb-4 mb-lg-6" style="    margin: 120px 0px 0px 0px !important;">
+            <div class="col-12 col-lg-8 text-center"><h1 class="display-3 mb-4">FAQ</h1></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="accordion">
+                    <div class="card card-sm card-body border border-light rounded mb-3">
+                        <div data-target="#panel-1" class="accordion-panel-header" data-toggle="collapse" role="button"
+                             aria-expanded="false" aria-controls="panel-1"><span class="h6 mb-0">How to prevent the scenario where terminal users used IP pools to fake a large amount of access requests and maliciously earn tokens?</span>
+                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
+                        <div class="collapse" id="panel-1">
+                            <div class="pt-3"><p class="mb-0">We would obfuscate file names and hide the original urls.
+                                We also use IP statistical analysis to screen out cheating terminal nodes.</p></div>
+                        </div>
+                    </div>
+                    <div class="card card-sm card-body border border-light rounded mb-3">
+                        <div data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button"
+                             aria-expanded="false" aria-controls="panel-2"><span class="h6 mb-0">What would happen if users used coldCDN to cache illegal content?</span>
+                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
+                        <div class="collapse" id="panel-2">
+                            <div class="pt-3"><p class="mb-0">We could use AI systems to discover and delete illegal
+                                content.</p></div>
+                        </div>
+                    </div>
+                    <div class="card card-sm card-body border border-light rounded mb-3">
+                        <div data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button"
+                             aria-expanded="false" aria-controls="panel-3"><span class="h6 mb-0">CDN companies in China need to apply for licenses, will this be a problem for coldCDN?</span>
+                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
+                        <div class="collapse" id="panel-3">
+                            <div class="pt-3"><p class="mb-0">Decentralized and distributed nodes do not have such
+                                problems.</p></div>
+                        </div>
+                    </div>
+                    <div class="card card-sm card-body border border-light rounded mb-3">
+                        <div data-target="#panel-4" class="accordion-panel-header" data-toggle="collapse" role="button"
+                             aria-expanded="false" aria-controls="panel-4"><span class="h6 mb-0">What is the safety assurance for enterprise level users?</span>
+                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
+                        <div class="collapse" id="panel-4">
+                            <div class="pt-3"><p class="mb-0">The code is open source so any users can check and verify
+                                the security of the protocol.</p></div>
+                        </div>
+                    </div>
+                    <div class="card card-sm card-body border border-light rounded mb-3">
+                        <div data-target="#panel-5" class="accordion-panel-header" data-toggle="collapse" role="button"
+                             aria-expanded="false" aria-controls="panel-5"><span class="h6 mb-0">How to deal with terminal nodes that cheat and do not transmit data?</span>
+                            <span class="icon"><i class="fas fa-angle-down"></i></span></div>
+                        <div class="collapse" id="panel-5">
+                            <div class="pt-3"><p class="mb-0">All terminal nodes need to stake token, once cheating
+                                behaviors are discovered, penalties will be given out to terminal nodes.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <footer class="footer section pt-6 pt-md-8 pt-lg-10 pb-3 bg-primary text-white overflow-hidden" style="padding-top: 150px !important;">
 
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0"><a class="footer-brand mr-lg-5 d-flex" href="./index.html"><img
                         src="/static/assets/brand/logo.svg" class="mr-3" alt="Footer logo"><h4>Rocket</h4></a>
                 </div>
-                <div class="col-6 col-sm-3 col-lg-2 mb-4 mb-lg-0"><h5></h5>
-                    <ul class="links-vertical">
 
-                    </ul>
-                </div>
                 <div class="col-6 col-sm-3 col-lg-2 mb-4 mb-lg-0"><h5>Meson.Network</h5>
                     <ul class="links-vertical">
                         <li><a href="#home" class="scrollto">HOME</a></li>
@@ -462,7 +465,7 @@
                         <li><a href="#faq" class="scrollto">FAQ</a></li>
                         <li><a href="#dev" class="scrollto">DEVELOP</a></li>
                         <li><a href="#pricing" class="scrollto">PRICING</a></li>
-                        <li><a href="https://themesberg.com/docs/rocket/getting-started/overview/">DOCS</a></li>
+                        <li><a href="/static/docs/Meson-Network-v1.2.pdf">WHITE PAPER</a></li>
 
                     </ul>
                 </div>
@@ -486,77 +489,12 @@
     </footer>
 
 
-    <script>
-        var typed2 = new Typed('#autoprint2', {
-            typeSpeed: 30,
-            loop: false,
-            onComplete: (self) => {
-                setTimeout(() => {
-                    typed.reset();
-                }, 5000);
-            },
-            strings: ['',
-                '# a cdn with faster cheaper and more stable service. ']
-        });
-
-
-        typed2.stop();
-
-        var typed = new Typed('#autoprint', {
-            typeSpeed: 50,
-            loop: false,
-            onComplete: (self) => {
-                typed2.start();
-                typed2.reset();
-            },
-            strings: ['',
-                '# the next generation distributed cdn network.',
-            ]
-        });
-
-    </script>
-
-
-    <script>
-        // Smooth scroll for the navigation menu and links with .scrollto classes
-        var scrolltoOffset = $('#avbar-main').outerHeight() - 21;
-        $(document).on('click', '.scrollto', function (e) {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                var target = $(this.hash);
-                if (target.length) {
-                    e.preventDefault();
-
-                    var scrollto = target.offset().top - scrolltoOffset;
-
-                    if ($(this).attr("href") == '#header') {
-                        scrollto = 0;
-                    }
-
-                    $('html, body').animate({
-                        scrollTop: scrollto
-                    }, 1500, 'easeInOutExpo');
-
-                    if ($(this).parents('.nav-menu, .mobile-nav').length) {
-                        $('.nav-menu .active, .mobile-nav .active').removeClass('active');
-                        $(this).closest('li').addClass('active');
-                    }
-
-                    if ($('body').hasClass('mobile-nav-active')) {
-                        $('body').removeClass('mobile-nav-active');
-                        $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-                        $('.mobile-nav-overly').fadeOut();
-                    }
-                    return false;
-                }
-            }
-        });
-    </script>
-
 
 </main>
 
 <!-- Core -->
 <script src="/static/vendor/jquery/dist/jquery.min.js"></script>
+<script src="/static/vendor/jquery.easing/jquery.easing.min.js"></script>
 <script src="/static/vendor/popper.js/dist/umd/popper.min.js"></script>
 <script src="/static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/static/vendor/headroom.js/dist/headroom.min.js"></script>
@@ -588,6 +526,80 @@
 
 <!-- Rocket JS -->
 <script src="/static/js/rocket.js"></script>
+
+
+
+
+<script>
+    var typed2 = new Typed('#autoprint2', {
+        typeSpeed: 30,
+        loop: false,
+        onComplete: (self) => {
+            setTimeout(() => {
+                typed.reset();
+            }, 5000);
+        },
+        strings: ['',
+            '# a cdn with faster cheaper and more stable service. ']
+    });
+
+
+    typed2.stop();
+
+    var typed = new Typed('#autoprint', {
+        typeSpeed: 50,
+        loop: false,
+        onComplete: (self) => {
+            typed2.start();
+            typed2.reset();
+        },
+        strings: ['',
+            '# the next generation distributed cdn network.',
+        ]
+    });
+
+</script>
+
+
+<script>
+    // Smooth scroll for the navigation menu and links with .scrollto classes
+
+    var scrolltoOffset = $('#navbar-main').outerHeight() - 21;
+    $(document).on('click', '.scrollto', function (e) {
+
+        $('#navbar_global').hide();
+
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            if (target.length) {
+                e.preventDefault();
+
+                var scrollto = target.offset().top - scrolltoOffset;
+
+                if ($(this).attr("href") == '#header') {
+                    scrollto = 0;
+                }
+
+                $('html, body').animate({
+                    scrollTop: scrollto
+                }, 1500, 'easeInOutExpo');
+
+                if ($(this).parents('.nav-menu, .mobile-nav').length) {
+                    $('.nav-menu .active, .mobile-nav .active').removeClass('active');
+                    $(this).closest('li').addClass('active');
+                }
+
+                if ($('body').hasClass('mobile-nav-active')) {
+                    $('body').removeClass('mobile-nav-active');
+                    $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
+                    $('.mobile-nav-overly').fadeOut();
+                }
+                return false;
+            }
+        }
+    });
+
+</script>
 
 
 </body>

@@ -20,26 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d050046-4885-41d3-bb31-f4819082e07e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/coldCDNWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mesonWeb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/homepage.old.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/static/css/rocket.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/css/rocket.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/adminContent.old.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/adminLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/adminLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/adminLayout.old.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/adminSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/adminSidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/adminSidebar.old.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/adminTop.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/account/balance.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/account/balance.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/client/binddomain.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/client/binddomain.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/clientTraffic/clientTraffic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/clientTraffic/clientTraffic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login/login.old.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/monitoring/monitor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/monitoring/monitor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/terminal/terminals.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/terminal/terminals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/terminalBonus/terminalBonus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/terminalBonus/terminalBonus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/terminalProfit/terminalProfit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/terminalProfit/terminalProfit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/test/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/test/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user/usermanager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/usermanager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/homepage.old.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/docs/coldCDN-v0.1.1.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +57,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/static/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/static/docs" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -80,11 +66,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/static/docs" />
+      <recent name="$PROJECT_DIR$/public/static/vendor" />
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/public/static/assets" />
       <recent name="$PROJECT_DIR$/public/static/assets/brand" />
-      <recent name="$PROJECT_DIR$/public/static/vendor" />
-      <recent name="$PROJECT_DIR$/src/pages/login" />
-      <recent name="$PROJECT_DIR$/src/components/layout" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -201,6 +187,8 @@
       <workItem from="1605669191106" duration="1311000" />
       <workItem from="1605671000083" duration="1408000" />
       <workItem from="1605672868162" duration="1286000" />
+      <workItem from="1605679773540" duration="92000" />
+      <workItem from="1605679881581" duration="205000" />
     </task>
     <servers />
   </component>

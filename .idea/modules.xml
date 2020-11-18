@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/coldCDNWeb.iml" filepath="$PROJECT_DIR$/.idea/coldCDNWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mesonWeb.iml" filepath="$PROJECT_DIR$/.idea/mesonWeb.iml" />
     </modules>
   </component>
 </project>
