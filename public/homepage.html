@@ -39,11 +39,10 @@
     <!--<link type="text/css" href="/static/vendor/prismjs/themes/prism.css" rel="stylesheet">-->
 
     <!-- VectorMap -->
-    <link rel="stylesheet" href="/static/vendor/jqvmap/dist/jqvmap.min.css">
+    <!--<link rel="stylesheet" href="/static/vendor/jqvmap/dist/jqvmap.min.css">-->
 
     <!-- Rocket CSS -->
     <link type="text/css" href="/static/css/rocket.css" rel="stylesheet">
-
 
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
@@ -58,9 +57,9 @@
         <div class="container">
             <a class="navbar-brand @@logo_classes" href="../index.html">
                 <div class="d-flex align-items-center">
-                    <img class="navbar-brand-dark rotate-logo" style="height: 70px" src="/static/assets/brand/logo.svg"
+                    <img class="navbar-brand-dark rotate-logo" style="height: 60px" src="/static/assets/brand/logo.svg"
                          alt="Logo light">
-                    <img class="navbar-brand-light rotate-logo" style="height: 70px" src="/static/assets/brand/logo.svg"
+                    <img class="navbar-brand-light rotate-logo" style="height: 60px" src="/static/assets/brand/logo.svg"
                          alt="Logo dark">
                 </div>
             </a>
@@ -86,15 +85,29 @@
                     <li class="nav-item">
                         <a href="#pricing" class="nav-link scrollto">PRICING</a>
                     </li>
-
                 </ul>
+
             </div>
 
 
-            <div class="d-none d-lg-block">
-                <a href="/static/docs/Meson-Network-v1.2.pdf" target="_blank"
-                   class="btn btn-outline-white btn-docs animate-up-2"><i class="fas fa-book mr-2"></i> White Paper</a>
+            <div class="dropdown  mb-lg-0 ">
+                <a id="langsDropdown" style="color: white" href="#" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="true" class="dropdown-toggle footer-language-link pb-2">
+                    <img src="/static/assets/flags/united-states-of-america.svg" alt="USA Flag" class="language-flag">
+                    English
+                    <i class="fas fa-chevron-down ml-1"></i>
+                </a>
+                <div aria-labelledby="langsDropdown" class="dropdown-menu dropdown-menu-center mt-0  "
+                     style="position: absolute; transform: translate3d(0px, 30px, 0px); top: 0px; left: 0px; will-change: transform;"
+                     x-placement="bottom-start">
+                    <a href="#" class="dropdown-item text-gray text-sm"><img
+                            src="/static/assets/flags/united-states-of-america.svg" alt="Germany Flag"
+                            class="language-flag"> English</a>
+                    <!-- <a href="#" class="dropdown-item text-gray text-sm"><img src="/static/assets/flags/china.svg" alt="Germany Flag" class="language-flag">中文</a>-->
+                </div>
             </div>
+
+
             <div class="d-flex d-lg-none align-items-center ml-auto">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global"
                         aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -109,8 +122,9 @@
         <img class="loader-element" src="/static/assets/brand/logo.svg" height="50" alt="Rocket logo">
     </div>
 
+
     <!-- Hero -->
-    <section id="home" class="section-header pb-11 pb-lg-13 bg-primary text-white">
+    <section  style="    padding-bottom: 5em !important;" id="home" class="section-header pb-11 pb-lg-13 bg-primary text-white">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 text-center ">
@@ -127,7 +141,8 @@
                         font-size: 80px;
                     ">.network</span>
 
-                    <p class="lead mb-5 px-lg-5">以商业实际应用为导向，开放网络接入标准，释放巨头垄断利润</p>
+                    <p class="lead mb-5 px-lg-5">Meson's mission is to unlock the immense commercial value locked in the
+                        monopolized market of CDN</p>
 
                     <div style="width: 100%;height: 10px;">
 
@@ -144,7 +159,7 @@
 
                     <!-- Button Modal -->
                     <div style="margin-top: 50px">
-                        <a  class="btn btn-secondary" href="/login"><span class="mr-2"><i
+                        <a class="btn btn-secondary" href="/login"><span class="mr-2"><i
                                 class="fas fa-hand-pointer"></i></span> START</a>
                         <a class="btn  btn-outline-white btn-docs animate-up-2 ml-3"
                            href="/static/docs/Meson-Network-v1.2.pdf"><i class="fas fa-book mr-2"></i>White Paper</a>
@@ -153,9 +168,80 @@
                 </div>
             </div>
         </div>
-        <div class="pattern bottom"></div>
+
     </section>
 
+    <section class="section section-lg bg-primary text-white" style="padding-bottom: 15em;">
+        <div class="container">
+
+            <div style="text-align: center;margin: 30px;">
+                <h2 class="h1 font-weight-bolder mb-4">How Meson Works</h2>
+            </div>
+
+            <div style="
+            max-width: 400px;
+            text-align: center;
+            border: 1px dashed white;
+    margin: 0px auto;
+    font-size: 50px;
+    padding: 20px 40px;">
+                <i class="fab fa-tiktok"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-twitch"></i>
+                <i class="fab fa-xbox"></i>
+                <span>........</span>
+            </div>
+
+            <div style="position: relative ;height: 60px ; width: 100px;border: 1px dashed white;margin: 10px auto;border-bottom: 0px;border-top: 0px">
+                    <span style="position: absolute;left: -20px;top:20px" >$</span>
+                    <span style="position: absolute;left: 110px;top:20px" >Acceleration</span>
+
+
+
+                    <i style="top: 50px;position: absolute;font-size: 20px;left: -7px;" class="myblink fas fa-angle-down nav-link-arrow"></i>
+                    <i style="position: absolute;left: 92px;font-size: 20px;top: -10px;" class="myblink fas fa-angle-up nav-link-arrow"></i>
+            </div>
+
+
+            <div style="
+            max-width: 400px;
+            text-align: center;
+            border: 1px dashed white;
+    margin: 0px auto;
+    font-size: 20px;
+    padding: 20px 40px;">
+
+                <span>Meson Global Network <i class="  fas fa-cubes"></i> </span>
+            </div>
+
+
+
+            <div style="position: relative ;height: 60px ; width: 100px;border: 1px dashed white;margin: 10px auto;border-bottom: 0px;border-top: 0px">
+                <span style="position: absolute;left: -20px;top:20px" >$</span>
+                <span style="position: absolute;left: 110px;top:20px" >Acceleration</span>
+                <i style="top: 50px;position: absolute;font-size: 20px;left: -7px;" class="myblink fas fa-angle-down nav-link-arrow"></i>
+                <i style="position: absolute;left: 92px;font-size: 20px;top: -10px;" class="myblink fas fa-angle-up nav-link-arrow"></i>
+            </div>
+
+
+            <div style="
+            max-width: 400px;
+            text-align: center;
+            border: 1px dashed white;
+    margin: 0px auto;
+    padding: 20px 40px;">
+
+                <div style="margin:5px; border: 1px solid white;border-radius: 5px" >Jack's Terminal Server <i class="fas fa-server"></i></div>
+                <div style="margin:5px;border: 1px solid white;border-radius: 5px" >Leo's Terminal Server <i class="fas fa-server"></i></div>
+                <div style="margin:5px;border: 1px solid white;border-radius: 5px" >Herry's Terminal Server <i class="fas fa-server"></i></div>
+                <div style="margin:5px; " >....More distributed Terminals  </div>
+            </div>
+
+
+
+        </div>
+        <div class="pattern bottom"></div>
+    </section>
 
     <section id="about" class="section section-lg pt-6">
         <div class="container">
@@ -259,9 +345,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mb-5"><h2 class="mb-4">Join Dev Team</h2>
-                    <p class="lead mb-5">Join dev team to get extra<span class="font-weight-bolder"> Tokens</span> </p><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-github-alt"></span> </a><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-aws"></span> </a><a href="#" class="icon icon-lg text-gray"><span class="fab fa-node"></span></a></div>
+                    <p class="lead mb-5">Join dev team to get extra<span class="font-weight-bolder"> Tokens</span></p><a
+                            href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-github-alt"></span> </a><a
+                            href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-aws"></span> </a><a
+                            href="#" class="icon icon-lg text-gray"><span class="fab fa-node"></span></a></div>
                 <div class="col-12 text-center">
-                    <a  href="https://github.com/daqnext"  class="btn btn-secondary animate-up-2" ><span class="mr-2"><i class="fab fa-github-alt"></i></span>https://github.com/daqnext</a>
+                    <a href="https://github.com/daqnext" class="btn btn-secondary animate-up-2"><span class="mr-2"><i
+                            class="fab fa-github-alt"></i></span>https://github.com/daqnext</a>
                 </div>
             </div>
         </div>
@@ -306,7 +396,9 @@
                                 <div class="px-3 px-lg-4 py-5 text-center"><span class="icon icon-lg mb-4"><span
                                         class="fas fa-circle-notch"></span></span><h5
                                         class="font-weight-normal text-primary">区块链里商业闭环的缺失</h5>
-                                    <p>多数区块链项目缺乏商业闭环，不具备可持续发展的能力</p></div>
+                                    <p>The lack of closed commercial utility loop in public blockchain world: Many
+                                        blockchain projects lack closed commercial utility loop, and are unable to grow
+                                        sustainably.</p></div>
                             </div>
                         </div>
 
@@ -318,9 +410,6 @@
 
 
     </section>
-
-
-
 
     <section id="pricing" class="section-header bg-primary text-white pb-7 pb-lg-11" style="padding-top: 10px">
         <div class="container">
@@ -393,7 +482,6 @@
 
     </section>
 
-
     <div class="container" id="faq" style="margin-bottom: 100px">
         <div class="row justify-content-center mb-4 mb-lg-6" style="    margin: 120px 0px 0px 0px !important;">
             <div class="col-12 col-lg-8 text-center"><h1 class="display-3 mb-4">FAQ</h1></div>
@@ -412,22 +500,26 @@
                     </div>
                     <div class="card card-sm card-body border border-light rounded mb-3">
                         <div data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button"
-                             aria-expanded="false" aria-controls="panel-2"><span class="h6 mb-0">What would happen if users used coldCDN to cache illegal content?</span>
+                             aria-expanded="false" aria-controls="panel-2"><span class="h6 mb-0">What would happen if users used meson network to cache illegal content?</span>
                             <span class="icon"><i class="fas fa-angle-down"></i></span></div>
                         <div class="collapse" id="panel-2">
                             <div class="pt-3"><p class="mb-0">We could use AI systems to discover and delete illegal
                                 content.</p></div>
                         </div>
                     </div>
+
+                    <!--
                     <div class="card card-sm card-body border border-light rounded mb-3">
                         <div data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button"
-                             aria-expanded="false" aria-controls="panel-3"><span class="h6 mb-0">CDN companies in China need to apply for licenses, will this be a problem for coldCDN?</span>
+                             aria-expanded="false" aria-controls="panel-3"><span class="h6 mb-0">CDN companies in China need to apply for licenses, will this be a problem for meson network?</span>
                             <span class="icon"><i class="fas fa-angle-down"></i></span></div>
                         <div class="collapse" id="panel-3">
                             <div class="pt-3"><p class="mb-0">Decentralized and distributed nodes do not have such
                                 problems.</p></div>
                         </div>
                     </div>
+                    -->
+
                     <div class="card card-sm card-body border border-light rounded mb-3">
                         <div data-target="#panel-4" class="accordion-panel-header" data-toggle="collapse" role="button"
                              aria-expanded="false" aria-controls="panel-4"><span class="h6 mb-0">What is the safety assurance for enterprise level users?</span>
@@ -452,16 +544,15 @@
 
     </div>
 
-
-
-
-    <footer class="footer section pt-6 pt-md-8 pt-lg-10 pb-3 bg-primary text-white overflow-hidden" style="padding-top: 150px !important;">
+    <footer class="footer section pt-6 pt-md-8 pt-lg-10 pb-3 bg-primary text-white overflow-hidden"
+            style="padding-top: 150px !important;">
 
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0"><a class="footer-brand mr-lg-5 d-flex" href="./index.html"><img
                         src="/static/assets/brand/logo.svg" class="mr-3" alt="Footer logo"><h4>Rocket</h4></a>
-                    <p class="my-4">以商业实际应用为导向，开放网络接入标准，释放巨头垄断利润</p>
+                    <p class="my-4">Meson's mission is to unlock the immense commercial value locked in the monopolized
+                        market of CDN</p>
                 </div>
 
                 <div class="col-6 col-sm-3 col-lg-2 mb-4 mb-lg-0"><h5>General</h5>
@@ -500,8 +591,9 @@
                 </div>
             </div>
         </div>
-    </footer>
 
+
+    </footer>
 
 
 </main>
@@ -542,8 +634,6 @@
 <script src="/static/js/rocket.js"></script>
 
 
-
-
 <script>
     var typed2 = new Typed('#autoprint2', {
         typeSpeed: 30,
@@ -576,12 +666,19 @@
 
 
 <script>
+
     // Smooth scroll for the navigation menu and links with .scrollto classes
+
+    /*
+   $('.navbar-toggler').click(function (){
+       $('#navbar_global').show();
+   });
+     */
 
     var scrolltoOffset = $('#navbar-main').outerHeight() - 21;
     $(document).on('click', '.scrollto', function (e) {
 
-        $('#navbar_global').hide();
+        $('#navbar_global').removeClass('show');
 
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
@@ -615,6 +712,15 @@
 
 </script>
 
+
+<script>
+
+    function blink_text() {
+        $('.myblink').fadeOut(500);
+        $('.myblink').fadeIn(500);
+    }
+    setInterval(blink_text, 1000);
+</script>
 
 </body>
 </html>

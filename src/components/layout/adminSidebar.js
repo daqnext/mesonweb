@@ -3,6 +3,8 @@ import React from "react";
 import './sidebar.css'
 import UserManager from "../../manager/usermanager";
 
+import LanBtn from "./lanBtn";
+
 class AdminSidebar extends React.Component {
     constructor(props) {
         super(props);
@@ -207,7 +209,7 @@ class AdminSidebar extends React.Component {
                 <div className="user-card d-flex align-items-center justify-content-between justify-content-md-center pb-4">
                     <div className="d-flex align-items-center">
                         <div className="d-block">
-                            <h2 className="h6">Please Login</h2>
+                            <LanBtn></LanBtn>
                         </div>
                     </div>
                 </div>
@@ -219,8 +221,9 @@ class AdminSidebar extends React.Component {
             <div className="user-card d-flex align-items-center justify-content-between   pb-4">
                 <div className="d-flex align-items-center">
                     <div className="d-block">
-                        <h2 className="h6">{UserManager.userinfo.username}</h2>
-                        <a  onClick={()=>{ this.logout(); }} className="btn btn-secondary btn-xs">
+                        <LanBtn></LanBtn>
+
+                        <a  style={{marginTop:'20px'}} onClick={()=>{ this.logout(); }} className="btn btn-secondary btn-xs">
                                                 <span className="mr-2">
                                                     <span className="fas fa-sign-out-alt"></span>
                                                 </span>
