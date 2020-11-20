@@ -311,7 +311,7 @@ class TerminalTotalProfit extends React.Component {
 
     render() {
         return (
-            <AdminLayout name="Terminal" description="Bonus">
+            <AdminLayout name="Terminal" description="Earnings">
                 <div class="row">
                     <div class="col-lg-4 mb-4">
                         <div class="card  border-light shadow-sm">
