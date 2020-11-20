@@ -167,108 +167,161 @@ class RegisterPage extends React.Component {
     render() {
 
         return (
-
             <AdminLayout name="Register" description="Register page">
-
-
                 <div className="card border-light shadow-sm">
                     <div className="card-body">
-
-                    <form>
-                        <div className="form-group">
-                            <label className="small mb-1" htmlFor="inputFirstName">UserName</label>
-                            <input className="form-control py-3"   type="text" placeholder="Enter UserName"
-                                   onChange={(event)=>{
-                                       this.username=event.target.value.trim();
-                                   }}
-                            />
-                        </div>
-
-
-                        <div className="form-group">
-                            <label className="small mb-1" htmlFor="inputPassword">Password</label>
-                            <input className="form-control py-3"   type="password" placeholder="Enter password"
-                            onChange={(event)=>{
-                                this.passwd=event.target.value.trim();
-                            }}
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label className="small mb-1" htmlFor="inputConfirmPassword">Confirm Password</label>
-                            <input className="form-control py-3" type="password" placeholder="Confirm password"
-                                   onChange={(event)=>{
-                                       this.passwd2=event.target.value.trim();
-                                   }}
-                            />
-                        </div>
-
-
-                        <div className="form-group">
-                            <label className="small mb-1" htmlFor="inputConfirmPassword">PhoneNumber</label>
-                            <div className="phoneinputwrapper" >
-                                <PhoneInput
-                                    onChange={ (value, data, event, formattedValue) =>{
-                                        this.phoneinput.countrycode=data.dialCode;
-                                        this.phoneinput.number=value.slice(data.dialCode.length);
-                                        this.phoneinput.countrycode=this.phoneinput.countrycode.trim();
-                                        this.phoneinput.number=this.phoneinput.number.trim();
-                                    } }
-                                    country={this.phoneinput.country}
-                                    autoFormat={false}
-                                    countryCodeEditable={false} />
+                        <form>
+                            <div className="form-group">
+                                <label
+                                    className="small mb-1"
+                                    htmlFor="inputFirstName"
+                                >
+                                    UserName
+                                </label>
+                                <input
+                                    className="form-control py-3"
+                                    type="text"
+                                    placeholder="Enter UserName"
+                                    onChange={(event) => {
+                                        this.username = event.target.value.trim();
+                                    }}
+                                />
                             </div>
-                        </div>
 
-                        <div className="form-group">
-                            <label className="small mb-1" >select your user type</label>
-                            <UserTypeSelector callback={(usertype)=>{
-                                this.usertype=usertype;
-                            }}></UserTypeSelector>
-                        </div>
+                            <div className="form-group">
+                                <label
+                                    className="small mb-1"
+                                    htmlFor="inputPassword"
+                                >
+                                    Password
+                                </label>
+                                <input
+                                    className="form-control py-3"
+                                    type="password"
+                                    placeholder="Enter password"
+                                    onChange={(event) => {
+                                        this.passwd = event.target.value.trim();
+                                    }}
+                                />
+                            </div>
 
+                            <div className="form-group">
+                                <label
+                                    className="small mb-1"
+                                    htmlFor="inputConfirmPassword"
+                                >
+                                    Confirm Password
+                                </label>
+                                <input
+                                    className="form-control py-3"
+                                    type="password"
+                                    placeholder="Confirm password"
+                                    onChange={(event) => {
+                                        this.passwd2 = event.target.value.trim();
+                                    }}
+                                />
+                            </div>
 
-                        <div className="form-row">
-                            <div className="col-md-6">
-                                <div className="form-group">
-                                    <label className="small mb-1">smscode</label>
-                                    <input className="form-control py-3"   type="text" placeholder="Enter phone code"
-                                           onChange={(event)=>{
-                                               this.vcode=event.target.value.trim();
-                                           }}
-                                    ></input>
+                            <div className="form-group">
+                                <label
+                                    className="small mb-1"
+                                    htmlFor="inputConfirmPassword"
+                                >
+                                    PhoneNumber
+                                </label>
+                                <div className="phoneinputwrapper">
+                                    <PhoneInput
+                                        onChange={(
+                                            value,
+                                            data,
+                                            event,
+                                            formattedValue
+                                        ) => {
+                                            this.phoneinput.countrycode =
+                                                data.dialCode;
+                                            this.phoneinput.number = value.slice(
+                                                data.dialCode.length
+                                            );
+                                            this.phoneinput.countrycode = this.phoneinput.countrycode.trim();
+                                            this.phoneinput.number = this.phoneinput.number.trim();
+                                        }}
+                                        country={this.phoneinput.country}
+                                        defaultMask={"..............................."}
+                                        alwaysDefaultMask
+                                        autoFormat={true}
+                                        countryCodeEditable={false}
+                                    />
                                 </div>
                             </div>
-                            <div className="col-md-6">
-                                <div className="form-group">
-                                    <label className="small mb-1">send smscode</label>
-                                    <div>
-                                        <SendCode
-                                            checkphonecorrect={()=>{
-                                                return this.checkphonenumber();
+
+                            <div className="form-group">
+                                <label className="small mb-1">
+                                    select your user type
+                                </label>
+                                <UserTypeSelector
+                                    callback={(usertype) => {
+                                        this.usertype = usertype;
+                                    }}
+                                ></UserTypeSelector>
+                            </div>
+
+                            <div className="form-row">
+                                <div className="col-md-6">
+                                    <div className="form-group">
+                                        <label className="small mb-1">
+                                            smscode
+                                        </label>
+                                        <input
+                                            className="form-control py-3"
+                                            type="text"
+                                            placeholder="Enter phone code"
+                                            onChange={(event) => {
+                                                this.vcode = event.target.value.trim();
                                             }}
-                                            click={()=>{
-                                            this.clicksendvcode()
-                                        }}></SendCode>
+                                        ></input>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="form-group">
+                                        <label className="small mb-1">
+                                            send smscode
+                                        </label>
+                                        <div>
+                                            <SendCode
+                                                checkphonecorrect={() => {
+                                                    return this.checkphonenumber();
+                                                }}
+                                                click={() => {
+                                                    this.clicksendvcode();
+                                                }}
+                                            ></SendCode>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div className="form-group mt-4 mb-0">
+                                <div
+                                    className="btn btn-primary btn-block"
+                                    onClick={() => {
+                                        this.createAccount();
+                                    }}
+                                    href="#"
+                                >
+                                    Create Account
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="card-footer text-center">
+                        <div className="small">
+                            <a href="auth-login-basic.html">
+                                Have an account? Go to login
+                            </a>
                         </div>
-
-
-
-                        <div className="form-group mt-4 mb-0">
-                            <div className="btn btn-primary btn-block" onClick={()=>{this.createAccount()}}
-                                 href="#">Create Account</div></div>
-                    </form>
-                </div>
-                <div className="card-footer text-center">
-                    <div className="small"><a href="auth-login-basic.html">Have an account? Go to login</a></div>
-                </div>
-
+                    </div>
                 </div>
             </AdminLayout>
-
         );
     }
 }
