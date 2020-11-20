@@ -42,8 +42,8 @@ class TerminalPage extends React.Component {
                 defaultFlex: 1,
             },
             {
-                name: "region",
-                header: "region",
+                name: "country",
+                header: "country",
                 defaultFlex: 1,
             },
             {
@@ -52,30 +52,28 @@ class TerminalPage extends React.Component {
                 defaultFlex: 1,
                 render: ({ value }) => {
                     let percent = value;
-                    let width2 = "'" + "70" + "%" + "'";
-                    console.log(width2);
-                    let className =
-                        "progress-bar progress-bar-striped progress-bar-animated bg-danger";
+                    let width2 =   percent + "%" ;
+                    //console.log(width2);
+
+                    let className = "progress-bar bg-secondary";
                     if (percent < 60) {
-                        className =
-                            "progress-bar progress-bar-striped progress-bar-animated bg-success";
+                        className = "progress-bar bg-tertiary";
                     } else if (percent < 85) {
-                        className =
-                            "progress-bar progress-bar-striped progress-bar-animated bg-warning";
+                        className = "progress-bar bg-primary";
                     }
                     return (
-                        <div className="progress">
-                            <div
-                                className={className}
-                                role="progressbar"
-                                style={{ width: { width2 } }}
-                                aria-valuenow="0"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                            >
-                                {percent + " %"}
+                        <div>
+                            <div>{width2}</div>
+                            <div className="progress mb-0">
+                                <div className={className} role="progressbar"
+                                     aria-valuenow={'"'+percent+'"'}
+                                     aria-valuemin="0" aria-valuemax="100"
+                                     style={{width:percent+'px'}} ></div>
                             </div>
                         </div>
+
+
+
                     );
                 },
             },
@@ -85,26 +83,21 @@ class TerminalPage extends React.Component {
                 defaultFlex: 1,
                 render: ({ value }) => {
                     let percent = value;
-                    let className =
-                        "progress-bar progress-bar-striped progress-bar-animated bg-danger";
+                    let className = "progress-bar bg-secondary";
                     if (percent < 60) {
-                        className =
-                            "progress-bar progress-bar-striped progress-bar-animated bg-success";
+                        className = "progress-bar bg-tertiary";
                     } else if (percent < 85) {
-                        className =
-                            "progress-bar progress-bar-striped progress-bar-animated bg-warning";
+                        className = "progress-bar bg-primary";
                     }
                     return (
-                        <div className="progress">
-                            <div
-                                className={className}
-                                role="progressbar"
-                                //style="width: 0%"
-                                aria-valuenow="0"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                            >
-                                {percent + " %"}
+
+                        <div>
+                            <div>{percent+"%"}</div>
+                            <div className="progress mb-0">
+                                <div className={className} role="progressbar"
+                                     aria-valuenow={'"'+percent+'"'}
+                                     aria-valuemin="0" aria-valuemax="100"
+                                     style={{width:percent+'px'}} ></div>
                             </div>
                         </div>
                     );
@@ -190,7 +183,7 @@ class TerminalPage extends React.Component {
                                 machine_mac: terminalInfo.machine_mac,
                                 machine_ip: terminalInfo.machine_ip,
                                 port: terminalInfo.port,
-                                region: terminalInfo.region,
+                                country: terminalInfo.country,
                                 disk_usage: (
                                     ((terminalInfo.machine_total_disk -
                                         terminalInfo.machine_available_disk) /
