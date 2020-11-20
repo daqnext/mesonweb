@@ -23,7 +23,6 @@ import MonitorPage from "./pages/monitoring/monitor";
 import TerminalPage from "./pages/terminal/terminals";
 import ClientTraffic from './pages/clientTraffic/clientTraffic';
 import TerminalTraffic from './pages/terminalTraffic/terminalTraffic';
-import TerminalBonus from "./pages/terminalBonus/terminalBonus";
 import terminalTotalProfit from './pages/terminalTotalProfit/terminalTotalProfit';
 
 function App() {
@@ -42,7 +41,6 @@ function App() {
         //for terminal pages
         terminals: TerminalPage,
         terminaltraffic: TerminalTraffic,
-        terminalbonus: TerminalBonus,
         terminaltotalprofit:terminalTotalProfit,
 
         /////blow for client pages

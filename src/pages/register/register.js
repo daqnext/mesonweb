@@ -32,6 +32,16 @@ class RegisterPage extends React.Component {
     }
 
 
+    async componentDidMount() {
+        if(UserManager.GetUserInfo()==null){
+            await UserManager.UpdateUserInfo();
+        }
+        if(UserManager.GetUserToken()!=null){
+            window.location.href="/welcome";
+        }
+    }
+
+
 
     checkusername(){
         if(this.username==""){

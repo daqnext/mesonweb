@@ -19,6 +19,8 @@ import DateRangePicker from "react-bootstrap-daterangepicker";
 //import "bootstrap-daterangepicker/daterangepicker.css";
 import Global from "../../global/global";
 
+import ChartistGraph from "react-chartist";
+
 class TerminalTotalProfit extends React.Component {
     constructor(props) {
         super(props);
@@ -39,20 +41,47 @@ class TerminalTotalProfit extends React.Component {
                 },
             },
             {
-                name: "machine_mac",
-                header: "Mac Addr",
+                name: "ipaddr",
+                header: "Ip Addr",
                 maxWidth: 1000,
                 defaultFlex: 1,
             },
+
             {
-                name: "amount",
-                header: "Amount",
+                name: "machine_mac",
+                header: "Terminals",
+                maxWidth: 1000,
+                defaultFlex: 1,
+            },
+
+            {
+                name: "FileToken",
+                header: "File Transfer Token",
                 maxWidth: 1000,
                 defaultFlex: 1,
                 render: ({ value }) => {
                     return <div>T {(value / 1e9).toFixed(5)}</div>;
                 },
             },
+            {
+                name: "Bonous",
+                header: "Bonous Token",
+                maxWidth: 1000,
+                defaultFlex: 1,
+                render: ({ value }) => {
+                    return <div>T {(value / 1e9).toFixed(5)}</div>;
+                },
+            },
+            {
+                name: "Total",
+                header: "Total",
+                maxWidth: 1000,
+                defaultFlex: 1,
+                render: ({ value }) => {
+                    return <div>T {(value / 1e9).toFixed(5)}</div>;
+                },
+            }
+
         ];
 
         this.state = {
@@ -65,6 +94,29 @@ class TerminalTotalProfit extends React.Component {
             queryEnd: moment(),
             isMergeTerminals: true,
         };
+
+
+
+        /////below for charist test data
+
+        this.chardata = {
+            labels: ['2019/2/2', '2019/2/3', '2019/2/4', '2019/2/5', '2019/2/6',
+                '2019/2/3','2019/2/3','2019/2/3','2019/2/3'],
+            series: [
+                [10.3, 20.2, 4, 8, 6, -2, -1, -4, -6],
+                [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            ]
+        };
+
+        this.charoptions = {
+            fullWidth: true,
+            chartPadding: {
+                right: 40,
+                left:-10
+            }
+        };
+
+
     }
 
     async componentDidMount() {
@@ -195,6 +247,11 @@ class TerminalTotalProfit extends React.Component {
                     </button>
                 </div>
 
+                <div style={{marginTop:'20px'}}>
+                    <ChartistGraph data={this.chardata} options={this.charoptions} type='Line' />
+                </div>
+
+
                 <ReactDataGrid
                     idProperty="id"
                     columns={this.columns}
@@ -258,12 +315,16 @@ class TerminalTotalProfit extends React.Component {
                 <div class="row">
                     <div class="col-lg-4 mb-4">
                         <div class="card  border-light shadow-sm">
-                            <div class="card-body" style={{ padding: "10px" }}>
-                                <div class="small text-muted">
-                                    Today Paid Bonus
+                            <div class="card-body" style={{ padding: "10px 20px" }}>
+                                <div class="small text-muted"   >
+                                    Bonous Tokens Earned Today
                                 </div>
-                                <div class="h3 d-flex align-items-center">
-                                    T {(this.state.paidBonus / 1e9).toFixed(5)}
+                                <div class="h4 d-flex align-items-center"
+                                     style={{fontSize:'20px',color:'green',
+                                         marginTop:'5px',
+                                     }}
+                                >
+                                      {(this.state.paidBonus / 1e9).toFixed(5)}
                                 </div>
                             </div>
                         </div>
@@ -271,13 +332,32 @@ class TerminalTotalProfit extends React.Component {
 
                     <div class="col-lg-4 mb-4">
                         <div class="card card  border-light shadow-sm">
-                            <div class="card-body" style={{ padding: "10px" }}>
+                            <div class="card-body" style={{ padding: "10px 20px" }}>
                                 <div class="small text-muted">
-                                    Next Round Estimate Bonus
+                                    Estimated Bonous Tokens Next Round
                                 </div>
-                                <div class="h3" style={{ color: "grey" }}>
-                                    T{" "}
+                                <div class="h4" style={{fontSize:'20px',color:'grey',
+                                    marginTop:'5px',
+                                }}>
+                                    {" "}
                                     {(this.state.bonusInPlan / 1e9).toFixed(5)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-lg-4 mb-4">
+                        <div className="card  border-light shadow-sm">
+                            <div className="card-body" style={{padding: "10px 20px"}}>
+                                <div className="small text-muted">
+                                    Tokens Earned For Files Transferred Today
+                                </div>
+                                <div style={{fontSize:'20px',color:'green',
+                                marginTop:'5px',
+                                }} className="h4 d-flex align-items-center">
+                                      0
                                 </div>
                             </div>
                         </div>

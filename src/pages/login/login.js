@@ -71,6 +71,16 @@ class LoginPage extends React.Component {
     }
 
 
+    async componentDidMount() {
+        if(UserManager.GetUserInfo()==null){
+            await UserManager.UpdateUserInfo();
+        }
+        if(UserManager.GetUserToken()!=null){
+            window.location.href="/welcome";
+        }
+    }
+
+
     render() {
         return (
             <AdminLayout
