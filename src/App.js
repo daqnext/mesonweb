@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-11-16 22:33:03
+ * @LastEditTime: 2020-11-19 23:54:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -22,8 +22,9 @@ import BalancePage from "./pages/account/balance";
 import MonitorPage from "./pages/monitoring/monitor";
 import TerminalPage from "./pages/terminal/terminals";
 import ClientTraffic from './pages/clientTraffic/clientTraffic';
-import TerminalProfit from './pages/terminalProfit/terminalProfit';
+import TerminalTraffic from './pages/terminalTraffic/terminalTraffic';
 import TerminalBonus from "./pages/terminalBonus/terminalBonus";
+import terminalTotalProfit from './pages/terminalTotalProfit/terminalTotalProfit';
 
 function App() {
 
@@ -40,8 +41,9 @@ function App() {
 
         //for terminal pages
         terminals: TerminalPage,
-        terminalprofit: TerminalProfit,
+        terminaltraffic: TerminalTraffic,
         terminalbonus: TerminalBonus,
+        terminaltotalprofit:terminalTotalProfit,
 
         /////blow for client pages
         binddomain: BindDomain,

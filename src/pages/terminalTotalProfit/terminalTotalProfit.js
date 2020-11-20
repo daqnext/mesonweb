@@ -1,13 +1,13 @@
 /*
  * @Author: your name
- * @Date: 2020-11-10 19:56:44
- * @LastEditTime: 2020-11-19 23:46:47
+ * @Date: 2020-11-19 23:52:52
+ * @LastEditTime: 2020-11-19 23:53:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: /coldCDNWeb/src/pages/terminalProfit/terminalProfit.js
+ * @FilePath: /mesonweb/src/pages/terminalTotalProfit/terminalTotalProfit.js
  */
 
-import React,{useCallback} from "react";
+ import React,{useCallback} from "react";
 import { withAlert } from "react-alert";
 import AdminLayout from "../../components/layout/adminLayout";
 import UserManager from "../../manager/usermanager";
@@ -19,7 +19,7 @@ import DateRangePicker from "react-bootstrap-daterangepicker";
 //import "bootstrap-daterangepicker/daterangepicker.css";
 import Global from "../../global/global";
 
-class TerminalBonus extends React.Component {
+class TerminalTotalProfit extends React.Component {
     constructor(props) {
         super(props);
 
@@ -77,7 +77,7 @@ class TerminalBonus extends React.Component {
         });
 
         this.getBonusInfo();
-        this.loadData()
+        this.loadData();
     }
 
     loadData = null;
@@ -87,7 +87,7 @@ class TerminalBonus extends React.Component {
                 console.log(skip, limit);
                 return axios
                     .post(
-                        Global.apiHost+"/api/v1/terminal/bonusrecord",
+                        Global.apiHost + "/api/v1/terminal/bonusrecord",
                         {
                             startTime: Math.floor(
                                 this.state.queryStart.valueOf() / 1000
@@ -201,7 +201,7 @@ class TerminalBonus extends React.Component {
                     dataSource={this.state.tableData}
                     pagination
                     defaultLimit={10}
-                    style={{ minHeight: 485,marginTop:'20px' }}
+                    style={{ minHeight: 485, marginTop: "20px" }}
                 ></ReactDataGrid>
             </div>
         );
@@ -213,7 +213,7 @@ class TerminalBonus extends React.Component {
         const endTime = moment().valueOf();
 
         let response = await axios.post(
-            Global.apiHost+"/api/v1/terminal/bonus",
+            Global.apiHost + "/api/v1/terminal/bonus",
             {
                 startTime: Math.floor(startTime / 1000),
                 endTime: Math.floor(endTime / 1000),
@@ -254,9 +254,6 @@ class TerminalBonus extends React.Component {
 
     render() {
         return (
-
-
-
             <AdminLayout name="Terminal" description="Bonus">
                 <div class="row">
                     <div class="col-lg-4 mb-4">
@@ -279,7 +276,8 @@ class TerminalBonus extends React.Component {
                                     Next Round Estimate Bonus
                                 </div>
                                 <div class="h3" style={{ color: "grey" }}>
-                                    T {(this.state.bonusInPlan / 1e9).toFixed(5)}
+                                    T{" "}
+                                    {(this.state.bonusInPlan / 1e9).toFixed(5)}
                                 </div>
                             </div>
                         </div>
@@ -296,4 +294,4 @@ class TerminalBonus extends React.Component {
     }
 }
 
-export default withAlert()(TerminalBonus);
+export default withAlert()(TerminalTotalProfit);
