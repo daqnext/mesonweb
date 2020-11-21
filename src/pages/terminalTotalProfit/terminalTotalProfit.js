@@ -1,13 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 23:52:52
- * @LastEditTime: 2020-11-19 23:53:25
+ * @LastEditTime: 2020-11-21 19:38:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalTotalProfit/terminalTotalProfit.js
  */
 
- import React,{useCallback} from "react";
+import React, { useCallback } from "react";
 import { withAlert } from "react-alert";
 import AdminLayout from "../../components/layout/adminLayout";
 import UserManager from "../../manager/usermanager";
@@ -29,30 +29,28 @@ class TerminalTotalProfit extends React.Component {
         this.lastPayBonusTime = 0;
         this.todayRecord = [];
         this.queryRecord = [];
+        this.tableData = [];
 
         this.columns = [
             {
-                name: "timestamp",
+                name: "date",
                 header: "Date",
                 minWidth: 50,
                 defaultFlex: 1,
-                render: ({ value }) => {
-                    return moment(value * 1000).format("YYYY-MM-DD");
-                },
             },
-            {
-                name: "ipaddr",
-                header: "Ip Addr",
-                maxWidth: 1000,
-                defaultFlex: 1,
-            },
+            // {
+            //     name: "ipaddr",
+            //     header: "Ip Addr",
+            //     maxWidth: 1000,
+            //     defaultFlex: 1,
+            // },
 
-            {
-                name: "machine_mac",
-                header: "Terminals",
-                maxWidth: 1000,
-                defaultFlex: 1,
-            },
+            // {
+            //     name: "machine_mac",
+            //     header: "Terminals",
+            //     maxWidth: 1000,
+            //     defaultFlex: 1,
+            // },
 
             {
                 name: "FileToken",
@@ -60,7 +58,7 @@ class TerminalTotalProfit extends React.Component {
                 maxWidth: 1000,
                 defaultFlex: 1,
                 render: ({ value }) => {
-                    return <div>T {(value / 1e9).toFixed(5)}</div>;
+                    return <div>T {value.toFixed(5)}</div>;
                 },
             },
             {
@@ -69,7 +67,7 @@ class TerminalTotalProfit extends React.Component {
                 maxWidth: 1000,
                 defaultFlex: 1,
                 render: ({ value }) => {
-                    return <div>T {(value / 1e9).toFixed(5)}</div>;
+                    return <div>T {value.toFixed(5)}</div>;
                 },
             },
             {
@@ -78,45 +76,33 @@ class TerminalTotalProfit extends React.Component {
                 maxWidth: 1000,
                 defaultFlex: 1,
                 render: ({ value }) => {
-                    return <div>T {(value / 1e9).toFixed(5)}</div>;
+                    return <div>T {value.toFixed(5)}</div>;
                 },
-            }
-
+            },
         ];
 
         this.state = {
             dataready: false,
             paidBonus: 0,
             bonusInPlan: 0,
+            trafficTokenToday:0,
             tableData: [],
 
             queryStart: moment().subtract(31, "days"),
             queryEnd: moment(),
             isMergeTerminals: true,
+            chardata: {},
         };
-
-
 
         /////below for charist test data
-
-        this.chardata = {
-            labels: ['2019/2/2', '2019/2/3', '2019/2/4', '2019/2/5', '2019/2/6',
-                '2019/2/3','2019/2/3','2019/2/3','2019/2/3'],
-            series: [
-                [10.3, 20.2, 4, 8, 6, -2, -1, -4, -6],
-                [1, 2, 3, 4, 5, 6, 7, 8, 9]
-            ]
-        };
 
         this.charoptions = {
             fullWidth: true,
             chartPadding: {
                 right: 40,
-                left:-10
-            }
+                left: 10,
+            },
         };
-
-
     }
 
     async componentDidMount() {
@@ -129,48 +115,124 @@ class TerminalTotalProfit extends React.Component {
         });
 
         this.getBonusInfo();
+        this.GetTrafficTokenToday()
+        await this.LoadTotalData();
         this.loadData();
     }
 
+    async GetTrafficTokenToday() {
+        let response = await axios.post(
+            Global.apiHost + "/api/v1/terminal/profit",
+            {
+                startTime: Math.floor(moment().startOf("day").valueOf() / 1000),
+                endTime: Math.floor(moment().valueOf() / 1000),
+                limit: 10000,
+                offset: 0,
+            },
+            {
+                headers: {
+                    Authorization: "Bearer " + UserManager.GetUserToken(),
+                },
+            }
+        );
+        if (response.data.status != 0) {
+            return ;
+        }
+
+        let responseData = response.data.data;
+        let traffic = responseData.data;
+        let totalTrafficTokenToday=0
+        for (let i = 0; i < traffic.length; i++) {
+            totalTrafficTokenToday+=traffic[i].amount
+        }
+        this.setState({ trafficTokenToday: totalTrafficTokenToday });
+    }
+
     loadData = null;
+    async LoadTotalData() {
+        let response = await axios.post(
+            Global.apiHost + "/api/v1/terminal/totalprofit",
+            {
+                startTime: Math.floor(this.state.queryStart.valueOf() / 1000),
+                endTime: Math.floor(this.state.queryEnd.valueOf() / 1000),
+                limit: 10000,
+                offset: 0,
+            },
+            {
+                headers: {
+                    Authorization: "Bearer " + UserManager.GetUserToken(),
+                },
+            }
+        );
+        if (response.data.status != 0) {
+            return [];
+        }
+        let responseData = response.data.data;
+        console.log(responseData);
+
+        let totalData = responseData.totalData;
+        let tempCharData = {
+            labels: [],
+            series: [[], []],
+        };
+
+        let tableData = [];
+
+        let startTime = this.state.queryStart.valueOf();
+        let endTime = this.state.queryEnd.valueOf();
+        let day = 0;
+        while (startTime + day * (1000 * 3600 * 24) < endTime) {
+            let dayTimeStamp = startTime + day * (1000 * 3600 * 24);
+            let dayDate = moment(dayTimeStamp).format("YYYY-MM-DD");
+            tempCharData.labels.push(dayDate);
+            day++;
+
+            if (!totalData[dayDate]) {
+                tempCharData.series[0].push(0);
+                tempCharData.series[1].push(0);
+                continue;
+            }
+
+            if (totalData[dayDate].traffic) {
+                tempCharData.series[0].push(totalData[dayDate].traffic / 1e9);
+            } else {
+                tempCharData.series[0].push(0);
+            }
+
+            if (totalData[dayDate].bonus) {
+                tempCharData.series[1].push(totalData[dayDate].bonus / 1e9);
+            } else {
+                tempCharData.series[1].push(0);
+            }
+
+            let dayTableData = {
+                date: dayDate,
+                FileToken: tempCharData.series[0][day - 1],
+                Bonous: tempCharData.series[1][day - 1],
+                Total:
+                    tempCharData.series[0][day - 1] +
+                    tempCharData.series[1][day - 1],
+            };
+            tableData.push(dayTableData);
+        }
+
+        this.chardata = tempCharData;
+        this.setState({ chardata: tempCharData });
+        this.tableData=tableData
+    }
+
     DataGrid = () => {
         const loadData = useCallback(() => {
-            const data = ({ skip, limit, sortInfo }) => {
-                console.log(skip, limit);
-                return axios
-                    .post(
-                        Global.apiHost + "/api/v1/terminal/bonusrecord",
-                        {
-                            startTime: Math.floor(
-                                this.state.queryStart.valueOf() / 1000
-                            ),
-                            endTime: Math.floor(
-                                this.state.queryEnd.valueOf() / 1000
-                            ),
-                            limit: limit,
-                            offset: skip,
-                        },
-                        {
-                            headers: {
-                                Authorization:
-                                    "Bearer " + UserManager.GetUserToken(),
-                            },
-                        }
-                    )
-                    .then((response) => {
-                        if (response.data.status != 0) {
-                            return [];
-                        }
-                        let responseData = response.data.data;
-                        console.log(responseData);
-                        return {
-                            data: responseData.data,
-                            count: parseInt(responseData.total),
-                        };
-                    });
+            const data = ({ skip, limit, sortInfo }) => {           
+                let limitTableData = this.tableData.slice(skip, skip + limit);               
+                return Promise.resolve( {
+                    data: limitTableData,
+                    count: this.tableData.length,
+                });
             };
             this.setState({ tableData: data });
         }, []);
+
         this.loadData = loadData;
 
         let label =
@@ -239,18 +301,22 @@ class TerminalTotalProfit extends React.Component {
                         className="btn btn-primary btn-xs"
                         type="button"
                         style={{ marginLeft: "5px" }}
-                        onClick={() => {
-                            loadData();
+                        onClick={async () => {
+                            await this.LoadTotalData();
+                            this.loadData();
                         }}
                     >
                         Query Record
                     </button>
                 </div>
 
-                <div style={{marginTop:'20px'}}>
-                    <ChartistGraph data={this.chardata} options={this.charoptions} type='Line' />
+                <div style={{ marginTop: "20px" }}>
+                    <ChartistGraph
+                        data={this.state.chardata}
+                        options={this.charoptions}
+                        type="Line"
+                    />
                 </div>
-
 
                 <ReactDataGrid
                     idProperty="id"
@@ -315,16 +381,22 @@ class TerminalTotalProfit extends React.Component {
                 <div class="row">
                     <div class="col-lg-4 mb-4">
                         <div class="card  border-light shadow-sm">
-                            <div class="card-body" style={{ padding: "10px 20px" }}>
-                                <div class="small text-muted"   >
+                            <div
+                                class="card-body"
+                                style={{ padding: "10px 20px" }}
+                            >
+                                <div class="small text-muted">
                                     Bonous Tokens Earned Today
                                 </div>
-                                <div class="h4 d-flex align-items-center"
-                                     style={{fontSize:'20px',color:'green',
-                                         marginTop:'5px',
-                                     }}
+                                <div
+                                    class="h4 d-flex align-items-center"
+                                    style={{
+                                        fontSize: "20px",
+                                        color: "green",
+                                        marginTop: "5px",
+                                    }}
                                 >
-                                      {(this.state.paidBonus / 1e9).toFixed(5)}
+                                    {(this.state.paidBonus / 1e9).toFixed(5)}
                                 </div>
                             </div>
                         </div>
@@ -332,13 +404,21 @@ class TerminalTotalProfit extends React.Component {
 
                     <div class="col-lg-4 mb-4">
                         <div class="card card  border-light shadow-sm">
-                            <div class="card-body" style={{ padding: "10px 20px" }}>
+                            <div
+                                class="card-body"
+                                style={{ padding: "10px 20px" }}
+                            >
                                 <div class="small text-muted">
                                     Estimated Bonous Tokens Next Round
                                 </div>
-                                <div class="h4" style={{fontSize:'20px',color:'grey',
-                                    marginTop:'5px',
-                                }}>
+                                <div
+                                    class="h4"
+                                    style={{
+                                        fontSize: "20px",
+                                        color: "grey",
+                                        marginTop: "5px",
+                                    }}
+                                >
                                     {" "}
                                     {(this.state.bonusInPlan / 1e9).toFixed(5)}
                                 </div>
@@ -350,14 +430,22 @@ class TerminalTotalProfit extends React.Component {
                 <div className="row">
                     <div className="col-lg-4 mb-4">
                         <div className="card  border-light shadow-sm">
-                            <div className="card-body" style={{padding: "10px 20px"}}>
+                            <div
+                                className="card-body"
+                                style={{ padding: "10px 20px" }}
+                            >
                                 <div className="small text-muted">
                                     Tokens Earned For Files Transferred Today
                                 </div>
-                                <div style={{fontSize:'20px',color:'green',
-                                marginTop:'5px',
-                                }} className="h4 d-flex align-items-center">
-                                      0
+                                <div
+                                    style={{
+                                        fontSize: "20px",
+                                        color: "green",
+                                        marginTop: "5px",
+                                    }}
+                                    className="h4 d-flex align-items-center"
+                                >
+                                    {(this.state.trafficTokenToday/1e9).toFixed(5)}
                                 </div>
                             </div>
                         </div>
