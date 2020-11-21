@@ -3,3 +3,4 @@
 /.vscode/sftp.json
 .idea
 .DS_Store
+.gitignore.swp
