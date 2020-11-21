@@ -236,7 +236,6 @@ class BalancePage extends React.Component {
                 </div>
 
 
-
                 <div className="nav nav-tabs" style={{marginTop:'20px'}}>
                     {paymentheaders}
                 </div>

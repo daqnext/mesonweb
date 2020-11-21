@@ -7,8 +7,8 @@
  * @FilePath: /coldCDNWeb/src/global/global.js
  */
 class Global {
-    //static apiHost = "https://meson.network";
-    static apiHost = "http://127.0.0.1:9090";
+    static apiHost = "https://meson.network";
+    //static apiHost = "http://127.0.0.1:9090";
 }
 
 export default Global;

@@ -15,6 +15,7 @@ import axios from "axios";
 import "./terminals.css";
 import ReactDataGrid from "@inovua/reactdatagrid-community";
 import Global from "../../global/global";
+import DataTable from "../../components/table/datatable";
 
 class TerminalPage extends React.Component {
     constructor(props) {
@@ -125,9 +126,17 @@ class TerminalPage extends React.Component {
             },
         ];
 
+
+        this.tutorial_sys=[
+            'linux',
+            'winserver',
+            'mac',
+        ];
+
         this.state = {
             dataready: false,
             tableData: [],
+            tutorialsys:'linux',
         };
     }
 
@@ -247,11 +256,58 @@ class TerminalPage extends React.Component {
         );
     }
 
+    renderTutorial(){
+
+        let tutorialheaders=this.tutorial_sys.map((m, idx) => {
+            if(this.state.tutorialsys==m){
+                return (<a className="nav-link  active ml-0" href="#">{m}</a>);
+            }else{
+                return (<a className="nav-link  ml-0" href="#"  onClick={(e)=>{
+                    this.setState({tutorialsys: m});
+                }} >{m}</a>);
+            }
+        });
+
+
+        let tutorialcontent=(<div></div>);
+        if(this.state.tutorialsys=='linux'){
+            tutorialcontent=(
+                <div>
+                    <div>//How to install and run miner terminal on linux server</div>
+                    <div>//step 1 download the terminal package</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson'</div>
+                </div>
+
+            );
+        }
+
+        return(
+            <div>
+                <div className="nav nav-tabs" style={{marginTop:'20px'}}>
+                    {tutorialheaders}
+                </div>
+
+                <div className="card border-light shadow-sm" style={{borderRadius:'0px',marginBottom:'20px',minHeight:'200px'}}>
+                    <div className="card-body">
+                        <div style={{background:'black',borderRadius:'3px',minHeight:'120px',color:'white',padding:'5px 10px'}}>
+                            {tutorialcontent}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        )
+
+    }
+
     render() {
         const Content = this.renderContent();
-
+        const Tutorial = this.renderTutorial();
         return (
             <AdminLayout name="Terminal" description="terminals">
+                {Tutorial}
                 {Content}
             </AdminLayout>
         );

@@ -60,7 +60,7 @@ class TokenControlPage extends React.Component {
         let response = await axios.post(
             Global.apiHost + "/api/v1/admin/settotalbonus",
             {
-                dailyTotalBonus: parseInt(this.state.newBonusPerDay),
+                dailyTotalBonus: parseInt(this.state.newBonusPerDay)*1000000000,
             },
             {
                 headers: {
@@ -99,7 +99,7 @@ class TokenControlPage extends React.Component {
                         <strong className="mr-auto ml-2">{key}</strong>
                     </div>
                     <div className="toast-body">
-                        {this.state.data[key]}
+                        {this.state.data[key]/1000000000}
                     </div>
                 </div>
             );
@@ -128,6 +128,7 @@ class TokenControlPage extends React.Component {
                                     }}
                                     className="btn btn-primary"
                                     type="button"
+                                    style={{marginTop:'10px'}}
                                 >
                                     Set New Totoal Bonus
                                 </button>
