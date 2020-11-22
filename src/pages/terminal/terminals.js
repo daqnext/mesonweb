@@ -283,6 +283,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.3 run the app</div>
                     <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-linux-amd64 && ./meson.v0.1.1</div>
                     <div>#Step.4 input your token</div>
+                    <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
                 </div>
 
@@ -300,6 +301,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.3 run the app</div>
                     <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-linux-386 && ./meson.v0.1.1</div>
                     <div>#Step.4 input your token</div>
+                    <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
                 </div>
 
@@ -317,6 +319,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.3 run the app</div>
                     <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-win64 && ./meson.v0.1.1</div>
                     <div>#Step.4 input your token</div>
+                    <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
                 </div>
 
@@ -334,6 +337,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.3 run the app</div>
                     <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-win32 && ./meson.v0.1.1</div>
                     <div>#Step.4 input your token</div>
+                    <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
                 </div>
 

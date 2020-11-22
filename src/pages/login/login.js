@@ -60,6 +60,12 @@ class LoginPage extends React.Component {
                 return
             }
 
+            if(response&&response.data.status==2101){
+                this.props.alert.error("User Not exist");
+                return
+            }
+
+
 
             console.log(response);
             /*

@@ -15,6 +15,7 @@ class BalancePage extends React.Component {
 
         this.paymethods=[
           'Erc20',
+          'DOT',
           'Alipay[支付宝]',
           'Wechat',
           'Paypal'
@@ -202,6 +203,12 @@ class BalancePage extends React.Component {
                  );
         }
 
+
+        if(this.state.currentpaymethod=='DOT'){
+            paymentbody=(<div style={{padding:'2px 10px'}}>
+                <span>[ DOT is under development ]</span>
+            </div>);
+        }
 
         if(this.state.currentpaymethod=='Alipay[支付宝]'){
             paymentbody=(<div style={{padding:'2px 10px'}}>
