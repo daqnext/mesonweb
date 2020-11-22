@@ -281,6 +281,20 @@ class BindDomain extends React.Component {
                 name="Client"
                 description="BindDomain"
             >
+
+                <div className="card-body"  style={{background:'#3a3a3a',marginBottom:'15px',
+                    borderRadius:'7px', minHeight:'120px',color:'white',padding:'25px 20px'}}>
+                    <div>#####Tutorial on how to accelerate your file ###########</div>
+                    <div>for example you want a file to be accelerated : </div>
+                    <div>https://yourdomain.com/static/testfiles/t1.jpg</div>
+                    <div style={{color:'yellow'}}>1.you can input yourdomain.com into  [add your location] then click [Check input url]</div>
+                    <div style={{color:'yellow'}}>2.if no error then click [Add Record]</div>
+                    <div> after step 2 you will have a new record with a cdn url like 'coldcdn.com/api/cdn/r7JEqR'</div>
+                    <div style={{color:'yellow'}}>now you can simply replace the old url and get a new url:  </div>
+                    <div> https://coldcdn.com/api/cdn/r7JEqR/static/testfiles/t1.jpg </div>
+                    <div> anyone can request the new url which is accelerated by meson.net globally</div>
+                </div>
+
                 {Content}
 
 

@@ -128,15 +128,17 @@ class TerminalPage extends React.Component {
 
 
         this.tutorial_sys=[
-            'linux',
-            'winserver',
-            'mac',
+            'linux 64 bit',
+            'linux 32 bit',
+            'winserver 64 bit',
+            'winserver 32 bit',
+            'mac 64 bit',
         ];
 
         this.state = {
             dataready: false,
             tableData: [],
-            tutorialsys:'linux',
+            tutorialsys:'linux 64 bit',
         };
     }
 
@@ -270,16 +272,93 @@ class TerminalPage extends React.Component {
 
 
         let tutorialcontent=(<div></div>);
-        if(this.state.tutorialsys=='linux'){
+        if(this.state.tutorialsys=='linux 64 bit'){
             tutorialcontent=(
                 <div>
-                    <div>//How to install and run miner terminal on linux server</div>
-                    <div>//step 1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson'</div>
+                    <div>####### Tutorial: How to install and run miner terminal on linux server#######</div>
+                    <div>#Step.1 download the terminal package</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v0.1.1-linux-amd64.zip'</div>
+                    <div>#Step.2 unzip the package</div>
+                    <div style={{color:'yellow'}}>$ unzip meson-v0.1.1-linux-amd64.zip</div>
+                    <div>#Step.3 run the app</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-linux-amd64 && ./meson.v0.1.1</div>
+                    <div>#Step.4 input your token</div>
+                    <div>#Step.5 check your earnings</div>
                 </div>
 
             );
         }
+
+        if(this.state.tutorialsys=='linux 32 bit'){
+            tutorialcontent=(
+                <div>
+                    <div>####### Tutorial: How to install and run miner terminal on linux server#######</div>
+                    <div>#Step.1 download the terminal package</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v0.1.1-linux-386.zip'</div>
+                    <div>#Step.2 unzip the package</div>
+                    <div style={{color:'yellow'}}>$ unzip meson-v0.1.1-linux-386.zip</div>
+                    <div>#Step.3 run the app</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-linux-386 && ./meson.v0.1.1</div>
+                    <div>#Step.4 input your token</div>
+                    <div>#Step.5 check your earnings</div>
+                </div>
+
+            );
+        }
+
+        if(this.state.tutorialsys=='winserver 64 bit'){
+            tutorialcontent=(
+                <div>
+                    <div>####### Tutorial: How to install and run miner terminal on windows server#######</div>
+                    <div>#Step.1 download the terminal package</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v0.1.1-win64.zip'</div>
+                    <div>#Step.2 unzip the package</div>
+                    <div style={{color:'yellow'}}>$ unzip meson-v0.1.1-win64.zip</div>
+                    <div>#Step.3 run the app</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-win64 && ./meson.v0.1.1</div>
+                    <div>#Step.4 input your token</div>
+                    <div>#Step.5 check your earnings</div>
+                </div>
+
+            );
+        }
+
+        if(this.state.tutorialsys=='winserver 32 bit'){
+            tutorialcontent=(
+                <div>
+                    <div>####### Tutorial: How to install and run miner terminal on windows server#######</div>
+                    <div>#Step.1 download the terminal package</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v0.1.1-win32.zip'</div>
+                    <div>#Step.2 unzip the package</div>
+                    <div style={{color:'yellow'}}>$ unzip meson-v0.1.1-win32.zip</div>
+                    <div>#Step.3 run the app</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-win32 && ./meson.v0.1.1</div>
+                    <div>#Step.4 input your token</div>
+                    <div>#Step.5 check your earnings</div>
+                </div>
+
+            );
+        }
+
+        if(this.state.tutorialsys=='mac 64 bit'){
+            tutorialcontent=(
+                <div>
+                    <div>####### Tutorial: How to install and run miner terminal on mac server#######</div>
+                    <div>#Step.1 download the terminal package</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v0.1.1-darwin-amd64.zip'</div>
+                    <div>#Step.2 unzip the package</div>
+                    <div style={{color:'yellow'}}>$ unzip meson-v0.1.1-darwin-amd64.zip</div>
+                    <div>#Step.3 run the app</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-darwin-amd64 && ./meson.v0.1.1</div>
+                    <div>#Step.4 input your token</div>
+                    <div>#Step.5 check your earnings</div>
+                </div>
+
+            );
+        }
+
+
+
 
         return(
             <div>
@@ -288,11 +367,10 @@ class TerminalPage extends React.Component {
                 </div>
 
                 <div className="card border-light shadow-sm" style={{borderRadius:'0px',marginBottom:'20px',minHeight:'200px'}}>
-                    <div className="card-body">
-                        <div style={{background:'black',borderRadius:'3px',minHeight:'120px',color:'white',padding:'5px 10px'}}>
+                    <div className="card-body"  style={{background:'#3a3a3a',marginTop:'-2px',marginLeft:'-1px',
+                        borderBottomRightRadius:'6px',borderBottomLeftRadius:'6px',borderTopRightRadius:'6px',
+                        minHeight:'120px',color:'white',padding:'25px 20px'}}>
                             {tutorialcontent}
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -308,6 +386,27 @@ class TerminalPage extends React.Component {
         return (
             <AdminLayout name="Terminal" description="terminals">
                 {Tutorial}
+
+                <div className="card border-light shadow-sm" style={{marginBottom:'10px'}}>
+                    <div className="card-body" style={{padding:'10px 20px'}}>
+
+                        <div className="form-group">
+                            <label htmlFor="exampleInputPassword1">My Token</label>
+                            <div className="input-group mb-4">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text"><i className="fas fa-unlock-alt"></i></span>
+                                </div>
+                                <input  id="mytoken" value={UserManager.GetUserToken()} className="form-control"  type="text" />
+                                <div className="input-group-append">
+                                    <div data-clipboard-target="#mytoken" className="btn   btn-light" type="button">copy</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
                 {Content}
             </AdminLayout>
         );

@@ -196,9 +196,8 @@ class AdminSidebar extends React.Component {
                 </li>
 
                 {UserAdminSiderBar}
-                {UserClientSiderBar}
                 {UserTerminalSiderBar}
-
+                {UserClientSiderBar}
 
             </div>
         );

@@ -58,7 +58,7 @@ class TerminalTotalProfit extends React.Component {
                 maxWidth: 1000,
                 defaultFlex: 1,
                 render: ({ value }) => {
-                    return <div>T {value.toFixed(5)}</div>;
+                    return <div> {value.toFixed(5)}</div>;
                 },
             },
             {
@@ -67,7 +67,7 @@ class TerminalTotalProfit extends React.Component {
                 maxWidth: 1000,
                 defaultFlex: 1,
                 render: ({ value }) => {
-                    return <div>T {value.toFixed(5)}</div>;
+                    return <div> {value.toFixed(5)}</div>;
                 },
             },
             {
@@ -76,7 +76,7 @@ class TerminalTotalProfit extends React.Component {
                 maxWidth: 1000,
                 defaultFlex: 1,
                 render: ({ value }) => {
-                    return <div>T {value.toFixed(5)}</div>;
+                    return <div> {value.toFixed(5)}</div>;
                 },
             },
         ];
