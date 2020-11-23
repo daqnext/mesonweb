@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-11-21 18:47:25
+ * @LastEditTime: 2020-11-23 09:06:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -25,9 +25,14 @@ import ClientTraffic from './pages/clientTraffic/clientTraffic';
 import TerminalTraffic from './pages/terminalTraffic/terminalTraffic';
 import terminalTotalProfit from './pages/terminalTotalProfit/terminalTotalProfit';
 import TokenControlPage from './pages/tokenControl/tokenControl';
+import axios from "axios";
+import Global from './global/global';
+import momentTimeZone from "moment-timezone"
+import moment from "moment"
+
+
 
 function App() {
-
     ///routing to the right page
     let router_map = {
         home: HomePage,
@@ -43,16 +48,31 @@ function App() {
         //for terminal pages
         terminals: TerminalPage,
         terminaltraffic: TerminalTraffic,
-        terminaltotalprofit:terminalTotalProfit,
+        terminaltotalprofit: terminalTotalProfit,
 
         /////blow for client pages
         binddomain: BindDomain,
         clienttraffic: ClientTraffic,
     };
 
+    //GetServerTimeZone
+    console.log("get time zone");
+    momentTimeZone.tz.setDefault("Europe/London");
+    axios
+        .get(Global.apiHost + "/api/v1/user/servertimezone")
+        .then((response) => {
+            console.log(response.data);
+            if (response.data.data.status == 0) {
+                let timeZone = response.data.data;
+                momentTimeZone.tz.setDefault(timeZone);
+            }
+
+            console.log(moment().format("YYYY-MM-DD HH:MM:SS"));
+        });
+
     for (const urlkey in router_map) {
-        if(window.location.href.includes(urlkey)){
-            const Page =router_map[urlkey];
+        if (window.location.href.includes(urlkey)) {
+            const Page = router_map[urlkey];
             return <Page />;
             break;
         }

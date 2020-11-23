@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 23:52:52
- * @LastEditTime: 2020-11-21 19:38:03
+ * @LastEditTime: 2020-11-23 09:59:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalTotalProfit/terminalTotalProfit.js
@@ -30,6 +30,7 @@ class TerminalTotalProfit extends React.Component {
         this.todayRecord = [];
         this.queryRecord = [];
         this.tableData = [];
+        this.refrashBonusInPlanInterval=0
 
         this.columns = [
             {
@@ -118,6 +119,10 @@ class TerminalTotalProfit extends React.Component {
         this.GetTrafficTokenToday()
         await this.LoadTotalData();
         this.loadData();
+
+        setInterval(() => {
+            this.getBonusInfo();
+        }, 60*1000);
     }
 
     async GetTrafficTokenToday() {
@@ -357,7 +362,8 @@ class TerminalTotalProfit extends React.Component {
         this.todayRecord = response.data.data.todayRecord;
 
         //bonus in plan
-        setInterval(() => {
+        clearInterval(this.refrashBonusInPlanInterval);
+        this.refrashBonusInPlanInterval=setInterval(() => {
             let nowStamp = Math.floor(moment().valueOf() / 1000);
             let bonusInPlan =
                 (nowStamp - this.lastPayBonusTime) * this.bonusInPlanPerSecond;
