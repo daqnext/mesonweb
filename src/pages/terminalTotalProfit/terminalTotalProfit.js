@@ -11,6 +11,7 @@ import React, { useCallback } from "react";
 import { withAlert } from "react-alert";
 import AdminLayout from "../../components/layout/adminLayout";
 import UserManager from "../../manager/usermanager";
+import TimeManager from "../../manager/timemanager";
 import axios from "axios";
 import DataTable from "../../components/table/datatable";
 import moment from "moment";
@@ -20,6 +21,7 @@ import DateRangePicker from "react-bootstrap-daterangepicker";
 import Global from "../../global/global";
 
 import ChartistGraph from "react-chartist";
+
 
 class TerminalTotalProfit extends React.Component {
     constructor(props) {
@@ -110,6 +112,11 @@ class TerminalTotalProfit extends React.Component {
         if (UserManager.GetUserInfo() == null) {
             await UserManager.UpdateUserInfo();
         }
+
+        if(TimeManager.timeZone==null){
+            await TimeManager.UpdateServerTimeZone();
+        }
+
         UserManager.TokenCheckAndRedirectLogin();
         this.setState({
             dataready: true,
