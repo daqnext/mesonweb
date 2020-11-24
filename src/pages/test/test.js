@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-11-19 17:58:29
+ * @LastEditTime: 2020-11-24 20:27:57
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /mesonweb/src/pages/test/test.js
+ */
 
 import React from 'react';
 import AdminLayout from "../../components/layout/adminLayout";
@@ -34,33 +42,57 @@ class TestPage extends React.Component {
         }
 
 
-        return(<div>
-            <div onClick={()=>{
+        return (
+            <div>
+                <div>
+                    <div>with cdn</div>
+                    <video
+                        style={{ width: "30%" }}
+                        src="https://mesontest.shuquxs.xyz/static/video/1.mp4"
+                        controls="controls"
+                    ></video>
 
-                usermanager.getuserinfo("dSyyh3wPoKGuNHSqHjOGWg==")
+                    <div>without cdn</div>
+                    <video
+                        style={{ width: "30%" }}
+                        src="https://meson.network/static/video/1.mp4"
+                        controls="controls"
+                    ></video>
+                </div>
+                <div
+                    onClick={() => {
+                        usermanager.getuserinfo("dSyyh3wPoKGuNHSqHjOGWg==");
+                    }}
+                >
+                    test userinfo
+                </div>
 
-            }}>test userinfo</div>
+                <div
+                    onClick={() => {
+                        UserManager.SetUserToken("xxxx");
+                    }}
+                >
+                    set user token
+                </div>
 
-            <div onClick={()=>{
+                <div
+                    onClick={() => {
+                        localStorage.coldcdnusertoken = null;
+                        console.log(localStorage.coldcdnusertoken);
+                    }}
+                >
+                    unset user token
+                </div>
 
-                UserManager.SetUserToken("xxxx");
-
-            }}>set user token</div>
-
-            <div onClick={()=>{
-
-                localStorage.coldcdnusertoken=null;
-                console.log(localStorage.coldcdnusertoken);
-
-            }}>unset user token</div>
-
-
-            <div onClick={()=>{
-
-                console.log(UserManager.GetUserInfo());
-
-            }}>log userinfo</div>
-        </div>);
+                <div
+                    onClick={() => {
+                        console.log(UserManager.GetUserInfo());
+                    }}
+                >
+                    log userinfo
+                </div>
+            </div>
+        );
     }
 
 
