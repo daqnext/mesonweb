@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-11-23 09:06:04
+ * @LastEditTime: 2020-11-24 08:33:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -25,6 +25,7 @@ import ClientTraffic from './pages/clientTraffic/clientTraffic';
 import TerminalTraffic from './pages/terminalTraffic/terminalTraffic';
 import terminalTotalProfit from './pages/terminalTotalProfit/terminalTotalProfit';
 import TokenControlPage from './pages/tokenControl/tokenControl';
+import AdminMachine from './pages/adminMachine/adminMachine';
 
 
 
@@ -35,11 +36,13 @@ function App() {
         login: LoginPage,
         register: RegisterPage,
         welcome: WelcomePage,
+
+        //for admin
         test: TestPage,
         usermanager: UserManagerPage,
-        balance: BalancePage,
         monitoring: MonitorPage,
         tokencontrol: TokenControlPage,
+        adminmachine:AdminMachine,
 
         //for terminal pages
         terminals: TerminalPage,
@@ -49,6 +52,7 @@ function App() {
         /////blow for client pages
         binddomain: BindDomain,
         clienttraffic: ClientTraffic,
+        balance: BalancePage,
     };
 
 
