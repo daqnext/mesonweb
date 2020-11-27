@@ -101,7 +101,7 @@ class DataTable extends React.Component {
 
 
 
-            let tr1=(<tr class="tr1">{table_row_items}
+            let tr1=(<tr className="tr1">{table_row_items}
                 <td><button onClick={()=>{
                     if(this.state.expand_rows[rownum]){
                         delete this.state.expand_rows[rownum];
