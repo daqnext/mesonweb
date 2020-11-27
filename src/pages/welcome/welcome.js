@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-11-23 08:56:29
+ * @LastEditTime: 2020-11-26 16:32:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/welcome/welcome.js
@@ -12,6 +12,7 @@ import AdminLayout from "../../components/layout/adminLayout";
 import UserManager from "../../manager/usermanager";
 import { isMobile } from 'react-device-detect';
 import moment from "moment"
+import TimeManager from '../../manager/timemanager';
 
 class WelcomePage extends React.Component {
 
@@ -27,6 +28,9 @@ class WelcomePage extends React.Component {
     async componentDidMount() {
         if(UserManager.GetUserInfo()==null){
             await UserManager.UpdateUserInfo();
+        }
+        if (TimeManager.timeZone == null) {
+            await TimeManager.UpdateServerTimeZone();
         }
         UserManager.TokenCheckAndRedirectLogin();
         this.setState({
