@@ -75,6 +75,7 @@ class AdminSidebar extends React.Component {
                         <li className={this.getActive("/monitoring") + " nav-item"}  ><a className="nav-link" href="/monitoring"><span>Monitoring</span></a></li>
                         <li className={this.getActive("/tokencontrol") + " nav-item"}  ><a className="nav-link" href="/tokencontrol"><span>TokenControl</span></a></li>
                         <li className= {this.getActive("/adminmachine")+" nav-item"}  ><a className="nav-link" href="/adminmachine"><span>AdminMachine</span></a></li>
+                        <li className= {this.getActive("/adminpricesetting")+" nav-item"}  ><a className="nav-link" href="/adminpricesetting"><span>AdminPriceSetting</span></a></li>
                     </ul>
                 </div>
             </li>

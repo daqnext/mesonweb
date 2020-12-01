@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-11-24 10:19:24
+ * @LastEditTime: 2020-12-01 23:04:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -209,7 +209,7 @@ class AdminMachinePage extends React.Component {
         
         const MachineTable = this.renderMachineTable();
         return (
-            <AdminLayout name="Terminal" description="terminals">
+            <AdminLayout name="Admin" description="Machines">
                 
                 {MachineTable}
             </AdminLayout>

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-11-24 08:33:44
+ * @LastEditTime: 2020-12-01 16:06:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -26,6 +26,7 @@ import TerminalTraffic from './pages/terminalTraffic/terminalTraffic';
 import terminalTotalProfit from './pages/terminalTotalProfit/terminalTotalProfit';
 import TokenControlPage from './pages/tokenControl/tokenControl';
 import AdminMachine from './pages/adminMachine/adminMachine';
+import AdminPriceSetting from './pages/adminPriceSettting/adminPriceSetting';
 
 
 
@@ -42,7 +43,8 @@ function App() {
         usermanager: UserManagerPage,
         monitoring: MonitorPage,
         tokencontrol: TokenControlPage,
-        adminmachine:AdminMachine,
+        adminmachine: AdminMachine,
+        adminpricesetting: AdminPriceSetting,
 
         //for terminal pages
         terminals: TerminalPage,
