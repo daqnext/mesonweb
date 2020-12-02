@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-10 19:56:44
- * @LastEditTime: 2020-11-17 08:14:57
+ * @LastEditTime: 2020-12-02 15:42:53
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminalProfit/terminalProfit.js
@@ -71,13 +71,13 @@ class TerminalProfit extends React.Component {
             },
             {
                 name: "amount",
-                header: "Amount",
+                header: "Token Amount",
                 maxWidth: 1000,
                 defaultFlex: 1,
                 render: ({ value }) => {
                     return (
                         <div style={{ width: "20%" }}>
-                            $&ensp;{(value / 1e9).toFixed(5)}
+                            &ensp;{(value / 1e9).toFixed(5)}
                         </div>
                     );
                 },

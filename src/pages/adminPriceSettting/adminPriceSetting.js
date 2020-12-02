@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-12-01 23:04:45
+ * @LastEditTime: 2020-12-02 15:39:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -14,7 +14,6 @@ import UserManager from "../../manager/usermanager";
 import axios from "axios";
 import ReactDataGrid from "@inovua/reactdatagrid-community";
 import Global from "../../global/global";
-import DataTable from "../../components/table/datatable";
 
 class AdminPriceSetting extends React.Component {
     constructor(props) {
@@ -35,15 +34,25 @@ class AdminPriceSetting extends React.Component {
             },
             {
                 name: "client_price_per_kb",
-                header: "client_price_per_kb",
+                header: "client_price",
                 defaultFlex: 1,
                 type: "number",
+                render: ({ value }) => {
+                    return <div>{`$ ${(value / 1000).toFixed(3)} /GB`}</div>;
+                },
+                getEditStartValue: (value) => (value / 1000).toFixed(3),
             },
             {
                 name: "terminal_price_per_kb",
-                header: "terminal_price_per_kb",
+                header: "terminal_price",
                 defaultFlex: 1,
                 type: "number",
+                render: ({ value }) => {
+                    return (
+                        <div>{`Token ${(value / 1000).toFixed(3)} /GB`}</div>
+                    );
+                },
+                getEditStartValue: (value) => (value / 1000).toFixed(3),
             },
         ];
 
@@ -91,7 +100,10 @@ class AdminPriceSetting extends React.Component {
                 let modifyRecord = data[rowIndex];
                 console.log(modifyRecord);
 
-                modifyRecord[columnId] = parseInt(value);
+                if (modifyRecord[columnId] == parseInt(value*1000)) {
+                    return
+                }
+                modifyRecord[columnId] = parseInt(value*1000);
                 console.log(modifyRecord);
                 //send post to server
                 axios
@@ -114,9 +126,12 @@ class AdminPriceSetting extends React.Component {
                     )
                     .then((response) => {
                         if (response.data.status != 0) {
-                            //alart
+                            this.props.alert.error(
+                                "set new price error"
+                            );
                             return;
                         }
+                        this.props.alert.success("set new price success");
                         this.GetPriceData();
                     });
                 // this.setState({tableData: data });

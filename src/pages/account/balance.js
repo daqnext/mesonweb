@@ -231,7 +231,7 @@ class BalancePage extends React.Component {
 
         return (
             <AdminLayout
-                name="Balance"
+                name="Client"
                 description="Balance"
             >
 
