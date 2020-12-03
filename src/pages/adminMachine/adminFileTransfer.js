@@ -238,10 +238,8 @@ import UserManager from "../../manager/usermanager";
 
      render() {
          return (
-             <div className="card border-light shadow-sm">
-                 <div className="card-body">
-                     <this.DataGrid></this.DataGrid>
-                 </div>
+             <div className="  border-light shadow-sm">
+                 <this.DataGrid></this.DataGrid>
              </div>
          );
      }

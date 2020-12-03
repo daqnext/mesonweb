@@ -262,61 +262,71 @@ class TokenControlPage extends React.Component {
 
         return (
             <AdminLayout name="Admin" description="bonus token control">
-                <div className="toast-header text-primary">
-                    <strong className="mr-auto ml-2">
-                        Total Bonus Token
-                    </strong>
-                </div>
+
+
                 <div
-                    className="card border-light shadow-sm"
-                    style={{ marginBottom: "10px" }}
+                    className="toast fade show"
+                    role="alert"
+                    aria-live="assertive"
+                    aria-atomic="true"
                 >
-                    <div className="card-body">
-                        <form>
-                            <div className="form-group">
-                                <label>TotalTokenPerDay</label>
-                                <input
-                                    className="form-control"
-                                    onChange={(event) => {
-                                        this.setState({
-                                            newBonusPerDay:
-                                                event.currentTarget.value,
-                                        });
-                                    }}
-                                    type="text"
-                                />
-                                <button
-                                    onClick={() => {
-                                        this.SetNewTotalBonusPerDay();
-                                    }}
-                                    className="btn btn-primary"
-                                    type="button"
-                                    style={{ marginTop: "10px" }}
-                                >
-                                    Set New Totoal Bonus
-                                </button>
-                            </div>
-                        </form>
+                    <div className="toast-header text-primary">
+                        <strong className="mr-auto ml-2">TotalTokenPerDay</strong>
+                    </div>
+                    <div className="toast-body">
+                        <input
+                            className="form-control"
+                            onChange={(event) => {
+                                this.setState({
+                                    newBonusPerDay:
+                                    event.currentTarget.value,
+                                });
+                            }}
+                            type="text"
+                        />
+                        <button
+                            style={{marginTop:'10px'}}
+                            onClick={() => {
+                                this.SetNewTotalBonusPerDay();
+                            }}
+                            className="btn btn-primary"
+                            type="button"
+
+                        >
+                            Set New Totoal Bonus
+                        </button>
                     </div>
                 </div>
+
 
                 {monitorcontent}
 
-                <div className="toast-header text-primary">
-                    <strong className="mr-auto ml-2">
-                        Country Bonus Token
-                    </strong>
-                </div>
-                <div className="card border-light shadow-sm">
-                    <div className="card-body">
+                <div
+                    className="toast fade show"
+                    role="alert"
+                    aria-live="assertive"
+                    aria-atomic="true"
+                >
+                    <div className="toast-header text-primary">
+                        <strong className="mr-auto ml-2"> Country Bonus Token</strong>
+                    </div>
+                    <div className="toast-body">
                         <this.DataGrid></this.DataGrid>
                     </div>
                 </div>
+
+
+
                 <div
-                    className="card border-light shadow-sm"
-                    style={{ marginBottom: "10px" }}
+                    className="toast fade show"
+                    role="alert"
+                    aria-live="assertive"
+                    aria-atomic="true"
                 >
-                    <div className="card-body">
+                    <div className="toast-header text-primary">
+                        <strong className="mr-auto ml-2"> Country Token Config</strong>
+                    </div>
+                    <div className="toast-body">
                         <form>
                             <div className="form-group">
                                 <label>Country</label>
@@ -325,7 +335,7 @@ class TokenControlPage extends React.Component {
                                     onChange={(event) => {
                                         this.setState({
                                             newCountry:
-                                                event.currentTarget.value,
+                                            event.currentTarget.value,
                                         });
                                     }}
                                     type="text"
@@ -336,7 +346,7 @@ class TokenControlPage extends React.Component {
                                     onChange={(event) => {
                                         this.setState({
                                             newBonusToken:
-                                                event.currentTarget.value,
+                                            event.currentTarget.value,
                                         });
                                     }}
                                     type="text"
@@ -358,6 +368,10 @@ class TokenControlPage extends React.Component {
                         </form>
                     </div>
                 </div>
+
+
+
+
             </AdminLayout>
         );
     }

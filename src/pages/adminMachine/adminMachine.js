@@ -195,7 +195,7 @@ class AdminMachinePage extends React.Component {
                     {tutorialheaders}
                 </div>
 
-                <div className="card border-light shadow-sm" style={{borderRadius:'0px',marginBottom:'20px',minHeight:'200px'}}>      
+                <div className="  border-light shadow-sm" style={{borderRadius:'0px',marginBottom:'20px',minHeight:'200px'}}>
                     {machineContent}                   
                 </div>
             </div>

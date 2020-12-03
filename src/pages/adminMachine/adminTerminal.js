@@ -253,10 +253,8 @@ export default class AdminTerminal extends React.Component {
 
     render() {
         return (
-            <div className="card border-light shadow-sm">
-                <div className="card-body">
-                    <this.DataGrid></this.DataGrid>
-                </div>
+            <div className="  border-light shadow-sm">
+                <this.DataGrid></this.DataGrid>
             </div>
         );
     }
