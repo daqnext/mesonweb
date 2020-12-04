@@ -10,7 +10,7 @@ class AdminLayout extends React.Component {
                 <div className="row">
                     <div className="col-12">
                         <AdminSidebar></AdminSidebar>
-                        <AdminContent >
+                        <AdminContent>
                             <nav className="contenthead" aria-label="breadcrumb">
                                 <ol className="breadcrumb breadcrumb-transparent">
                                     <li className="breadcrumb-item"><a href="#">{this.props.name}</a></li>

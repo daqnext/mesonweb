@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-12-02 15:26:31
+ * @LastEditTime: 2020-12-04 11:03:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -28,6 +28,7 @@ import TerminalBalance from './pages/terminalBalance/terminalBalance';
 import TokenControlPage from './pages/tokenControl/tokenControl';
 import AdminMachine from './pages/adminMachine/adminMachine';
 import AdminPriceSetting from './pages/adminPriceSettting/adminPriceSetting';
+import BlogEditorPage from './pages/blogEditor/blogEditor';
 
 
 
@@ -47,6 +48,7 @@ function App() {
         tokencontrol: TokenControlPage,
         adminmachine: AdminMachine,
         adminpricesetting: AdminPriceSetting,
+        blogeditor:BlogEditorPage,
 
         //for terminal pages
         terminals: TerminalPage,
