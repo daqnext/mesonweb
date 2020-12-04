@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-11-10 08:34:39
- * @LastEditors: your name
+ * @LastEditTime: 2020-12-04 21:25:23
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/manager/usermanager.js
  */
@@ -22,7 +22,8 @@ class UserManager
     static UserAuth={
         admin:'admin',
         client:'client',
-        terminal:'terminal'
+        terminal: 'terminal',
+        blog:'blog',
     }
 
     static checkUserHasAuth(auth){

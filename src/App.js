@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-12-04 11:03:27
+ * @LastEditTime: 2020-12-04 21:24:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -48,18 +48,20 @@ function App() {
         tokencontrol: TokenControlPage,
         adminmachine: AdminMachine,
         adminpricesetting: AdminPriceSetting,
-        blogeditor:BlogEditorPage,
 
         //for terminal pages
         terminals: TerminalPage,
         terminaltraffic: TerminalTraffic,
         terminaltotalprofit: TerminalTotalProfit,
-        terminalbalance:TerminalBalance,
+        terminalbalance: TerminalBalance,
 
         /////blow for client pages
         binddomain: BindDomain,
         clienttraffic: ClientTraffic,
         balance: BalancePage,
+
+        //for blog
+        blogeditor: BlogEditorPage,
     };
 
 

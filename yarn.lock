@@ -1098,6 +1098,15 @@
     "@ckeditor/ckeditor5-utils" "^23.1.0"
     lodash-es "^4.17.15"
 
+"@ckeditor/ckeditor5-font@^23.1.0":
+  version "23.1.0"
+  resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-font/download/@ckeditor/ckeditor5-font-23.1.0.tgz#f15fc81c1e94a7162e1046f5d2985dfeef4cc95c"
+  integrity sha1-8V/IHB6UpxYuEEb10phd/u9MyVw=
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^23.1.0"
+    "@ckeditor/ckeditor5-ui" "^23.1.0"
+    "@ckeditor/ckeditor5-utils" "^23.1.0"
+
 "@ckeditor/ckeditor5-react@^3.0.0":
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-react/download/@ckeditor/ckeditor5-react-3.0.0.tgz#05a1bdd7b26a8c1df6fd734376ea84e394d6ab47"

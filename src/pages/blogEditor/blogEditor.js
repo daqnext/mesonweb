@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-04 15:51:53
+ * @LastEditTime: 2020-12-04 22:39:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -14,10 +14,12 @@ import AdminContent from "../../components/layout/adminContent";
 import UserManager from "../../manager/usermanager";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+//import Font from "@ckeditor/ckeditor5-font/src/font";
 //import SimpleUploadAdapter from "@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter";
 import MyUploadAdapter from "./uploadAdapter";
 import Global from '../../global/global';
 import axios from "axios";
+import "./blog.css";
 
 function MyCustomUploadAdapterPlugin(editor) {
     editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
@@ -72,67 +74,80 @@ class BlogEditorPage extends React.Component {
         return (
             <div>
                 {/* title */}
-                <div>Title</div>
-                {/* <CKEditor
-                    editor={ClassicEditor}
-                    config={{
-                        toolbar: [""],
-                    }}
-                    //data=""
-                    onChange={(event, editor) => {
-                        const data = editor.getData();
-                        console.log({ event, editor, data });
-                        this.title = data;
-                    }}
-                /> */}
-                <input
-                    className="form-control"
-                    onChange={(event) => {
-                        this.title=event.currentTarget.value
-                        
-                    }}
-                    type="text"
-                />
+                <div
+                    className="toast fade show"
+                    role="alert"
+                    aria-live="assertive"
+                    aria-atomic="true"
+                >
+                    <div className="toast-header text-primary">
+                        <strong className="mr-auto ml-2">Title</strong>
+                    </div>
+                    <div className="toast-body">
+                        <input
+                            className="form-control"
+                            onChange={(event) => {
+                                this.title = event.currentTarget.value;
+                            }}
+                            type="text"
+                        />
+                    </div>
+                </div>
 
                 {/* coverImg */}
-                <div>cover img</div>
-                <CKEditor
-                    editor={ClassicEditor}
-                    config={{
-                        extraPlugins: [MyCustomUploadAdapterPlugin],
-                        toolbar: ["imageUpload"],
-                    }}
-                    //data=""
-                    onChange={(event, editor) => {
-                        const data = editor.getData();
-                        console.log({ event, editor, data });
-                        this.coverImgUrl = data;
-                    }}
-                />
+
+                <div
+                    className="toast fade show"
+                    role="alert"
+                    aria-live="assertive"
+                    aria-atomic="true"
+                >
+                    <div className="toast-header text-primary">
+                        <strong className="mr-auto ml-2">Cover img</strong>
+                    </div>
+                    <div className="toast-body cover-img">
+                        <CKEditor
+                            editor={ClassicEditor}
+                            config={{
+                                extraPlugins: [MyCustomUploadAdapterPlugin],
+                                toolbar: ["imageUpload"],
+                                allowEditor: false,
+                            }}
+                            onChange={(event, editor) => {
+                                const data = editor.getData();
+                                console.log({ event, editor, data });
+                                this.coverImgUrl = data;
+                            }}
+                        />
+                    </div>
+                </div>
 
                 {/* content */}
-                <CKEditor
-                    editor={ClassicEditor}
-                    config={{
-                        extraPlugins: [MyCustomUploadAdapterPlugin],
-                    }}
-                    data="<p>Hello from CKEditor 5!</p>"
-                    onReady={(editor) => {
-                        // You can store the "editor" and use when it is needed.
-                        console.log("Editor is ready to use!", editor);
-                    }}
-                    onChange={(event, editor) => {
-                        const data = editor.getData();
-                        console.log({ event, editor, data });
-                        this.content = data;
-                    }}
-                    // onBlur={(event, editor) => {
-                    //     console.log("Blur.", editor);
-                    // }}
-                    // onFocus={(event, editor) => {
-                    //     console.log("Focus.", editor);
-                    // }}
-                />
+                <div className="blog-content">
+                    <CKEditor
+                        editor={ClassicEditor}
+                        config={{
+                            extraPlugins: [MyCustomUploadAdapterPlugin],
+                            //plugins: [ Font ],
+                        }}
+                        data="<p>Hello from CKEditor 5!</p>"
+                        onReady={(editor) => {
+                            // You can store the "editor" and use when it is needed.
+                            console.log("Editor is ready to use!", editor);
+                        }}
+                        onChange={(event, editor) => {
+                            const data = editor.getData();
+                            console.log({ event, editor, data });
+                            this.content = data;
+                        }}
+                        // onBlur={(event, editor) => {
+                        //     console.log("Blur.", editor);
+                        // }}
+                        // onFocus={(event, editor) => {
+                        //     console.log("Focus.", editor);
+                        // }}
+                    />
+                </div>
             </div>
         );
     }
