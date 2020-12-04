@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-04 22:39:36
+ * @LastEditTime: 2020-12-05 00:32:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -10,7 +10,7 @@
 import React from 'react';
 import AdminLayout from "../../components/layout/adminLayout";
 import AdminContent from "../../components/layout/adminContent";
-
+import { withAlert } from "react-alert";
 import UserManager from "../../manager/usermanager";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
@@ -44,6 +44,7 @@ class BlogEditorPage extends React.Component {
         this.title=""
         this.content = ""
         this.coverImgUrl = ""
+        this.isPublishing=false
         
         ClassicEditor.create(document.querySelector("#title-editor"), {
             toolbar: ["bold", "italic", "link"],
@@ -152,10 +153,7 @@ class BlogEditorPage extends React.Component {
         );
     }
 
-
     render() {
-
-
         const Content=this.renderContent();
 
         return (
@@ -167,16 +165,26 @@ class BlogEditorPage extends React.Component {
                     style={{ marginLeft: "5px", marginTop: "5px" }}
                     onClick={async () => {
                         console.log("publish");
-                        // let div = document.createElement("div");
-                        // div.innerHTML = this.title;
-                        // let title=div.querySelector("p").innerText
+                        if (this.isPublishing==true) {
+                            return
+                        }
 
                         let div = document.createElement("div");
                         div.innerHTML = this.coverImgUrl;
-                        let coverImgUrl=div.querySelector("img").src
+                        let img = div.querySelector("img")
+                        let coverImgUrl=""
+                        if (img) {
+                            coverImgUrl=img.src
+                        }
 
+                        if (this.title==""||coverImgUrl==""||this.content=="") {
+                            this.props.alert.error("Publish Error");
+                            return
+                        }
+
+                        this.isPublishing=true
                         let response = await axios.post(
-                            Global.apiHost + "/api/v1/common/publishblog",
+                            Global.apiHost + "/api/v1/blog/publishblog",
                             {
                                 title: this.title,
                                 coverImgUrl: coverImgUrl,
@@ -189,12 +197,14 @@ class BlogEditorPage extends React.Component {
                                 },
                             }
                         );
+                        this.isPublishing=false
                         if (response.data.status != 0) {
-                            //alert
+                            this.props.alert.error("Publish Error");
                         }
                         let responseData = response.data.data;
                         console.log(responseData);
-                        
+                        this.props.alert.success("Publish success");
+                        //go to blog list
 
                     }}
                 >
@@ -205,4 +215,4 @@ class BlogEditorPage extends React.Component {
     }
 }
 
-export default BlogEditorPage;
+export default withAlert()(BlogEditorPage);
