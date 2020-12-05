@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-05 00:32:39
+ * @LastEditTime: 2020-12-05 08:50:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -205,7 +205,7 @@ class BlogEditorPage extends React.Component {
                         console.log(responseData);
                         this.props.alert.success("Publish success");
                         //go to blog list
-
+                        window.location.href = "/userbloglist";
                     }}
                 >
                     Publish

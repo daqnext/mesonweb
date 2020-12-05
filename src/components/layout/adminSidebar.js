@@ -76,6 +76,7 @@ class AdminSidebar extends React.Component {
                         <li className={this.getActive("/tokencontrol") + " nav-item"}  ><a className="nav-link" href="/tokencontrol"><span>TokenControl</span></a></li>
                         <li className= {this.getActive("/adminmachine")+" nav-item"}  ><a className="nav-link" href="/adminmachine"><span>AdminMachine</span></a></li>
                         <li className={this.getActive("/adminpricesetting") + " nav-item"}  ><a className="nav-link" href="/adminpricesetting"><span>AdminPriceSetting</span></a></li>
+                        <li className= {this.getActive("/adminbloglist")+" nav-item"}  ><a className="nav-link" href="/adminbloglist"><span>BlogList</span></a></li>
                     </ul>
                 </div>
             </li>
@@ -105,7 +106,8 @@ class AdminSidebar extends React.Component {
                 </a>
                 <div className="multi-level collapse show" role="list" id="submenu-adminbar" aria-expanded="false">
                     <ul className="flex-column nav">
-                        <li className= {this.getActive("/blogeditor")+" nav-item"}  ><a className="nav-link" href="/blogeditor"><span>BlogEditor</span></a></li>
+                        <li className={this.getActive("/blogeditor") + " nav-item"}  ><a className="nav-link" href="/blogeditor"><span>BlogEditor</span></a></li>
+                        <li className= {this.getActive("/userbloglist")+" nav-item"}  ><a className="nav-link" href="/userbloglist"><span>BlogList</span></a></li>
                     </ul>
                 </div>
             </li>
