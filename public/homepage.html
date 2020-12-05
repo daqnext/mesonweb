@@ -573,58 +573,35 @@
         <section id="blog" class="section-header bg-primary text-white pb-7 pb-lg-11"
             style="padding-top: 0px !important;">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-8 text-center">
-                        <h1 class="display-2 mb-4">The Meson Blog</h1>
-
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <h1 class="display-2 mb-4">Blog</h1>
                     </div>
                 </div>
             </div>
-            <div class="pattern bottom"></div>
         </section>
 
-        <section class="section section-lg line-bottom-light">
-            <div class="container mt-n7 mt-sm-n9 mt-lg-n12 z-2">
-                <div class="row">
-                    <div class="col-lg-12 mb-5">
-                        <div class="card bg-white border-light shadow-soft " style="padding: 25px;text-align: center;">
-                            <div class="card-body py-4 p-lg-5">
-                                <div class="social-share-cs"></div>
-                                <a href="./blog-post.html" class="mb-3 d-block">
-                                    <h2>Designing a dashboard that increases business value</h2>
-                                </a>
-                            </div>
-
-                            <img src="../assets/img/blog/image-1.jpg" style="margin: 0 auto;width: 70%;" />
-
-                            <div>
-                                Today we are overwhelmed by content, and inspiration can strike
-                                anywhere. The point is to collect it and share it in a structured way to inspire
-                                your team, client, and users. In this article, I will show you how to design a
-                                dashboard.
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
-                        <div class="card bg-white border-light shadow-soft p-4 rounded">
-                            <a href="./blog-post.html">
-                                <img src="../assets/img/blog/image-2.jpg" class="card-img-top fmxh-300" alt="">
-                            </a>
-                            <div class="card-body p-0 pt-4">
-                                <a href="./blog-post.html" class="h3">Google launches Cloud AI Platform Pipelines</a>
-
-                            </div>
+        <section id="blog2"  class="section section-lg line-bottom-light">
+            <div class="container mt-n7 mt-sm-n9 mt-lg-n12 z-2" style="margin-top: -24rem !important;">
+                <div class="row"  id="bloglistcontainer">
+                    <div class="col-lg-12 mb-5" id="bloglistcontainerwhite">
+                        <div class="card bg-white border-light shadow-soft " style="padding: 25px;">
+                            <div class="social-share-cs" style="float: right"></div>
+                            <div  id="blogtitle"  style="margin: 10px 0px;font-size: 22px;"></div>
+                            <img id="blogcover" src="" style="margin: 10px 0;border-radius: 10px;" />
+                            <div id="blogcontent"></div>
                         </div>
                     </div>
 
 
-
-
-
+                    <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5" id="blogitem" style="display: none">
+                        <div class="card bg-white border-light shadow-soft  rounded"    >
+                            <img src="#" class="card-img-top fmxh-300" alt="">
+                            <div class="card-body p-0 pt-4" style="text-align: center;padding: 10px !important;">
+                                <a href="#" style="color: gray;"   id="blogitemtitle"  ></a>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -894,18 +871,6 @@
         setInterval(blink_text, 1000);
     </script>
 
-    <!-- share -->
-    <script>
-        var $config = {
-            title: 'meson',
-            description: 'meson.network',
-            //sites: ['qzone', 'qq', 'weibo', 'wechat', 'douban'], // enable
-            //disabled: ['google', 'facebook', 'twitter'], // 
-            wechatQrcodeTitle: "share this page", // 
-            wechatQrcodeHelper: '',
-        };
-        socialShare('.social-share-cs', $config);
-    </script>
 
     <!-- blog -->
     <script>
@@ -917,6 +882,43 @@
         var blogid = getUrlParam("blog")
         console.log(blogid);
         if (blogid != null) {
+
+            //get blog in url
+            var settings = {
+                "url": "/api/v1/common/getblog",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "data": JSON.stringify({ "id": 1 }),
+            };
+
+            $.ajax(settings).done(function (response) {
+                if (response.status == 0) {
+                    let blog = response.data
+                    //console.log(blog);
+                    $('#blogtitle').html(blog.title);
+                    $('#blogcover').attr('src',blog.cover_img_url);
+                    $('#blogcontent').load(blog.content_url);
+                }
+            });
+
+
+            /////share////////
+            var $config = {
+                title: blog.title,
+                description: blog.title,
+                sites: [  'google', 'facebook', 'twitter','wechat'], // enable
+                //disabled: ['google', 'facebook', 'twitter'], //
+                wechatQrcodeTitle: "share this blog", //
+                wechatQrcodeHelper: '',
+            };
+            socialShare('.social-share-cs', $config);
+
+        }else{
+            $('#bloglistcontainerwhite').hide();
+            //$('#blog2').hide();
 
         }
 
@@ -933,24 +935,19 @@
         $.ajax(settings).done(function (response) {
             if (response.status == 0) {
                 let blogs = response.data.blogs
-                console.log(blogs);
-            }
-        });
+                //console.log(blogs);
 
-        //get blog in url
-        var settings = {
-            "url": "/api/v1/common/getblog",
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            "data": JSON.stringify({ "id": 1 }),
-        };
-        $.ajax(settings).done(function (response) {
-            if (response.status == 0) {
-                let blog = response.data
-                console.log(blog);
+                for (i = 0; i < blogs.length; i++) {
+                    let newblogitem=$('#blogitem').clone();
+                    $(newblogitem).attr('id','');
+                    $($(newblogitem).find('img')[0]).attr('src',blogs[i].cover_img_url);
+                    $($(newblogitem).find('#blogitemtitle')[0]).html(blogs[i].title);
+                    $($(newblogitem).find('#blogitemtitle')[0]).attr("href","/homepage.html?blog="+blogs[i].id);
+                    newblogitem.show();
+                    $('#bloglistcontainer').append(newblogitem);
+                }
+
+
             }
         });
 
