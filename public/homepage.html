@@ -825,6 +825,10 @@
        });
          */
 
+
+
+
+
         var scrolltoOffset = $('#navbar-main').outerHeight() - 21;
         $(document).on('click', '.scrollto', function (e) {
 
@@ -915,6 +919,10 @@
                 wechatQrcodeHelper: '',
             };
             socialShare('.social-share-cs', $config);
+
+            $('html, body').animate({
+                scrollTop: $('#blog').offset().top
+            }, 1500, 'easeInOutExpo');
 
         }else{
             $('#bloglistcontainerwhite').hide();
