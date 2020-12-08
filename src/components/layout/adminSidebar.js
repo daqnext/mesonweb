@@ -75,7 +75,39 @@ class AdminSidebar extends React.Component {
                         <li className={this.getActive("/monitoring") + " nav-item"}  ><a className="nav-link" href="/monitoring"><span>Monitoring</span></a></li>
                         <li className={this.getActive("/tokencontrol") + " nav-item"}  ><a className="nav-link" href="/tokencontrol"><span>TokenControl</span></a></li>
                         <li className= {this.getActive("/adminmachine")+" nav-item"}  ><a className="nav-link" href="/adminmachine"><span>AdminMachine</span></a></li>
-                        <li className= {this.getActive("/adminpricesetting")+" nav-item"}  ><a className="nav-link" href="/adminpricesetting"><span>AdminPriceSetting</span></a></li>
+                        <li className={this.getActive("/adminpricesetting") + " nav-item"}  ><a className="nav-link" href="/adminpricesetting"><span>AdminPriceSetting</span></a></li>
+                        <li className= {this.getActive("/adminbloglist")+" nav-item"}  ><a className="nav-link" href="/adminbloglist"><span>BlogList</span></a></li>
+                    </ul>
+                </div>
+            </li>
+        );
+    }
+
+    renderUserBlogSiderBar() {
+        if (!UserManager.checkUserHasAuth(UserManager.UserAuth.blog)) {
+            return <div></div>;
+        }
+
+        return (
+
+            <li className="nav-item">
+                <a className="nav-link d-flex justify-content-between align-items-center"
+                   href="#submenu-adminbar" data-toggle="collapse"
+                   data-target="#submenu-adminbar" aria-expanded="true">
+                        <span>
+                            <span className="sidebar-icon">
+                                <span className="fas fa-users-cog"></span>
+                            </span>
+                            Blog
+                        </span>
+                    <span className="link-arrow">
+                            <span className="fas fa-chevron-right"></span>
+                        </span>
+                </a>
+                <div className="multi-level collapse show" role="list" id="submenu-adminbar" aria-expanded="false">
+                    <ul className="flex-column nav">
+                        <li className={this.getActive("/blogeditor") + " nav-item"}  ><a className="nav-link" href="/blogeditor"><span>BlogEditor</span></a></li>
+                        <li className= {this.getActive("/userbloglist")+" nav-item"}  ><a className="nav-link" href="/userbloglist"><span>BlogList</span></a></li>
                     </ul>
                 </div>
             </li>
@@ -186,6 +218,7 @@ class AdminSidebar extends React.Component {
         const UserAdminSiderBar = this.renderUserAdminSiderBar();
         const UserClientSiderBar = this.renderUserClientSiderBar();
         const UserTerminalSiderBar = this.renderUserTerminalSiderBar();
+        const UserBlogSiderBar = this.renderUserBlogSiderBar();
         return (
             <div>
 
@@ -201,6 +234,7 @@ class AdminSidebar extends React.Component {
                 {UserAdminSiderBar}
                 {UserTerminalSiderBar}
                 {UserClientSiderBar}
+                {UserBlogSiderBar}
 
             </div>
         );

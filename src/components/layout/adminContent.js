@@ -3,7 +3,7 @@ import React from 'react';
 class AdminContent extends React.Component {
     render() {
         return (
-            <main className="content">
+            <main className="content" style={{minHeight:"700px"}}>
                 {this.props.children}
             </main>
         );
