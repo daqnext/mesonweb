@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-05 08:50:19
+ * @LastEditTime: 2020-12-10 15:17:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -44,6 +44,7 @@ class BlogEditorPage extends React.Component {
         this.title=""
         this.content = ""
         this.coverImgUrl = ""
+        this.rawText=""
         this.isPublishing=false
         
         ClassicEditor.create(document.querySelector("#title-editor"), {
@@ -139,15 +140,35 @@ class BlogEditorPage extends React.Component {
                         onChange={(event, editor) => {
                             const data = editor.getData();
                             console.log({ event, editor, data });
+
                             this.content = data;
                         }}
-                        // onBlur={(event, editor) => {
-                        //     console.log("Blur.", editor);
-                        // }}
-                        // onFocus={(event, editor) => {
-                        //     console.log("Focus.", editor);
-                        // }}
                     />
+                </div>
+
+                {/* raw text */}
+                <div
+                    className="toast fade show"
+                    role="alert"
+                    aria-live="assertive"
+                    aria-atomic="true"
+                    style={{marginTop:'10px'}}
+                >
+                    <div className="toast-header text-primary">
+                        <strong className="mr-auto ml-2">Raw text</strong>
+                    </div>
+                    <div className="toast-body">
+                        <textarea
+                            class="form-control"
+                            placeholder="Hi Rocket, I would like to ..."
+                            id="message-2"
+                            rows="8"
+                            required=""
+                            onChange={(event) => {
+                                this.rawText = event.currentTarget.value;
+                            }}
+                        ></textarea>                       
+                    </div>
                 </div>
             </div>
         );
@@ -177,18 +198,24 @@ class BlogEditorPage extends React.Component {
                             coverImgUrl=img.src
                         }
 
-                        if (this.title==""||coverImgUrl==""||this.content=="") {
+                        // console.log(this.content);
+                        // console.log(this.rawText);
+
+                        if (this.title==""||coverImgUrl==""||(this.content==""&&this.rawText=="")) {
                             this.props.alert.error("Publish Error");
                             return
                         }
 
                         this.isPublishing=true
+
+                        
                         let response = await axios.post(
                             Global.apiHost + "/api/v1/blog/publishblog",
                             {
                                 title: this.title,
                                 coverImgUrl: coverImgUrl,
-                                content:this.content
+                                content: this.content,
+                                rawText: this.rawText,
                             },
                             {
                                 headers: {

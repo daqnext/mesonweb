@@ -589,6 +589,7 @@
                             <div  id="blogtitle"  style="margin: 10px 0px;font-size: 22px;"></div>
                             <img id="blogcover" src="" style="margin: 10px 0;border-radius: 10px;" />
                             <div id="blogcontent"></div>
+                            <div id="blograwtext"></div>
                         </div>
                     </div>
 
@@ -896,7 +897,7 @@
                 "headers": {
                     "Content-Type": "application/json"
                 },
-                "data": JSON.stringify({ "id": 1 }),
+                "data": JSON.stringify({ "id": parseInt(blogid) }),
             };
 
             $.ajax(settings).done(function (response) {
@@ -905,7 +906,13 @@
                     //console.log(blog);
                     $('#blogtitle').html(blog.title);
                     $('#blogcover').attr('src',blog.cover_img_url);
-                    $('#blogcontent').load(blog.content_url);
+                    if (blog.content_url) {
+                        $('#blogcontent').load(blog.content_url);
+                    }
+                    if (blog.raw_text_url) {
+                        $('#blograwtext').load(blog.raw_text_url);
+                    }
+                    
                 }
             });
 
