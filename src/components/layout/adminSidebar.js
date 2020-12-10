@@ -172,7 +172,8 @@ class AdminSidebar extends React.Component {
                     <ul className="flex-column nav">
                         <li  className= {this.getActive("/binddomain")+" nav-item"}><a className="nav-link" href="/binddomain"><span>BindDomain</span></a></li>
                         <li className= {this.getActive("/clienttraffic")+" nav-item"}><a className="nav-link" href="/clienttraffic"><span>Traffic</span></a></li>
-                        <li className= {this.getActive("/balance")+" nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>
+                        <li className={this.getActive("/balance") + " nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>
+                        <li className= {this.getActive("/filemanager")+" nav-item"}><a className="nav-link" href="/filemanager"><span>FileManager</span></a></li>
                     </ul>
                 </div>
             </li>
