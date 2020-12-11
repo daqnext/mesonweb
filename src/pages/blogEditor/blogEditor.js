@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-10 23:48:43
+ * @LastEditTime: 2020-12-11 09:18:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -128,7 +128,7 @@ class BlogEditorPage extends React.Component {
                             onChange={(event) => {
                                 this.setState({
                                     title: event.currentTarget.value,
-                                });                               
+                                });
                             }}
                             type="text"
                         />
@@ -162,7 +162,7 @@ class BlogEditorPage extends React.Component {
                             onChange={(event, editor) => {
                                 const data = editor.getData();
                                 //console.log({ event, editor, data });
-                                this.setState({cover:data})                                
+                                this.setState({ cover: data });
                             }}
                         />
                     </div>
@@ -208,10 +208,20 @@ class BlogEditorPage extends React.Component {
                             },
                             language: "en",
                             fontFamily: {
-                                // options: [
-                                //     "default",
-
-                                // ],
+                                options: [
+                                    "default",
+                                    "Arial",
+                                    "Courier New",
+                                    "Georgia",
+                                    "Lucida Sans Unicode",
+                                    "Tahoma",
+                                    "Times New Roman",
+                                    "Trebuchet MS",
+                                    "Verdana",
+                                    "Helvetica Neue",                                    
+                                    "Hiragino Sans GB",
+                                    "Microsoft Yahei",                                   
+                                ],
                                 supportAllValues: true,
                             },
                             fontSize: {
