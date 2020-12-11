@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-11 09:18:47
+ * @LastEditTime: 2020-12-11 13:47:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -72,15 +72,17 @@ class BlogEditorPage extends React.Component {
                     let blog = response.data.data;
                     this.setState({
                         title: blog.title,
-                        coverImgUrl: blog.cover_img_url,
+                        coverImgUrl: Global.s3BindDomain+blog.cover_img_url,
                         cover: `<figure class="image"><img src=${blog.cover_img_url}></figure>`,
                     });
-                    axios.get(blog.content_url).then(response => {
-                        this.content = response.data;
-                        this.setState({
-                            content: response.data,
+                    axios
+                        .get(Global.s3BindDomain + blog.content_url)
+                        .then((response) => {
+                            this.content = response.data;
+                            this.setState({
+                                content: response.data,
+                            });
                         });
-                    });
                     
                 }
             });

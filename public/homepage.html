@@ -905,9 +905,9 @@
                     let blog = response.data
                     //console.log(blog);
                     $('#blogtitle').html(blog.title);
-                    $('#blogcover').attr('src',blog.cover_img_url);
+                    $('#blogcover').attr('src', "https://coldcdn.com/api/cdn/hx9216" +blog.cover_img_url);
                     if (blog.content_url) {
-                        $('#blogcontent').load(blog.content_url);
+                        $('#blogcontent').load("https://coldcdn.com/api/cdn/hx9216" +blog.content_url);
                     }
                 }
             });
@@ -952,7 +952,7 @@
                 for (i = 0; i < blogs.length; i++) {
                     let newblogitem=$('#blogitem').clone();
                     $(newblogitem).attr('id','');
-                    $($(newblogitem).find('img')[0]).attr('src',blogs[i].cover_img_url);
+                    $($(newblogitem).find('img')[0]).attr('src', "https://coldcdn.com/api/cdn/hx9216" +blogs[i].cover_img_url);
                     $($(newblogitem).find('#blogitemtitle')[0]).html(blogs[i].title);
                     $($(newblogitem).find('#blogitemtitle')[0]).attr("href","/homepage.html?blog="+blogs[i].id);
                     newblogitem.show();
