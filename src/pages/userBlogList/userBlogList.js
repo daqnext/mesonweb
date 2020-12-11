@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-05 08:06:27
- * @LastEditTime: 2020-12-05 08:45:13
+ * @LastEditTime: 2020-12-10 23:46:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/userBlogList/userBlogList.js
@@ -44,18 +44,31 @@ class UserBlogList extends React.Component {
             {
                 name: "action",
                 header: "Action",
-                defaultWidth: 120,
+                defaultWidth: 140,
                 render: ({ data }) => {
                     return (
-                        <div
-                            style={{ display: "block", marginTop: "5px" }}
-                            className="btn btn-secondary btn-sm"
-                            onClick={async () => {
-                                console.log("delete click", data);
-                                this.DeleteBlog(data.id);
-                            }}
-                        >
-                            Delete
+                        <div style={{display:'flex'}}>
+                            <div
+                                style={{ display: "block" }}
+                                className="btn btn-primary btn-sm"
+                                onClick={async () => {
+                                    console.log("edit click", data);
+                                    //to editpage
+                                    window.location.href = "/blogeditor?blog="+data.id;
+                                }}
+                            >
+                                Edit
+                            </div>
+                            <div
+                                style={{ display: "block",marginLeft:'5px' }}
+                                className="btn btn-secondary btn-sm"
+                                onClick={async () => {
+                                    console.log("delete click", data);
+                                    this.DeleteBlog(data.id);
+                                }}
+                            >
+                                Delete
+                            </div>
                         </div>
                     );
                 },

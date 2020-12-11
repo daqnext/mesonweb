@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-10 07:22:35
- * @LastEditTime: 2020-12-10 15:30:59
+ * @LastEditTime: 2020-12-11 09:19:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/global/global.js
