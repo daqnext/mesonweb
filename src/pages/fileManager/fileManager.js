@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-10 09:42:01
+ * @LastEditTime: 2020-12-15 23:36:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -11,14 +11,13 @@ import React, { useCallback,useMemo } from "react";
 import AdminLayout from "../../components/layout/adminLayout";
 import { withAlert } from "react-alert";
 import UserManager from "../../manager/usermanager";
-import MyUploadAdapter from "./uploadAdapter";
 import Global from '../../global/global';
 import axios from "axios";
 import moment from 'moment'
 import ReactDataGrid from "@inovua/reactdatagrid-community";
-import Dropzone from "react-dropzone";
-//import UploadDrop from './uploadDrop'
 import { useDropzone } from "react-dropzone";
+import copy from "copy-to-clipboard";
+import "./fileManager.css"
 var FormData = require("form-data");
 
 const baseStyle = {
@@ -29,7 +28,7 @@ const baseStyle = {
     padding: "20px",
     borderWidth: 2,
     borderRadius: 2,
-    borderColor: "#eeeeee",
+    borderColor: "#2196f3",
     borderStyle: "dashed",
     backgroundColor: "#fafafa",
     color: "#bdbdbd",
@@ -49,25 +48,13 @@ const rejectStyle = {
     borderColor: "#ff1744",
 };
 
-
-// function MyCustomUploadAdapterPlugin(editor) {
-//     editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
-//         // 第二个参数设置上传图片的地址
-//         console.log(loader);
-//         let userName = UserManager.GetUserInfo().username
-//         return new MyUploadAdapter(
-//             loader,
-//             Global.apiHost + `/api/store/upload/${userName}`
-//         );
-//     };
-// }
-
 class FileManagerPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             dataready: false,
             tableData: [],
+            upProcess:0
         };
 
         this.columns = [
@@ -82,7 +69,12 @@ class FileManagerPage extends React.Component {
                 header: "Size",
                 defaultFlex: 1,
                 render: ({ value }) => {
-                    return <div>{(value / 1000).toFixed(2)} KB</div>;
+                    if (value < 1000000) {
+                        return <div>{(value / 1000).toFixed(2)} KB</div>;
+                    } else {
+                        return <div>{(value / 1000000).toFixed(2)} MB</div>;
+                    }
+                    
                 },
             },
             {
@@ -107,8 +99,6 @@ class FileManagerPage extends React.Component {
                         <div style={{ display: "flex" }}>
                             <div
                                 className="btn btn-primary btn-sm"
-                                //href="https://coldcdn.com:9090/api/store/download/zzb/123456.jpeg/QmWjYrbQWxBa3om7D73L9q5smpFSXwWju1rLagFTpDNNiC"
-                                //download={data.fileName}
                                 onClick={async () => {
                                     window.open(
                                         Global.apiHost + data.originUrl
@@ -120,8 +110,9 @@ class FileManagerPage extends React.Component {
                             <div
                                 style={{ marginLeft: "5px" }}
                                 className="btn btn-primary btn-sm"
-                                onClick={async () => {
-                                    console.log("share click", data);
+                                onClick={() => {
+                                    copy(Global.apiHost + data.originUrl)
+                                    this.props.alert.success("Url Copied");
                                 }}
                             >
                                 share
@@ -136,6 +127,33 @@ class FileManagerPage extends React.Component {
         this.content = "";
         this.coverImgUrl = "";
         this.isPublishing = false;
+    }
+
+    renderProcess() {
+        return (           
+            <div className="upload-frame">
+                <div class="col">
+                    <div class="progress-wrapper">
+                        <div class="progress-info">
+                            <div class="h6 mb-0">Uploading...</div>
+                            <div class="small font-weight-bold text-dark">
+                                <span>{this.state.upProcess} %</span>
+                            </div>
+                        </div>
+                        <div class="progress mb-0">
+                            <div
+                                class="progress-bar bg-primary"
+                                role="progressbar"
+                                aria-valuenow={'"'+this.state.upProcess+'"'}
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                style={{ width: this.state.upProcess+"%" }}
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     }
 
     UploadDrop = (props) => {
@@ -156,7 +174,7 @@ class FileManagerPage extends React.Component {
 
             let config = {
                 method: "post",
-                url: Global.apiHost + "/api/store/upload/" + UserManager.GetUserInfo().username,
+                url: "/api/store/upload/" + UserManager.GetUserInfo().username,
                 headers: {
                     Authorization: "Bearer " + UserManager.GetUserToken(),
                 },
@@ -164,9 +182,9 @@ class FileManagerPage extends React.Component {
                 onUploadProgress: (progressEvent) => {
                     let complete =
                         (((progressEvent.loaded / progressEvent.total) * 100) |
-                            0) +
-                        "%";
-                    console.log(complete);
+                            0)
+                    console.log(complete + "%");
+                    this.setState({upProcess:complete})
                 },
             };
 
@@ -241,14 +259,20 @@ class FileManagerPage extends React.Component {
     DataGrid = () => {
         const loadData = useCallback(() => {
             const data = ({ skip, limit, sortInfo }) => {
-                console.log(skip, limit);
                 return axios
-                    .get(Global.apiHost + "/api/v1/client/getfilelist", {
-                        headers: {
-                            Authorization:
-                                "Bearer " + UserManager.GetUserToken(),
+                    .post(
+                        Global.apiHost + "/api/v1/client/getfilelist",
+                        {
+                            limit: limit,
+                            offset: skip,
                         },
-                    })
+                        {
+                            headers: {
+                                Authorization:
+                                    "Bearer " + UserManager.GetUserToken(),
+                            },
+                        }
+                    )
                     .then((response) => {
                         if (response.data.status != 0) {
                             return [];
@@ -256,8 +280,8 @@ class FileManagerPage extends React.Component {
                         let responseData = response.data.data;
                         console.log(responseData);
                         return {
-                            data: responseData,
-                            count: parseInt(1),
+                            data: responseData.data,
+                            count: responseData.total,
                         };
                     });
             };
@@ -270,9 +294,9 @@ class FileManagerPage extends React.Component {
                 idProperty="id"
                 columns={this.columns}
                 dataSource={this.state.tableData}
-                //pagination
+                pagination
                 defaultLimit={10}
-                style={{ minHeight: 585, marginTop: "20px" }}
+                style={{ minHeight: 485, marginTop: "20px" }}
             ></ReactDataGrid>
         );
     };
@@ -282,12 +306,14 @@ class FileManagerPage extends React.Component {
     }
 
     render() {
-        const Content = this.renderContent();
+        //const Content = this.renderContent();
 
         return (
-            <AdminLayout name="Admin" description="BlogEditor">
+            <AdminLayout name="Client" description="FileManager">
                 {this.renderUploadArea()}
 
+                {(this.state.upProcess>0&&this.state.upProcess!=100)&&this.renderProcess()}
+                
                 <div className="toast-body">
                     <this.DataGrid></this.DataGrid>
                 </div>
