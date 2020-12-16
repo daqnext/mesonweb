@@ -1,23 +1,24 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-05 08:50:19
+ * @LastEditTime: 2020-12-11 13:47:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
  */
 
-import React from 'react';
+import React from "react";
 import AdminLayout from "../../components/layout/adminLayout";
 import AdminContent from "../../components/layout/adminContent";
 import { withAlert } from "react-alert";
 import UserManager from "../../manager/usermanager";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import Editor from "ckeditor5-custom-build/build/ckeditor";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 //import Font from "@ckeditor/ckeditor5-font/src/font";
 //import SimpleUploadAdapter from "@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter";
 import MyUploadAdapter from "./uploadAdapter";
-import Global from '../../global/global';
+import Global from "../../global/global";
 import axios from "axios";
 import "./blog.css";
 
@@ -33,44 +34,82 @@ function MyCustomUploadAdapterPlugin(editor) {
 }
 
 class BlogEditorPage extends React.Component {
-
-
     constructor(props) {
         super(props);
-        this.state={
-            dataready:false
+        this.state = {
+            dataready: false,
+            title: "",
+            content: "<p>Hello from CKEditor 5!</p>",
+            coverImgUrl: "",
+            cover:"",
         };
 
-        this.title=""
-        this.content = ""
-        this.coverImgUrl = ""
-        this.isPublishing=false
-        
-        ClassicEditor.create(document.querySelector("#title-editor"), {
-            toolbar: ["bold", "italic", "link"],
-        }).catch((error) => {
-            console.log(error);
-        });
+        this.isPublishing = false;
+        this.blogId = 0;
+
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+        var blogid = getUrlParam("blog");
+        console.log(blogid);
+        if (blogid != null) {
+            this.blogId = parseInt(blogid);
+            axios.post(
+                Global.apiHost + "/api/v1/common/getblog",
+                {
+                    id: parseInt(blogid),
+                },
+                {
+                    headers: {
+                        Authorization: "Bearer " + UserManager.GetUserToken(),
+                    },
+                }
+            ).then(response => {
+                if (response.data.status == 0) {
+                    let blog = response.data.data;
+                    this.setState({
+                        title: blog.title,
+                        coverImgUrl: Global.s3BindDomain+blog.cover_img_url,
+                        cover: `<figure class="image"><img src=${blog.cover_img_url}></figure>`,
+                    });
+                    axios
+                        .get(Global.s3BindDomain + blog.content_url)
+                        .then((response) => {
+                            this.content = response.data;
+                            this.setState({
+                                content: response.data,
+                            });
+                        });
+                    
+                }
+            });
+        }
     }
 
-
     async componentDidMount() {
-        if(UserManager.GetUserInfo()==null){
-           await UserManager.UpdateUserInfo();
+        if (UserManager.GetUserInfo() == null) {
+            await UserManager.UpdateUserInfo();
         }
         UserManager.TokenCheckAndRedirectLogin();
         this.setState({
-            dataready:true
+            dataready: true,
         });
     }
 
-
-
-    renderContent(){
-        if(!this.state.dataready||!UserManager.checkUserHasAuth(UserManager.UserAuth.admin)){
-            return (<div className="alert alert-danger" role="alert">Auth Required</div>);
+    renderContent() {
+        if (
+            !this.state.dataready ||
+            !UserManager.checkUserHasAuth(UserManager.UserAuth.admin)
+        ) {
+            return (
+                <div className="alert alert-danger" role="alert">
+                    Auth Required
+                </div>
+            );
         }
-
 
         return (
             <div>
@@ -86,9 +125,12 @@ class BlogEditorPage extends React.Component {
                     </div>
                     <div className="toast-body">
                         <input
+                            value={this.state.title}
                             className="form-control"
                             onChange={(event) => {
-                                this.title = event.currentTarget.value;
+                                this.setState({
+                                    title: event.currentTarget.value,
+                                });
                             }}
                             type="text"
                         />
@@ -108,7 +150,12 @@ class BlogEditorPage extends React.Component {
                     </div>
                     <div className="toast-body cover-img">
                         <CKEditor
-                            editor={ClassicEditor}
+                            data={
+                                this.state.coverImgUrl == ""
+                                    ? ""
+                                    : `<figure class="image"><img src=${this.state.coverImgUrl}></figure>`
+                            }
+                            editor={Editor}
                             config={{
                                 extraPlugins: [MyCustomUploadAdapterPlugin],
                                 toolbar: ["imageUpload"],
@@ -116,8 +163,8 @@ class BlogEditorPage extends React.Component {
                             }}
                             onChange={(event, editor) => {
                                 const data = editor.getData();
-                                console.log({ event, editor, data });
-                                this.coverImgUrl = data;
+                                //console.log({ event, editor, data });
+                                this.setState({ cover: data });
                             }}
                         />
                     </div>
@@ -126,27 +173,104 @@ class BlogEditorPage extends React.Component {
                 {/* content */}
                 <div className="blog-content">
                     <CKEditor
-                        editor={ClassicEditor}
+                        editor={Editor}
                         config={{
                             extraPlugins: [MyCustomUploadAdapterPlugin],
-                            //plugins: [ Font ],
+                            toolbar: {
+                                items: [
+                                    "heading",
+                                    "|",
+                                    "fontFamily",
+                                    "fontSize",
+                                    "fontColor",
+                                    "fontBackgroundColor",
+                                    "bold",
+                                    "italic",
+                                    "underline",
+                                    "removeFormat",
+                                    "highlight",
+                                    "|",
+                                    "link",
+                                    "bulletedList",
+                                    "numberedList",
+                                    "|",
+                                    "indent",
+                                    "outdent",
+                                    "|",
+                                    "imageUpload",
+                                    "htmlEmbed",
+                                    "codeBlock",
+                                    "blockQuote",
+                                    "insertTable",
+                                    "mediaEmbed",
+                                    "undo",
+                                    "redo",
+                                    "|",
+                                ],
+                            },
+                            language: "en",
+                            fontFamily: {
+                                options: [
+                                    "default",
+                                    "Arial",
+                                    "Courier New",
+                                    "Georgia",
+                                    "Lucida Sans Unicode",
+                                    "Tahoma",
+                                    "Times New Roman",
+                                    "Trebuchet MS",
+                                    "Verdana",
+                                    "Helvetica Neue",                                    
+                                    "Hiragino Sans GB",
+                                    "Microsoft Yahei",                                   
+                                ],
+                                supportAllValues: true,
+                            },
+                            fontSize: {
+                                options: [
+                                    9,
+                                    10,
+                                    11,
+                                    12,
+                                    "default",
+                                    14,
+                                    15,
+                                    16,
+                                    18,
+                                    20,
+                                    22,
+                                    24,
+                                    26,
+                                    28,
+                                    30,
+                                ],
+                                supportAllValues: true,
+                            },
+                            image: {
+                                toolbar: [
+                                    "imageTextAlternative",
+                                    "imageStyle:full",
+                                    "imageStyle:side",
+                                ],
+                            },
+                            table: {
+                                contentToolbar: [
+                                    "tableColumn",
+                                    "tableRow",
+                                    "mergeTableCells",
+                                ],
+                            },
                         }}
-                        data="<p>Hello from CKEditor 5!</p>"
+                        data={this.state.content}
                         onReady={(editor) => {
                             // You can store the "editor" and use when it is needed.
                             console.log("Editor is ready to use!", editor);
                         }}
                         onChange={(event, editor) => {
                             const data = editor.getData();
-                            console.log({ event, editor, data });
-                            this.content = data;
+                            //console.log({ event, editor, data });
+                            this.setState({ content: data });
                         }}
-                        // onBlur={(event, editor) => {
-                        //     console.log("Blur.", editor);
-                        // }}
-                        // onFocus={(event, editor) => {
-                        //     console.log("Focus.", editor);
-                        // }}
                     />
                 </div>
             </div>
@@ -154,7 +278,7 @@ class BlogEditorPage extends React.Component {
     }
 
     render() {
-        const Content=this.renderContent();
+        const Content = this.renderContent();
 
         return (
             <AdminLayout name="Admin" description="BlogEditor">
@@ -165,30 +289,39 @@ class BlogEditorPage extends React.Component {
                     style={{ marginLeft: "5px", marginTop: "5px" }}
                     onClick={async () => {
                         console.log("publish");
-                        if (this.isPublishing==true) {
-                            return
+                        if (this.isPublishing == true) {
+                            return;
                         }
 
                         let div = document.createElement("div");
-                        div.innerHTML = this.coverImgUrl;
-                        let img = div.querySelector("img")
-                        let coverImgUrl=""
+                        div.innerHTML = this.state.cover;
+                        let img = div.querySelector("img");
+                        let coverImgUrl = "";
                         if (img) {
-                            coverImgUrl=img.src
+                            coverImgUrl = img.src;
                         }
 
-                        if (this.title==""||coverImgUrl==""||this.content=="") {
+                        //console.log(this.content);
+                        // console.log(this.rawText);
+
+                        if (
+                            this.state.title == "" ||
+                            coverImgUrl == "" ||
+                            this.state.content == ""
+                        ) {
                             this.props.alert.error("Publish Error");
-                            return
+                            return;
                         }
 
-                        this.isPublishing=true
+                        this.isPublishing = true;
+
                         let response = await axios.post(
                             Global.apiHost + "/api/v1/blog/publishblog",
                             {
-                                title: this.title,
+                                title: this.state.title,
                                 coverImgUrl: coverImgUrl,
-                                content:this.content
+                                content: this.state.content,
+                                blogId:this.blogId,
                             },
                             {
                                 headers: {
@@ -197,7 +330,7 @@ class BlogEditorPage extends React.Component {
                                 },
                             }
                         );
-                        this.isPublishing=false
+                        this.isPublishing = false;
                         if (response.data.status != 0) {
                             this.props.alert.error("Publish Error");
                         }

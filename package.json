@@ -5,6 +5,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^23.1.0",
     "@ckeditor/ckeditor5-font": "^23.1.0",
+    "@ckeditor/ckeditor5-html-embed": "^23.1.0",
     "@ckeditor/ckeditor5-react": "^3.0.0",
     "@ckeditor/ckeditor5-upload": "^23.1.0",
     "@inovua/reactdatagrid-community": "^4.0.10",
@@ -15,6 +16,7 @@
     "bootstrap-daterangepicker": "^3.1.0",
     "chartist": "^0.11.4",
     "copy-to-clipboard": "^3.3.1",
+    "ckeditor5-custom-build": "file:./ckeditor5",
     "install": "^0.13.0",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",

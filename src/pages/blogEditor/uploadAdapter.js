@@ -1,12 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2020-12-04 12:29:34
- * @LastEditTime: 2020-12-04 14:31:52
+ * @LastEditTime: 2020-12-11 13:45:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/blogEditor/uploadAdapter.js
  */
 
+import Global from "../../global/global";
 import UserManager from "../../manager/usermanager";
 
 export default class MyUploadAdapter {
@@ -82,7 +83,7 @@ export default class MyUploadAdapter {
             // This URL will be used to display the image in the content. Learn more in the
             // UploadAdapter#upload documentation.
             resolve({
-                default: response.data.url,
+                default: Global.s3BindDomain+response.data.url,
             });
         });
 

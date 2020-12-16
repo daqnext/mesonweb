@@ -52,7 +52,7 @@
     <!--  css & js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body>
@@ -589,6 +589,7 @@
                             <div  id="blogtitle"  style="margin: 10px 0px;font-size: 22px;"></div>
                             <img id="blogcover" src="" style="margin: 10px 0;border-radius: 10px;" />
                             <div id="blogcontent"></div>
+                            <div id="blograwtext"></div>
                         </div>
                     </div>
 
@@ -727,7 +728,7 @@
                         <a href="https://t.me/mesonnetwork"><i class="fab fa-telegram"></i> </a>
                         <a href="https://discord.gg/jW3uq87Y"><i class="fab fa-discord"></i> </a>
                         <a href="https://github.com/daqnext"><i class="fab fa-github"></i> </a>
-                        <a href="https://daqnext.medium.com/"><i class="fab fa-medium-m"></i></a>
+                        <a href="https://medium.com/daqnext"><i class="fab fa-medium-m"></i></a>
                         <a href="https://twitter.com/daqnext/"><i class="fab fa-twitter"></i></a>
                         <a href="mailto: daqnext@gmail.com"><i class="fas fa-envelope"></i></a>
                     </div>
@@ -896,7 +897,7 @@
                 "headers": {
                     "Content-Type": "application/json"
                 },
-                "data": JSON.stringify({ "id": 1 }),
+                "data": JSON.stringify({ "id": parseInt(blogid) }),
             };
 
             $.ajax(settings).done(function (response) {
@@ -904,8 +905,10 @@
                     let blog = response.data
                     //console.log(blog);
                     $('#blogtitle').html(blog.title);
-                    $('#blogcover').attr('src',blog.cover_img_url);
-                    $('#blogcontent').load(blog.content_url);
+                    $('#blogcover').attr('src', "https://coldcdn.com/api/cdn/hx9216" +blog.cover_img_url);
+                    if (blog.content_url) {
+                        $('#blogcontent').load("https://coldcdn.com/api/cdn/hx9216" +blog.content_url);
+                    }
                 }
             });
 
@@ -949,7 +952,7 @@
                 for (i = 0; i < blogs.length; i++) {
                     let newblogitem=$('#blogitem').clone();
                     $(newblogitem).attr('id','');
-                    $($(newblogitem).find('img')[0]).attr('src',blogs[i].cover_img_url);
+                    $($(newblogitem).find('img')[0]).attr('src', "https://coldcdn.com/api/cdn/hx9216" +blogs[i].cover_img_url);
                     $($(newblogitem).find('#blogitemtitle')[0]).html(blogs[i].title);
                     $($(newblogitem).find('#blogitemtitle')[0]).attr("href","/homepage.html?blog="+blogs[i].id);
                     newblogitem.show();

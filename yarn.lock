@@ -1107,12 +1107,33 @@
     "@ckeditor/ckeditor5-ui" "^23.1.0"
     "@ckeditor/ckeditor5-utils" "^23.1.0"
 
+"@ckeditor/ckeditor5-html-embed@^23.1.0":
+  version "23.1.0"
+  resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-html-embed/download/@ckeditor/ckeditor5-html-embed-23.1.0.tgz#cae124efa7ca842ed2268081f1641bbbc9a60f44"
+  integrity sha1-yuEk76fKhC7SJoCB8WQbu8mmD0Q=
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^23.1.0"
+    "@ckeditor/ckeditor5-engine" "^23.1.0"
+    "@ckeditor/ckeditor5-ui" "^23.1.0"
+    "@ckeditor/ckeditor5-utils" "^23.1.0"
+    "@ckeditor/ckeditor5-widget" "^23.1.0"
+
 "@ckeditor/ckeditor5-react@^3.0.0":
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-react/download/@ckeditor/ckeditor5-react-3.0.0.tgz#05a1bdd7b26a8c1df6fd734376ea84e394d6ab47"
   integrity sha1-BaG917JqjB32/XNDduqE45TWq0c=
   dependencies:
     prop-types "^15.7.2"
+
+"@ckeditor/ckeditor5-typing@^23.1.0":
+  version "23.1.0"
+  resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-typing/download/@ckeditor/ckeditor5-typing-23.1.0.tgz#c760ca4f5be938a351996dd078f50187ae693444"
+  integrity sha1-x2DKT1vpOKNRmW3QePUBh65pNEQ=
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^23.1.0"
+    "@ckeditor/ckeditor5-engine" "^23.1.0"
+    "@ckeditor/ckeditor5-utils" "^23.1.0"
+    lodash-es "^4.17.15"
 
 "@ckeditor/ckeditor5-ui@^23.1.0":
   version "23.1.0"
@@ -1137,6 +1158,18 @@
   resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-utils/download/@ckeditor/ckeditor5-utils-23.1.0.tgz#93d30c8bf0287e842af063e37bf528807ae275ed"
   integrity sha1-k9MMi/AofoQq8GPje/UogHride0=
   dependencies:
+    lodash-es "^4.17.15"
+
+"@ckeditor/ckeditor5-widget@^23.1.0":
+  version "23.1.0"
+  resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-widget/download/@ckeditor/ckeditor5-widget-23.1.0.tgz#93ac553d8af6893343dfd249a9f7360338c57c05"
+  integrity sha1-k6xVPYr2iTND39JJqfc2AzjFfAU=
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^23.1.0"
+    "@ckeditor/ckeditor5-engine" "^23.1.0"
+    "@ckeditor/ckeditor5-typing" "^23.1.0"
+    "@ckeditor/ckeditor5-ui" "^23.1.0"
+    "@ckeditor/ckeditor5-utils" "^23.1.0"
     lodash-es "^4.17.15"
 
 "@cnakazawa/watch@^1.0.3":
@@ -3038,6 +3071,9 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
+
+"ckeditor5-custom-build@file:./ckeditor5":
+  version "0.0.1"
 
 class-utils@^0.3.5:
   version "0.3.6"
