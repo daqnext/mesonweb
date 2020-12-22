@@ -13,3 +13,19 @@
     background-color: gray;
     border-radius: 10px;
 }
+
+.low-version{
+    display:inline-block;
+    width:10px;
+    height:10px;
+    background-color: rgb(199, 221, 0);
+    border-radius: 10px;
+}
+
+.disable-version{
+    display:inline-block;
+    width:10px;
+    height:10px;
+    background-color: rgb(221, 0, 0);
+    border-radius: 10px;
+}

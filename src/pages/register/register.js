@@ -325,7 +325,7 @@ class RegisterPage extends React.Component {
                     </div>
                     <div className="card-footer text-center">
                         <div className="small">
-                            <a href="auth-login-basic.html">
+                            <a href="/login">
                                 Have an account? Go to login
                             </a>
                         </div>

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-11 13:47:25
+ * @LastEditTime: 2020-12-16 08:43:17
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -14,9 +14,6 @@ import { withAlert } from "react-alert";
 import UserManager from "../../manager/usermanager";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import Editor from "ckeditor5-custom-build/build/ckeditor";
-// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-//import Font from "@ckeditor/ckeditor5-font/src/font";
-//import SimpleUploadAdapter from "@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter";
 import MyUploadAdapter from "./uploadAdapter";
 import Global from "../../global/global";
 import axios from "axios";

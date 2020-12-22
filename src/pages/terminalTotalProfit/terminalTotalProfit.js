@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 23:52:52
- * @LastEditTime: 2020-11-23 09:59:55
+ * @LastEditTime: 2020-12-21 22:58:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalTotalProfit/terminalTotalProfit.js
@@ -55,15 +55,15 @@ class TerminalTotalProfit extends React.Component {
             //     defaultFlex: 1,
             // },
 
-            {
-                name: "FileToken",
-                header: "File Transfer Token",
-                maxWidth: 1000,
-                defaultFlex: 1,
-                render: ({ value }) => {
-                    return <div> {value.toFixed(5)}</div>;
-                },
-            },
+            // {
+            //     name: "FileToken",
+            //     header: "File Transfer Token",
+            //     maxWidth: 1000,
+            //     defaultFlex: 1,
+            //     render: ({ value }) => {
+            //         return <div> {value.toFixed(5)}</div>;
+            //     },
+            // },
             {
                 name: "Bonous",
                 header: "Bonous Token",
@@ -73,15 +73,15 @@ class TerminalTotalProfit extends React.Component {
                     return <div> {value.toFixed(5)}</div>;
                 },
             },
-            {
-                name: "Total",
-                header: "Total",
-                maxWidth: 1000,
-                defaultFlex: 1,
-                render: ({ value }) => {
-                    return <div> {value.toFixed(5)}</div>;
-                },
-            },
+            // {
+            //     name: "Total",
+            //     header: "Total",
+            //     maxWidth: 1000,
+            //     defaultFlex: 1,
+            //     render: ({ value }) => {
+            //         return <div> {value.toFixed(5)}</div>;
+            //     },
+            // },
         ];
 
         this.state = {
@@ -200,16 +200,16 @@ class TerminalTotalProfit extends React.Component {
             day++;
 
             if (!totalData[dayDate]) {
-                tempCharData.series[0].push(0);
+                //tempCharData.series[0].push(0);
                 tempCharData.series[1].push(0);
                 continue;
             }
 
-            if (totalData[dayDate].traffic) {
-                tempCharData.series[0].push(totalData[dayDate].traffic / 1e9);
-            } else {
-                tempCharData.series[0].push(0);
-            }
+            // if (totalData[dayDate].traffic) {
+            //     tempCharData.series[0].push(totalData[dayDate].traffic / 1e9);
+            // } else {
+            //     tempCharData.series[0].push(0);
+            // }
 
             if (totalData[dayDate].bonus) {
                 tempCharData.series[1].push(totalData[dayDate].bonus / 1e9);
@@ -440,7 +440,7 @@ class TerminalTotalProfit extends React.Component {
                     </div>
                 </div>
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-lg-4 mb-4">
                         <div className="card  border-light shadow-sm">
                             <div
@@ -463,7 +463,7 @@ class TerminalTotalProfit extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="card border-light shadow-sm">
                     <div className="card-body">

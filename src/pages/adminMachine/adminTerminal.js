@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 08:20:10
- * @LastEditTime: 2020-11-24 09:23:36
+ * @LastEditTime: 2020-12-21 22:21:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/adminMachine/adminTerminal.js
@@ -64,13 +64,9 @@ export default class AdminTerminal extends React.Component {
                 defaultFlex: 1,
                 render: ({ value }) => {
                     let speed = value;
-                    speed = Math.cbrt(speed)-1;
-                    speed = Math.pow(10, speed)-1;
-                    return (
-                        <div>
-                            {(speed/1000000).toFixed(2)} MB/s
-                        </div>
-                    );
+                    // speed = Math.cbrt(speed)-1;
+                    // speed = Math.pow(10, speed)-1;
+                    return <div>{(speed / 1000).toFixed(2)} MB/s</div>;
                 },
             },
             {
@@ -135,10 +131,61 @@ export default class AdminTerminal extends React.Component {
                 },
             },
             {
+                name: "version",
+                header: "version",
+                defaultFlex: 1,
+                render: ({ value }) => {
+                    if (this.state.terminalAllowVersion != "") {
+                        let allowVersionStr = this.state.terminalAllowVersion.split(
+                            "."
+                        );
+                        let terminalVersionStr = value.split(".");
+                        for (let i = 0; i < allowVersionStr.length; i++) {
+                            if (
+                                parseInt(allowVersionStr[i]) >
+                                parseInt(terminalVersionStr[i])
+                            ) {
+                                return (
+                                    <td>
+                                        <div>
+                                            <span className="disable-version"></span>
+                                            &nbsp;{value}
+                                        </div>
+                                        <div>Disable Version</div>
+                                    </td>
+                                );
+                            }
+                        }
+                    }
+
+                    if (this.state.terminalLatestVersion != "") {
+                        if (this.state.terminalLatestVersion != value) {
+                            return (
+                                <div>
+                                    <div>
+                                        <span className="low-version"></span>
+                                        &nbsp;{value}
+                                    </div>
+                                    <div>Low Version</div>
+                                </div>
+                            );
+                        }
+                    }
+
+                    return (
+                        <td>
+                            <span className="status-on"></span>
+                            &nbsp;{value}
+                        </td>
+                    );
+                },
+            },
+            {
                 name: "machine_status",
                 header: "status",
                 defaultFlex: 1,
-                render: ({ value }) => {
+                render: ({  value }) => {
+                    
                     if (value === "up") {
                         return (
                             <td>
@@ -158,11 +205,26 @@ export default class AdminTerminal extends React.Component {
 
         this.state = {
             tableData: [],
+            terminalAllowVersion: "",
+            terminalLatestVersion:"",
         };
     }
 
     async componentDidMount() {
+        this.GetTerminalAllowVersion();
         this.loadData();
+    }
+
+    async GetTerminalAllowVersion() {
+        let response = await axios.get(
+            Global.apiHost + "/api/v1/common/terminalversion"
+        );
+        if (response.data.status == 0) {
+            this.setState({
+                terminalAllowVersion: response.data.data.allowVersion,
+                terminalLatestVersion: response.data.data.latestVersion,
+            });
+        }
     }
 
     loadData = null;
@@ -208,7 +270,7 @@ export default class AdminTerminal extends React.Component {
                                 continent: terminalInfo.continent,
                                 area: terminalInfo.area,
                                 city: terminalInfo.city,
-                                speed:terminalInfo.machine_net_speed,
+                                speed: terminalInfo.machine_net_speed,
                                 disk_usage: (
                                     ((terminalInfo.machine_total_disk -
                                         terminalInfo.machine_available_disk) /
@@ -222,6 +284,10 @@ export default class AdminTerminal extends React.Component {
                                     100
                                 ).toFixed(2),
                                 machine_status: terminalInfo.machine_status,
+                                version:
+                                    terminalInfo.version == ""
+                                        ? "0.1.1"
+                                        : terminalInfo.version,
                                 info: terminalInfo,
                             };
                             tableData.push(tData);

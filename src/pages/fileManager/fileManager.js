@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-15 23:36:42
+ * @LastEditTime: 2020-12-16 10:00:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -74,7 +74,6 @@ class FileManagerPage extends React.Component {
                     } else {
                         return <div>{(value / 1000000).toFixed(2)} MB</div>;
                     }
-                    
                 },
             },
             {
@@ -93,7 +92,7 @@ class FileManagerPage extends React.Component {
             {
                 name: "action",
                 header: "Action",
-                defaultWidth: 220,
+                defaultWidth: 180,
                 render: ({ data }) => {
                     return (
                         <div style={{ display: "flex" }}>
@@ -105,17 +104,53 @@ class FileManagerPage extends React.Component {
                                     );
                                 }}
                             >
-                                download
+                                Download
                             </div>
                             <div
                                 style={{ marginLeft: "5px" }}
                                 className="btn btn-primary btn-sm"
                                 onClick={() => {
-                                    copy(Global.apiHost + data.originUrl)
+                                    copy(Global.apiHost + data.originUrl);
                                     this.props.alert.success("Url Copied");
                                 }}
                             >
-                                share
+                                Share
+                            </div>
+                        </div>
+                    );
+                },
+            },
+            {
+                name: "delete",
+                header: "Delete",
+                defaultWidth: 90,
+                render: ({ data }) => {
+                    return (
+                        <div style={{ display: "flex" }}>
+                            <div
+                                className="btn btn-secondary btn-sm"
+                                onClick={async () => {
+                                    //http://xxxx.com/api/store/delete/username/filename/hash
+                                    let url = Global.apiHost + "/api/store/delete/" + data.userName + "/" + data.fileName + "/" + data.fileHash
+                                    let response = await axios.get(
+                                        url,
+                                        {
+                                            headers: {
+                                                Authorization:
+                                                    "Bearer " +
+                                                    UserManager.GetUserToken(),
+                                            },
+                                        }
+                                    );
+                                    if (response.data.status==0) {
+                                        this.props.alert.success("Deleted");
+                                        this.loadData();
+                                    } else {
+                                        this.props.alert.error("Delete Error");
+                                    }
+                                }}
+                            >
+                                Delete
                             </div>
                         </div>
                     );

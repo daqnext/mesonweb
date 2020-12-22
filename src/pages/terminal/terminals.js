@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-11-17 08:54:13
+ * @LastEditTime: 2020-12-21 22:42:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -105,6 +105,56 @@ class TerminalPage extends React.Component {
                 },
             },
             {
+                name: "version",
+                header: "version",
+                defaultFlex: 1,
+                render: ({ value }) => {
+                    if (this.state.terminalAllowVersion != "") {
+                        let allowVersionStr = this.state.terminalAllowVersion.split(
+                            "."
+                        );
+                        let terminalVersionStr = value.split(".");
+                        for (let i = 0; i < allowVersionStr.length; i++) {
+                            if (
+                                parseInt(allowVersionStr[i]) >
+                                parseInt(terminalVersionStr[i])
+                            ) {
+                                return (
+                                    <td>
+                                        <div>
+                                            <span className="disable-version"></span>
+                                            &nbsp;{ value}
+                                        </div>
+                                        <div>Disable Version</div>
+                                    </td>
+                                );
+                            }
+                        }
+                    }
+
+                    if (this.state.terminalLatestVersion!="") {
+                        if (this.state.terminalLatestVersion!=value) {
+                            return (
+                                <div>
+                                    <div>
+                                        <span className="low-version"></span>
+                                        &nbsp;{value}
+                                    </div>
+                                    <div>Low Version</div>
+                                </div>
+                            );
+                        }
+                    }
+
+                    return (
+                        <td>
+                            <span className="status-on"></span>
+                            &nbsp;{value}
+                        </td>
+                    );
+                }
+            },
+            {
                 name: "machine_status",
                 header: "status",
                 defaultFlex: 1,
@@ -138,7 +188,9 @@ class TerminalPage extends React.Component {
         this.state = {
             dataready: false,
             tableData: [],
-            tutorialsys:'linux 64 bit',
+            tutorialsys: 'linux 64 bit',
+            terminalAllowVersion: "",
+            terminalLatestVersion:"",
         };
     }
 
@@ -152,7 +204,20 @@ class TerminalPage extends React.Component {
             dataready: true,
         });
 
+        this.GetTerminalAllowVersion()
         this.loadData();
+    }
+
+    async GetTerminalAllowVersion() {
+        let response = await axios.get(
+            Global.apiHost + "/api/v1/common/terminalversion"
+        );
+        if (response.data.status==0) {
+            this.setState({
+                terminalAllowVersion: response.data.data.allowVersion,
+                terminalLatestVersion: response.data.data.latestVersion,
+            });
+        }
     }
 
     loadData = null;
@@ -208,6 +273,10 @@ class TerminalPage extends React.Component {
                                     100
                                 ).toFixed(2),
                                 machine_status: terminalInfo.machine_status,
+                                version:
+                                    terminalInfo.version == ""
+                                        ? "0.1.1"
+                                        : terminalInfo.version,
                                 info: terminalInfo,
                             };
                             tableData.push(tData);
@@ -277,11 +346,11 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on linux server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v0.1.1-linux-amd64.zip'</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v{this.state.terminalLatestVersion}-linux-amd64.zip'</div>
                     <div>#Step.2 unzip the package</div>
-                    <div style={{color:'yellow'}}>$ unzip meson-v0.1.1-linux-amd64.zip</div>
+                    <div style={{color:'yellow'}}>$ unzip meson-v{this.state.terminalLatestVersion}-linux-amd64.zip</div>
                     <div>#Step.3 run the app</div>
-                    <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-linux-amd64 && ./meson.v0.1.1</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-v{this.state.terminalLatestVersion}-linux-amd64 && ./meson.v{this.state.terminalLatestVersion}</div>
                     <div>#Step.4 input your token</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
@@ -295,11 +364,11 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on linux server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v0.1.1-linux-386.zip'</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v{this.state.terminalLatestVersion}-linux-386.zip'</div>
                     <div>#Step.2 unzip the package</div>
-                    <div style={{color:'yellow'}}>$ unzip meson-v0.1.1-linux-386.zip</div>
+                    <div style={{color:'yellow'}}>$ unzip meson-v{this.state.terminalLatestVersion}-linux-386.zip</div>
                     <div>#Step.3 run the app</div>
-                    <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-linux-386 && ./meson.v0.1.1</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-v{this.state.terminalLatestVersion}-linux-386 && ./meson.v{this.state.terminalLatestVersion}</div>
                     <div>#Step.4 input your token</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
@@ -313,11 +382,11 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on windows server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v0.1.1-win64.zip'</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v{this.state.terminalLatestVersion}-win64.zip'</div>
                     <div>#Step.2 unzip the package</div>
-                    <div style={{color:'yellow'}}>$ unzip meson-v0.1.1-win64.zip</div>
+                    <div style={{color:'yellow'}}>$ unzip meson-v{this.state.terminalLatestVersion}-win64.zip</div>
                     <div>#Step.3 run the app</div>
-                    <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-win64 && ./meson.v0.1.1</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-v{this.state.terminalLatestVersion}-win64 && ./meson.v{this.state.terminalLatestVersion}</div>
                     <div>#Step.4 input your token</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
@@ -331,11 +400,11 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on windows server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v0.1.1-win32.zip'</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v{this.state.terminalLatestVersion}-win32.zip'</div>
                     <div>#Step.2 unzip the package</div>
-                    <div style={{color:'yellow'}}>$ unzip meson-v0.1.1-win32.zip</div>
+                    <div style={{color:'yellow'}}>$ unzip meson-v{this.state.terminalLatestVersion}-win32.zip</div>
                     <div>#Step.3 run the app</div>
-                    <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-win32 && ./meson.v0.1.1</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-v{this.state.terminalLatestVersion}-win32 && ./meson.v{this.state.terminalLatestVersion}</div>
                     <div>#Step.4 input your token</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
@@ -349,11 +418,11 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on mac server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v0.1.1-darwin-amd64.zip'</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v{this.state.terminalLatestVersion}-darwin-amd64.zip'</div>
                     <div>#Step.2 unzip the package</div>
-                    <div style={{color:'yellow'}}>$ unzip meson-v0.1.1-darwin-amd64.zip</div>
+                    <div style={{color:'yellow'}}>$ unzip meson-v{this.state.terminalLatestVersion}-darwin-amd64.zip</div>
                     <div>#Step.3 run the app</div>
-                    <div style={{color:'yellow'}}>$ cd ./meson-v0.1.1-darwin-amd64 && ./meson.v0.1.1</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-v{this.state.terminalLatestVersion}-darwin-amd64 && ./meson.v{this.state.terminalLatestVersion}</div>
                     <div>#Step.4 input your token</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
@@ -402,8 +471,9 @@ class TerminalPage extends React.Component {
                                 <div className="input-group-append">
                                     <div data-clipboard-target="#mytoken" className="btn   btn-light" type="button">copy</div>
                                 </div>
-
                             </div>
+                            
+                            
                         </div>
 
                     </div>

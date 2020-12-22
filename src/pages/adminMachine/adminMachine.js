@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-12-01 23:04:58
+ * @LastEditTime: 2020-12-21 21:20:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -18,22 +18,24 @@ import Global from "../../global/global";
 import DataTable from "../../components/table/datatable";
 import AdminTerminal from "./adminTerminal";
 import AdminFileTransfer from "./adminFileTransfer";
+import AdminFileStore from "./adminFileStore";
 import AdminSpeedTester from "./adminSpeedTester";
 
 class AdminMachinePage extends React.Component {
     constructor(props) {
         super(props);
 
-        this.machineType=[
-            'terminal',
-            'validator',
-            'speedTester',
-            'fileTransfer',
+        this.machineType = [
+            "terminal",
+            "validator",
+            "speedTester",
+            "fileTransfer",
+            "fileStore",
         ];
 
         this.state = {
             dataready: false,
-            machineType:'terminal',
+            machineType: "terminal",
         };
     }
 
@@ -46,8 +48,9 @@ class AdminMachinePage extends React.Component {
         this.setState({
             dataready: true,
         });
-
     }
+
+    
 
     loadData = null;
     DataGrid = () => {
@@ -56,7 +59,7 @@ class AdminMachinePage extends React.Component {
                 console.log(skip, limit);
                 return axios
                     .post(
-                        Global.apiHost+"/api/v1/terminal/getmachineinfo",
+                        Global.apiHost + "/api/v1/terminal/getmachineinfo",
                         {
                             limit: limit,
                             offset: skip,
@@ -74,7 +77,7 @@ class AdminMachinePage extends React.Component {
                         }
                         let responseData = response.data.data;
                         console.log(responseData);
-                        
+
                         let terminalInfos = responseData.data;
                         let tableData = [];
                         for (
@@ -143,28 +146,30 @@ class AdminMachinePage extends React.Component {
             );
         }
 
-        let tutorialheaders=this.machineType.map((m, idx) => {
-            if(this.state.machineType==m){
-                return (<a className="nav-link  active ml-0" href="#">{m}</a>);
-            }else{
-                return (<a className="nav-link  ml-0" href="#"  onClick={(e)=>{
-                    this.setState({machineType: m});
-                }} >{m}</a>);
+        let tutorialheaders = this.machineType.map((m, idx) => {
+            if (this.state.machineType == m) {
+                return (
+                    <a className="nav-link  active ml-0" href="#">
+                        {m}
+                    </a>
+                );
+            } else {
+                return (
+                    <a
+                        className="nav-link  ml-0"
+                        href="#"
+                        onClick={(e) => {
+                            this.setState({ machineType: m });
+                        }}
+                    >
+                        {m}
+                    </a>
+                );
             }
         });
 
-
-        let machineContent=(<div></div>);
-        if(this.state.machineType=='terminal'){
-            machineContent=(
-                <div>
-                    <AdminTerminal></AdminTerminal>
-                </div>
-
-            );
-        }
-
-        if(this.state.machineType=='validator'){
+        let machineContent = <div></div>;
+        if (this.state.machineType == "terminal") {
             machineContent = (
                 <div>
                     <AdminTerminal></AdminTerminal>
@@ -172,7 +177,15 @@ class AdminMachinePage extends React.Component {
             );
         }
 
-        if(this.state.machineType=='speedTester'){
+        if (this.state.machineType == "validator") {
+            machineContent = (
+                <div>
+                    <AdminTerminal></AdminTerminal>
+                </div>
+            );
+        }
+
+        if (this.state.machineType == "speedTester") {
             machineContent = (
                 <div>
                     <AdminSpeedTester></AdminSpeedTester>
@@ -180,7 +193,7 @@ class AdminMachinePage extends React.Component {
             );
         }
 
-        if(this.state.machineType=='fileTransfer'){
+        if (this.state.machineType == "fileTransfer") {
             machineContent = (
                 <div>
                     <AdminFileTransfer></AdminFileTransfer>
@@ -188,29 +201,38 @@ class AdminMachinePage extends React.Component {
             );
         }
 
+        if (this.state.machineType == "fileStore") {
+            machineContent = (
+                <div>
+                    <AdminFileStore></AdminFileStore>
+                </div>
+            );
+        }
 
-        return(
+        return (
             <div>
-                <div className="nav nav-tabs" style={{marginTop:'20px'}}>
+                <div className="nav nav-tabs" style={{ marginTop: "20px" }}>
                     {tutorialheaders}
                 </div>
 
-                <div className="  border-light shadow-sm" style={{borderRadius:'0px',marginBottom:'20px',minHeight:'200px'}}>
-                    {machineContent}                   
+                <div
+                    className="  border-light shadow-sm"
+                    style={{
+                        borderRadius: "0px",
+                        marginBottom: "20px",
+                        minHeight: "200px",
+                    }}
+                >
+                    {machineContent}
                 </div>
             </div>
-
-
-        )
-
+        );
     }
 
     render() {
-        
         const MachineTable = this.renderMachineTable();
         return (
             <AdminLayout name="Admin" description="Machines">
-                
                 {MachineTable}
             </AdminLayout>
         );
