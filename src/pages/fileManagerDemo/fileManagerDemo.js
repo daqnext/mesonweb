@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-22 14:35:38
+ * @LastEditTime: 2020-12-23 14:47:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -268,6 +268,7 @@ class FileManagerPage extends React.Component {
                 
                 let data = new FormData();
                 data.append("fileName", file[0]);
+                data.append("originFileName", file[0].name);
                 //data.append("file", file[0].name);
                 let config = {
                     method: "post",

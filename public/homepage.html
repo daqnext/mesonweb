@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-16 08:37:21
- * @LastEditTime: 2020-12-21 11:54:07
+ * @LastEditTime: 2020-12-23 15:08:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/public/homepage.html
@@ -204,8 +204,26 @@
         </div>
         <div style=" background-color: #0948B3;">
             <!-- onload="this.height=this.contentWindow.document.body.scrollHeight" -->
-            <iframe ref="iframe" scrolling="no" frameBorder="0" style="width:100%;height:625px;border-radius: 10px;background-color: #0948B3;" src="/demofilemanager"></iframe>
+            <iframe id="win" ref="iframe" scrolling="no" frameBorder="0" style="width:100%;border-radius: 10px;background-color: #0948B3;" src="/demofilemanager"></iframe>
         </div>
+
+        <script>
+            function SetWinHeight() {
+                    if (document.getElementById) {
+                        var win = document.getElementById("win")
+                        if (win && !window.opera) {
+                            if (win.contentDocument && win.contentDocument.body.offsetHeight)
+                                win.height = win.contentDocument.body.offsetHeight;
+                            else if (win.Document && win.Document.body.scrollHeight)
+                                win.height = win.Document.body.scrollHeight;
+                        }
+                    }
+                } 
+
+                setInterval(() => {                  
+                    SetWinHeight()
+                }, 1000);
+        </script>
        
         <section class="section section-lg bg-primary text-white" style="padding-bottom: 15em;">
             <div class="container">

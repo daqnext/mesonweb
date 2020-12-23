@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-16 10:00:09
+ * @LastEditTime: 2020-12-23 14:42:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -59,7 +59,7 @@ class FileManagerPage extends React.Component {
 
         this.columns = [
             {
-                name: "fileName",
+                name: "originFileName",
                 header: "File",
                 defaultFlex: 1,
                 editable: false,
@@ -92,11 +92,11 @@ class FileManagerPage extends React.Component {
             {
                 name: "action",
                 header: "Action",
-                defaultWidth: 180,
+                defaultWidth: 110,
                 render: ({ data }) => {
                     return (
                         <div style={{ display: "flex" }}>
-                            <div
+                            {/* <div
                                 className="btn btn-primary btn-sm"
                                 onClick={async () => {
                                     window.open(
@@ -104,8 +104,8 @@ class FileManagerPage extends React.Component {
                                     );
                                 }}
                             >
-                                Download
-                            </div>
+                                Open
+                            </div> */}
                             <div
                                 style={{ marginLeft: "5px" }}
                                 className="btn btn-primary btn-sm"
@@ -114,7 +114,7 @@ class FileManagerPage extends React.Component {
                                     this.props.alert.success("Url Copied");
                                 }}
                             >
-                                Share
+                                Copy Url
                             </div>
                         </div>
                     );
@@ -199,48 +199,66 @@ class FileManagerPage extends React.Component {
          isDragAccept,
          isDragReject,
      } = useDropzone({
-         onDrop: async(file) => {
+         onDrop: async (file) => {
              console.log(file);
-            let data = new FormData();
-            data.append(
-                "fileName",
-                file[0]
-            );
+             let uploadUrl = "";
+             let serverResp = await axios.post(
+                 "/api/store/upload/" + UserManager.GetUserInfo().username,
+                 {
+                     fileName: file[0].name,
+                 },
+                 {
+                     headers: {
+                         Authorization: "Bearer " + UserManager.GetUserToken(),
+                     },
+                 }
+             );
+             console.log(serverResp.data);
+             if (serverResp.data.status == 0) {
+                 uploadUrl = serverResp.data.data;
+             } else if (serverResp.data.status == 5001) {
+                 this.props.alert.error("file already exist");
+                 return;
+             } else {
+                 this.props.alert.error("upload error");
+                 return;
+             }
 
-            let config = {
-                method: "post",
-                url: "/api/store/upload/" + UserManager.GetUserInfo().username,
-                headers: {
-                    Authorization: "Bearer " + UserManager.GetUserToken(),
-                },
-                data: data,
-                onUploadProgress: (progressEvent) => {
-                    let complete =
-                        (((progressEvent.loaded / progressEvent.total) * 100) |
-                            0)
-                    console.log(complete + "%");
-                    this.setState({upProcess:complete})
-                },
-            };
+             let data = new FormData();
+             data.append("fileName", file[0]);
+             data.append("originFileName", file[0].name);
+             //data.append("file", file[0].name);
+             let config = {
+                 method: "post",
+                 url: uploadUrl,
+                 data: data,
+                 onUploadProgress: (progressEvent) => {
+                     let complete =
+                         ((progressEvent.loaded / progressEvent.total) * 100) |
+                         0;
+                     console.log(complete + "%");
+                     this.setState({ upProcess: complete });
+                 },
+             };
 
-            let response = await axios(config)
+             let response = await axios(config);
              console.log(response.data);
-             let responseData = response.data
+             let responseData = response.data;
+             console.log(responseData.status);
              switch (responseData.status) {
                  case 0:
                      this.props.alert.success("upload finish");
                      this.loadData();
                      break;
-                 case 5001:
+                 case "5001":
                      this.props.alert.error("file already exist");
                      break;
                  default:
                      this.props.alert.error("upload error");
                      break;
              }
-            
          },
-         maxFiles:1
+         maxFiles: 1,
      });
 
      const style = useMemo(
