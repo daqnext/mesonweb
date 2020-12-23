@@ -118,7 +118,7 @@ class LoginPage extends React.Component {
                         </form>
                         <div className="card-footer text-center ">
                             <div className="small">
-                                <a href="auth-register-basic.html">Need an account? Sign up!</a></div>
+                                <a href="/register">Need an account? Sign up!</a></div>
                         </div>
 
 

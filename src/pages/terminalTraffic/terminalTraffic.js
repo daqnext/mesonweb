@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-10 19:56:44
- * @LastEditTime: 2020-12-02 15:42:53
+ * @LastEditTime: 2020-12-21 22:59:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminalProfit/terminalProfit.js
@@ -69,19 +69,19 @@ class TerminalProfit extends React.Component {
                     }
                 },
             },
-            {
-                name: "amount",
-                header: "Token Amount",
-                maxWidth: 1000,
-                defaultFlex: 1,
-                render: ({ value }) => {
-                    return (
-                        <div style={{ width: "20%" }}>
-                            &ensp;{(value / 1e9).toFixed(5)}
-                        </div>
-                    );
-                },
-            },
+            // {
+            //     name: "amount",
+            //     header: "Token Amount",
+            //     maxWidth: 1000,
+            //     defaultFlex: 1,
+            //     render: ({ value }) => {
+            //         return (
+            //             <div style={{ width: "20%" }}>
+            //                 &ensp;{(value / 1e9).toFixed(5)}
+            //             </div>
+            //         );
+            //     },
+            // },
         ];
 
         this.state = {

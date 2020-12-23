@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-12-05 08:46:04
+ * @LastEditTime: 2020-12-18 13:51:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -31,6 +31,9 @@ import AdminPriceSetting from './pages/adminPriceSettting/adminPriceSetting';
 import BlogEditorPage from './pages/blogEditor/blogEditor';
 import UserBlogList from './pages/userBlogList/userBlogList';
 import AdminBlogList from './pages/adminBlogList/adminBlogList';
+import FileManagerPage from './pages/fileManager/fileManager'
+
+import DemoFileManagerPage from "./pages/fileManagerDemo/fileManagerDemo";
 
 
 
@@ -62,16 +65,19 @@ function App() {
         binddomain: BindDomain,
         clienttraffic: ClientTraffic,
         balance: BalancePage,
+        filemanager: FileManagerPage,
 
         //for blog
         blogeditor: BlogEditorPage,
-        userbloglist:UserBlogList,
+        userbloglist: UserBlogList,
+        
+        //for demo
+        demofilemanager:DemoFileManagerPage
     };
 
 
-
     for (const urlkey in router_map) {
-        if (window.location.href.includes(urlkey)) {
+        if (window.location.pathname=="/"+urlkey) {
             const Page = router_map[urlkey];
             return <Page />;
             break;

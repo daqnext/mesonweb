@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-16 08:37:21
+ * @LastEditTime: 2020-12-21 11:54:07
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /mesonweb/public/homepage.html
+-->
 <html>
 
 <head>
@@ -50,9 +58,9 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 
     <!--  css & js -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="/static/css/share.min.css">
+    <script src="/static/js/social-share.min.js"></script>
+   <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->
 </head>
 
 <body>
@@ -186,6 +194,19 @@
 
         </section>
 
+        <!-- ipfs file -->
+        <div style="background-color: #0948B3;">
+                <div class="container" style="color:white; ">
+                    <h1 class=" font-weight-bolder" style="margin:0; color: white;padding-bottom: 10px;">Demo:</h1>
+                        <h2 class=" font-weight-bolder" style="margin:0; color: white;padding-bottom: 10px; font-size:18px">IPFS storage &
+                            meson acceleration</h2>
+                </div>
+        </div>
+        <div style=" background-color: #0948B3;">
+            <!-- onload="this.height=this.contentWindow.document.body.scrollHeight" -->
+            <iframe ref="iframe" scrolling="no" frameBorder="0" style="width:100%;height:625px;border-radius: 10px;background-color: #0948B3;" src="/demofilemanager"></iframe>
+        </div>
+       
         <section class="section section-lg bg-primary text-white" style="padding-bottom: 15em;">
             <div class="container">
 
