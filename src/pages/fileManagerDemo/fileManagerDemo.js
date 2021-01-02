@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-23 14:47:29
+ * @LastEditTime: 2020-12-31 16:08:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -554,7 +554,7 @@ class FileManagerPage extends React.Component {
                                         <input
                                             id="mesonlink"
                                             value={
-                                                Global.apiHost + value.originUrl
+                                                Global.coldCdnApiHost + value.originUrl
                                             }
                                             className="form-control"
                                             type="text"
@@ -575,7 +575,7 @@ class FileManagerPage extends React.Component {
                                                 }}
                                                 onClick={() => {
                                                     copy(
-                                                        Global.apiHost +
+                                                        Global.coldCdnApiHost +
                                                             value.originUrl
                                                     );
                                                     this.props.alert.success(

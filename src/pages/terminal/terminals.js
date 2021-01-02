@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-12-21 22:42:50
+ * @LastEditTime: 2020-12-29 16:17:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -48,12 +48,12 @@ class TerminalPage extends React.Component {
                 defaultFlex: 1,
             },
             {
-                name: "disk_usage",
-                header: "disk_usage",
+                name: "cdn_space_usage",
+                header: "cdn_space_usage",
                 defaultFlex: 1,
                 render: ({ value }) => {
                     let percent = value;
-                    let width2 =   percent + "%" ;
+                    let width2 = percent + "%";
                     //console.log(width2);
 
                     let className = "progress-bar bg-secondary";
@@ -66,18 +66,48 @@ class TerminalPage extends React.Component {
                         <div>
                             <div>{width2}</div>
                             <div className="progress mb-0">
-                                <div className={className} role="progressbar"
-                                     aria-valuenow={'"'+percent+'"'}
-                                     aria-valuemin="0" aria-valuemax="100"
-                                     style={{width:percent+'px'}} ></div>
+                                <div
+                                    className={className}
+                                    role="progressbar"
+                                    aria-valuenow={'"' + percent + '"'}
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                    style={{ width: percent + "px" }}
+                                ></div>
                             </div>
                         </div>
-
-
-
                     );
                 },
             },
+            // {
+            //     name: "disk_usage",
+            //     header: "disk_usage",
+            //     defaultFlex: 1,
+            //     render: ({ value }) => {
+            //         let percent = value;
+            //         let width2 =   percent + "%" ;
+            //         //console.log(width2);
+
+            //         let className = "progress-bar bg-secondary";
+            //         if (percent < 60) {
+            //             className = "progress-bar bg-tertiary";
+            //         } else if (percent < 85) {
+            //             className = "progress-bar bg-primary";
+            //         }
+            //         return (
+            //             <div>
+            //                 <div>{width2}</div>
+            //                 <div className="progress mb-0">
+            //                     <div className={className} role="progressbar"
+            //                          aria-valuenow={'"'+percent+'"'}
+            //                          aria-valuemin="0" aria-valuemax="100"
+            //                          style={{width:percent+'px'}} ></div>
+            //                 </div>
+            //             </div>
+
+            //         );
+            //     },
+            // },
             {
                 name: "memory_usage",
                 header: "memory_usage",
@@ -91,14 +121,17 @@ class TerminalPage extends React.Component {
                         className = "progress-bar bg-primary";
                     }
                     return (
-
                         <div>
-                            <div>{percent+"%"}</div>
+                            <div>{percent + "%"}</div>
                             <div className="progress mb-0">
-                                <div className={className} role="progressbar"
-                                     aria-valuenow={'"'+percent+'"'}
-                                     aria-valuemin="0" aria-valuemax="100"
-                                     style={{width:percent+'px'}} ></div>
+                                <div
+                                    className={className}
+                                    role="progressbar"
+                                    aria-valuenow={'"' + percent + '"'}
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                    style={{ width: percent + "px" }}
+                                ></div>
                             </div>
                         </div>
                     );
@@ -123,7 +156,7 @@ class TerminalPage extends React.Component {
                                     <td>
                                         <div>
                                             <span className="disable-version"></span>
-                                            &nbsp;{ value}
+                                            &nbsp;{value}
                                         </div>
                                         <div>Disable Version</div>
                                     </td>
@@ -132,8 +165,8 @@ class TerminalPage extends React.Component {
                         }
                     }
 
-                    if (this.state.terminalLatestVersion!="") {
-                        if (this.state.terminalLatestVersion!=value) {
+                    if (this.state.terminalLatestVersion != "") {
+                        if (this.state.terminalLatestVersion != value) {
                             return (
                                 <div>
                                     <div>
@@ -152,7 +185,7 @@ class TerminalPage extends React.Component {
                             &nbsp;{value}
                         </td>
                     );
-                }
+                },
             },
             {
                 name: "machine_status",
@@ -260,6 +293,12 @@ class TerminalPage extends React.Component {
                                 machine_ip: terminalInfo.machine_ip,
                                 port: terminalInfo.port,
                                 country: terminalInfo.country,
+                                cdn_space_usage: (
+                                    ((terminalInfo.cdn_disk_total -
+                                        terminalInfo.cdn_disk_available) /
+                                        terminalInfo.cdn_disk_total) *
+                                    100
+                                ).toFixed(2),
                                 disk_usage: (
                                     ((terminalInfo.machine_total_disk -
                                         terminalInfo.machine_available_disk) /
@@ -339,19 +378,19 @@ class TerminalPage extends React.Component {
             }
         });
 
-
+        //https://meson.network/static/terminal/v0.1.2/meson-darwin-amd64.tar.gz
         let tutorialcontent=(<div></div>);
         if(this.state.tutorialsys=='linux 64 bit'){
             tutorialcontent=(
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on linux server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v{this.state.terminalLatestVersion}-linux-amd64.zip'</div>
+                    <div style={{ color: 'yellow' }}>$ wget 'https://meson.network/static/terminal/v{this.state.terminalLatestVersion}/meson-linux-amd64.tar.gz'</div>
                     <div>#Step.2 unzip the package</div>
-                    <div style={{color:'yellow'}}>$ unzip meson-v{this.state.terminalLatestVersion}-linux-amd64.zip</div>
+                    <div style={{color:'yellow'}}>$ tar -zxf meson-linux-amd64.tar.gz</div>
                     <div>#Step.3 run the app</div>
-                    <div style={{color:'yellow'}}>$ cd ./meson-v{this.state.terminalLatestVersion}-linux-amd64 && ./meson.v{this.state.terminalLatestVersion}</div>
-                    <div>#Step.4 input your token</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-linux-amd64 && ./meson</div>
+                    <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
                 </div>
@@ -364,12 +403,12 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on linux server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v{this.state.terminalLatestVersion}-linux-386.zip'</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/v{this.state.terminalLatestVersion}/meson-linux-386.tar.gz'</div>
                     <div>#Step.2 unzip the package</div>
-                    <div style={{color:'yellow'}}>$ unzip meson-v{this.state.terminalLatestVersion}-linux-386.zip</div>
+                    <div style={{color:'yellow'}}>$ tar -zxf meson-linux-386.tar.gz</div>
                     <div>#Step.3 run the app</div>
-                    <div style={{color:'yellow'}}>$ cd ./meson-v{this.state.terminalLatestVersion}-linux-386 && ./meson.v{this.state.terminalLatestVersion}</div>
-                    <div>#Step.4 input your token</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-linux-386 && ./meson</div>
+                    <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
                 </div>
@@ -382,12 +421,12 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on windows server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v{this.state.terminalLatestVersion}-win64.zip'</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/v{this.state.terminalLatestVersion}/meson-windows-amd64.zip'</div>
                     <div>#Step.2 unzip the package</div>
-                    <div style={{color:'yellow'}}>$ unzip meson-v{this.state.terminalLatestVersion}-win64.zip</div>
+                    <div style={{color:'yellow'}}>$ unzip meson-windows-amd64.zip</div>
                     <div>#Step.3 run the app</div>
-                    <div style={{color:'yellow'}}>$ cd ./meson-v{this.state.terminalLatestVersion}-win64 && ./meson.v{this.state.terminalLatestVersion}</div>
-                    <div>#Step.4 input your token</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-windows-amd64 && ./meson.exe</div>
+                    <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
                 </div>
@@ -400,12 +439,12 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on windows server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v{this.state.terminalLatestVersion}-win32.zip'</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/v{this.state.terminalLatestVersion}/meson-windows-386.zip'</div>
                     <div>#Step.2 unzip the package</div>
-                    <div style={{color:'yellow'}}>$ unzip meson-v{this.state.terminalLatestVersion}-win32.zip</div>
+                    <div style={{color:'yellow'}}>$ unzip meson-windows-386.zip</div>
                     <div>#Step.3 run the app</div>
-                    <div style={{color:'yellow'}}>$ cd ./meson-v{this.state.terminalLatestVersion}-win32 && ./meson.v{this.state.terminalLatestVersion}</div>
-                    <div>#Step.4 input your token</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-windows-386 && ./meson.exe</div>
+                    <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
                 </div>
@@ -418,12 +457,12 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on mac server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/meson-v{this.state.terminalLatestVersion}-darwin-amd64.zip'</div>
+                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/v{this.state.terminalLatestVersion}/meson-darwin-amd64.tar.gz'</div>
                     <div>#Step.2 unzip the package</div>
-                    <div style={{color:'yellow'}}>$ unzip meson-v{this.state.terminalLatestVersion}-darwin-amd64.zip</div>
+                    <div style={{color:'yellow'}}>$ tar -zxf meson-darwin-amd64.tar.gz</div>
                     <div>#Step.3 run the app</div>
-                    <div style={{color:'yellow'}}>$ cd ./meson-v{this.state.terminalLatestVersion}-darwin-amd64 && ./meson.v{this.state.terminalLatestVersion}</div>
-                    <div>#Step.4 input your token</div>
+                    <div style={{color:'yellow'}}>$ cd ./meson-darwin-amd64 && ./meson</div>
+                    <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
                 </div>

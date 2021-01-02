@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 08:20:10
- * @LastEditTime: 2020-12-21 22:21:31
+ * @LastEditTime: 2020-12-29 11:02:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/adminMachine/adminTerminal.js
@@ -12,8 +12,9 @@ import ReactDataGrid from "@inovua/reactdatagrid-community";
 import Global from "../../global/global";
 import axios from "axios";
 import UserManager from "../../manager/usermanager";
+import { withAlert } from "react-alert";
 
-export default class AdminTerminal extends React.Component {
+class AdminTerminal extends React.Component {
     constructor(props) {
         super(props);
 
@@ -70,8 +71,8 @@ export default class AdminTerminal extends React.Component {
                 },
             },
             {
-                name: "disk_usage",
-                header: "disk_usage",
+                name: "cdn_space_usage",
+                header: "cdn_space_usage",
                 defaultFlex: 1,
                 render: ({ value }) => {
                     let percent = value;
@@ -101,6 +102,38 @@ export default class AdminTerminal extends React.Component {
                     );
                 },
             },
+            // {
+            //     name: "disk_usage",
+            //     header: "disk_usage",
+            //     defaultFlex: 1,
+            //     render: ({ value }) => {
+            //         let percent = value;
+            //         let width2 = percent + "%";
+            //         //console.log(width2);
+
+            //         let className = "progress-bar bg-secondary";
+            //         if (percent < 60) {
+            //             className = "progress-bar bg-tertiary";
+            //         } else if (percent < 85) {
+            //             className = "progress-bar bg-primary";
+            //         }
+            //         return (
+            //             <div>
+            //                 <div>{width2}</div>
+            //                 <div className="progress mb-0">
+            //                     <div
+            //                         className={className}
+            //                         role="progressbar"
+            //                         aria-valuenow={'"' + percent + '"'}
+            //                         aria-valuemin="0"
+            //                         aria-valuemax="100"
+            //                         style={{ width: percent + "px" }}
+            //                     ></div>
+            //                 </div>
+            //             </div>
+            //         );
+            //     },
+            // },
             {
                 name: "memory_usage",
                 header: "memory_usage",
@@ -184,8 +217,7 @@ export default class AdminTerminal extends React.Component {
                 name: "machine_status",
                 header: "status",
                 defaultFlex: 1,
-                render: ({  value }) => {
-                    
+                render: ({ value }) => {
                     if (value === "up") {
                         return (
                             <td>
@@ -199,6 +231,50 @@ export default class AdminTerminal extends React.Component {
                             </td>
                         );
                     }
+                },
+            },
+            {
+                name: "action",
+                header: "Action",
+                defaultFlex: 1,
+                render: ({ data }) => {
+                    return (
+                        <div style={{ display: "flex" }}>
+                            <div
+                                style={{ marginLeft: "5px" }}
+                                className="btn btn-primary btn-sm"
+                                onClick={
+                                    async () => {
+                                        //console.log(data);
+                            let response = await axios.post(
+                                Global.apiHost + "/api/v1/admin/testspeed",
+                                {
+                                    terminalIp: data.machine_ip,
+                                    terminalPort: data.port,
+                                },
+                                {
+                                    headers: {
+                                        Authorization:
+                                            "Bearer " +
+                                            UserManager.GetUserToken(),
+                                    },
+                                }
+                            );
+
+                            if (response.data.status == 0) {
+                                this.props.alert.success("Cmd Sended");                               
+                                return;
+                            }
+
+                            this.props.alert.error(
+                                "Cmd send error"
+                            );
+                                }}
+                            >
+                                Test Speed
+                            </div>
+                        </div>
+                    );
                 },
             },
         ];
@@ -271,6 +347,12 @@ export default class AdminTerminal extends React.Component {
                                 area: terminalInfo.area,
                                 city: terminalInfo.city,
                                 speed: terminalInfo.machine_net_speed,
+                                cdn_space_usage: (
+                                    ((terminalInfo.cdn_disk_total -
+                                        terminalInfo.cdn_disk_available) /
+                                        terminalInfo.cdn_disk_total) *
+                                    100
+                                ).toFixed(2),
                                 disk_usage: (
                                     ((terminalInfo.machine_total_disk -
                                         terminalInfo.machine_available_disk) /
@@ -325,3 +407,5 @@ export default class AdminTerminal extends React.Component {
         );
     }
 }
+
+export default withAlert()(AdminTerminal);

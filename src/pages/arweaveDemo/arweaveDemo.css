@@ -1,0 +1,21 @@
+/* WebKit browsers */
+.arweave-hash-input::-webkit-input-placeholder {
+    color: #cccccc;
+    
+}
+/* Mozilla Firefox 4 to 18 */
+.arweave-hash-input:-moz-placeholder {
+    color: #cccccc;
+    opacity: 1;
+   
+}
+/* Mozilla Firefox 19+ */
+.arweave-hash-input::-moz-placeholder {
+    color: #cccccc;
+    
+}
+/* Internet Explorer 10+ */
+.arweave-hash-input:-ms-input-placeholder {
+    color: #cccccc;
+    
+}
