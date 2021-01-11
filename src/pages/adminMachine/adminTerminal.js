@@ -65,9 +65,7 @@ class AdminTerminal extends React.Component {
                 defaultFlex: 1,
                 render: ({ value }) => {
                     let speed = value;
-                    // speed = Math.cbrt(speed)-1;
-                    // speed = Math.pow(10, speed)-1;
-                    return <div>{(speed / 1000).toFixed(2)} MB/s</div>;
+                    return <div>{(speed*8 / 1000).toFixed(2)} Mb/s</div>;
                 },
             },
             {
