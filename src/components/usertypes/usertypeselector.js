@@ -46,7 +46,7 @@ class UserTypeSelector extends React.Component {
         }
 
         if(usertype=='client'){
-            return (<div>[CDN-User] To use our global accleration service</div>)
+            return (<div>[CDN-User] To use our global acceleration service</div>)
         }
         return usertype;
     }
