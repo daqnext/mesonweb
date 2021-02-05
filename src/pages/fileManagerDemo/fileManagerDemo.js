@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-31 16:08:50
+ * @LastEditTime: 2021-02-05 17:21:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -70,9 +70,9 @@ class FileManagerPage extends React.Component {
         // }
         this.publicIpfsDemoId = this.makeid(8)
 
-        document
-            .getElementsByTagName("body")[0]
-            .setAttribute("style", "background-color: #0948B3");
+        // document
+        //     .getElementsByTagName("body")[0]
+        //     .setAttribute("style", "background-color: #0948B3");
 
         this.columns = [
             {
