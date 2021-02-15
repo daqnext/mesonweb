@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-05 10:10:16
- * @LastEditTime: 2021-02-05 17:46:07
+ * @LastEditTime: 2021-02-12 17:48:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home.new.js
@@ -21,6 +21,8 @@ import footer from "./footer.html";
 
 import ArweaveDemoPage from "../arweaveDemo/arweaveDemo"
 import FileManagerDemoPage from "../fileManagerDemo/fileManagerDemo"
+import NodeMapPage from "../nodeMap/nodeMap"
+import FinancingPage from "../financing/financing"
 
 class HomePage extends React.Component {
   componentDidMount() {
@@ -177,6 +179,26 @@ $.ajax(settings).done(function (response) {
     )
   }
 
+  nodeMap(){
+    return(
+      <div className="node-map" >
+      
+        <NodeMapPage></NodeMapPage>
+      
+      </div> 
+  )
+  }
+
+  financing(){
+    return(
+      <>
+      
+        <FinancingPage></FinancingPage>
+      
+      </> 
+  )
+  }
+
   render() {
     return (
       <>
@@ -190,6 +212,8 @@ $.ajax(settings).done(function (response) {
             __html: hero,
           }}
         ></div>
+        {this.nodeMap()}
+        {this.financing()}
         {this.fileManager()}
         {this.arweave()}
         <div
