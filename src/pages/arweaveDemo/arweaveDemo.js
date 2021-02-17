@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-31 13:38:15
- * @LastEditTime: 2021-02-05 18:53:43
+ * @LastEditTime: 2021-02-17 21:53:17
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/arweaveDemo/arweaveDemo.js
@@ -43,7 +43,7 @@ class ArweaveDemoPage extends React.Component {
                 this.setState({
                   inputHash: event.target.value,
                 });
-                console.log(event.target.value);
+                //console.log(event.target.value);
               }}
               type="text"
               placeholder="Input file ID(Hash) in Arweave"
@@ -64,6 +64,9 @@ class ArweaveDemoPage extends React.Component {
                 value={"https://arweave.net/" + this.state.inputHash}
                 className="form-control"
                 type="text"
+                onChange={(event)=>{
+
+                }}
                 style={{
                   background: "none",
                   color: "white",
@@ -105,6 +108,9 @@ class ArweaveDemoPage extends React.Component {
                   "/api/cdn/bronil/" +
                   this.state.inputHash
                 }
+                onChange={(event)=>{
+
+                }}
                 className="form-control"
                 type="text"
                 style={{

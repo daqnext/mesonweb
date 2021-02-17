@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-05 10:10:16
- * @LastEditTime: 2021-02-12 17:48:06
+ * @LastEditTime: 2021-02-17 21:44:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home.new.js
@@ -147,9 +147,9 @@ $.ajax(settings).done(function (response) {
     return(
       <>
       <div style={{backgroundColor:"#0948B3"}}>
-                <div class="container" style={{color:"white"}}>
-                    <h1 class=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px"}}>Demo:</h1>
-                        <h2 class=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px",fontSize:"18px"}}>IPFS storage &
+                <div className="container" style={{color:"white"}}>
+                    <h1 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px"}}>Demo:</h1>
+                        <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px",fontSize:"18px"}}>IPFS storage &
                             meson acceleration</h2>
                 </div>
         </div>
@@ -166,8 +166,8 @@ $.ajax(settings).done(function (response) {
     return(
         <>
         <div style={{backgroundColor:"#0948B3",paddingTop:"50px"}}>
-            <div class="container" style={{color:"white"}}>
-                <h2 class=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px",fontSize:"18px"}}>Arweave & meson acceleration</h2>
+            <div className="container" style={{color:"white"}}>
+                <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px",fontSize:"18px"}}>Arweave & meson acceleration</h2>
             </div>
         </div>
         <ArweaveDemoPage></ArweaveDemoPage>

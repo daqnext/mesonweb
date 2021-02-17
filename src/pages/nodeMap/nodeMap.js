@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 13:32:00
- * @LastEditTime: 2021-02-14 15:46:19
+ * @LastEditTime: 2021-02-17 21:43:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/nodeMap/nodeMap.js
@@ -65,17 +65,17 @@ class NodeMapPage extends React.Component {
   getOption() {
     let option = {
       backgroundColor: "#0948B3",
-      title: {
-        text: "Acceleration nodes",
-        left: "center",
-        textStyle: {
-          color: "#fff",
-          fontSize: "26",
-        },
-        // subtext: '人口密度数据来自Wikipedia',
-      },
+      // title: {
+      //   text: "Acceleration nodes",
+      //   left: "center",
+      //   textStyle: {
+      //     color: "#fff",
+      //     fontSize: "26",
+      //   },
+      //   // subtext: '人口密度数据来自Wikipedia',
+      // },
       tooltip: {
-        trigger: "item",
+        trigger: "item",        
         formatter: function (params) {
           //格式化鼠标指到点上的弹窗返回的数据格式
           if (params.value) {
@@ -103,7 +103,7 @@ class NodeMapPage extends React.Component {
           //坐标块本身
           normal: {
             //坐标块默认样式控制
-            areaColor: "#5c5c5c", //坐标块儿颜色
+            areaColor: "#fff", //坐标块儿颜色
             borderColor: "#111",
           },
           emphasis: {
@@ -138,6 +138,7 @@ class NodeMapPage extends React.Component {
             normal: {
               formatter: "{b}",
               position: "right",
+              fontSize:18,
               show: true, //显示位置信息，
             },
           },
@@ -198,8 +199,12 @@ class NodeMapPage extends React.Component {
     return (
       <div style={{ backgroundColor: "#0948B3", padding: "30px 0" }}>
         <div className="container">
+          <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px",fontSize:"32px",textAlign:"center"}}>Acceleration nodes</h2>
           <ReactEcharts
-            style={{ height: "650px",border:"2px dashed white",paddingTop:"20px" }}
+            style={{ 
+              height: "650px",
+              // border:"2px dashed white",
+              paddingTop:"20px" }}
             option={this.getOption()}
             // notMerge={true}
             // lazyUpdate={true}
