@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 13:32:00
- * @LastEditTime: 2021-02-17 21:43:30
+ * @LastEditTime: 2021-02-18 12:26:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/nodeMap/nodeMap.js
@@ -16,13 +16,15 @@
  */
 
 import React from "react";
-import { withAlert } from "react-alert";
+// import { withAlert } from "react-alert";
 import ReactEcharts from "echarts-for-react";
+import worldmap from "../../img/world-map-new.svg"
 import axios from "axios";
-import "./world";
+import "./world copy 2";
 import Global from "../../global/global";
+import "./nodeMap.css"
 
-class NodeMapPage extends React.Component {
+export default class NodeMapPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,6 +52,9 @@ class NodeMapPage extends React.Component {
     const terminals=responseData.terminals
     let data=[]
     for(let key in terminals){
+      if(key==""){
+        continue
+      }
       if(cityInfo[key]){
         const value=[cityInfo[key].MachineGeoX,cityInfo[key].MachineGeoY,terminals[key]]
         const v={name:key,value:value}
@@ -89,9 +94,9 @@ class NodeMapPage extends React.Component {
         map: "world",
         zoom: 1.15,
         roam: true, //是否开启缩放
-        scaleLimit:{
-          min:1.15
-        },
+        // scaleLimit:{
+        //   min:1.15
+        // },
         // label: {
         //    emphasis: {                //鼠标划到后弹出的文字 显示省份
         //       color: '#FF0000',       //高亮背景色
@@ -104,7 +109,7 @@ class NodeMapPage extends React.Component {
           normal: {
             //坐标块默认样式控制
             areaColor: "#fff", //坐标块儿颜色
-            borderColor: "#111",
+            borderColor: "#fff",
           },
           emphasis: {
             areaColor: "#757575", //放坐标块儿上，块儿颜色
@@ -195,28 +200,81 @@ class NodeMapPage extends React.Component {
     return option;
   }
 
+  renderPoint(){
+    return(<div>
+      
+    
+      {this.state.vmData.map((value,index,array)=>{
+      let top=index*3
+      let left = index*3
+      return <div style={{display:"block",position:"absolute",top:`${top}%`,left:`${left}%`}}>
+        <div class="smallcircle2"></div>
+    <div class="bigcircle2"></div>
+      </div>
+      // return <div style={{display:"block",position:"absolute",top:`${top}%`,left:`${left}%`}}></div>
+    })}
+    </div>)
+    
+  }
+
   render() {
-    return (
-      <div style={{ backgroundColor: "#0948B3", padding: "30px 0" }}>
-        <div className="container">
-          <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px",fontSize:"32px",textAlign:"center"}}>Acceleration nodes</h2>
-          <ReactEcharts
+    return(
+      <>
+             {/* <ReactEcharts
+            // echarts={ echarts }
             style={{ 
               height: "650px",
               // border:"2px dashed white",
               paddingTop:"20px" }}
             option={this.getOption()}
+          
             // notMerge={true}
             // lazyUpdate={true}
             // theme={"theme_name"}
             // onChartReady={this.onChartReadyCallback}
             // onEvents={EventsDict}
-            // opts={}
-          />
+            opts={{}}
+          /> */}
+      <div style={{backgroundColor:"#0948B3",paddingTop:"50px"}}>
+            <div className="container" style={{color:"white"}}>
+                <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"20px",fontSize:"26px"}}>Acceleration Node</h2>
+            </div>
         </div>
-      </div>
-    );
+        {/* <div className="container"></div> */}
+        <div className="container" style={{textAlign:"center",paddingTop:"30px"}}>
+          <div style={{position:"relative"}}>
+          <img src={worldmap} style={{opacity:"48%"}}></img>
+        {this.renderPoint()}   
+          </div>
+          
+        
+        </div>
+        </>
+    )
+    
+    // return (
+    //   <div style={{ backgroundColor: "#0948B3", padding: "30px 0" }}>
+    //     <div className="container">
+    //       <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px",fontSize:"32px",textAlign:"center"}}>Acceleration nodes</h2>
+    //       <ReactEcharts
+    //         // echarts={ echarts }
+    //         style={{ 
+    //           height: "650px",
+    //           // border:"2px dashed white",
+    //           paddingTop:"20px" }}
+    //         option={this.getOption()}
+          
+    //         // notMerge={true}
+    //         // lazyUpdate={true}
+    //         // theme={"theme_name"}
+    //         // onChartReady={this.onChartReadyCallback}
+    //         // onEvents={EventsDict}
+    //         opts={{}}
+    //       />
+    //     </div>
+    //   </div>
+    // );
   }
 }
 
-export default withAlert()(NodeMapPage);
+// export default withAlert()(NodeMapPage);

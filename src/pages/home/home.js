@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-05 10:10:16
- * @LastEditTime: 2021-02-17 21:44:49
+ * @LastEditTime: 2021-02-18 11:20:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home.new.js
@@ -22,7 +22,9 @@ import footer from "./footer.html";
 import ArweaveDemoPage from "../arweaveDemo/arweaveDemo"
 import FileManagerDemoPage from "../fileManagerDemo/fileManagerDemo"
 import NodeMapPage from "../nodeMap/nodeMap"
-import FinancingPage from "../financing/financing"
+// import FinancingPage from "../financing/financing"
+
+
 
 class HomePage extends React.Component {
   componentDidMount() {
@@ -148,8 +150,8 @@ $.ajax(settings).done(function (response) {
       <>
       <div style={{backgroundColor:"#0948B3"}}>
                 <div className="container" style={{color:"white"}}>
-                    <h1 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px"}}>Demo:</h1>
-                        <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px",fontSize:"18px"}}>IPFS storage &
+                    
+                        <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px",fontSize:"26px",paddingTop:"130px"}}>IPFS storage &
                             meson acceleration</h2>
                 </div>
         </div>
@@ -167,7 +169,7 @@ $.ajax(settings).done(function (response) {
         <>
         <div style={{backgroundColor:"#0948B3",paddingTop:"50px"}}>
             <div className="container" style={{color:"white"}}>
-                <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px",fontSize:"18px"}}>Arweave & meson acceleration</h2>
+                <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px",fontSize:"26px",paddingTop:"100px"}}>Arweave & meson acceleration</h2>
             </div>
         </div>
         <ArweaveDemoPage></ArweaveDemoPage>
@@ -181,23 +183,29 @@ $.ajax(settings).done(function (response) {
 
   nodeMap(){
     return(
-      <div className="node-map" >
+      <div className="node-map" style={{backgroundColor:"#0948B3"}} >
       
         <NodeMapPage></NodeMapPage>
-      
+        {/* <div style={{backgroundColor:"#0948B3",paddingTop:"50px"}}>
+            <div className="container" style={{color:"white"}}>
+                <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"20px",fontSize:"28px"}}>Acceleration node</h2>
+            </div>
+        </div>
+        <img src={worldmap} style={{width:"60%"}}></img>
+       */}
       </div> 
   )
   }
 
-  financing(){
-    return(
-      <>
+  // financing(){
+  //   return(
+  //     <>
       
-        <FinancingPage></FinancingPage>
+  //       <FinancingPage></FinancingPage>
       
-      </> 
-  )
-  }
+  //     </> 
+  // )
+  // }
 
   render() {
     return (
@@ -213,7 +221,7 @@ $.ajax(settings).done(function (response) {
           }}
         ></div>
         {this.nodeMap()}
-        {this.financing()}
+        {/* {this.financing()} */}
         {this.fileManager()}
         {this.arweave()}
         <div

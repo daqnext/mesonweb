@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2021-02-05 17:21:00
+ * @LastEditTime: 2021-02-18 11:23:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -439,7 +439,7 @@ class FileManagerPage extends React.Component {
         //const Content = this.renderContent();
 
         return (
-            <div style={{ padding: "0 10%", backgroundColor: "#0948B3" }}>
+            <div style={{  backgroundColor: "#0948B3",paddingTop:"30px" }}>
                 {this.renderUploadArea()}
 
                 {this.state.upProcess > 0 &&
