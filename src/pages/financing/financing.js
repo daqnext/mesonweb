@@ -49,7 +49,7 @@ class FinancingPage extends React.Component {
 
   getOption() {
     let option = {
-      backgroundColor: "#0948B3",
+      backgroundColor: "#02233e",
       textStyle: {
         color: "white",
       },
@@ -132,7 +132,7 @@ class FinancingPage extends React.Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "#0948B3", padding: "30px 0" }}>
+      <div style={{ backgroundColor: "#02233e", padding: "30px 0" }}>
         <div className="container">
           <ReactEcharts
             style={{ height: "450px" }}

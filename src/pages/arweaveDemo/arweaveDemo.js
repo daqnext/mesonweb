@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-31 13:38:15
- * @LastEditTime: 2021-02-18 11:21:57
+ * @LastEditTime: 2021-02-19 08:19:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/arweaveDemo/arweaveDemo.js
@@ -26,17 +26,21 @@ class ArweaveDemoPage extends React.Component {
 
     // document
     //     .getElementsByTagName("body")[0]
-    //     .setAttribute("style", "background-color: #0948B3");
+    //     .setAttribute("style", "background-color: #02233e");
   }
 
   render() {
     return (
-      <div style={{ backgroundColor: "#0948B3",paddingTop:"30px" }}>
+      <div style={{ backgroundColor: "#02233e",paddingTop:"30px" }}>
         <div className="container">
           <div className="form-group">
             {/* <label>input file id&#40;Hash&#41; in Arweave</label> */}
             <input
-              style={{ backgroundColor: "#0948B3", color: "white" }}
+              style={{ 
+                backgroundColor: "#02233e", 
+                color: "white",
+              // opacity: "70%", 
+            }}
               className="form-control arweave-hash-input"
               //value={this.state.inputurl}
               onChange={(event) => {
@@ -52,7 +56,10 @@ class ArweaveDemoPage extends React.Component {
 
           <div>
             {/* ipfs link */}
-            <div style={{ color: "white" }}>Origin Arweave link</div>
+            <div style={{ 
+              color: "white",
+              // opacity: "70%", 
+              }}>Origin Arweave link</div>
             <div
               className="input-group "
               style={{
@@ -71,6 +78,7 @@ class ArweaveDemoPage extends React.Component {
                   background: "none",
                   color: "white",
                   paddingLeft: "5px",
+                  // opacity: "70%",
                 }}
               />
               <div className="input-group-append">
@@ -80,7 +88,8 @@ class ArweaveDemoPage extends React.Component {
                   type="button"
                   style={{
                     backgroundColor: "white",
-                    color: "black",
+                    color: "#414f7b",
+                    // opacity: "70%",
                   }}
                   onClick={() => {
                     copy("https://arweave.net/" + this.state.inputHash);
@@ -93,7 +102,10 @@ class ArweaveDemoPage extends React.Component {
             </div>
 
             {/* meson link */}
-            <div style={{ color: "white" }}>Accelerated link by meson:</div>
+            <div style={{ 
+              color: "white",
+              // opacity: "70%", 
+              }}>Accelerated link by meson:</div>
             <div
               className="input-group "
             //   style={{
@@ -117,6 +129,7 @@ class ArweaveDemoPage extends React.Component {
                   background: "none",
                   color: "white",
                   paddingLeft: "5px",
+                  // opacity: "70%",
                 }}
               />
               <div className="input-group-append">
@@ -126,7 +139,8 @@ class ArweaveDemoPage extends React.Component {
                   type="button"
                   style={{
                     backgroundColor: "white",
-                    color: "black",
+                    color: "#414f7b",
+                    // opacity: "70%",
                   }}
                   onClick={() => {
                     copy(

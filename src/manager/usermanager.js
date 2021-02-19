@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-12-04 21:25:23
+ * @LastEditTime: 2021-02-19 14:57:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/manager/usermanager.js
@@ -81,7 +81,7 @@ class UserManager
 
     static UnsetTokenAndRedirectHome(){
         UserManager.UnSetUserToken();
-        window.location.href="/homepage.html";
+        window.location.href="/";
     }
 
 

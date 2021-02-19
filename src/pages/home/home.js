@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-05 10:10:16
- * @LastEditTime: 2021-02-18 11:20:25
+ * @LastEditTime: 2021-02-19 08:38:53
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home.new.js
@@ -72,7 +72,7 @@ if (blogid != null) {
 
     //get blog in url
     var settings = {
-        "url": "https://meson.network/api/v1/common/getblog",
+        "url": "/api/v1/common/getblog",
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -115,7 +115,7 @@ if (blogid != null) {
 
 //get blog list
 var settings = {
-    "url": "https://meson.network/api/v1/common/queryblog",
+    "url": "/api/v1/common/queryblog",
     "method": "POST",
     "timeout": 0,
     "headers": {
@@ -148,16 +148,24 @@ $.ajax(settings).done(function (response) {
   fileManager(){
     return(
       <>
-      <div style={{backgroundColor:"#0948B3"}}>
+      <div style={{backgroundColor:"#02233e"}}>
                 <div className="container" style={{color:"white"}}>
                     
-                        <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px",fontSize:"26px",paddingTop:"130px"}}>IPFS storage &
-                            meson acceleration</h2>
+                        <h3   style={{
+                  // textShadow: "2px 2px 2px black",
+                  borderBottom: "2px solid",
+                  fontWeight:60,
+                  // opacity: "70%",
+                  margin: "0px",
+                  color: "white",
+                  paddingBottom: "3px",
+                  paddingTop:"100px"
+                  }}>IPFS & Meson</h3>
                 </div>
         </div>
         <FileManagerDemoPage></FileManagerDemoPage>
-        {/* <div style=" background-color: #0948B3;">
-            <iframe id="ipfswin" ref="iframe" scrolling="no" frameBorder="0" style="width:100%;border-radius: 10px;background-color: #0948B3;" src="/demofilemanager"></iframe>
+        {/* <div style=" background-color: #02233e;">
+            <iframe id="ipfswin" ref="iframe" scrolling="no" frameBorder="0" style="width:100%;border-radius: 10px;background-color: #02233e;" src="/demofilemanager"></iframe>
         </div> */}
 
       </>
@@ -167,15 +175,24 @@ $.ajax(settings).done(function (response) {
   arweave(){
     return(
         <>
-        <div style={{backgroundColor:"#0948B3",paddingTop:"50px"}}>
+        <div style={{backgroundColor:"#02233e",paddingTop:"50px"}}>
             <div className="container" style={{color:"white"}}>
-                <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"10px",fontSize:"26px",paddingTop:"100px"}}>Arweave & meson acceleration</h2>
+                <h3  style={{
+                  // textShadow: "2px 2px 2px black",
+                  borderBottom: "2px solid",
+                  fontWeight:60,
+                  // opacity: "70%",
+                  margin: "0px",
+                  color: "white",
+                  paddingBottom: "3px",
+                  paddingTop:"100px"
+                  }}>Arweave & Meson</h3>
             </div>
         </div>
         <ArweaveDemoPage></ArweaveDemoPage>
-        {/* <div style=" background-color: #0948B3;">
+        {/* <div style=" background-color: #02233e;">
             <iframe id="arweavewin" ref="iframe" scrolling="no" frameBorder="0"
-                style="width:100%;height:250px;border-radius: 10px;background-color: #0948B3;" src="/demoarweave"></iframe>
+                style="width:100%;height:250px;border-radius: 10px;background-color: #02233e;" src="/demoarweave"></iframe>
         </div> */}
         </> 
     )
@@ -183,10 +200,10 @@ $.ajax(settings).done(function (response) {
 
   nodeMap(){
     return(
-      <div className="node-map" style={{backgroundColor:"#0948B3"}} >
+      <div className="node-map" style={{backgroundColor:"#02233e"}} >
       
         <NodeMapPage></NodeMapPage>
-        {/* <div style={{backgroundColor:"#0948B3",paddingTop:"50px"}}>
+        {/* <div style={{backgroundColor:"#02233e",paddingTop:"50px"}}>
             <div className="container" style={{color:"white"}}>
                 <h2 className=" font-weight-bolder" style={{margin:"0",color:"white",paddingBottom:"20px",fontSize:"28px"}}>Acceleration node</h2>
             </div>

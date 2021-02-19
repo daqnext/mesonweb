@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2021-02-18 11:23:45
+ * @LastEditTime: 2021-02-19 08:17:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -32,6 +32,7 @@ const baseStyle = {
     color: "white",
     outline: "none",
     transition: "border .24s ease-in-out",
+    // opacity: "70%",
 };
 
 const activeStyle = {
@@ -72,7 +73,7 @@ class FileManagerPage extends React.Component {
 
         // document
         //     .getElementsByTagName("body")[0]
-        //     .setAttribute("style", "background-color: #0948B3");
+        //     .setAttribute("style", "background-color: #02233e");
 
         this.columns = [
             {
@@ -439,7 +440,7 @@ class FileManagerPage extends React.Component {
         //const Content = this.renderContent();
 
         return (
-            <div style={{  backgroundColor: "#0948B3",paddingTop:"30px" }}>
+            <div style={{  backgroundColor: "#02233e",paddingTop:"30px" }}>
                 {this.renderUploadArea()}
 
                 {this.state.upProcess > 0 &&
@@ -454,6 +455,7 @@ class FileManagerPage extends React.Component {
                             maxHeight: "500px",
                             overflowY: "scroll",
                             marginTop: "30px",
+                            // opacity: "70%",
                         }}
                     >
                         {/* <this.DataGrid></this.DataGrid> */}
