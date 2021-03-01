@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-05 10:10:16
- * @LastEditTime: 2021-02-19 08:38:53
+ * @LastEditTime: 2021-02-27 15:00:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home.new.js
@@ -22,6 +22,7 @@ import footer from "./footer.html";
 import ArweaveDemoPage from "../arweaveDemo/arweaveDemo"
 import FileManagerDemoPage from "../fileManagerDemo/fileManagerDemo"
 import NodeMapPage from "../nodeMap/nodeMap"
+import Investors from "../investors/investors"
 // import FinancingPage from "../financing/financing"
 
 
@@ -277,6 +278,7 @@ $.ajax(settings).done(function (response) {
             __html: faq,
           }}
         ></div>
+        <Investors></Investors>
         <div
           dangerouslySetInnerHTML={{
             __html: footer,

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 23:52:52
- * @LastEditTime: 2020-12-21 22:58:23
+ * @LastEditTime: 2021-02-24 11:51:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalTotalProfit/terminalTotalProfit.js
@@ -196,7 +196,7 @@ class TerminalTotalProfit extends React.Component {
         while (startTime + day * (1000 * 3600 * 24) < endTime) {
             let dayTimeStamp = startTime + day * (1000 * 3600 * 24);
             let dayDate = moment(dayTimeStamp).format("YYYY-MM-DD");
-            tempCharData.labels.push(dayDate);
+            tempCharData.labels.push(dayDate.substring(5));
             day++;
 
             if (!totalData[dayDate]) {
@@ -228,6 +228,7 @@ class TerminalTotalProfit extends React.Component {
             tableData.push(dayTableData);
         }
 
+        tableData.reverse()
         this.chardata = tempCharData;
         this.setState({ chardata: tempCharData });
         this.tableData=tableData
