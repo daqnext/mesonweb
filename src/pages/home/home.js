@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-05 10:10:16
- * @LastEditTime: 2021-02-27 15:00:50
+ * @LastEditTime: 2021-03-08 21:55:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home.new.js
@@ -141,9 +141,18 @@ $.ajax(settings).done(function (response) {
     }
 });
   `;
+
+  const navbar_global=`
+  navbar_global_hide=function() {
+    $('#navbar_global').removeClass("show")
+    $("html").css("overflow","");
+    $("body").css("overflow","");
+}
+  `
     new Function(typed)();
     new Function(blink)();
     new Function(blog)();
+    new Function(navbar_global)();
   }
 
   fileManager(){
@@ -278,7 +287,7 @@ $.ajax(settings).done(function (response) {
             __html: faq,
           }}
         ></div>
-        <Investors></Investors>
+        {/* <Investors></Investors> */}
         <div
           dangerouslySetInnerHTML={{
             __html: footer,

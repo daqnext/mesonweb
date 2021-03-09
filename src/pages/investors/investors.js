@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-27 14:56:32
- * @LastEditTime: 2021-02-27 21:14:28
+ * @LastEditTime: 2021-03-05 08:48:53
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/investors/investors.js
@@ -15,6 +15,7 @@ import mask from "../../img/seed-round-investor-logos/mask.png";
 import paka from "../../img/seed-round-investor-logos/paka.png";
 import tfp from "../../img/seed-round-investor-logos/tfp.png";
 import youbi from "../../img/seed-round-investor-logos/youbi2.png";
+import x7vc from "../../img/seed-round-investor-logos/x7vc-2.png";
 
 export default class Investors extends React.Component {
   constructor(props) {
@@ -43,7 +44,7 @@ export default class Investors extends React.Component {
                     </div> */}
 
             <div className="col-6 col-lg-2 mb-6 ml-4 mr-4">
-              <a href="javascript:;" class="page-preview scale-up-hover-2">
+              <a href="https://mask.io/" target="_blank" rel="noopener noreferrer" class="page-preview scale-up-hover-2">
                 <img src={mask} alt="mask" />
                 {/* <div class="text-center show-on-hover">
                                 <h6 class="m-0 text-center text-white">Sign in 2 <i class="fas fa-external-link-alt ml-2"></i></h6>
@@ -52,7 +53,7 @@ export default class Investors extends React.Component {
             </div>
 
             <div className="col-6 col-lg-2 mb-6 ml-4 mr-4">
-              <a href="javascript:;" class="page-preview scale-up-hover-2">
+              <a href="https://www.youbicapital.com/" target="_blank" rel="noopener noreferrer" class="page-preview scale-up-hover-2">
                 <img src={youbi} alt="youbi" />
                 {/* <div class="text-center show-on-hover">
                                 <h6 class="m-0 text-center text-white">Sign in 2 <i class="fas fa-external-link-alt ml-2"></i></h6>
@@ -70,7 +71,7 @@ export default class Investors extends React.Component {
             </div>
 
             <div className="col-6 col-lg-2 mb-6 ml-4 mr-4">
-              <a href="javascript:;" class="page-preview scale-up-hover-2">
+              <a href="https://www.paka.fund/" target="_blank" rel="noopener noreferrer" class="page-preview scale-up-hover-2">
                 <img src={paka} alt="paka" />
                 {/* <div class="text-center show-on-hover">
                                 <h6 class="m-0 text-center text-white">Sign in 2 <i class="fas fa-external-link-alt ml-2"></i></h6>
@@ -88,7 +89,16 @@ export default class Investors extends React.Component {
             </div>
 
             <div className="col-6 col-lg-2 mb-6 ml-4 mr-4">
-              <a href="javascript:;" class="page-preview scale-up-hover-2">
+              <a href="http://www.7xvc.com/" target="_blank" rel="noopener noreferrer" class="page-preview scale-up-hover-2">
+                <img src={x7vc} alt="x7vc" />
+                {/* <div class="text-center show-on-hover">
+                                <h6 class="m-0 text-center text-white">Sign in 2 <i class="fas fa-external-link-alt ml-2"></i></h6>
+                            </div> */}
+              </a>
+            </div>
+
+            <div className="col-6 col-lg-2 mb-6 ml-4 mr-4">
+              <a href="https://kernelventures.business.site/" target="_blank" rel="noopener noreferrer" class="page-preview scale-up-hover-2">
                 <img src={kernelventures} alt="kernelventures" />
                 {/* <div class="text-center show-on-hover">
                                 <h6 class="m-0 text-center text-white">Sign in 2 <i class="fas fa-external-link-alt ml-2"></i></h6>
