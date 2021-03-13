@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 13:32:00
- * @LastEditTime: 2021-03-13 17:16:51
+ * @LastEditTime: 2021-03-13 17:19:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/nodeMap/nodeMap.js
@@ -65,9 +65,9 @@ window.addEventListener( 'load', function() {
    
     $.ajax(settings).done(function (response) {
       if (response.status == 0) {
-        console.log(response.data)
+        // console.log(response.data)
         connections = response.data
-        console.log(connections)
+        // console.log(connections)
 
         for ( var i in connections ) {			
           line.locations = [ 
