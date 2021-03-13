@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2021-02-19 08:17:54
+ * @LastEditTime: 2021-03-13 15:02:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -316,11 +316,13 @@ class FileManagerPage extends React.Component {
         );
 
         return (
+            <div style={{cursor:"pointer"}}>
             <div className="container">
-                <div {...getRootProps({ style })}>
+                <div {...getRootProps({ style })}  >
                     <input {...getInputProps()} />
-                    <p style={{ fontSize: "22px" }}>Click to select files</p>
+                    <p style={{ fontSize: "20px",margin:"5px" }}>Click to select files</p>
                 </div>
+            </div>
             </div>
         );
     };
@@ -440,7 +442,7 @@ class FileManagerPage extends React.Component {
         //const Content = this.renderContent();
 
         return (
-            <div style={{  backgroundColor: "#02233e",paddingTop:"30px" }}>
+            <div style={{  backgroundColor: "#02233e",paddingTop:"10px" }}>
                 {this.renderUploadArea()}
 
                 {this.state.upProcess > 0 &&
@@ -451,10 +453,11 @@ class FileManagerPage extends React.Component {
                     <div
                         className="toast-body"
                         style={{
-                            border: "2px white dashed",
+                            border: "2px #ffffff3b dashed",
                             maxHeight: "500px",
                             overflowY: "scroll",
-                            marginTop: "30px",
+                            marginTop: "10px",
+                            
                             // opacity: "70%",
                         }}
                     >
@@ -472,22 +475,7 @@ class FileManagerPage extends React.Component {
                                             marginBottom: "0px",
                                         }}
                                     >
-                                        {/* <div
-                                            // data-clipboard-target="#mytoken"
-                                            className="btn   btn-light"
-                                            //type="button"
-                                            style={{
-                                                backgroundColor: "gray",
-                                                color: "black",
-                                                borderBottomRightRadius: "0",
-                                                borderTopRightRadius: "0",
-                                                width: "200px",
-                                                fontSize: "13px",
-                                                lineHeight: "28px",
-                                            }}
-                                        >
-                                            Origin IPFS link
-                                        </div> */}
+                                        
                                         <input
                                             id="ipfslink"
                                             value={
@@ -537,22 +525,7 @@ class FileManagerPage extends React.Component {
                                             marginTop: "-1px",
                                         }}
                                     >
-                                        {/* <div
-                                            // data-clipboard-target="#mytoken"
-                                            className="btn   btn-light"
-                                            //type="button"
-                                            style={{
-                                                backgroundColor: "gray",
-                                                color: "black",
-                                                borderBottomRightRadius: "0",
-                                                borderTopRightRadius: "0",
-                                                width: "200px",
-                                                fontSize: "13px",
-                                                lineHeight: "28px",
-                                            }}
-                                        >
-                                            Accelerated link by meson
-                                        </div> */}
+                                       
                                         <input
                                             id="mesonlink"
                                             value={

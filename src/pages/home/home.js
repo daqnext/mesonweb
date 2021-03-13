@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-05 10:10:16
- * @LastEditTime: 2021-03-08 21:55:16
+ * @LastEditTime: 2021-03-13 15:03:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home.new.js
@@ -185,7 +185,7 @@ $.ajax(settings).done(function (response) {
   arweave(){
     return(
         <>
-        <div style={{backgroundColor:"#02233e",paddingTop:"50px"}}>
+        <div style={{backgroundColor:"#02233e",paddingTop:"0px"}}>
             <div className="container" style={{color:"white"}}>
                 <h3  style={{
                   // textShadow: "2px 2px 2px black",

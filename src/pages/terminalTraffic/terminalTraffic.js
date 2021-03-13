@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-10 19:56:44
- * @LastEditTime: 2020-12-21 22:59:15
+ * @LastEditTime: 2021-03-13 10:47:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminalProfit/terminalProfit.js
@@ -87,8 +87,8 @@ class TerminalProfit extends React.Component {
         this.state = {
             dataready: false,
             tableData: [],
-            queryStart: moment().subtract(31, "days"),
-            queryEnd: moment(),
+            queryStart: moment().subtract(31, "days").startOf('day'),
+            queryEnd: moment().endOf('day'),
         };
     }
 
@@ -111,7 +111,7 @@ class TerminalProfit extends React.Component {
                 console.log(skip,limit);
                 return axios
                     .post(
-                        Global.apiHost+"/api/v1/terminal/profit",
+                        Global.apiHost+"/api/v1/terminal/traffic",
                         {
                             startTime: Math.floor(
                                 this.state.queryStart.valueOf() / 1000

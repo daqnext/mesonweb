@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 23:52:52
- * @LastEditTime: 2021-02-24 11:51:13
+ * @LastEditTime: 2021-03-13 10:58:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalTotalProfit/terminalTotalProfit.js
@@ -91,8 +91,8 @@ class TerminalTotalProfit extends React.Component {
             trafficTokenToday:0,
             tableData: [],
 
-            queryStart: moment().subtract(31, "days"),
-            queryEnd: moment(),
+            queryStart: moment().subtract(31, "days").startOf('day'),
+            queryEnd: moment().endOf('day'),
             isMergeTerminals: true,
             chardata: {},
         };
@@ -123,7 +123,7 @@ class TerminalTotalProfit extends React.Component {
         });
 
         this.getBonusInfo();
-        this.GetTrafficTokenToday()
+        // this.GetTrafficTokenToday()
         await this.LoadTotalData();
         this.loadData();
 
@@ -134,10 +134,10 @@ class TerminalTotalProfit extends React.Component {
 
     async GetTrafficTokenToday() {
         let response = await axios.post(
-            Global.apiHost + "/api/v1/terminal/profit",
+            Global.apiHost + "/api/v1/terminal/traffic",
             {
                 startTime: Math.floor(moment().startOf("day").valueOf() / 1000),
-                endTime: Math.floor(moment().valueOf() / 1000),
+                endTime: Math.floor(moment().endOf('day').valueOf() / 1000),
                 limit: 10000,
                 offset: 0,
             },

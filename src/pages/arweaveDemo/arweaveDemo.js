@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-31 13:38:15
- * @LastEditTime: 2021-02-19 08:19:14
+ * @LastEditTime: 2021-03-13 15:05:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/arweaveDemo/arweaveDemo.js
@@ -31,7 +31,7 @@ class ArweaveDemoPage extends React.Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "#02233e",paddingTop:"30px" }}>
+      <div style={{ backgroundColor: "#02233e",paddingTop:"10px" }}>
         <div className="container">
           <div className="form-group">
             {/* <label>input file id&#40;Hash&#41; in Arweave</label> */}
@@ -54,7 +54,7 @@ class ArweaveDemoPage extends React.Component {
             />
           </div>
 
-          <div>
+          <div style={{opacity:"0.5"}}>
             {/* ipfs link */}
             <div style={{ 
               color: "white",
