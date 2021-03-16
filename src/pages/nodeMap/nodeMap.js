@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 13:32:00
- * @LastEditTime: 2021-03-13 17:19:42
+ * @LastEditTime: 2021-03-15 19:56:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/nodeMap/nodeMap.js
@@ -59,7 +59,7 @@ window.addEventListener( 'load', function() {
     let that=this
 
     var settings = {
-      "url": "/api/v1/common/nodeinfo",
+      "url": "/api/v1/common/nodelocation",
       "method": "GET",
   };
    
@@ -67,7 +67,7 @@ window.addEventListener( 'load', function() {
       if (response.status == 0) {
         // console.log(response.data)
         connections = response.data
-        // console.log(connections)
+        console.log(connections)
 
         for ( var i in connections ) {			
           line.locations = [ 
@@ -147,7 +147,7 @@ var connections = [
       return;
     }
     let responseData = response.data.data;
-    console.log(responseData);
+    //console.log(responseData);
 
     //summarize data
     // const cityInfo = responseData.cityInfo;
@@ -377,7 +377,7 @@ var connections = [
               zIndex:"1000000"
             }}
           >
-            <table border="1" style={{minWidth:"300px"}}>
+            <table border="1" style={{minWidth:"300px",color:"white"}}>
               <tbody>
                 <tr>
                   <th>Id</th>

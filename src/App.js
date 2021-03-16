@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-12-31 13:43:47
+ * @LastEditTime: 2021-03-14 16:02:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -35,9 +35,11 @@ import FileManagerPage from './pages/fileManager/fileManager'
 
 import DemoFileManagerPage from "./pages/fileManagerDemo/fileManagerDemo";
 import DemoArweavePage from "./pages/arweaveDemo/arweaveDemo";
+import TimeManager from './manager/timemanager';
 
 
 function App() {
+    TimeManager.UpdateServerTimeZone();
     ///routing to the right page
     let router_map = {
         home: HomePage,

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2021-03-13 15:02:55
+ * @LastEditTime: 2021-03-16 09:24:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -457,7 +457,7 @@ class FileManagerPage extends React.Component {
                             maxHeight: "500px",
                             overflowY: "scroll",
                             marginTop: "10px",
-                            
+                            color:"#ffffff3b"
                             // opacity: "70%",
                         }}
                     >
@@ -466,7 +466,9 @@ class FileManagerPage extends React.Component {
                             return (
                                 <div>
                                     {/* ipfs link */}
-                                    <div style={{ color: "white" }}>
+                                    <div style={{ 
+                                        // color: "white" 
+                                        }}>
                                         Origin IPFS link
                                     </div>
                                     <div
@@ -486,7 +488,7 @@ class FileManagerPage extends React.Component {
                                             type="text"
                                             style={{
                                                 background: "none",
-                                                color: "white",
+                                                // color: "white",
                                                 paddingLeft: "5px",
                                             }}
                                         />
@@ -496,7 +498,7 @@ class FileManagerPage extends React.Component {
                                                 className="btn   btn-light"
                                                 type="button"
                                                 style={{
-                                                    backgroundColor: "white",
+                                                    backgroundColor: "#ffffff3b",
                                                     color: "black",
                                                 }}
                                                 onClick={() => {
@@ -515,7 +517,9 @@ class FileManagerPage extends React.Component {
                                     </div>
 
                                     {/* meson link */}
-                                    <div style={{ color: "white" }}>
+                                    <div style={{ 
+                                        // color: "white" 
+                                        }}>
                                         Accelerated link by meson:
                                     </div>
                                     <div
@@ -535,7 +539,7 @@ class FileManagerPage extends React.Component {
                                             type="text"
                                             style={{
                                                 background: "none",
-                                                color: "white",
+                                                // color: "white",
                                                 paddingLeft: "5px",
                                             }}
                                         />
@@ -545,7 +549,7 @@ class FileManagerPage extends React.Component {
                                                 className="btn   btn-light"
                                                 type="button"
                                                 style={{
-                                                    backgroundColor: "white",
+                                                    backgroundColor: "#ffffff3b",
                                                     color: "black",
                                                 }}
                                                 onClick={() => {

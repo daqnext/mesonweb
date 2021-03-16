@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 23:52:52
- * @LastEditTime: 2021-03-13 10:58:03
+ * @LastEditTime: 2021-03-14 16:15:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalTotalProfit/terminalTotalProfit.js
@@ -292,8 +292,8 @@ class TerminalTotalProfit extends React.Component {
                         }}
                         onCallback={(start, end) => {
                             this.setState({
-                                queryStart: start,
-                                queryEnd: end,
+                                queryStart: start.startOf("day"),
+                                queryEnd: end.endOf("day"),
                             });
                         }}
                     >
@@ -344,9 +344,9 @@ class TerminalTotalProfit extends React.Component {
     };
 
     async getBonusInfo() {
-        const last30 = moment().subtract("days", 30).valueOf();
+        const last30 = moment().subtract("days", 30).startOf("day").valueOf();
         const startTime = last30;
-        const endTime = moment().valueOf();
+        const endTime = moment().endOf("day").valueOf();
 
         let response = await axios.post(
             Global.apiHost + "/api/v1/terminal/bonus",
@@ -392,18 +392,18 @@ class TerminalTotalProfit extends React.Component {
     render() {
         return (
             <AdminLayout name="Terminal" description="Earnings">
-                <div class="row">
-                    <div class="col-lg-4 mb-4">
-                        <div class="card  border-light shadow-sm">
+                <div className="row">
+                    <div className="col-lg-4 mb-4">
+                        <div className="card  border-light shadow-sm">
                             <div
-                                class="card-body"
+                                className="card-body"
                                 style={{ padding: "10px 20px" }}
                             >
-                                <div class="small text-muted">
+                                <div className="small text-muted">
                                     Bonous Tokens Earned Today
                                 </div>
                                 <div
-                                    class="h4 d-flex align-items-center"
+                                    className="h4 d-flex align-items-center"
                                     style={{
                                         fontSize: "20px",
                                         color: "green",
@@ -416,17 +416,17 @@ class TerminalTotalProfit extends React.Component {
                         </div>
                     </div>
 
-                    <div class="col-lg-4 mb-4">
-                        <div class="card card  border-light shadow-sm">
+                    <div className="col-lg-4 mb-4">
+                        <div className="card card  border-light shadow-sm">
                             <div
-                                class="card-body"
+                                className="card-body"
                                 style={{ padding: "10px 20px" }}
                             >
-                                <div class="small text-muted">
+                                <div className="small text-muted">
                                     Estimated Bonous Tokens Next Round
                                 </div>
                                 <div
-                                    class="h4"
+                                    className="h4"
                                     style={{
                                         fontSize: "20px",
                                         color: "grey",

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 08:20:10
- * @LastEditTime: 2020-12-29 11:02:15
+ * @LastEditTime: 2021-03-15 14:56:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/adminMachine/adminTerminal.js
@@ -247,8 +247,7 @@ class AdminTerminal extends React.Component {
                             let response = await axios.post(
                                 Global.apiHost + "/api/v1/admin/testspeed",
                                 {
-                                    terminalIp: data.machine_ip,
-                                    terminalPort: data.port,
+                                    terminalTag: data.info.machine_tag,
                                 },
                                 {
                                     headers: {
