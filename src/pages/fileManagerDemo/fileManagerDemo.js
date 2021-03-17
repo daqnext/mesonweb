@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2021-03-16 09:24:00
+ * @LastEditTime: 2021-03-17 21:05:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -453,11 +453,11 @@ class FileManagerPage extends React.Component {
                     <div
                         className="toast-body"
                         style={{
-                            border: "2px #ffffff3b dashed",
+                            border: "2px dashed rgb(61 86 107)",
                             maxHeight: "500px",
                             overflowY: "scroll",
                             marginTop: "10px",
-                            color:"#ffffff3b"
+                            color:"rgb(255 255 255 / 58%)"
                             // opacity: "70%",
                         }}
                     >
@@ -467,7 +467,7 @@ class FileManagerPage extends React.Component {
                                 <div>
                                     {/* ipfs link */}
                                     <div style={{ 
-                                        // color: "white" 
+                                        color: "rgb(255 255 255 / 58%)" 
                                         }}>
                                         Origin IPFS link
                                     </div>
@@ -488,7 +488,7 @@ class FileManagerPage extends React.Component {
                                             type="text"
                                             style={{
                                                 background: "none",
-                                                // color: "white",
+                                                color: "white",
                                                 paddingLeft: "5px",
                                             }}
                                         />
@@ -496,10 +496,11 @@ class FileManagerPage extends React.Component {
                                             <div
                                                 // data-clipboard-target="#mytoken"
                                                 className="btn   btn-light"
-                                                type="button"
+                                                // type="button"
                                                 style={{
-                                                    backgroundColor: "#ffffff3b",
-                                                    color: "black",
+                                                    // backgroundColor: "rgb(61 86 107) !important",
+                                                    background:"#3d566b",
+                                                    color: "white",
                                                 }}
                                                 onClick={() => {
                                                     copy(
@@ -517,8 +518,8 @@ class FileManagerPage extends React.Component {
                                     </div>
 
                                     {/* meson link */}
-                                    <div style={{ 
-                                        // color: "white" 
+                                    <div style={{                                        
+                                        color: "rgb(255 255 255 / 58%)" 
                                         }}>
                                         Accelerated link by meson:
                                     </div>
@@ -539,7 +540,7 @@ class FileManagerPage extends React.Component {
                                             type="text"
                                             style={{
                                                 background: "none",
-                                                // color: "white",
+                                                color: "white",
                                                 paddingLeft: "5px",
                                             }}
                                         />
@@ -547,10 +548,11 @@ class FileManagerPage extends React.Component {
                                             <div
                                                 // data-clipboard-target="#mytoken"
                                                 className="btn   btn-light"
-                                                type="button"
+                                                // type="button"
                                                 style={{
-                                                    backgroundColor: "#ffffff3b",
-                                                    color: "black",
+                                                    // backgroundColor: "rgb(61 86 107) !important",
+                                                    background:"#3d566b",
+                                                    color: "white",
                                                 }}
                                                 onClick={() => {
                                                     copy(

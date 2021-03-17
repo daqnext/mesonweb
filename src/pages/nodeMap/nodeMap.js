@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 13:32:00
- * @LastEditTime: 2021-03-15 19:56:00
+ * @LastEditTime: 2021-03-17 18:42:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/nodeMap/nodeMap.js
@@ -32,7 +32,7 @@ window.addEventListener( 'load', function() {
 	
 		light: 'none',
 
-		mapImage: '/static/map/hologram/hologram-map.svg',
+		mapImage: '/mapdot/hologram-map.svg',
 		transparent: true,
 		
 		autoRotate : true,
@@ -82,7 +82,7 @@ window.addEventListener( 'load', function() {
        
         for ( var i=0; i < connections.length; i++ ) {
           sprites[i] = that.addSprite( {
-            image: '/static/map/hologram/hologram-shine.svg',
+            image: '/mapdot/hologram-shine-green2.svg',
             scale: 0.01,
             offset: -0.5,
             opacity: 0.5
@@ -113,8 +113,8 @@ function pulse( index ) {
 	var random_location = connections[ index ];
 	sprites[index].location = { lat: random_location[0] , lng: random_location[1] };
 	
-	sprites[index].animate( 'scale', 0.5, { duration: 920, complete : function(){
-		this.animate( 'scale', 0.1, { duration: 920, complete : function(){
+	sprites[index].animate( 'scale', 0.8, { duration: 920, complete : function(){
+		this.animate( 'scale', 0.3, { duration: 920, complete : function(){
 			setTimeout( function(){ pulse( index ); }, getRandomInt(100, 900) );
 		} });
 	} });
@@ -173,139 +173,7 @@ var connections = [
     this.setState({ activeNode: responseData });
   }
 
-  // getOption() {
-  //   let option = {
-  //     backgroundColor: "#02233e",
-  //     // title: {
-  //     //   text: "Acceleration nodes",
-  //     //   left: "center",
-  //     //   textStyle: {
-  //     //     color: "#fff",
-  //     //     fontSize: "26",
-  //     //   },
-  //     //   // subtext: '人口密度数据来自Wikipedia',
-  //     // },
-  //     tooltip: {
-  //       trigger: "item",
-  //       formatter: function (params) {
-  //         //格式化鼠标指到点上的弹窗返回的数据格式
-  //         if (params.value) {
-  //           return params.name + " : " + params.value[2];
-  //         }
-  //         return "";
-  //       },
-  //     },
-  //     geo: {
-  //       //地里坐标系组件（相当于每个省块）
-  //       map: "world",
-  //       zoom: 1.15,
-  //       roam: true, //是否开启缩放
-  //       // scaleLimit:{
-  //       //   min:1.15
-  //       // },
-  //       // label: {
-  //       //    emphasis: {                //鼠标划到后弹出的文字 显示省份
-  //       //       color: '#FF0000',       //高亮背景色
-  //       //       show: true,             //是否高亮显示
-  //       //       fontSize:12             //字体大小
-  //       //    }
-  //       // },
-  //       itemStyle: {
-  //         //坐标块本身
-  //         normal: {
-  //           //坐标块默认样式控制
-  //           areaColor: "#fff", //坐标块儿颜色
-  //           borderColor: "#fff",
-  //         },
-  //         emphasis: {
-  //           areaColor: "#757575", //放坐标块儿上，块儿颜色
-  //         },
-  //       },
-  //     },
-  //     series: [
-  //       {
-  //         name: "city node", // series名称
-  //         type: "effectScatter", // series图表类型
-  //         effectType: "ripple", // 圆点闪烁样式，目前只支持ripple波纹式
-  //         coordinateSystem: "geo", // series坐标系类型
-  //         data: this.state.vmData, // series数据内容
-  //         showEffectOn: "render", //配置何时显示特效 render 一直显示，emphasis放上去显示
-  //         symbolSize: function (val) {
-  //           let size = val[2];
-  //           if (size < 10) {
-  //             size = 10;
-  //           }
-  //           if (size > 20) {
-  //             size = 20;
-  //           }
-  //           return size;
-  //         },
-  //         rippleEffect: {
-  //           // ripple的样式控制
-  //           brushType: "stroke",
-  //           color: "#28FF28",
-  //         },
-  //         label: {
-  //           normal: {
-  //             formatter: "{b}",
-  //             position: "right",
-  //             fontSize:18,
-  //             show: true, //显示位置信息，
-  //           },
-  //         },
-
-  //         itemStyle: {
-  //           //散点本身显示控制
-  //           normal: {
-  //             color: "#28FF28",
-  //             shadowBlur: 10,
-  //             shadowColor: "#28FF28",
-  //           },
-  //         },
-  //         zlevel: 1,
-  //       },
-  //       // {
-  //       //   name: "country node", // series名称
-  //       //   type: "effectScatter", // series图表类型
-  //       //   effectType: "ripple", // 圆点闪烁样式，目前只支持ripple波纹式
-  //       //   coordinateSystem: "geo", // series坐标系类型
-  //       //   data: this.state.vmData, // series数据内容
-  //       //   showEffectOn: "render", //配置何时显示特效 render 一直显示，emphasis放上去显示
-  //       //   symbolSize: function (val) {
-  //       //     let size = val[2];
-  //       //     if (size > 20) {
-  //       //       size = 20;
-  //       //     }
-  //       //     return size;
-  //       //   },
-  //       //   rippleEffect: {
-  //       //     // ripple的样式控制
-  //       //     brushType: "stroke",
-  //       //     color: "#28FF28",
-  //       //   },
-  //       //   label: {
-  //       //     normal: {
-  //       //       formatter: "{b}",
-  //       //       position: "right",
-  //       //       show: true, //显示位置信息，
-  //       //     },
-  //       //   },
-
-  //       //   itemStyle: {
-  //       //     //散点本身显示控制
-  //       //     normal: {
-  //       //       color: "#28FF28",
-  //       //       shadowBlur: 10,
-  //       //       shadowColor: "#28FF28",
-  //       //     },
-  //       //   },
-  //       //   zlevel: 1,
-  //       // },
-  //     ],
-  //   };
-  //   return option;
-  // }
-
+  
   renderPoint() {
     return (
       <div>
@@ -352,12 +220,12 @@ var connections = [
         >
           <h3
             style={{
-              backgroundColor: "#00000061",
+              backgroundColor: "rgb(1 18 32)",
               fontWeight: 60,
               color: "rgb(232 232 232)",
               position: "absolute",
               left: "1px",
-              top: "20px",
+              top: "0px",
               fontSize: "25px",
               padding: "5px 20px",
               borderRadius: "5px",
@@ -369,19 +237,21 @@ var connections = [
           <div
             style={{
               position: "absolute",
-              backgroundColor: "#00000036",
-              left: "20px",
+              backgroundColor: "rgb(0 0 0 / 14%)",
+              marginRight:"5px",
+              left: "5px",
               top: "80px",
               maxHeight: "260px",
               overflowY: "scroll",
-              zIndex:"1000000"
+              zIndex:"1000000",
+              border:"1px solid #ffffff1a"
             }}
           >
-            <table border="1" style={{minWidth:"300px",color:"white"}}>
+            <table border="1" style={{minWidth:"300px",color:"#e0e0e0",borderColor:"#013c6f"}}>
               <tbody>
                 <tr>
                   <th>Id</th>
-                  <th>Country</th>
+                  <th>Place</th>
                   <th>Bandwidth</th>
                 </tr>
                 {this.state.activeNode.map((value,index,array)=>{
@@ -389,9 +259,9 @@ var connections = [
                   return (
                     
                     <tr>
-                      <td>{value.id}</td>
-                      <td><div style={{maxWidth:"150px"}}>{value.country}</div></td>
-                      <td>{speed} Mb/s</td>
+                      <td style={{padding:"0px 5px"}}>{"id-"+value.id}</td>
+                      <td><div style={{maxWidth:"150px",fontSize:"16px"}}>{value.country+" ***  ["+value.city+"]"}</div></td>
+                      <td style={{padding:"0px 10px"}}>{speed} Mb/s</td>
                     </tr>
                   )
                 })}

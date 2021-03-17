@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-31 13:38:15
- * @LastEditTime: 2021-03-13 15:05:36
+ * @LastEditTime: 2021-03-17 20:58:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/arweaveDemo/arweaveDemo.js
@@ -54,11 +54,10 @@ class ArweaveDemoPage extends React.Component {
             />
           </div>
 
-          <div style={{opacity:"0.5"}}>
+          <div style={{color:"rgb(255 255 255 / 58%)"}}>
             {/* ipfs link */}
             <div style={{ 
-              color: "white",
-              // opacity: "70%", 
+              
               }}>Origin Arweave link</div>
             <div
               className="input-group "
@@ -85,10 +84,11 @@ class ArweaveDemoPage extends React.Component {
                 <div
                   // data-clipboard-target="#mytoken"
                   className="btn   btn-light"
-                  type="button"
+                  // type="button"
                   style={{
-                    backgroundColor: "white",
-                    color: "#414f7b",
+                    //backgroundColor: "#3d566b !important",
+                    background:"#3d566b",
+                    color: "white",
                     // opacity: "70%",
                   }}
                   onClick={() => {
@@ -103,8 +103,7 @@ class ArweaveDemoPage extends React.Component {
 
             {/* meson link */}
             <div style={{ 
-              color: "white",
-              // opacity: "70%", 
+              
               }}>Accelerated link by meson:</div>
             <div
               className="input-group "
@@ -136,10 +135,11 @@ class ArweaveDemoPage extends React.Component {
                 <div
                   // data-clipboard-target="#mytoken"
                   className="btn   btn-light"
-                  type="button"
+                  // type="button"
                   style={{
-                    backgroundColor: "white",
-                    color: "#414f7b",
+                    //backgroundColor: "#3d566b !important",
+                    background:"#3d566b",
+                    color: "white",
                     // opacity: "70%",
                   }}
                   onClick={() => {
