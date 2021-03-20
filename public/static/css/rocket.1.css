@@ -16,8 +16,10 @@
 
 */
 
-@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Lora:400i,700i&display=swap");
+/* @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lora:400i,700i&display=swap"); */
+@import url("/static/assets/googlefonts/nunitoSans.css");
+@import url("/static/assets/googlefonts/lora.css");
 
 /*
  * 	Default theme - Owl Carousel CSS File
