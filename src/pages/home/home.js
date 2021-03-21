@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-05 10:10:16
- * @LastEditTime: 2021-03-13 15:03:31
+ * @LastEditTime: 2021-03-21 16:21:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home.new.js
@@ -22,6 +22,7 @@ import footer from "./footer.html";
 import ArweaveDemoPage from "../arweaveDemo/arweaveDemo"
 import FileManagerDemoPage from "../fileManagerDemo/fileManagerDemo"
 import NodeMapPage from "../nodeMap/nodeMap"
+import VideoDemoPage from "../videoDemo/videoDome"
 import Investors from "../investors/investors"
 // import FinancingPage from "../financing/financing"
 
@@ -224,6 +225,28 @@ $.ajax(settings).done(function (response) {
   )
   }
 
+  videoDemo(){
+    return(
+      <>
+      <div style={{backgroundColor:"#02233e",paddingTop:"0px"}}>
+          <div className="container" style={{color:"white"}}>
+              <h3  style={{
+                // textShadow: "2px 2px 2px black",
+                borderBottom: "2px solid",
+                fontWeight:60,
+                // opacity: "70%",
+                margin: "0px",
+                color: "white",
+                paddingBottom: "3px",
+                paddingTop:"100px"
+                }}>global livestreaming by meson</h3>
+          </div>
+      </div>
+      <VideoDemoPage></VideoDemoPage>
+      </> 
+  )
+  }
+
   // financing(){
   //   return(
   //     <>
@@ -248,6 +271,7 @@ $.ajax(settings).done(function (response) {
           }}
         ></div>
         {this.nodeMap()}
+        {this.videoDemo()}
         {/* {this.financing()} */}
         {this.fileManager()}
         {this.arweave()}
