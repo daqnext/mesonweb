@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-05 10:10:16
- * @LastEditTime: 2021-03-21 16:21:51
+ * @LastEditTime: 2021-03-21 20:22:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home.new.js
@@ -19,14 +19,12 @@ import blog from "./blog.html";
 import faq from "./faq.html";
 import footer from "./footer.html";
 
-import ArweaveDemoPage from "../arweaveDemo/arweaveDemo"
-import FileManagerDemoPage from "../fileManagerDemo/fileManagerDemo"
-import NodeMapPage from "../nodeMap/nodeMap"
-import VideoDemoPage from "../videoDemo/videoDome"
-import Investors from "../investors/investors"
+import ArweaveDemoPage from "../arweaveDemo/arweaveDemo";
+import FileManagerDemoPage from "../fileManagerDemo/fileManagerDemo";
+import NodeMapPage from "../nodeMap/nodeMap";
+import VideoDemoPage from "../videoDemo/videoDome";
+import Investors from "../investors/investors";
 // import FinancingPage from "../financing/financing"
-
-
 
 class HomePage extends React.Component {
   componentDidMount() {
@@ -143,76 +141,81 @@ $.ajax(settings).done(function (response) {
 });
   `;
 
-  const navbar_global=`
+    const navbar_global = `
   navbar_global_hide=function() {
     $('#navbar_global').removeClass("show")
     $("html").css("overflow","");
     $("body").css("overflow","");
 }
-  `
+  `;
     new Function(typed)();
     new Function(blink)();
     new Function(blog)();
     new Function(navbar_global)();
   }
 
-  fileManager(){
-    return(
+  fileManager() {
+    return (
       <>
-      <div style={{backgroundColor:"#02233e"}}>
-                <div className="container" style={{color:"white"}}>
-                    
-                        <h3   style={{
-                  // textShadow: "2px 2px 2px black",
-                  borderBottom: "2px solid",
-                  fontWeight:60,
-                  // opacity: "70%",
-                  margin: "0px",
-                  color: "white",
-                  paddingBottom: "3px",
-                  paddingTop:"100px"
-                  }}>IPFS & Meson</h3>
-                </div>
+        <div style={{ backgroundColor: "#02233e" }}>
+          <div className="container" style={{ color: "white" }}>
+            <h3
+              style={{
+                // textShadow: "2px 2px 2px black",
+                borderBottom: "2px solid",
+                fontWeight: 60,
+                // opacity: "70%",
+                margin: "0px",
+                color: "white",
+                paddingBottom: "3px",
+                paddingTop: "100px",
+              }}
+            >
+              IPFS & Meson
+            </h3>
+          </div>
         </div>
         <FileManagerDemoPage></FileManagerDemoPage>
         {/* <div style=" background-color: #02233e;">
             <iframe id="ipfswin" ref="iframe" scrolling="no" frameBorder="0" style="width:100%;border-radius: 10px;background-color: #02233e;" src="/demofilemanager"></iframe>
         </div> */}
-
       </>
-    )
+    );
   }
 
-  arweave(){
-    return(
-        <>
-        <div style={{backgroundColor:"#02233e",paddingTop:"0px"}}>
-            <div className="container" style={{color:"white"}}>
-                <h3  style={{
-                  // textShadow: "2px 2px 2px black",
-                  borderBottom: "2px solid",
-                  fontWeight:60,
-                  // opacity: "70%",
-                  margin: "0px",
-                  color: "white",
-                  paddingBottom: "3px",
-                  paddingTop:"100px"
-                  }}>Arweave & Meson</h3>
-            </div>
+  arweave() {
+    return (
+      <>
+        <div style={{ backgroundColor: "#02233e", paddingTop: "0px" }}>
+          <div className="container" style={{ color: "white" }}>
+            <h3
+              style={{
+                // textShadow: "2px 2px 2px black",
+                borderBottom: "2px solid",
+                fontWeight: 60,
+                // opacity: "70%",
+                margin: "0px",
+                color: "white",
+                paddingBottom: "3px",
+                paddingTop: "100px",
+              }}
+            >
+              Arweave & Meson
+            </h3>
+          </div>
         </div>
         <ArweaveDemoPage></ArweaveDemoPage>
         {/* <div style=" background-color: #02233e;">
             <iframe id="arweavewin" ref="iframe" scrolling="no" frameBorder="0"
                 style="width:100%;height:250px;border-radius: 10px;background-color: #02233e;" src="/demoarweave"></iframe>
         </div> */}
-        </> 
-    )
+      </>
+    );
   }
 
-  nodeMap(){
-    return(
-      <div className="node-map" style={{backgroundColor:"#02233e"}} >
-      
+  nodeMap() {
+    return (
+      <div className="node-map" style={{ backgroundColor: "#02233e" }}>
         <NodeMapPage></NodeMapPage>
         {/* <div style={{backgroundColor:"#02233e",paddingTop:"50px"}}>
             <div className="container" style={{color:"white"}}>
@@ -221,39 +224,53 @@ $.ajax(settings).done(function (response) {
         </div>
         <img src={worldmap} style={{width:"60%"}}></img>
        */}
-      </div> 
-  )
+      </div>
+    );
   }
 
-  videoDemo(){
-    return(
+  videoDemo() {
+    return (
       <>
-      <div style={{backgroundColor:"#02233e",paddingTop:"0px"}}>
-          <div className="container" style={{color:"white"}}>
-              <h3  style={{
+        <div style={{ backgroundColor: "#02233e", paddingTop: "0px" }}>
+          <div className="container" style={{ padding: "5px 15px", color: "white" }}>
+            <h3
+              style={{
+                padding: "none",
                 // textShadow: "2px 2px 2px black",
-                borderBottom: "2px solid",
-                fontWeight:60,
+                // borderBottom: "2px solid",
+                fontWeight: 60,
                 // opacity: "70%",
                 margin: "0px",
                 color: "white",
                 paddingBottom: "3px",
-                paddingTop:"100px"
-                }}>global livestreaming by meson</h3>
+                paddingTop: "100px",
+              }}
+            >
+              <span
+                style={{
+                  padding: "7px 10px",
+                  backgroundColor: "rgb(1,18,32)",
+                  borderRadius: "5px",
+                  fontSize:"1.25rem"
+                }}
+              >
+                Global Livestreaming by Meson
+              </span>
+            </h3>
           </div>
-      </div>
-      <VideoDemoPage></VideoDemoPage>
-      </> 
-  )
+        </div>
+        <VideoDemoPage></VideoDemoPage>
+      </>
+    );
   }
 
   // financing(){
   //   return(
   //     <>
-      
+
   //       <FinancingPage></FinancingPage>
-      
-  //     </> 
+
+  //     </>
   // )
   // }
 
@@ -281,7 +298,7 @@ $.ajax(settings).done(function (response) {
           }}
         ></div>
         <div
-          style={{background:"white"}}
+          style={{ background: "white" }}
           dangerouslySetInnerHTML={{
             __html: about,
           }}
