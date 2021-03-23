@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 08:20:10
- * @LastEditTime: 2021-03-15 14:56:45
+ * @LastEditTime: 2021-03-23 12:52:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/adminMachine/adminTerminal.js
@@ -171,11 +171,22 @@ class AdminTerminal extends React.Component {
                             "."
                         );
                         let terminalVersionStr = value.split(".");
+                        let disableVersion=false
                         for (let i = 0; i < allowVersionStr.length; i++) {
                             if (
                                 parseInt(allowVersionStr[i]) >
                                 parseInt(terminalVersionStr[i])
-                            ) {
+                            ){
+                             disableVersion=true  
+                             break 
+                            } else if(parseInt(allowVersionStr[i]) <
+                            parseInt(terminalVersionStr[i])){
+                                disableVersion =false
+                                break
+                            }
+
+                            if (disableVersion==true)
+                            {
                                 return (
                                     <td>
                                         <div>
