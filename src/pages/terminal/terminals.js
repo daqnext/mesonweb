@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-03-23 12:54:21
+ * @LastEditTime: 2021-03-24 17:44:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -409,6 +409,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
+                    <div style={{color:"#78ff00",fontSize:"20px"}}>#The more bandwidth you can provide the more tokens you will earn</div>
                 </div>
 
             );
@@ -427,6 +428,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
+                    <div style={{color:"#78ff00",fontSize:"20px"}}>#The more bandwidth you can provide the more tokens you will earn</div>
                 </div>
 
             );
@@ -445,6 +447,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
+                    <div style={{color:"#78ff00",fontSize:"20px"}}>#The more bandwidth you can provide the more tokens you will earn</div>
                 </div>
 
             );
@@ -463,6 +466,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
+                    <div style={{color:"#78ff00",fontSize:"20px"}}>#The more bandwidth you can provide the more tokens you will earn</div>
                 </div>
 
             );
@@ -481,6 +485,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
+                    <div style={{color:"#78ff00",fontSize:"20px"}}>#The more bandwidth you can provide the more tokens you will earn</div>
                 </div>
 
             );
