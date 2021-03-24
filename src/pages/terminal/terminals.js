@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-12-29 16:17:06
+ * @LastEditTime: 2021-03-24 17:44:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -26,6 +26,11 @@ class TerminalPage extends React.Component {
                 name: "id",
                 header: "ID",
                 defaultWidth: 80,
+                render: ({ value }) => {
+                    return (
+                        <div>{"id-"+value}</div>
+                    );
+                },
             },
             {
                 name: "machine_mac",
@@ -147,11 +152,22 @@ class TerminalPage extends React.Component {
                             "."
                         );
                         let terminalVersionStr = value.split(".");
+                        let disableVersion=false
                         for (let i = 0; i < allowVersionStr.length; i++) {
                             if (
                                 parseInt(allowVersionStr[i]) >
                                 parseInt(terminalVersionStr[i])
-                            ) {
+                            ){
+                             disableVersion=true  
+                             break 
+                            } else if(parseInt(allowVersionStr[i]) <
+                            parseInt(terminalVersionStr[i])){
+                                disableVersion =false
+                                break
+                            }
+
+                            if (disableVersion==true)
+                            {
                                 return (
                                     <td>
                                         <div>
@@ -385,7 +401,7 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on linux server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{ color: 'yellow' }}>$ wget 'https://meson.network/static/terminal/v{this.state.terminalLatestVersion}/meson-linux-amd64.tar.gz'</div>
+                    <div style={{ color: 'yellow' }}>$ wget '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-linux-amd64.tar.gz'</div>
                     <div>#Step.2 unzip the package</div>
                     <div style={{color:'yellow'}}>$ tar -zxf meson-linux-amd64.tar.gz</div>
                     <div>#Step.3 run the app</div>
@@ -393,6 +409,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
+                    <div style={{color:"#78ff00",fontSize:"20px"}}>#The more bandwidth you can provide the more tokens you will earn</div>
                 </div>
 
             );
@@ -403,7 +420,7 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on linux server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/v{this.state.terminalLatestVersion}/meson-linux-386.tar.gz'</div>
+                    <div style={{color:'yellow'}}>$ wget '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-linux-386.tar.gz'</div>
                     <div>#Step.2 unzip the package</div>
                     <div style={{color:'yellow'}}>$ tar -zxf meson-linux-386.tar.gz</div>
                     <div>#Step.3 run the app</div>
@@ -411,6 +428,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
+                    <div style={{color:"#78ff00",fontSize:"20px"}}>#The more bandwidth you can provide the more tokens you will earn</div>
                 </div>
 
             );
@@ -421,7 +439,7 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on windows server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/v{this.state.terminalLatestVersion}/meson-windows-amd64.zip'</div>
+                    <div style={{color:'yellow'}}>$ wget '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-windows-amd64.zip'</div>
                     <div>#Step.2 unzip the package</div>
                     <div style={{color:'yellow'}}>$ unzip meson-windows-amd64.zip</div>
                     <div>#Step.3 run the app</div>
@@ -429,6 +447,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
+                    <div style={{color:"#78ff00",fontSize:"20px"}}>#The more bandwidth you can provide the more tokens you will earn</div>
                 </div>
 
             );
@@ -439,7 +458,7 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on windows server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/v{this.state.terminalLatestVersion}/meson-windows-386.zip'</div>
+                    <div style={{color:'yellow'}}>$ wget '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-windows-386.zip'</div>
                     <div>#Step.2 unzip the package</div>
                     <div style={{color:'yellow'}}>$ unzip meson-windows-386.zip</div>
                     <div>#Step.3 run the app</div>
@@ -447,6 +466,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
+                    <div style={{color:"#78ff00",fontSize:"20px"}}>#The more bandwidth you can provide the more tokens you will earn</div>
                 </div>
 
             );
@@ -457,7 +477,7 @@ class TerminalPage extends React.Component {
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on mac server#######</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget 'https://meson.network/static/terminal/v{this.state.terminalLatestVersion}/meson-darwin-amd64.tar.gz'</div>
+                    <div style={{color:'yellow'}}>$ wget '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-darwin-amd64.tar.gz'</div>
                     <div>#Step.2 unzip the package</div>
                     <div style={{color:'yellow'}}>$ tar -zxf meson-darwin-amd64.tar.gz</div>
                     <div>#Step.3 run the app</div>
@@ -465,6 +485,7 @@ class TerminalPage extends React.Component {
                     <div>#Step.4 input your token, port and space provide</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
+                    <div style={{color:"#78ff00",fontSize:"20px"}}>#The more bandwidth you can provide the more tokens you will earn</div>
                 </div>
 
             );

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-10 09:30:35
- * @LastEditTime: 2020-11-17 08:58:25
+ * @LastEditTime: 2021-03-13 09:54:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/clientTraffic/clientTraffic.js
@@ -87,8 +87,8 @@ class ClientTraffic extends React.Component {
         this.state = {
             dataready: false,
             tableData: [],
-            queryStart: moment().subtract(31, "days"),
-            queryEnd: moment(),
+            queryStart: moment().subtract(31, "days").startOf('day'),
+            queryEnd: moment().endOf('day'),
         };
     }
 

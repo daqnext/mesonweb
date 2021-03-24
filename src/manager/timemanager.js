@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2020-11-23 16:10:59
- * @LastEditTime: 2020-12-02 15:49:33
- * @LastEditors: your name
+ * @LastEditTime: 2021-03-14 16:10:15
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/manager/timemanager.js
  */
@@ -15,8 +15,10 @@ import moment from "moment";
 
 
 class TimeManager {
-    static timeZone = null;
+    static timeZone = "Europe/London";
+    //static timeZone =null;
     static async UpdateServerTimeZone(){
+        momentTimeZone.tz.setDefault(TimeManager.timeZone);
         let response= await axios.get(Global.apiHost + "/api/v1/user/servertimezone");
         console.log(response.data);
         if (response.data.status == 0) {
