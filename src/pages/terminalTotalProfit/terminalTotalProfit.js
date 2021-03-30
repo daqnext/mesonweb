@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 23:52:52
- * @LastEditTime: 2021-03-14 16:15:50
+ * @LastEditTime: 2021-03-30 19:46:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalTotalProfit/terminalTotalProfit.js
@@ -66,7 +66,7 @@ class TerminalTotalProfit extends React.Component {
             // },
             {
                 name: "Bonous",
-                header: "Bonous Token",
+                header: "Token",
                 maxWidth: 1000,
                 defaultFlex: 1,
                 render: ({ value }) => {
@@ -400,7 +400,7 @@ class TerminalTotalProfit extends React.Component {
                                 style={{ padding: "10px 20px" }}
                             >
                                 <div className="small text-muted">
-                                    Bonous Tokens Earned Today
+                                    Tokens Earned Today
                                 </div>
                                 <div
                                     className="h4 d-flex align-items-center"
@@ -423,7 +423,7 @@ class TerminalTotalProfit extends React.Component {
                                 style={{ padding: "10px 20px" }}
                             >
                                 <div className="small text-muted">
-                                    Estimated Bonous Tokens Next Round
+                                    Estimated Tokens Next Round
                                 </div>
                                 <div
                                     className="h4"
