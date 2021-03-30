@@ -138,6 +138,7 @@ class AdminSidebar extends React.Component {
                 <div className="multi-level collapse show" role="list" id="submenu-terminal" aria-expanded="false">
                     <ul className="flex-column nav">
                         <li className= {this.getActive("/terminals")+" nav-item"}><a className="nav-link" href="/terminals"><span>Terminals</span></a></li>
+                        <li className= {this.getActive("/miningrules")+" nav-item"}><a className="nav-link" href="/miningrules"><span>Mining Rules</span></a></li>
                         <li className= {this.getActive("/terminaltraffic")+" nav-item"}><a className="nav-link" href="/terminaltraffic"><span>Traffic</span></a></li>
                         <li className={this.getActive("/terminaltotalprofit") + " nav-item"}><a className="nav-link" href="/terminaltotalprofit"><span>Earnings</span></a></li>
                         <li className= {this.getActive("/terminalbalance")+" nav-item"}><a className="nav-link" href="/terminalbalance"><span>TokenBalance</span></a></li>

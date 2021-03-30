@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-05 10:10:16
- * @LastEditTime: 2021-03-21 20:22:20
+ * @LastEditTime: 2021-03-29 20:46:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home.new.js
@@ -121,7 +121,7 @@ var settings = {
     "headers": {
         "Content-Type": "application/json"
     },
-    "data": JSON.stringify({ "limit": 6, "offset": 0 }),
+    "data": JSON.stringify({ "limit": 60, "offset": 0 }),
 };
 $.ajax(settings).done(function (response) {
     if (response.status == 0) {

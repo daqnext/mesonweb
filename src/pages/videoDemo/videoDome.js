@@ -1,13 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2021-03-21 14:46:41
- * @LastEditTime: 2021-03-21 20:39:33
+ * @LastEditTime: 2021-03-30 14:05:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/videoDemo/videoDome.js
  */
 
-import React, { useCallback, useMemo } from "react";
+import React from "react";
 import { withAlert } from "react-alert";
 
 class VideoDemoPage extends React.Component {
@@ -20,7 +20,7 @@ class VideoDemoPage extends React.Component {
       <div style={{ backgroundColor: "#02233e", paddingTop: "10px" }}>
         <div className="container">
           <video
-            poster="https://assets.meson.network:10443/static/img/videoCover.jpg"
+            poster="https://assets.meson.network:10443/static/img/newCover.png"
             style={{
               width: "100%",
               height: "100%",
