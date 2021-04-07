@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-03-30 10:07:47
+ * @LastEditTime: 2021-04-07 20:55:17
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -11,7 +11,7 @@ import './app.css'
 import "@inovua/reactdatagrid-community/index.css";
 import "bootstrap-daterangepicker/daterangepicker.css";
 
-import HomePage from "./pages/home/home";
+import HomePage from "./pages/home/home2";
 import LoginPage from "./pages/login/login";
 import WelcomePage from "./pages/welcome/welcome";
 import TestPage from "./pages/test/test";
