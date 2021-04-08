@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-03-24 19:15:34
+ * @LastEditTime: 2021-04-08 15:02:57
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /mesonweb/src/components/sendcode/sendcode.js
+ */
 import React from "react";
 
 class SendCode extends React.Component {
@@ -68,7 +76,7 @@ class SendCode extends React.Component {
                     this.sendMeCode();
                     this.click();
                      }}
-                class="btn mb-2 mr-2 btn-primary" type="button">SendMeCode</button>);
+                class="btn mb-2 mr-2 btn-primary-rocket" type="button">SendMeCode</button>);
         }
 
     }

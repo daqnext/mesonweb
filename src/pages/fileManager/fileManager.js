@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-23 14:42:07
+ * @LastEditTime: 2021-04-08 15:04:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -97,7 +97,7 @@ class FileManagerPage extends React.Component {
                     return (
                         <div style={{ display: "flex" }}>
                             {/* <div
-                                className="btn btn-primary btn-sm"
+                                className="btn btn-primary-rocket btn-sm"
                                 onClick={async () => {
                                     window.open(
                                         Global.apiHost + data.originUrl
@@ -108,7 +108,7 @@ class FileManagerPage extends React.Component {
                             </div> */}
                             <div
                                 style={{ marginLeft: "5px" }}
-                                className="btn btn-primary btn-sm"
+                                className="btn btn-primary-rocket btn-sm"
                                 onClick={() => {
                                     copy(Global.apiHost + data.originUrl);
                                     this.props.alert.success("Url Copied");
@@ -128,7 +128,7 @@ class FileManagerPage extends React.Component {
                     return (
                         <div style={{ display: "flex" }}>
                             <div
-                                className="btn btn-secondary btn-sm"
+                                className="btn btn-secondary-rocket btn-sm"
                                 onClick={async () => {
                                     //http://xxxx.com/api/store/delete/username/filename/hash
                                     let url = Global.apiHost + "/api/store/delete/" + data.userName + "/" + data.fileName + "/" + data.fileHash

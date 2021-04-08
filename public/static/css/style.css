@@ -2999,7 +2999,7 @@ hr {
 	padding: 8px 15px;
 	font-size: 12px;
 	line-height: 1.715;
-	border: 2px solid;
+	border: 1px solid;
 	border-radius: 6px;
 	font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	font-weight: 700;
@@ -4395,7 +4395,7 @@ textarea.form-input {
 	z-index: 0;
 }
 
-.post-figure::before {
+/* .post-figure::before {
 	position: absolute;
 	content: '';
 	top: 0;
@@ -4405,7 +4405,7 @@ textarea.form-input {
 	background: linear-gradient(294.56deg, #1644be 4.31%, #153497 41.03%, #17369a 98.68%);
 	z-index: 1;
 	opacity: .4;
-}
+} */
 
 .post-figure img {
 	width: 100%;
@@ -17028,4 +17028,8 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 
 .layer-3 img {
 	max-width: 110px;
+}
+
+.daterangepicker{
+	color: #444444 !important
 }

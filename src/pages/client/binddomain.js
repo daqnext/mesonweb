@@ -196,7 +196,7 @@ class BindDomain extends React.Component {
                     });
 
                 }}
-                className="btn btn-primary" type="button">Check Input Url</button>
+                className="btn btn-primary-rocket" type="button">Check Input Url</button>
         );
         if(this.state.checkandadd){
             checkandadd=( <button

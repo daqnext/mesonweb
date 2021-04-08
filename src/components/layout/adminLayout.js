@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-03-24 19:15:34
+ * @LastEditTime: 2021-04-08 14:43:39
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /mesonweb/src/components/layout/adminLayout.js
+ */
 import React from 'react';
 import AdminSidebar from "./adminSidebar";
 import AdminContent from "./adminContent";

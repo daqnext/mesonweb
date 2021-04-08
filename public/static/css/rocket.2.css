@@ -235,6 +235,27 @@ a:not([href]):hover {
     text-decoration: none;
 }
 
+a.a-rocket {
+    color: #02233e;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a.a-rocket:hover {
+    color: #073482;
+    text-decoration: none;
+}
+
+a.a-rocket:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.a-rocket:not([href]):hover {
+    color: inherit;
+    text-decoration: none;
+}
+
 pre,
 code,
 kbd,
@@ -3478,79 +3499,79 @@ fieldset:disabled a.btn {
     pointer-events: none;
 }
 
-.btn-primary {
+.btn-primary-rocket {
     color: #ffffff;
     background-color: #02233e;
     border-color: #02233e;
     box-shadow: 0 2px 18px rgba(0, 0, 0, 0.02);
 }
 
-.btn-primary:hover {
+.btn-primary-rocket:hover {
     color: #ffffff;
     background-color: #07398f;
     border-color: #073482;
 }
 
-.btn-primary:focus, .btn-primary.focus {
+.btn-primary-rocket:focus, .btn-primary-rocket.focus {
     color: #ffffff;
     background-color: #07398f;
     border-color: #073482;
     box-shadow: 0 2px 18px rgba(0, 0, 0, 0.02), 0 0 0 0.0625rem rgba(46, 99, 190, 0.5);
 }
 
-.btn-primary.disabled, .btn-primary:disabled {
+.btn-primary-rocket.disabled, .btn-primary-rocket:disabled {
     color: #ffffff;
     background-color: #02233e;
     border-color: #02233e;
 }
 
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary-rocket:not(:disabled):not(.disabled):active, .btn-primary-rocket:not(:disabled):not(.disabled).active,
   .show > .btn-primary.dropdown-toggle {
     color: #ffffff;
     background-color: #073482;
     border-color: #063076;
 }
 
-.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary-rocket:not(:disabled):not(.disabled):active:focus, .btn-primary-rocket:not(:disabled):not(.disabled).active:focus,
     .show > .btn-primary.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.0625rem rgba(46, 99, 190, 0.5);
 }
 
-.btn-secondary {
+.btn-secondary-rocket {
     color: #ffffff;
     background-color: #EE5050;
     border-color: #EE5050;
     box-shadow: 0 2px 18px rgba(0, 0, 0, 0.02);
 }
 
-.btn-secondary:hover {
+.btn-secondary-rocket:hover {
     color: #ffffff;
     background-color: #eb2d2d;
     border-color: #e92222;
 }
 
-.btn-secondary:focus, .btn-secondary.focus {
+.btn-secondary-rocket:focus, .btn-secondary-rocket.focus {
     color: #ffffff;
     background-color: #eb2d2d;
     border-color: #e92222;
     box-shadow: 0 2px 18px rgba(0, 0, 0, 0.02), 0 0 0 0.0625rem rgba(241, 106, 106, 0.5);
 }
 
-.btn-secondary.disabled, .btn-secondary:disabled {
+.btn-secondary-rocket.disabled, .btn-secondary-rocket:disabled {
     color: #ffffff;
     background-color: #EE5050;
     border-color: #EE5050;
 }
 
-.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
-  .show > .btn-secondary.dropdown-toggle {
+.btn-secondary-rocket:not(:disabled):not(.disabled):active, .btn-secondary-rocket:not(:disabled):not(.disabled).active,
+  .show > .btn-secondary-rocket.dropdown-toggle {
     color: #ffffff;
     background-color: #e92222;
     border-color: #e81717;
 }
 
-.btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus,
-    .show > .btn-secondary.dropdown-toggle:focus {
+.btn-secondary-rocket:not(:disabled):not(.disabled):active:focus, .btn-secondary-rocket:not(:disabled):not(.disabled).active:focus,
+    .show > .btn-secondary-rocket.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.0625rem rgba(241, 106, 106, 0.5);
 }
 
@@ -20254,19 +20275,19 @@ button.bg-github:focus {
     color: #ffffff !important;
 }
 
-.text-primary {
+.text-primary-rocket {
     color: #02233e !important;
 }
 
-a.text-primary:hover, a.text-primary:focus {
+a.text-primary-rocket:hover, a.text-primary-rocket:focus {
     color: #083e9b !important;
 }
 
-.text-secondary {
+.text-secondary-rocket {
     color: #EE5050 !important;
 }
 
-a.text-secondary:hover, a.text-secondary:focus {
+a.text-secondary-rocket:hover, a.text-secondary-rocket:focus {
     color: #ec3939 !important;
 }
 
@@ -41372,27 +41393,27 @@ code[class*="language-"], pre[class*="language-"] {
     font-weight: 600;
 }
 
-.text-primary, .text-primary:hover {
+.text-primary-rocket, .text-primary-rocket:hover {
     color: #02233e !important;
 }
 
-.text-primary a:not(.btn), .text-primary h1, .text-primary h2, .text-primary h3, .text-primary h4, .text-primary h5, .text-primary h6, .text-primary .h1, .text-primary .h2, .text-primary .h3, .text-primary .h4, .text-primary .h5, .text-primary .h6, .text-primary .display-1, .text-primary .display-2, .text-primary .display-3, .text-primary .display-4 {
+.text-primary-rocket a:not(.btn), .text-primary-rocket h1, .text-primary-rocket h2, .text-primary-rocket h3, .text-primary-rocket h4, .text-primary-rocket h5, .text-primary-rocket h6, .text-primary-rocket .h1, .text-primary-rocket .h2, .text-primary-rocket .h3, .text-primary-rocket .h4, .text-primary-rocket .h5, .text-primary-rocket .h6, .text-primary-rocket .display-1, .text-primary-rocket .display-2, .text-primary-rocket .display-3, .text-primary-rocket .display-4 {
     color: #02233e;
 }
 
-.text-primary .text-muted {
+.text-primary-rocket .text-muted {
     color: rgba(9, 72, 179, 0.7) !important;
 }
 
-.text-secondary, .text-secondary:hover {
+.text-secondary-rocket, .text-secondary-rocket:hover {
     color: #EE5050 !important;
 }
 
-.text-secondary a:not(.btn), .text-secondary h1, .text-secondary h2, .text-secondary h3, .text-secondary h4, .text-secondary h5, .text-secondary h6, .text-secondary .h1, .text-secondary .h2, .text-secondary .h3, .text-secondary .h4, .text-secondary .h5, .text-secondary .h6, .text-secondary .display-1, .text-secondary .display-2, .text-secondary .display-3, .text-secondary .display-4 {
+.text-secondary-rocket a:not(.btn), .text-secondary-rocket h1, .text-secondary-rocket h2, .text-secondary-rocket h3, .text-secondary-rocket h4, .text-secondary-rocket h5, .text-secondary-rocket h6, .text-secondary-rocket .h1, .text-secondary-rocket .h2, .text-secondary-rocket .h3, .text-secondary-rocket .h4, .text-secondary-rocket .h5, .text-secondary-rocket .h6, .text-secondary-rocket .display-1, .text-secondary-rocket .display-2, .text-secondary-rocket .display-3, .text-secondary-rocket .display-4 {
     color: #EE5050;
 }
 
-.text-secondary .text-muted {
+.text-secondary-rocket .text-muted {
     color: rgba(238, 80, 80, 0.7) !important;
 }
 

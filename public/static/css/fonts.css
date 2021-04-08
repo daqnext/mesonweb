@@ -4,8 +4,8 @@
 */
 @font-face {
 	font-family: "Material Design Icons";
-	src: url("../webfonts/materialdesignicons-webfont.eot?v=1.4.57");
-	src: url("../webfonts/materialdesignicons-webfont.eot?#iefix&v=1.4.57") format("embedded-opentype"), url("../webfonts/materialdesignicons-webfont.woff2?v=1.4.57") format("woff2"), url("../webfonts/materialdesignicons-webfont.woff?v=1.4.57") format("woff"), url("../webfonts/materialdesignicons-webfont.ttf?v=1.4.57") format("truetype"), url("../webfonts/materialdesignicons-webfont.svg?v=1.4.57#materialdesigniconsregular") format("svg");
+	src: url("https://assets.meson.network:10443/static/webfonts/materialdesignicons-webfont.eot?v=1.4.57");
+	src: url("https://assets.meson.network:10443/static/webfonts/materialdesignicons-webfont.eot?#iefix&v=1.4.57") format("embedded-opentype"), url("https://assets.meson.network:10443/static/webfonts/materialdesignicons-webfont.woff2?v=1.4.57") format("woff2"), url("https://assets.meson.network:10443/static/webfonts/materialdesignicons-webfont.woff?v=1.4.57") format("woff"), url("https://assets.meson.network:10443/static/webfonts/materialdesignicons-webfont.ttf?v=1.4.57") format("truetype"), url("https://assets.meson.network:10443/static/webfonts/materialdesignicons-webfont.svg?v=1.4.57#materialdesigniconsregular") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }

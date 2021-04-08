@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-10 09:30:35
- * @LastEditTime: 2021-03-13 09:54:31
+ * @LastEditTime: 2021-04-08 15:03:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/clientTraffic/clientTraffic.js
@@ -202,7 +202,7 @@ class ClientTraffic extends React.Component {
                                 style={{ marginLeft: "15px" }}
                             >
                                 <i
-                                    className="mr-2 text-primary"
+                                    className="mr-2 text-primary-rocket"
                                     data-feather="calendar"
                                 ></i>
                                 <span>{label}</span>
@@ -210,7 +210,7 @@ class ClientTraffic extends React.Component {
                             </div>
                         </DateRangePicker>
                         <button
-                            className="btn btn-primary btn-xs"
+                            className="btn btn-primary-rocket btn-xs"
                             type="button"
                             style={{ marginLeft: "5px" }}
                             onClick={() => {

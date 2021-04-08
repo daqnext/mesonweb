@@ -132,7 +132,7 @@ class GetallDomains extends React.Component {
                 <td>
                     <div
                         style={{ display: "block" }}
-                        className="btn btn-primary btn-sm"
+                        className="btn btn-primary-rocket btn-sm"
                         onClick={async () => {
                             let response = await axios.post(
                                 Global.apiHost + "/api/v1/client/refreshdomain",
@@ -163,7 +163,7 @@ class GetallDomains extends React.Component {
                     </div>
                     <div
                         style={{ display: "block", marginTop: "5px" }}
-                        className="btn btn-secondary btn-sm"
+                        className="btn btn-secondary-rocket btn-sm"
                         onClick={async () => {
                             let response = await axios.post(
                                 Global.apiHost + "/api/v1/client/deletedomain",

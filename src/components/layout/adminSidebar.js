@@ -262,7 +262,7 @@ class AdminSidebar extends React.Component {
                     <div className="d-block">
                         <LanBtn></LanBtn>
 
-                        <a  style={{marginTop:'20px'}} onClick={()=>{ this.logout(); }} className="btn btn-secondary btn-xs">
+                        <a  style={{marginTop:'20px'}} onClick={()=>{ this.logout(); }} className="btn btn-secondary-rocket btn-xs">
                                                 <span className="mr-2">
                                                     <span className="fas fa-sign-out-alt"></span>
                                                 </span>

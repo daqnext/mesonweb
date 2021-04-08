@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 08:20:10
- * @LastEditTime: 2021-03-23 12:52:21
+ * @LastEditTime: 2021-04-08 15:03:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/adminMachine/adminTerminal.js
@@ -251,7 +251,7 @@ class AdminTerminal extends React.Component {
                         <div style={{ display: "flex" }}>
                             <div
                                 style={{ marginLeft: "5px" }}
-                                className="btn btn-primary btn-sm"
+                                className="btn btn-primary-rocket btn-sm"
                                 onClick={
                                     async () => {
                                         //console.log(data);

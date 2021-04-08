@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-31 13:38:15
- * @LastEditTime: 2021-04-08 09:25:42
+ * @LastEditTime: 2021-04-08 14:28:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/arweaveDemo/arweaveDemo.js
@@ -76,7 +76,7 @@ class ArweaveDemoPage extends React.Component {
               <div className="input-group-append">
                 <div
                   // data-clipboard-target="#mytoken"
-                  className="btn   btn-light"
+                  className="btn"
                   // type="button"
                   style={{
                     border:"1px solid white",
@@ -120,10 +120,10 @@ class ArweaveDemoPage extends React.Component {
               />
               <div className="input-group-append">
                 <div
-                  className="btn   btn-light"
+                  className="btn "
                   style={{
                     border:"1px solid white",
-                    color:"white"
+                    color:"white",
                   }}
                   onClick={() => {
                     copy(

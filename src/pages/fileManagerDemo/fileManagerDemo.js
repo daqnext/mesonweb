@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2021-04-08 09:08:03
+ * @LastEditTime: 2021-04-08 21:34:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -78,7 +78,7 @@ class FileManagerPage extends React.Component {
                             <div className="input-group-append">
                                 <div
                                     // data-clipboard-target="#mytoken"
-                                    className="btn   btn-light"
+                                    className="btn"
                                     type="button"
                                     onClick={() => {
                                         copy(Global.apiHost + data.originUrl);
@@ -102,11 +102,11 @@ class FileManagerPage extends React.Component {
 
     renderProcess() {
         return (
-            <div className="upload-frame">
+            <div className="upload-frame" style={{width:"70%",left:"15%"}}>
                 <div className="col">
                     <div className="progress-wrapper">
                         <div className="progress-info">
-                            <div className="h6 mb-0">Uploading...</div>
+                            <div className="h6 mb-0" style={{color:"#555e68",fontSize:"13px"}}>Uploading...</div>
                             <div className="small font-weight-bold text-dark">
                                 <span>{this.state.upProcess} %</span>
                             </div>
@@ -342,7 +342,8 @@ class FileManagerPage extends React.Component {
                         className="toast-body"
                         style={{
                             border: "2px dashed white",
-                            maxHeight: "500px",
+                            // minHeight:"100px",
+                            maxHeight: "250px",
                             overflowY: "scroll",
                             marginTop: "10px",
                             //color:"rgb(255 255 255 / 58%)"
@@ -383,11 +384,12 @@ class FileManagerPage extends React.Component {
                                         <div className="input-group-append">
                                             <div
                                                 // data-clipboard-target="#mytoken"
-                                                className="btn   btn-light"
+                                                className="btn"
                                                 // type="button"
                                                 style={{
                                                     // backgroundColor: "rgb(61 86 107) !important",
-                                                    background:"#3d566b",
+                                                    // background:"#3d566b",
+                                                    border:"1px solid white",
                                                     color: "white",
                                                 }}
                                                 onClick={() => {
@@ -435,11 +437,12 @@ class FileManagerPage extends React.Component {
                                         <div className="input-group-append">
                                             <div
                                                 // data-clipboard-target="#mytoken"
-                                                className="btn   btn-light"
+                                                className="btn"
                                                 // type="button"
                                                 style={{
                                                     // backgroundColor: "rgb(61 86 107) !important",
-                                                    background:"#3d566b",
+                                                    // background:"#3d566b",
+                                                    border:"1px solid white",
                                                     color: "white",
                                                 }}
                                                 onClick={() => {

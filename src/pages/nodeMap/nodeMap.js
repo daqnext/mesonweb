@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 13:32:00
- * @LastEditTime: 2021-04-08 10:06:23
+ * @LastEditTime: 2021-04-08 21:22:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/nodeMap/nodeMap.js
@@ -30,9 +30,9 @@ script.addEventListener('load', ev => { // when the js execute done
 
     light: 'none',
 
-    mapImage: '/static/hologram/hologram-map.svg',
+    mapImage: 'https://assets.meson.network:10443/static/hologram/hologram-map.svg',
     transparent: true,
-  
+    draggable: false,
     autoRotate : true,
     autoRotateSpeed: 2.0,
     autoRotateDelay: 100,
@@ -127,6 +127,11 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
         // { name: "San Francisco", value: [-122.42, 37.77, 10] },
       ],
       activeNode: [],
+      totalNode:0,
+      asiaNode:0,
+      naNode:0,
+      europeNode:0,
+      otherNode:0
     };
   }
 
@@ -145,16 +150,45 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
     });
 
     this.setState({ activeNode: responseData });
+    
+    let asia=0
+    let na=0
+    let other=0
+    let europe=0
+    for (let i = 0; i < responseData.length; i++) {
+      switch (responseData[i].continent) {
+        case "Asia":
+            asia++
+          break;
+        case "North America":
+            na++
+          break;
+          case "Europe":
+            europe++
+            break;
+        default:
+            other++
+          break;
+      }
+      
+    }
+    this.setState({
+      totalNode:responseData.length,
+      asiaNode:asia,
+      naNode:na,
+      europeNode:europe,
+      otherNode:other,
+    })
   }
 
   renderPoint() {
     return (
       <div>
         {this.state.vmData.map((value, index, array) => {
-          console.log(value);
+          //console.log(value);
           let top = -((value.value[1] - 73) / 130) * 100;
           let left = ((value.value[0] + 160) / 346) * 100;
-          console.log(left);
+          //console.log(left);
           return (
             <div
               style={{
@@ -181,36 +215,43 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
     return (
       <div class="row row-30 justify-content-center justify-content-xl-between align-items-center align-items-xl-start">
         <div class="col-sm-4 col-md-4 text-center">
+
+        <div class="headings-default">
+            <div class="headings-default-subtitle">Miners</div>
+            <h3>Nodes & Capacity</h3>
+            <p class="d-inline-block text-width-medium">
+            Your node information will be listed here within 5-10 minutes after you start the mining terminal program on your server
+          </p>
+          </div>
+
+          
           <div
             id="myearth"
             // style="height: 480px;margin-top: 60px"
-            style={{ height: "480px", marginTop: "60px" }}
+            style={{ }}
+            
           >
             {/* <div id="glow"></div> */}
           </div>
+          <div style={{height:"100%",width:"100%",position:"absolute",zIndex:"900",left:"0",top:"0"}}></div>
         </div>
         <div class="col-md-7 col-xl-7 wow fadeInUp ">
-          <div class="headings-default">
-            <div class="headings-default-subtitle">Miners</div>
-            <h3>Nodes & Capacity</h3>
-          </div>
+           
 
-          <p class="d-inline-block text-width-medium">
-            Your node information will be listed here after 5-10 mins when you
-            start the mining terminal program on your server
-          </p>
+          
 
           <div
+          className="node-table"
           style={{
             //position: "absolute",
             //backgroundColor: "rgb(0 0 0 / 14%)",
             //marginRight: "5px",
             //left: "5px",
             //top: "80px",
-            marginTop:"10px",
+            // marginTop:"10px",
             maxHeight: "260px",
             overflowY: "scroll",
-            zIndex: "1000000",
+            // zIndex: "1000000",
             //border: "1px solid #ffffff1a",
           }}
         >
@@ -218,23 +259,19 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
             <tbody>
               <tr>
                 <th>Region</th>
-                <th>ID</th>
+                <th>Node ID&IP</th>
                 <th>Bandwidth</th>
-                <th>OS</th>
-                <th>Count</th>
+                {/* <th>Count</th> */}
               </tr>
               {this.state.activeNode.map((value, index, array) => {
                 let speed = ((value.machine_net_speed * 8) / 1000).toFixed(2);
+                let ip = value.ip.split(".")
                 return (
-                  <tr>
-                    <td>
-                      <div style={{ maxWidth: "150px", fontSize: "16px" }}>
-                        {value.country + " ***  [" + value.city + "]"}
-                      </div>
-                    </td>
-                    <td style={{ padding: "0px 5px" }}>{"id-" + value.id}</td>
-                    
-                    <td style={{ padding: "0px 10px" }}>{speed} Mb/s</td>
+                  <tr style={{fontSize:"15px"}}>
+                    <td style={{maxWidth:"200px"}}>{value.country + " ***  [" + value.city + "]"}</td>
+                    <td><div>{value.id}</div><div>{`ip:*.${ip[1]}.${ip[2]}.*`}</div></td>
+                    <td>{speed} Mb/s</td>
+                    {/* <td style={{ padding: "0px 2px" }}>1</td> */}
                   </tr>
                 );
               })}
@@ -244,95 +281,21 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
 
           <div class="group-xl group-middle discount-details justify-content-center justify-content-sm-start">
             <div>
-              <p class="discount-details-title">Tokens exchange rate</p>
+              <p class="discount-details-title">Current nodes statics</p>
               <ul class="discount-details-list">
-                <li>1 MESON = ? BTC</li>
-                <li>1 MESON = ? ETH</li>
+                <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Total nodes number : </span><span style={{color: "#ffd234"}}>{this.state.totalNode}</span></li>
+                <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Asia nodes number : </span><span style={{color: "#ffd234"}}>{this.state.asiaNode}</span></li>
+                <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>North America nodes number : </span><span style={{color: "#ffd234"}}>{this.state.naNode}</span></li>
+                <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Europe nodes number : </span><span style={{color: "#ffd234"}}>{this.state.europeNode}</span></li>
+                <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Other region nodes number : </span><span style={{color: "#ffd234"}} >{this.state.otherNode}</span></li>
               </ul>
             </div>
-            <a class="button button-isi button-primary" href="#">
+            <a class="button button-isi button-primary" href="/login">
               Start Mining
             </a>
           </div>
         </div>
       </div>
-
-      // {/* <div
-      //   className="container"
-      //   style={{
-      //     backgroundColor: "#00000029",
-      //     textAlign: "center",
-      //     // padding: "50px 50px",
-      //     borderRadius: "10px",
-      //     border: "1px solid #00000033",
-      //     position: "relative",
-      //   }}
-      // >
-      //   <h3
-      //     style={{
-      //       backgroundColor: "rgb(1 18 32)",
-      //       fontWeight: 60,
-      //       color: "rgb(232 232 232)",
-      //       position: "absolute",
-      //       left: "1px",
-      //       top: "0px",
-      //       fontSize: "25px",
-      //       padding: "5px 20px",
-      //       borderRadius: "5px",
-      //     }}
-      //   >
-      //     Acceleration Nodes
-      //   </h3>
-
-      //   <div
-      //     style={{
-      //       position: "absolute",
-      //       backgroundColor: "rgb(0 0 0 / 14%)",
-      //       marginRight: "5px",
-      //       left: "5px",
-      //       top: "80px",
-      //       maxHeight: "260px",
-      //       overflowY: "scroll",
-      //       zIndex: "1000000",
-      //       border: "1px solid #ffffff1a",
-      //     }}
-      //   >
-      //     <table
-      //       border="1"
-      //       style={{
-      //         minWidth: "300px",
-      //         color: "#e0e0e0",
-      //         borderColor: "#013c6f",
-      //       }}
-      //     >
-      //       <tbody>
-      //         <tr>
-      //           <th>Id</th>
-      //           <th>Place</th>
-      //           <th>Bandwidth</th>
-      //         </tr>
-      //         {this.state.activeNode.map((value, index, array) => {
-      //           let speed = ((value.machine_net_speed * 8) / 1000).toFixed(2);
-      //           return (
-      //             <tr>
-      //               <td style={{ padding: "0px 5px" }}>{"id-" + value.id}</td>
-      //               <td>
-      //                 <div style={{ maxWidth: "150px", fontSize: "16px" }}>
-      //                   {value.country + " ***  [" + value.city + "]"}
-      //                 </div>
-      //               </td>
-      //               <td style={{ padding: "0px 10px" }}>{speed} Mb/s</td>
-      //             </tr>
-      //           );
-      //         })}
-      //       </tbody>
-      //     </table>
-      //   </div>
-
-      //   <div id="myearth" style={{ height: "500px" }}>
-      //     <div id="glow" style={{ height: "500px", width: "400px" }}></div>
-      //   </div>
-      // </div> */}
     );
   }
 }

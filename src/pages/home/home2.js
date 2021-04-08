@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-04-08 12:01:36
+ * @LastEditTime: 2021-04-08 20:20:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -11,6 +11,7 @@ import React from "react";
 import ArweaveDemoPage from "../arweaveDemo/arweaveDemo";
 import FileManagerDemoPage from "../fileManagerDemo/fileManagerDemo";
 import NodeMapPage from "../nodeMap/nodeMap";
+import IndexBlogPage from "../indexBlog/indexBlog"
 import VideoDemoPage from "../videoDemo/videoDome";
 import "./home2.css";
 
@@ -35,7 +36,7 @@ class HomePage extends React.Component {
         <div class="ie-panel">
           <a href="http://windows.microsoft.com/en-US/internet-explorer/">
             <img
-              src="/static/images/ie8-panel/warning_bar_0000_us.jpg"
+              src="https://assets.meson.network:10443/static/images/ie8-panel/warning_bar_0000_us.jpg"
               height="42"
               width="820"
               alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."
@@ -58,7 +59,7 @@ class HomePage extends React.Component {
               <span class="cssload-dots"></span>
             </div>
             <img
-              src="/static/images/logo-default-324x88.png"
+              src="https://assets.meson.network:10443/static/images/logo-default-324x88.png"
               alt=""
               width="162"
               height="44"
@@ -110,7 +111,7 @@ class HomePage extends React.Component {
                         <a class="brand" href="index.html">
                           <img
                             class="brand-logo-light"
-                            src="/static/images/logo-default-324x88.png"
+                            src="https://assets.meson.network:10443/static/images/logo-default-324x88.png"
                             alt=""
                             width="162"
                             height="44"
@@ -197,11 +198,11 @@ class HomePage extends React.Component {
           </header>
 
           <div class="gradient-1 bg-vide-1">
-            <div
+            {/* <div
               class="gradient-6 bg-vide"
               //data-vide-bg="/static/video/video-1"
               //data-vide-options="posterType: jpg, position: 50% 50%"
-            ></div>
+            ></div> */}
             {/* <!-- About--> */}
             <section class="section section-inset-1" id="home">
               <div class="container">
@@ -222,10 +223,10 @@ class HomePage extends React.Component {
                         monopolized value.
                       </p>
                       <div class="group-md group-middle justify-content-center">
-                        <a class="button button-isi button-primary" href="#">
+                        <a class="button button-isi button-primary" href="/login">
                           Get started
                         </a>
-                        <a class="button button-default-outline" href="#">
+                        <a class="button button-default-outline" href="https://assets.meson.network:10443/static/docs/Meson-Network-v1.6.pdf">
                           White Paper
                         </a>
                       </div>
@@ -234,13 +235,13 @@ class HomePage extends React.Component {
                   <div class="col-md-6 wow fadeIn">
                     <div class="img-style-1 img-style-3">
                       <img
-                        src="/static/images/image-1-715x521.png"
+                        src="https://assets.meson.network:10443/static/images/image-1-715x521.png"
                         alt=""
                         width="715"
                         height="521"
                       />
                       <img
-                        src="/static/images/dash.gif"
+                        src="https://assets.meson.network:10443/static/images/dash.gif"
                         // style="position:absolute;left:0;top:0"
                         style={{position:"absolute",left:"0",top:"0"}}
                       />
@@ -257,7 +258,7 @@ class HomePage extends React.Component {
                     <div class="col-auto col-sm-4 col-lg-auto">
                       <a class="clients-default" href="https://mask.io">
                         <img
-                          src="/static/images/logos/mask.svg"
+                          src="https://assets.meson.network:10443/static/images/logos/mask.svg"
                           alt=""
                           width="82"
                           height="30"
@@ -270,7 +271,7 @@ class HomePage extends React.Component {
                         href="https://cointelegraph.com/news/blockchain-project-takes-on-cloudflare-and-amazon-web-services"
                       >
                         <img
-                          src="/static/images/logos/cointelegraph.png"
+                          src="https://assets.meson.network:10443/static/images/logos/cointelegraph.png"
                           alt=""
                           width="130"
                           height="25"
@@ -280,7 +281,7 @@ class HomePage extends React.Component {
                     <div class="col-auto col-sm-4 col-lg-auto">
                       <a class="clients-default" href="https://ipfs.io/">
                         <img
-                          src="/static/images/logos/ipfs.svg"
+                          src="https://assets.meson.network:10443/static/images/logos/ipfs.svg"
                           alt=""
                           width="86"
                           height="15"
@@ -293,7 +294,7 @@ class HomePage extends React.Component {
                         href="https://www.arweave.org/"
                       >
                         <img
-                          src="/static/images/logos/arweave.svg"
+                          src="https://assets.meson.network:10443/static/images/logos/arweave.svg"
                           alt=""
                           width="116"
                           height="26"
@@ -309,7 +310,7 @@ class HomePage extends React.Component {
           <div
             class="gradient-3"
             // style="margin-top: 190px;padding-bottom: 120px;"
-            style={{marginTop:"190px",paddingBottom:"120px"}}
+            style={{paddingTop:"120px"}}
           >
             {/* <!-- Pre-Sale--> */}
             <section class="section section-xs" id="nodes">
@@ -521,74 +522,6 @@ class HomePage extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div class="timeline-dots">
-                  <div class="timeline-dot">
-                    <time class="timeline-dot-time" datetime="2019">
-                      12.2019
-                    </time>
-                    <div class="timeline-dot-title">
-                      <a href="#">Listing on exchanges</a>
-                    </div>
-                  </div>
-                  <div class="timeline-dot">
-                    <time class="timeline-dot-time" datetime="2019">
-                      01.2019
-                    </time>
-                    <div class="timeline-dot-title">
-                      <a href="#">Work with media</a>
-                    </div>
-                  </div>
-                  <div class="timeline-dot">
-                    <time class="timeline-dot-time" datetime="2019">
-                      02.2019
-                    </time>
-                    <div class="timeline-dot-title">
-                      <a href="#">Property marketing</a>
-                    </div>
-                  </div>
-                  <div class="timeline-dot">
-                    <time class="timeline-dot-time" datetime="2019">
-                      03.2019
-                    </time>
-                    <div class="timeline-dot-title">
-                      <a href="#">Better security</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="timeline-dots">
-                  <div class="timeline-dot">
-                    <time class="timeline-dot-time" datetime="2019">
-                      04.2019
-                    </time>
-                    <div class="timeline-dot-title">
-                      <a href="#">Press tour</a>
-                    </div>
-                  </div>
-                  <div class="timeline-dot">
-                    <time class="timeline-dot-time" datetime="2019">
-                      05.2019
-                    </time>
-                    <div class="timeline-dot-title">
-                      <a href="#">New features</a>
-                    </div>
-                  </div>
-                  <div class="timeline-dot">
-                    <time class="timeline-dot-time" datetime="2019">
-                      06.2019
-                    </time>
-                    <div class="timeline-dot-title">
-                      <a href="#">Rental auction</a>
-                    </div>
-                  </div>
-                  <div class="timeline-dot">
-                    <time class="timeline-dot-time" datetime="2019">
-                      07.2019
-                    </time>
-                    <div class="timeline-dot-title">
-                      <a href="#">Platform updates</a>
-                    </div>
-                  </div>
-                </div>
               </div>
             </section>
             {/* <!-- Section Mobile--> */}
@@ -620,7 +553,7 @@ class HomePage extends React.Component {
                         <li>Global & fast CDN</li>
                       </ul>
                       <div class="group-xl group-middle justify-content-center">
-                        <a class="button button-isi button-primary" href="#">
+                        <a class="button button-isi button-primary" href="/login">
                           Start to use meson
                         </a>
                       </div>
@@ -635,7 +568,7 @@ class HomePage extends React.Component {
                     <video
                       poster="https://assets.meson.network:10443/static/img/newCover.png"
                       src="https://coldcdn.com/api/cdn/wr1cs5/video/spacex2.mp4"
-                      controls=""
+                      controls="controls"
                     //   style="width: 100%; object-fit: fill; border-radius: 10px;"
                     style={{width:"100%",objectFit:"fill",borderRadius:"10px"}}
                     ></video>
@@ -843,7 +776,7 @@ class HomePage extends React.Component {
                     {/* <!-- Service default--> */}
                     <article class="service-default block-md">
                       <div class="service-default-icon">
-                        <img src="/static/images/miner.svg" style={{height:"50px"}} />
+                        <img src="https://assets.meson.network:10443/static/images/miner.svg" style={{height:"50px"}} />
                       </div>
                       <div class="service-default-caption">
                         <div class="heading-6 service-default-title">
@@ -860,7 +793,7 @@ class HomePage extends React.Component {
                     {/* <!-- Service default--> */}
                     <article class="service-default block-md">
                       <div class="service-default-icon">
-                        <img src="/static/images/client.svg" style={{height:"60px"}}/>
+                        <img src="https://assets.meson.network:10443/static/images/client.svg" style={{height:"60px"}}/>
                       </div>
                       <div class="service-default-caption">
                         <div class="heading-6 service-default-title">
@@ -880,7 +813,7 @@ class HomePage extends React.Component {
                     {/* <!-- Service default--> */}
                     <article class="service-default block-md">
                       <div class="service-default-icon">
-                        <img src="/static/images/op.svg" style={{height:"60px"}} />
+                        <img src="https://assets.meson.network:10443/static/images/op.svg" style={{height:"60px"}} />
                       </div>
                       <div class="service-default-caption">
                         <div class="heading-6 service-default-title">
@@ -1330,13 +1263,11 @@ class HomePage extends React.Component {
           </div>
 
           <div class="gradient-1 bg-vide-1 bg-vide-2">
-            <div
-              class="bg-vide"
-              data-vide-bg="/static/video/video-3"
-              data-vide-options="posterType: jpg, position: 50% 50%"
-            ></div>
+
             {/* <!-- Breadcrumbs--> */}
-            <section class="breadcrumbs-custom">
+            <section class="breadcrumbs-custom"
+            //style={{background:"url(https://assets.meson.network:10443/static/video/video-3.jpg)"}}
+            >
               <div class="container">
                 <div class="headings-default">
                   <div class="headings-default-subtitle">News</div>
@@ -1346,79 +1277,9 @@ class HomePage extends React.Component {
             </section>
           </div>
 
-          {/* <!-- news start--> */}
-
-          <div class="gradient-2">
-            <section class="section section-md text-sm-left">
-              <div class="container">
-                <div class="row row-30 row-md-60">
-                  <div class="col-lg-8 post-wrap">
-                    {/* <!-- Post--> */}
-                    <article class="post">
-                      <a class="post-figure" href="blog-post.html">
-                        <img
-                          src="images/post-1-773x311.jpg"
-                          alt=""
-                          width="773"
-                          height="311"
-                        />
-                      </a>
-                      <div class="post-body">
-                        <div class="post-info-panel">
-                          <ul class="list-inline">
-                            <li>
-                              <time class="post-time" datetime="2019">
-                                December 10, 2019
-                              </time>
-                            </li>
-                            <li>
-                              <span class="post-tag">Blockchain</span>
-                            </li>
-                          </ul>
-                        </div>
-
-                        <h6 class="post-title">
-                          <a href="blog-post.html">
-                            Pros &amp; Cons of Premined Cryptocurrencies
-                          </a>
-                        </h6>
-                        <p class="post-text">
-                          Nam libero tempore, cum soluta nobis est eligendi
-                          optio cumque nihil impedit quo minus id quod maxime
-                          placeat facere possimus, omnis
-                        </p>
-                      </div>
-                    </article>
-                  </div>
-
-                  <div class="col-lg-4">
-                    <div class="row row-30 row-md-55 inset-left-xl-70">
-                      <div class="col-sm-6 col-md-4 col-lg-12">
-                        <h6 class="title-style-2">Categories</h6>
-                        <ul class="list-marked-2 list-link d-inline-block">
-                          <li>
-                            <span href="#">Blockchain</span>
-                          </li>
-                          <li>
-                            <span href="#">Cryptocurrency</span>
-                          </li>
-                          <li>
-                            <span href="#">CDN</span>
-                          </li>
-                          <li>
-                            <span href="#">Storage</span>
-                          </li>
-                          <li>
-                            <span href="#">Livstreaming</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
+          {/* <!-- news start--> */}   
+                  
+          <IndexBlogPage></IndexBlogPage>
 
           {/* <!-- news end--> */}
 
@@ -1466,7 +1327,7 @@ class HomePage extends React.Component {
                         </a>
                       </li>
                       <li>
-                        <a class="rd-nav-link" href="#">
+                        <a class="rd-nav-link" href="https://assets.meson.network:10443/static/docs/Meson-Network-v1.6.pdf">
                           White Paper
                         </a>
                       </li>

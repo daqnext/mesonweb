@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-11-26 16:32:05
+ * @LastEditTime: 2021-04-08 14:43:56
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/welcome/welcome.js
@@ -56,7 +56,7 @@ class WelcomePage extends React.Component {
         return (
             <AdminLayout name="Welcome" description="Welcome">
                 <div className="card border-light shadow-sm">
-                    <div className="card-body">
+                    <div className="card-body" style={{color:"#555e68"}}>
                         <div>Welcome:{UserManager.userinfo.username}</div>
                         {/* <div>CurentTime :{new Date().toLocaleString()}</div> */}
                         <div>CurentTime :{moment().toLocaleString()}</div>

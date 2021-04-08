@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-05 08:06:27
- * @LastEditTime: 2020-12-10 23:46:12
+ * @LastEditTime: 2021-04-08 15:09:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/userBlogList/userBlogList.js
@@ -50,7 +50,7 @@ class UserBlogList extends React.Component {
                         <div style={{display:'flex'}}>
                             <div
                                 style={{ display: "block" }}
-                                className="btn btn-primary btn-sm"
+                                className="btn btn-primary-rocket btn-sm"
                                 onClick={async () => {
                                     console.log("edit click", data);
                                     //to editpage
@@ -61,7 +61,7 @@ class UserBlogList extends React.Component {
                             </div>
                             <div
                                 style={{ display: "block",marginLeft:'5px' }}
-                                className="btn btn-secondary btn-sm"
+                                className="btn btn-secondary-rocket btn-sm"
                                 onClick={async () => {
                                     console.log("delete click", data);
                                     this.DeleteBlog(data.id);
