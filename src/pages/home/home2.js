@@ -1,30 +1,17 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-04-07 23:47:38
+ * @LastEditTime: 2021-04-08 12:01:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
  */
 
 import React from "react";
-import header from "./header.html";
-import hero from "./hero.html";
-import howWorks from "./howWorks.html";
-import about from "./about.html";
-import dev from "./dev.html";
-import solved from "./solved.html";
-import pricing from "./pricing.html";
-import blog from "./blog.html";
-import faq from "./faq.html";
-import footer from "./footer.html";
-
 import ArweaveDemoPage from "../arweaveDemo/arweaveDemo";
 import FileManagerDemoPage from "../fileManagerDemo/fileManagerDemo";
 import NodeMapPage from "../nodeMap/nodeMap";
 import VideoDemoPage from "../videoDemo/videoDome";
-import Investors from "../investors/investors";
-// import FinancingPage from "../financing/financing"
 import "./home2.css";
 
 class HomePage extends React.Component {
@@ -36,10 +23,15 @@ class HomePage extends React.Component {
       }
 
 
+      fileManager() {
+        return (
+            <FileManagerDemoPage></FileManagerDemoPage>
+        );
+      }
 
   render() {
     return (
-      <>
+      <div style={{backgroundColor:"#1748C8"}}>
         <div class="ie-panel">
           <a href="http://windows.microsoft.com/en-US/internet-explorer/">
             <img
@@ -207,8 +199,8 @@ class HomePage extends React.Component {
           <div class="gradient-1 bg-vide-1">
             <div
               class="gradient-6 bg-vide"
-              data-vide-bg="/static/video/video-1"
-              data-vide-options="posterType: jpg, position: 50% 50%"
+              //data-vide-bg="/static/video/video-1"
+              //data-vide-options="posterType: jpg, position: 50% 50%"
             ></div>
             {/* <!-- About--> */}
             <section class="section section-inset-1" id="home">
@@ -322,7 +314,8 @@ class HomePage extends React.Component {
             {/* <!-- Pre-Sale--> */}
             <section class="section section-xs" id="nodes">
               <div class="container">
-                <div class="row row-30 justify-content-center justify-content-xl-between align-items-center align-items-xl-start">
+              <NodeMapPage></NodeMapPage>
+                {/* <div class="row row-30 justify-content-center justify-content-xl-between align-items-center align-items-xl-start">
                   <div class="col-sm-4 col-md-4 text-center">
                     <div id="myearth" 
                     // style="height: 480px;margin-top: 60px"
@@ -344,7 +337,7 @@ class HomePage extends React.Component {
 
                     <table id="nodetable" border="1" 
                     // style="    width: 96%;"
-                    style={{width:"96%"}}
+                    style={{width:"100%"}}
                     >
                       <tr>
                         <th>Region</th>
@@ -420,7 +413,9 @@ class HomePage extends React.Component {
                       </a>
                     </div>
                   </div>
-                </div>
+                </div> */}
+
+                
               </div>
             </section>
             {/* <!-- Values--> */}
@@ -683,7 +678,8 @@ class HomePage extends React.Component {
                     // style="margin-top: 60px"
                     style={{marginTop:"60px"}}
                   >
-                    <div 
+                  <FileManagerDemoPage></FileManagerDemoPage>
+                    {/* <div 
                     // style="padding-top: 10px;"
                     style={{paddingTop:"10px"}}
                     >
@@ -721,7 +717,7 @@ class HomePage extends React.Component {
                           style={{border:"2px dashed white",maxHeight:"500px",overflowY:"scroll",marginTop:"10px",color:"rgba(255, 255, 255, 0.58)"}}
                         ></div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -761,14 +757,15 @@ class HomePage extends React.Component {
                     // style="margin-top: 80px"
                     style={{marginTop:"80px"}}
                   >
-                    <div class="form-group">
+                    <ArweaveDemoPage></ArweaveDemoPage>
+                    {/* <div class="form-group">
                       <input
                         class="form-control arweave-hash-input"
                         type="text"
                         placeholder="Input file ID(Hash) in Arweave"
                       />
-                    </div>
-                    <div 
+                    </div> */}
+                    {/* <div 
                     // style="color: rgba(255, 255, 255, 0.58);"
                     style={{color:"rgba(255, 255, 255, 0.58)"}}
                     >
@@ -815,7 +812,7 @@ class HomePage extends React.Component {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -846,7 +843,7 @@ class HomePage extends React.Component {
                     {/* <!-- Service default--> */}
                     <article class="service-default block-md">
                       <div class="service-default-icon">
-                        <img src="/static/images/miner.svg" style={{height:"90px"}} />
+                        <img src="/static/images/miner.svg" style={{height:"50px"}} />
                       </div>
                       <div class="service-default-caption">
                         <div class="heading-6 service-default-title">
@@ -1173,7 +1170,7 @@ class HomePage extends React.Component {
                                     aria-expanded="true"
                                     role="button"
                                   >
-                                    What is the test-network token ming rules?
+                                    What is the test-network token mining rules?
                                     <div class="card-arrow"></div>
                                   </a>
                                 </div>
@@ -1256,7 +1253,7 @@ class HomePage extends React.Component {
                     </div>
                   </div>
 
-                  <ul class="contact-default d-inline-block inset-left-xl-70">
+                  <ul class="contact-default d-inline-block inset-left-xl-70" style={{margin:"0 auto"}}>
                     <li class="unit unit-spacing-lg align-items-center">
                       <div class="unit-left">
                         <span class="contact-default-icon icon fab fa-discord"></span>
@@ -1315,7 +1312,7 @@ class HomePage extends React.Component {
 
                     <li class="unit unit-spacing-lg align-items-center">
                       <div class="unit-left">
-                        <span class="contact-default-icon icon fab fa-envelope"></span>
+                        <span class="contact-default-icon icon fas fa-envelope"></span>
                       </div>
                       <div class="unit-body">
                         <a
@@ -1498,27 +1495,27 @@ class HomePage extends React.Component {
                     <ul class="list-style-1 d-inline-block footitems">
                       <li>
                         <a href="https://discord.gg/z6YfSHDkmS">
-                          <i class="icon fa-discord"></i> Discord
+                          <i class="icon fab fa-discord"></i> Discord
                         </a>
                       </li>
                       <li>
                         <a href="https://t.me/mesonnetwork">
-                          <i class="icon fa-telegram"></i> Telegram
+                          <i class="icon fab fa-telegram"></i> Telegram
                         </a>
                       </li>
                       <li>
                         <a href="https://github.com/daqnext">
-                          <i class="icon   fa-github"></i> Github
+                          <i class="icon  fab fa-github"></i> Github
                         </a>
                       </li>
                       <li>
                         <a href="https://medium.com/meson-network">
-                          <i class="icon   fa-medium"></i> Medium
+                          <i class="icon  fab fa-medium"></i> Medium
                         </a>
                       </li>
                       <li>
                         <a href="mailto:admin@meson.network">
-                          <i class="icon fa-envelope"></i> Email US
+                          <i class="icon fas fa-envelope"></i> Email US
                         </a>
                       </li>
                     </ul>
@@ -1537,7 +1534,7 @@ class HomePage extends React.Component {
             </div>
           </footer>
         </div>
-      </>
+      </div>
     );
   }
 }

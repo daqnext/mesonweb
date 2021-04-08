@@ -217,7 +217,7 @@ body {
 	line-height: 1.4375;
 	font-weight: 400;
 	color: rgba(255, 255, 255, 0.7);
-	background-color: #1748C8;
+	/* background-color: #1748C8; */
 	-webkit-text-size-adjust: none;
 	-webkit-font-smoothing: subpixel-antialiased;
 }

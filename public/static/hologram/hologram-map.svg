@@ -1,8 +1,8 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="800px" height="400px" viewBox="0 0 800 400" style="enable-background:new 0 0 800 400;" xml:space="preserve">
 <style type="text/css">
-	.st0{opacity:0.2;}
-	.st1{fill:RGBA(0,156,255,0.07);stroke:RGBA(0,156,255,0.9);stroke-width:0.4;stroke-miterlimit:10;}
+	.st0{opacity:0.05;fill:black}
+	.st1{fill:RGBA(0,156,255,0.07);stroke:RGBA(0,156,255,1);stroke-width:0.4;stroke-miterlimit:10;}
 	.st2{fill:none;stroke:RGBA(0,156,255,0.3);stroke-width:0.3;stroke-miterlimit:10;}
 </style>
 <rect id="SEA" x="-1" y="-1" class="st0" width="802" height="402"/>

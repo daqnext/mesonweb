@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-31 13:38:15
- * @LastEditTime: 2021-03-17 20:58:38
+ * @LastEditTime: 2021-04-08 09:25:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/arweaveDemo/arweaveDemo.js
@@ -23,23 +23,16 @@ class ArweaveDemoPage extends React.Component {
     this.state = {
       inputHash: "",
     };
-
-    // document
-    //     .getElementsByTagName("body")[0]
-    //     .setAttribute("style", "background-color: #02233e");
   }
 
   render() {
     return (
-      <div style={{ backgroundColor: "#02233e",paddingTop:"10px" }}>
-        <div className="container">
+        <div>
           <div className="form-group">
-            {/* <label>input file id&#40;Hash&#41; in Arweave</label> */}
             <input
               style={{ 
-                backgroundColor: "#02233e", 
-                color: "white",
-              // opacity: "70%", 
+                // backgroundColor: "#02233e", 
+                //color: "white",
             }}
               className="form-control arweave-hash-input"
               //value={this.state.inputurl}
@@ -86,10 +79,8 @@ class ArweaveDemoPage extends React.Component {
                   className="btn   btn-light"
                   // type="button"
                   style={{
-                    //backgroundColor: "#3d566b !important",
-                    background:"#3d566b",
-                    color: "white",
-                    // opacity: "70%",
+                    border:"1px solid white",
+                    color:"white"
                   }}
                   onClick={() => {
                     copy("https://arweave.net/" + this.state.inputHash);
@@ -107,10 +98,6 @@ class ArweaveDemoPage extends React.Component {
               }}>Accelerated link by meson:</div>
             <div
               className="input-group "
-            //   style={{
-            //     marginBottom: "13px",
-            //     marginTop: "-1px",
-            //   }}
             >
               <input
                 id="mesonlink"
@@ -133,14 +120,10 @@ class ArweaveDemoPage extends React.Component {
               />
               <div className="input-group-append">
                 <div
-                  // data-clipboard-target="#mytoken"
                   className="btn   btn-light"
-                  // type="button"
                   style={{
-                    //backgroundColor: "#3d566b !important",
-                    background:"#3d566b",
-                    color: "white",
-                    // opacity: "70%",
+                    border:"1px solid white",
+                    color:"white"
                   }}
                   onClick={() => {
                     copy(
@@ -157,7 +140,6 @@ class ArweaveDemoPage extends React.Component {
             </div>
           </div>
         </div>
-      </div>
     );
   }
 }

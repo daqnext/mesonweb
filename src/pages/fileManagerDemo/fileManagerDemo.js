@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2021-03-17 21:05:01
+ * @LastEditTime: 2021-04-08 09:08:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -59,21 +59,7 @@ class FileManagerPage extends React.Component {
             upProcess: 0,
         };
 
-        // this.publicIpfsDemoId = localStorage.getItem("publicIpfsDemoId");
-        // if (this.publicIpfsDemoId == null) {
-        //     let code = "";
-        //     for (var i = 1; i <= 6; i++) {
-        //         const num = Math.floor(Math.random() * 10);
-        //         code += num;
-        //     }
-        //     this.publicIpfsDemoId = code;
-        //     localStorage.setItem("publicIpfsDemoId", code);
-        // }
         this.publicIpfsDemoId = this.makeid(8)
-
-        // document
-        //     .getElementsByTagName("body")[0]
-        //     .setAttribute("style", "background-color: #02233e");
 
         this.columns = [
             {
@@ -106,104 +92,6 @@ class FileManagerPage extends React.Component {
                     );
                 },
             },
-            // {
-            //     name: "fileName",
-            //     header: "File",
-            //     defaultFlex: 1,
-            //     editable: false,
-            // },
-            // {
-            //     name: "fileSize",
-            //     header: "Size",
-            //     defaultFlex: 1,
-            //     render: ({ value }) => {
-            //         if (value < 1000000) {
-            //             return <div>{(value / 1000).toFixed(2)} KB</div>;
-            //         } else {
-            //             return <div>{(value / 1000000).toFixed(2)} MB</div>;
-            //         }
-            //     },
-            // },
-            // {
-            //     name: "createTime",
-            //     header: "Uploaded",
-            //     defaultFlex: 1,
-            //     editable: false,
-            //     render: ({ value }) => {
-            //         return (
-            //             <div>
-            //                 {moment(value * 1000).format("YYYY-MM-DD HH:mm:ss")}
-            //             </div>
-            //         );
-            //     },
-            // },
-            // {
-            //     name: "action",
-            //     header: "Action",
-            //     defaultWidth: 180,
-            //     render: ({ data }) => {
-            //         return (
-            //             <div style={{ display: "flex" }}>
-            //                 <div
-            //                     className="btn btn-primary btn-sm"
-            //                     onClick={async () => {
-            //                         window.open(
-            //                             Global.apiHost + data.originUrl
-            //                         );
-            //                     }}
-            //                 >
-            //                     Download
-            //                 </div>
-            //                 <div
-            //                     style={{ marginLeft: "5px" }}
-            //                     className="btn btn-primary btn-sm"
-            //                     onClick={() => {
-            //                         copy(Global.apiHost + data.originUrl);
-            //                         this.props.alert.success("Url Copied");
-            //                     }}
-            //                 >
-            //                     Share
-            //                 </div>
-            //             </div>
-            //         );
-            //     },
-            // },
-            // {
-            //     name: "delete",
-            //     header: "Delete",
-            //     defaultWidth: 90,
-            //     render: ({ data }) => {
-            //         return (
-            //             <div style={{ display: "flex" }}>
-            //                 <div
-            //                     className="btn btn-secondary btn-sm"
-            //                     onClick={async () => {
-            //                         //http://xxxx.com/api/store/delete/username/filename/hash
-            //                         let url = Global.apiHost + "/api/store/delete/" + data.userName + "/" + data.fileName + "/" + data.fileHash
-            //                         let response = await axios.get(
-            //                             url,
-            //                             {
-            //                                 headers: {
-            //                                     Authorization:
-            //                                         "Bearer " +
-            //                                         userToken,
-            //                                 },
-            //                             }
-            //                         );
-            //                         if (response.data.status==0) {
-            //                             this.props.alert.success("Deleted");
-            //                             this.loadData();
-            //                         } else {
-            //                             this.props.alert.error("Delete Error");
-            //                         }
-            //                     }}
-            //                 >
-            //                     Delete
-            //                 </div>
-            //             </div>
-            //         );
-            //     },
-            // },
         ];
 
         this.title = "";
@@ -442,7 +330,7 @@ class FileManagerPage extends React.Component {
         //const Content = this.renderContent();
 
         return (
-            <div style={{  backgroundColor: "#02233e",paddingTop:"10px" }}>
+            <div style={{ paddingTop:"10px" }}>
                 {this.renderUploadArea()}
 
                 {this.state.upProcess > 0 &&
@@ -453,11 +341,11 @@ class FileManagerPage extends React.Component {
                     <div
                         className="toast-body"
                         style={{
-                            border: "2px dashed rgb(61 86 107)",
+                            border: "2px dashed white",
                             maxHeight: "500px",
                             overflowY: "scroll",
                             marginTop: "10px",
-                            color:"rgb(255 255 255 / 58%)"
+                            //color:"rgb(255 255 255 / 58%)"
                             // opacity: "70%",
                         }}
                     >

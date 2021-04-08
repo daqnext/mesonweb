@@ -158,5 +158,6 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "proxy":"https://meson.network"
 }
