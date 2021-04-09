@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 13:32:00
- * @LastEditTime: 2021-04-08 21:22:40
+ * @LastEditTime: 2021-04-09 16:44:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/nodeMap/nodeMap.js
@@ -65,7 +65,7 @@ script.addEventListener('load', ev => { // when the js execute done
     if (response.status == 0) {
       // console.log(response.data)
       connections = response.data
-      console.log(connections)
+      //console.log(connections)
 
       for ( var i in connections ) {			
         line.locations = [ 
@@ -131,7 +131,8 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
       asiaNode:0,
       naNode:0,
       europeNode:0,
-      otherNode:0
+      otherNode:0,
+      totalBandwidthStr:0
     };
   }
 
@@ -155,6 +156,7 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
     let na=0
     let other=0
     let europe=0
+    let totalBandwidth=0
     for (let i = 0; i < responseData.length; i++) {
       switch (responseData[i].continent) {
         case "Asia":
@@ -170,14 +172,24 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
             other++
           break;
       }
-      
+
+      totalBandwidth+=((responseData[i].machine_net_speed*8)/1000)
     }
+    console.log(totalBandwidth)
+    let totalBandwidthStr=totalBandwidth.toFixed(2)+" Mb/s"
+    if (totalBandwidth>1000*1000) {
+      totalBandwidthStr=(totalBandwidth/1000000).toFixed(2)+" Tb/s"
+    }else if(totalBandwidth>1000){
+      totalBandwidthStr = (totalBandwidth/1000).toFixed(2)+" Gb/s"
+    }
+
     this.setState({
       totalNode:responseData.length,
       asiaNode:asia,
       naNode:na,
       europeNode:europe,
       otherNode:other,
+      totalBandwidthStr:totalBandwidthStr
     })
   }
 
@@ -283,6 +295,7 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
             <div>
               <p class="discount-details-title">Current nodes statics</p>
               <ul class="discount-details-list">
+              {/* <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Total Bandwidth : </span><span style={{color: "#ffd234"}}>{this.state.totalBandwidthStr}</span></li> */}
                 <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Total nodes number : </span><span style={{color: "#ffd234"}}>{this.state.totalNode}</span></li>
                 <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Asia nodes number : </span><span style={{color: "#ffd234"}}>{this.state.asiaNode}</span></li>
                 <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>North America nodes number : </span><span style={{color: "#ffd234"}}>{this.state.naNode}</span></li>

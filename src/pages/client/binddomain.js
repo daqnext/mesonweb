@@ -170,7 +170,7 @@ class BindDomain extends React.Component {
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
-                        <div className="toast-body">
+                        <div className="toast-body" style={{color:"#555e68"}}>
                             simply replace your url with our url in your application,all your files will be accerlated
                             e.g :
                             <span className="badge badge-light" >{"https://"+this.state.inputurl+"/*"}</span>

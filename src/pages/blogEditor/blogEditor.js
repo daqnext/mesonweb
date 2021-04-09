@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2021-04-08 15:08:06
+ * @LastEditTime: 2021-04-09 23:15:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -278,7 +278,7 @@ class BlogEditorPage extends React.Component {
         const Content = this.renderContent();
 
         return (
-            <AdminLayout name="Admin" description="BlogEditor">
+            <AdminLayout name="Blog" description="BlogEditor">
                 {Content}
                 <button
                     className="btn btn-primary-rocket btn-ms"

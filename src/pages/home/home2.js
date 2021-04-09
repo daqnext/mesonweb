@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-04-09 11:09:47
+ * @LastEditTime: 2021-04-09 23:28:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -44,7 +44,7 @@ class HomePage extends React.Component {
           </a>
         </div>
 
-        <div class="preloader">
+        {/* <div class="preloader">
           <div class="preloader-body">
             <div class="cssload-container">
               <span class="cssload-dots"></span>
@@ -65,7 +65,7 @@ class HomePage extends React.Component {
               height="44"
             ></img>
           </div>
-        </div>
+        </div> */}
 
         <div class="page">
           <div class="particles-js" id="particles-js"></div>
@@ -220,7 +220,7 @@ class HomePage extends React.Component {
                       </div>
                       <p>
                         Unflinching focus on creating real commercial
-                        applications, Open network access standard, Release
+                        applications, open network access standard, release
                         monopolized value.
                       </p>
                       <div class="group-md group-middle justify-content-center">

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-09 09:48:27
- * @LastEditTime: 2021-04-09 14:08:42
+ * @LastEditTime: 2021-04-09 23:27:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/blogContent/blogContent.js
@@ -12,6 +12,7 @@ import axios from "axios";
 import Global from "../../global/global";
 import IndexBlogPage from "../indexBlog/indexBlog"
 import moment from "moment";
+import { times } from "chartist";
 
 export default class IndexBlog extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ export default class IndexBlog extends React.Component {
       console.error("get blog info error blogId:", blogId);
       return;
     }
-    console.log(response.data);
+    //console.log(response.data);
     let blogInfo = response.data.data;
     this.GetBlogContent(Global.s3BindDomain + blogInfo.content_url);
 
@@ -51,7 +52,7 @@ export default class IndexBlog extends React.Component {
 
   async GetBlogContent(contentUrl) {
     let response = await axios.get(contentUrl);
-    console.log(response);
+    //console.log(response);
     if (response.data) {
       this.setState({
         blogContent: response.data,
@@ -79,7 +80,7 @@ export default class IndexBlog extends React.Component {
 
     //let blogId=this.props.match.params.blogId
     let blogId = this.getQueryVariable("id");
-    console.log(blogId);
+    //console.log(blogId);
     if (blogId === false) {
       console.log("blogId error");
       return;
@@ -103,7 +104,7 @@ export default class IndexBlog extends React.Component {
           </a>
         </div>
 
-        <div class="preloader">
+        {/* <div class="preloader">
           <div class="preloader-body">
             <div class="cssload-container">
               <span class="cssload-dots"></span>
@@ -124,7 +125,7 @@ export default class IndexBlog extends React.Component {
               height="44"
             ></img>
           </div>
-        </div>
+        </div> */}
 
         <div class="page">
           <header class="section page-header page-header-absolute">

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-08 17:31:34
- * @LastEditTime: 2021-04-09 14:21:45
+ * @LastEditTime: 2021-04-09 20:01:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/indexBlog/indexBlog.js
@@ -42,7 +42,7 @@ export default class IndexBlog extends React.Component {
       console.error("get active node error");
       return;
     }
-    console.log(response.data);
+    //console.log(response.data);
     let responseData = response.data.data.blogs;
     //console.log(responseData)
 
@@ -54,7 +54,7 @@ export default class IndexBlog extends React.Component {
 
   pagination() {
     let pageArray = [];
-    console.log(this.state.totalBlogCount);
+    //console.log(this.state.totalBlogCount);
     let pageCount = Math.floor(this.state.totalBlogCount / 3);
     if (this.state.totalBlogCount / 3 > pageCount) {
       pageCount++;
@@ -76,8 +76,8 @@ export default class IndexBlog extends React.Component {
     if (endPage>3) {
       startPage = endPage-2
     }
-    console.log("startPage",startPage)
-    console.log("endPage",endPage)
+    //console.log("startPage",startPage)
+    //console.log("endPage",endPage)
 
     let showPagination=3
     if (pageCount<showPagination) {
@@ -87,7 +87,7 @@ export default class IndexBlog extends React.Component {
     for (let i = 0; i < showPagination; i++) {
       pageArray.push(startPage+i);
     }
-    console.log(pageArray);
+    //console.log(pageArray);
 
     return (
       <div class="pagination-wrap text-center">
@@ -99,7 +99,7 @@ export default class IndexBlog extends React.Component {
                       
                       if (this.state.currentPage>1) {
                         let page = this.state.currentPage-1
-                        console.log(page)
+                        //console.log(page)
                         this.GetBlogList(3,3*(page-1))
                         this.setState({currentPage:page})
                       }
@@ -122,7 +122,7 @@ export default class IndexBlog extends React.Component {
                   <li class="page-item">
                     <span class="page-link"
                     onClick={()=>{
-                      console.log(value)
+                      //console.log(value)
                       this.GetBlogList(3,3*(value-1))
                       this.setState({currentPage:value})
                     }}
@@ -135,10 +135,10 @@ export default class IndexBlog extends React.Component {
             <li class="page-item">
                     <span class="page-link"
                     onClick={()=>{
-                      console.log(this.pageCount)
+                      //console.log(this.pageCount)
                       if (this.state.currentPage<this.pageCount) {
                         let page = this.state.currentPage+1
-                        console.log(page)
+                        //console.log(page)
                         this.GetBlogList(3,3*(page-1))
                         this.setState({currentPage:page})
                       }
