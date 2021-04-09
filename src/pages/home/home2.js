@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-04-08 20:20:25
+ * @LastEditTime: 2021-04-09 11:09:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -69,6 +69,7 @@ class HomePage extends React.Component {
 
         <div class="page">
           <div class="particles-js" id="particles-js"></div>
+          
           <header class="section page-header page-header-absolute">
             {/* <!--RD Navbar--> */}
             <div class="rd-navbar-wrap">
@@ -1385,6 +1386,7 @@ class HomePage extends React.Component {
               </div>
             </div>
           </section>
+          
           <footer class="section footer-classic context-light wow fadeInUp">
             <div class="container">
               <p class="rights">

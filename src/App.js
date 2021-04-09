@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-04-07 20:55:17
+ * @LastEditTime: 2021-04-09 10:07:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -33,6 +33,7 @@ import UserBlogList from './pages/userBlogList/userBlogList';
 import AdminBlogList from './pages/adminBlogList/adminBlogList';
 import FileManagerPage from './pages/fileManager/fileManager'
 import MiningRulesPage from './pages/miningRules/miningRules'
+import BlogPage from './pages/blogContent/blogContent'
 
 import DemoFileManagerPage from "./pages/fileManagerDemo/fileManagerDemo";
 import DemoArweavePage from "./pages/arweaveDemo/arweaveDemo";
@@ -73,6 +74,7 @@ function App() {
         //for blog
         blogeditor: BlogEditorPage,
         userbloglist: UserBlogList,
+        blog:BlogPage,
         
         //for demo
         demofilemanager: DemoFileManagerPage,
