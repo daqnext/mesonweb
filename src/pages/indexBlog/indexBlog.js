@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-08 17:31:34
- * @LastEditTime: 2021-04-09 13:55:09
+ * @LastEditTime: 2021-04-09 14:21:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/indexBlog/indexBlog.js
@@ -178,7 +178,7 @@ export default class IndexBlog extends React.Component {
                     <article class="post">
                       <a
                         class="post-figure"
-                        href="#"
+                        href={`/blog?id=${value.id}`}
                         style={{ height: "150px" }}
                       >
                         <img
