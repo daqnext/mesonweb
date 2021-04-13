@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 13:32:00
- * @LastEditTime: 2021-04-09 16:44:10
+ * @LastEditTime: 2021-04-13 13:38:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/nodeMap/nodeMap.js
@@ -127,6 +127,8 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
         // { name: "San Francisco", value: [-122.42, 37.77, 10] },
       ],
       activeNode: [],
+      activeNodeShow:[],
+      queryId:"",
       totalNode:0,
       asiaNode:0,
       naNode:0,
@@ -147,10 +149,11 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
     }
     let responseData = response.data.data;
     responseData.sort(function (x, y) {
-      return x.id - y.id;
+      return x.id.localeCompare(y.id)
     });
 
     this.setState({ activeNode: responseData });
+    this.setState({ activeNodeShow: responseData });
     
     let asia=0
     let na=0
@@ -183,6 +186,8 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
       totalBandwidthStr = (totalBandwidth/1000).toFixed(2)+" Gb/s"
     }
 
+    console.log(totalBandwidthStr)
+
     this.setState({
       totalNode:responseData.length,
       asiaNode:asia,
@@ -191,6 +196,59 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
       otherNode:other,
       totalBandwidthStr:totalBandwidthStr
     })
+  }
+
+  queryNodeId(id){
+    let fixId=id.trim()
+    //console.log(fixId)
+    if (fixId!=="") {
+      let tempNode=this.state.activeNode
+      let showNodes=[]
+      for (let i = 0; i < tempNode.length; i++) {
+        if (tempNode[i].id.indexOf(fixId)!==-1) {
+          showNodes.push(tempNode[i])
+        }
+      }
+      this.setState({activeNodeShow:showNodes})
+    }else{
+      this.setState({activeNodeShow:this.state.activeNode})
+    }
+  }
+  
+  
+  
+  queryNodeInput(){
+    
+    return(
+      <div className="query-input">
+          <div
+            className="input-group "
+          >
+            <input
+              id="id"
+              value={
+                this.state.queryId
+              }
+              onChange={(event)=>{
+                let id=event.target.value
+                this.setState({queryId:id})
+                this.queryNodeId(id)
+              }}
+              className="form-control"
+              placeholder="input your node id here:"
+              type="text"
+              style={{
+                background: "none",
+                color: "#485056",
+                paddingLeft: "5px",
+                backgroundColor:"white"
+              }}
+            />
+            
+          </div>
+      </div>
+    )
+    
   }
 
   renderPoint() {
@@ -251,23 +309,17 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
            
 
           
-
+        {this.queryNodeInput()}
           <div
           className="node-table"
           style={{
-            //position: "absolute",
-            //backgroundColor: "rgb(0 0 0 / 14%)",
-            //marginRight: "5px",
-            //left: "5px",
-            //top: "80px",
-            // marginTop:"10px",
             maxHeight: "260px",
             overflowY: "scroll",
-            // zIndex: "1000000",
-            //border: "1px solid #ffffff1a",
+            marginTop:"10px",
           }}
         >
-          <table id="nodetable" border="1" style={{ width: "100%" }}>
+          
+          <table id="nodetable" border="1" style={{ width: "100%",margin:"0" }}>
             <tbody>
               <tr>
                 <th>Region</th>
@@ -275,7 +327,7 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
                 <th>Bandwidth</th>
                 {/* <th>Count</th> */}
               </tr>
-              {this.state.activeNode.map((value, index, array) => {
+              {this.state.activeNodeShow.map((value, index, array) => {
                 let speed = ((value.machine_net_speed * 8) / 1000).toFixed(2);
                 let ip = value.ip.split(".")
                 return (

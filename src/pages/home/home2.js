@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-04-09 23:28:00
+ * @LastEditTime: 2021-04-11 09:25:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -44,7 +44,7 @@ class HomePage extends React.Component {
           </a>
         </div>
 
-        {/* <div class="preloader">
+        <div class="preloader">
           <div class="preloader-body">
             <div class="cssload-container">
               <span class="cssload-dots"></span>
@@ -65,7 +65,7 @@ class HomePage extends React.Component {
               height="44"
             ></img>
           </div>
-        </div> */}
+        </div>
 
         <div class="page">
           <div class="particles-js" id="particles-js"></div>

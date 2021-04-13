@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-09 09:48:27
- * @LastEditTime: 2021-04-09 23:27:02
+ * @LastEditTime: 2021-04-11 09:27:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/blogContent/blogContent.js
@@ -104,7 +104,7 @@ export default class IndexBlog extends React.Component {
           </a>
         </div>
 
-        {/* <div class="preloader">
+        <div class="preloader">
           <div class="preloader-body">
             <div class="cssload-container">
               <span class="cssload-dots"></span>
@@ -125,7 +125,7 @@ export default class IndexBlog extends React.Component {
               height="44"
             ></img>
           </div>
-        </div> */}
+        </div>
 
         <div class="page">
           <header class="section page-header page-header-absolute">

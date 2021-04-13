@@ -138,8 +138,9 @@
   }
 
   @media (min-width: 768px){
-    .node-table{
+    .query-input{
       margin-top: 100px;
+      margin-bottom: 5px;
     }
   }
 
