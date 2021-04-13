@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2021-04-08 15:04:04
+ * @LastEditTime: 2021-04-13 19:30:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -203,7 +203,7 @@ class FileManagerPage extends React.Component {
              console.log(file);
              let uploadUrl = "";
              let serverResp = await axios.post(
-                 "/api/store/upload/" + UserManager.GetUserInfo().username,
+                 "/api/store/upload/" + UserManager.GetUserInfo().userid,
                  {
                      fileName: file[0].name,
                  },
