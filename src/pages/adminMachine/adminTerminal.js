@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 08:20:10
- * @LastEditTime: 2021-04-08 15:03:06
+ * @LastEditTime: 2021-04-13 15:53:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/adminMachine/adminTerminal.js
@@ -13,6 +13,7 @@ import Global from "../../global/global";
 import axios from "axios";
 import UserManager from "../../manager/usermanager";
 import { withAlert } from "react-alert";
+import moment from "moment";
 
 class AdminTerminal extends React.Component {
     constructor(props) {
@@ -40,6 +41,16 @@ class AdminTerminal extends React.Component {
                 defaultFlex: 1,
             },
             {
+                name: "user_id",
+                header: "user_id",
+                defaultFlex: 1,
+            },
+            {
+                name: "os",
+                header: "os",
+                defaultFlex: 1,
+            },
+            {
                 name: "continent",
                 header: "continent",
                 defaultFlex: 1,
@@ -54,11 +65,11 @@ class AdminTerminal extends React.Component {
                 header: "city",
                 defaultFlex: 1,
             },
-            {
-                name: "area",
-                header: "area",
-                defaultFlex: 1,
-            },
+            // {
+            //     name: "area",
+            //     header: "area",
+            //     defaultFlex: 1,
+            // },
             {
                 name: "speed",
                 header: "speed",
@@ -68,6 +79,14 @@ class AdminTerminal extends React.Component {
                     return <div>{(speed*8 / 1000).toFixed(2)} Mb/s</div>;
                 },
             },
+            // {
+            //     name: "speed_test_time",
+            //     header: "speed_test_time",
+            //     defaultFlex: 1,
+            //     render: ({ value }) => {
+            //         return <div>{moment(value*1000).format("MM-DD HH:mm")}</div>;
+            //     },
+            // },
             {
                 name: "cdn_space_usage",
                 header: "cdn_space_usage",
@@ -350,11 +369,14 @@ class AdminTerminal extends React.Component {
                                 machine_mac: terminalInfo.machine_mac,
                                 machine_ip: terminalInfo.machine_ip,
                                 port: terminalInfo.port,
+                                os:terminalInfo.os,
+                                user_id:terminalInfo.user_id,
                                 country: terminalInfo.country,
                                 continent: terminalInfo.continent,
                                 area: terminalInfo.area,
                                 city: terminalInfo.city,
                                 speed: terminalInfo.machine_net_speed,
+                                speed_test_time:terminalInfo.speed_test_time,
                                 cdn_space_usage: (
                                     ((terminalInfo.cdn_disk_total -
                                         terminalInfo.cdn_disk_available) /
