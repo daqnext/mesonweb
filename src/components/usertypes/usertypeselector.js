@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-11-10 08:35:37
- * @LastEditors: your name
+ * @LastEditTime: 2021-04-08 15:41:51
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/components/usertypes/usertypeselector.js
  */
@@ -42,11 +42,11 @@ class UserTypeSelector extends React.Component {
 
     displayname(usertype){
         if(usertype=='terminal'){
-            return (<div> [Terminal] Mine meson-tokens by connecting to meson.network </div>)
+            return (<div style={{color:"#6f7880"}}> [Terminal] Mine meson-tokens by connecting to meson.network </div>)
         }
 
         if(usertype=='client'){
-            return (<div>[CDN-User] To use our global acceleration service</div>)
+            return (<div style={{color:"#6f7880"}}>[CDN-User] To use our global acceleration service</div>)
         }
         return usertype;
     }

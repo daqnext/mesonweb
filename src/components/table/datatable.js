@@ -195,7 +195,7 @@ class DataTable extends React.Component {
                <td colspan="6">
                    <form>
                        {tr2_items}
-                       <div className="btn btn-primary btn-sm"
+                       <div className="btn btn-primary-rocket btn-sm"
                        onClick={()=>{
                              this.updatetable(data).then((result)=>{
                                  //console.log(result);

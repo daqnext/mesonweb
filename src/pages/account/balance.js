@@ -238,7 +238,7 @@ class BalancePage extends React.Component {
                 <div className="card border-light shadow-sm">
                     <div className="card-body">
                         <div className="small text-muted">Current Account Balance</div>
-                        <div className="h3">${this.state.balance}</div>
+                        <div className="h3" style={{color:"#555e68"}}>${this.state.balance}</div>
                     </div>
                 </div>
 

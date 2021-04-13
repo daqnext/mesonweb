@@ -92,8 +92,8 @@ class AdminSidebar extends React.Component {
 
             <li className="nav-item">
                 <a className="nav-link d-flex justify-content-between align-items-center"
-                   href="#submenu-adminbar" data-toggle="collapse"
-                   data-target="#submenu-adminbar" aria-expanded="true">
+                   href="#submenu-blog" data-toggle="collapse"
+                   data-target="#submenu-blog" aria-expanded="true">
                         <span>
                             <span className="sidebar-icon">
                                 <span className="fas fa-users-cog"></span>
@@ -104,7 +104,7 @@ class AdminSidebar extends React.Component {
                             <span className="fas fa-chevron-right"></span>
                         </span>
                 </a>
-                <div className="multi-level collapse show" role="list" id="submenu-adminbar" aria-expanded="false">
+                <div className="multi-level collapse show" role="list" id="submenu-blog" aria-expanded="false">
                     <ul className="flex-column nav">
                         <li className={this.getActive("/blogeditor") + " nav-item"}  ><a className="nav-link" href="/blogeditor"><span>BlogEditor</span></a></li>
                         <li className= {this.getActive("/userbloglist")+" nav-item"}  ><a className="nav-link" href="/userbloglist"><span>BlogList</span></a></li>
@@ -262,7 +262,7 @@ class AdminSidebar extends React.Component {
                     <div className="d-block">
                         <LanBtn></LanBtn>
 
-                        <a  style={{marginTop:'20px'}} onClick={()=>{ this.logout(); }} className="btn btn-secondary btn-xs">
+                        <a  style={{marginTop:'20px'}} onClick={()=>{ this.logout(); }} className="btn btn-secondary-rocket btn-xs">
                                                 <span className="mr-2">
                                                     <span className="fas fa-sign-out-alt"></span>
                                                 </span>

@@ -96,7 +96,7 @@ class LoginPage extends React.Component {
 
                 <div className="card border-light shadow-sm">
                     <div className="card-body">
-                        <form>
+                        <form style={{marginBottom:"20px",textAlign:"left"}}>
                             <div className="form-group">
                                 <label >User Name</label>
                                 <input type="UserName" className="form-control"
@@ -114,11 +114,11 @@ class LoginPage extends React.Component {
                                             this.passwd=event.target.value.trim();}}
                                         placeholder="Password" />
                             </div>
-                            <div   className="btn btn-primary" onClick={()=>{this.submitlogin();}}>Login</div>
+                            <div   className="btn btn-primary-rocket" onClick={()=>{this.submitlogin();}}>Login</div>
                         </form>
                         <div className="card-footer text-center ">
                             <div className="small">
-                                <a href="/register">Need an account? Sign up!</a></div>
+                                <a className="a-rocket" href="/register" >Need an account? Sign up!</a></div>
                         </div>
 
 

@@ -296,7 +296,7 @@ class RegisterPage extends React.Component {
                                         <label className="small mb-1">
                                             send smscode
                                         </label>
-                                        <div>
+                                        <div style={{textAlign:"left"}}>
                                             <SendCode
                                                 checkphonecorrect={() => {
                                                     return this.checkphonenumber();
@@ -312,7 +312,7 @@ class RegisterPage extends React.Component {
 
                             <div className="form-group mt-4 mb-0">
                                 <div
-                                    className="btn btn-primary btn-block"
+                                    className="btn btn-primary-rocket btn-block"
                                     onClick={() => {
                                         this.createAccount();
                                     }}
@@ -325,7 +325,7 @@ class RegisterPage extends React.Component {
                     </div>
                     <div className="card-footer text-center">
                         <div className="small">
-                            <a href="/login">
+                            <a className="a-rocket" href="/login">
                                 Have an account? Go to login
                             </a>
                         </div>

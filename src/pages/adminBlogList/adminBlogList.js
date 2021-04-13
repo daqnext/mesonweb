@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-05 08:06:27
- * @LastEditTime: 2020-12-05 08:47:29
+ * @LastEditTime: 2021-04-08 15:11:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/userBlogList/userBlogList.js
@@ -58,7 +58,7 @@ class AdminBlogList extends React.Component {
                     return (
                         <div
                             style={{ display: "block", marginTop: "5px" }}
-                            className="btn btn-secondary btn-sm"
+                            className="btn btn-secondary-rocket btn-sm"
                             onClick={async () => {
                                 console.log("delete click", data);
                                 this.DeleteBlog(data.id);

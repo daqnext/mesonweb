@@ -1,15 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 13:32:00
- * @LastEditTime: 2021-03-20 15:44:07
+ * @LastEditTime: 2021-04-13 13:38:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/nodeMap/nodeMap.js
  */
 
 import React from "react";
-// import { withAlert } from "react-alert";
-// import ReactEcharts from "echarts-for-react";
 import worldmap from "../../img/world-map-new.svg";
 import axios from "axios";
 // import "./world copy 2";
@@ -32,9 +30,9 @@ script.addEventListener('load', ev => { // when the js execute done
 
     light: 'none',
 
-    mapImage: 'https://assets.meson.network:10443/static/map/hologram/hologram-map.svg',
+    mapImage: 'https://assets.meson.network:10443/static/hologram/hologram-map.svg',
     transparent: true,
-  
+    draggable: false,
     autoRotate : true,
     autoRotateSpeed: 2.0,
     autoRotateDelay: 100,
@@ -67,7 +65,7 @@ script.addEventListener('load', ev => { // when the js execute done
     if (response.status == 0) {
       // console.log(response.data)
       connections = response.data
-      console.log(connections)
+      //console.log(connections)
 
       for ( var i in connections ) {			
         line.locations = [ 
@@ -120,74 +118,6 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
 	    [35.4,139.53,	35.4,139.53],
       [1.2,103.1, 1.2,103.1     ],
     ];
-
-    window.addEventListener( 'load', function() {
-
-	//     myearth = new Earth( 'myearth', {
-	
-	// 	  location : { lat: 20, lng : 20 },
-	
-	// 	  light: 'none',
-
-	// 	  mapImage: '/mapdot/hologram-map.svg',
-	// 	  transparent: true,
-		
-	// 	  autoRotate : true,
-	// 	  autoRotateSpeed: 2.0,
-	// 	  autoRotateDelay: 100,
-	// 	  autoRotateStart: 2000,			
-		
-	//   });
-	
-	
-	//   myearth.addEventListener( "ready", function() {
-
-	// 	  this.startAutoRotate();
-
-	// 	  // connections
-      
-	// 	  var line = {
-	// 		  color : '#009CFF',
-	// 		  opacity: 0.35,
-	// 		  hairline: true,
-	// 		  offset: -0.5
-	// 	  };
-
-  //   let that=this
-
-  //   var settings = {
-  //     "url": "/api/v1/common/nodelocation",
-  //     "method": "GET",
-  // };
-   
-  //   $.ajax(settings).done(function (response) {
-  //     if (response.status == 0) {
-  //       // console.log(response.data)
-  //       connections = response.data
-  //       console.log(connections)
-
-  //       for ( var i in connections ) {			
-  //         line.locations = [ 
-  //         { lat: connections[i][0], lng: connections[i][1] },
-  //         { lat: connections[i][2], lng: connections[i][3] } ];
-  //         that.addLine( line );
-  //       }
-        
-  //       // add shine sprites
-  //       for ( var i=0; i < connections.length; i++ ) {
-  //         sprites[i] = that.addSprite( {
-  //           image: '/mapdot/hologram-shine-green2.svg',
-  //           scale: 0.01,
-  //           offset: -0.5,
-  //           opacity: 0.5
-  //         } );
-  //         pulse( i );
-  //       }
-          
-  //     }
-  // });
-	// });
-});
     `;
     new Function(jscode)();
 
@@ -197,6 +127,14 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
         // { name: "San Francisco", value: [-122.42, 37.77, 10] },
       ],
       activeNode: [],
+      activeNodeShow:[],
+      queryId:"",
+      totalNode:0,
+      asiaNode:0,
+      naNode:0,
+      europeNode:0,
+      otherNode:0,
+      totalBandwidthStr:0
     };
   }
 
@@ -210,44 +148,117 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
       return;
     }
     let responseData = response.data.data;
-    responseData.sort(function(x,y){
-      return x.id-y.id
-    })
-    
-    //console.log(responseData);
+    responseData.sort(function (x, y) {
+      return x.id.localeCompare(y.id)
+    });
 
-    //summarize data
-    // const cityInfo = responseData.cityInfo;
-    // const terminals = responseData.terminals;
-    // let data = [];
-    // for (let key in terminals) {
-    //   if (key == "") {
-    //     continue;
-    //   }
-    //   if (cityInfo[key]) {
-    //     const value = [
-    //       cityInfo[key].MachineGeoX,
-    //       cityInfo[key].MachineGeoY,
-    //       terminals[key],
-    //     ];
-    //     const v = { name: key, value: value };
-    //     data.push(v);
-    //   }
-    // }
-
-    // //set state value
-    // console.log(data);
     this.setState({ activeNode: responseData });
+    this.setState({ activeNodeShow: responseData });
+    
+    let asia=0
+    let na=0
+    let other=0
+    let europe=0
+    let totalBandwidth=0
+    for (let i = 0; i < responseData.length; i++) {
+      switch (responseData[i].continent) {
+        case "Asia":
+            asia++
+          break;
+        case "North America":
+            na++
+          break;
+          case "Europe":
+            europe++
+            break;
+        default:
+            other++
+          break;
+      }
+
+      totalBandwidth+=((responseData[i].machine_net_speed*8)/1000)
+    }
+    console.log(totalBandwidth)
+    let totalBandwidthStr=totalBandwidth.toFixed(2)+" Mb/s"
+    if (totalBandwidth>1000*1000) {
+      totalBandwidthStr=(totalBandwidth/1000000).toFixed(2)+" Tb/s"
+    }else if(totalBandwidth>1000){
+      totalBandwidthStr = (totalBandwidth/1000).toFixed(2)+" Gb/s"
+    }
+
+    console.log(totalBandwidthStr)
+
+    this.setState({
+      totalNode:responseData.length,
+      asiaNode:asia,
+      naNode:na,
+      europeNode:europe,
+      otherNode:other,
+      totalBandwidthStr:totalBandwidthStr
+    })
+  }
+
+  queryNodeId(id){
+    let fixId=id.trim()
+    //console.log(fixId)
+    if (fixId!=="") {
+      let tempNode=this.state.activeNode
+      let showNodes=[]
+      for (let i = 0; i < tempNode.length; i++) {
+        if (tempNode[i].id.indexOf(fixId)!==-1) {
+          showNodes.push(tempNode[i])
+        }
+      }
+      this.setState({activeNodeShow:showNodes})
+    }else{
+      this.setState({activeNodeShow:this.state.activeNode})
+    }
+  }
+  
+  
+  
+  queryNodeInput(){
+    
+    return(
+      <div className="query-input">
+          <div
+            className="input-group "
+          >
+            <input
+              id="id"
+              value={
+                this.state.queryId
+              }
+              onChange={(event)=>{
+                let id=event.target.value
+                this.setState({queryId:id})
+                this.queryNodeId(id)
+              }}
+              className="form-control"
+              placeholder="input your node id here:"
+              type="text"
+              style={{
+                background: "none",
+                color: "#485056",
+                paddingLeft: "5px",
+                backgroundColor:"white"
+              }}
+            />
+            
+          </div>
+      </div>
+    )
+    
   }
 
   renderPoint() {
     return (
       <div>
         {this.state.vmData.map((value, index, array) => {
-          console.log(value);
+          //console.log(value);
           let top = -((value.value[1] - 73) / 130) * 100;
           let left = ((value.value[0] + 160) / 346) * 100;
-          console.log(left);
+          //console.log(left);
           return (
             <div
               style={{
@@ -272,84 +283,84 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
 
   render() {
     return (
-      <>
-        <div
-          className="container"
+      <div class="row row-30 justify-content-center justify-content-xl-between align-items-center align-items-xl-start">
+        <div class="col-sm-4 col-md-4 text-center">
+
+        <div class="headings-default">
+            <div class="headings-default-subtitle">Miners</div>
+            <h3>Nodes & Capacity</h3>
+            <p class="d-inline-block text-width-medium">
+            Your node information will be listed here within 5-10 minutes after you start the mining terminal program on your server
+          </p>
+          </div>
+
+          
+          <div
+            id="myearth"
+            // style="height: 480px;margin-top: 60px"
+            style={{ }}
+            
+          >
+            {/* <div id="glow"></div> */}
+          </div>
+          <div style={{height:"100%",width:"100%",position:"absolute",zIndex:"900",left:"0",top:"0"}}></div>
+        </div>
+        <div class="col-md-7 col-xl-7 wow fadeInUp ">
+           
+
+          
+        {this.queryNodeInput()}
+          <div
+          className="node-table"
           style={{
-            backgroundColor: "#00000029",
-            textAlign: "center",
-            // padding: "50px 50px",
-            borderRadius: "10px",
-            border: "1px solid #00000033",
-            position: "relative",
+            maxHeight: "260px",
+            overflowY: "scroll",
+            marginTop:"10px",
           }}
         >
-          <h3
-            style={{
-              backgroundColor: "rgb(1 18 32)",
-              fontWeight: 60,
-              color: "rgb(232 232 232)",
-              position: "absolute",
-              left: "1px",
-              top: "0px",
-              fontSize: "25px",
-              padding: "5px 20px",
-              borderRadius: "5px",
-            }}
-          >
-            Acceleration Nodes
-          </h3>
-
-          <div
-            style={{
-              position: "absolute",
-              backgroundColor: "rgb(0 0 0 / 14%)",
-              marginRight: "5px",
-              left: "5px",
-              top: "80px",
-              maxHeight: "260px",
-              overflowY: "scroll",
-              zIndex: "1000000",
-              border: "1px solid #ffffff1a",
-            }}
-          >
-            <table
-              border="1"
-              style={{
-                minWidth: "300px",
-                color: "#e0e0e0",
-                borderColor: "#013c6f",
-              }}
-            >
-              <tbody>
-                <tr>
-                  <th>Id</th>
-                  <th>Place</th>
-                  <th>Bandwidth</th>
-                </tr>
-                {this.state.activeNode.map((value, index, array) => {
-                  let speed = ((value.machine_net_speed * 8) / 1000).toFixed(2);
-                  return (
-                    <tr>
-                      <td style={{ padding: "0px 5px" }}>{"id-" + value.id}</td>
-                      <td>
-                        <div style={{ maxWidth: "150px", fontSize: "16px" }}>
-                          {value.country + " ***  [" + value.city + "]"}
-                        </div>
-                      </td>
-                      <td style={{ padding: "0px 10px" }}>{speed} Mb/s</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+          
+          <table id="nodetable" border="1" style={{ width: "100%",margin:"0" }}>
+            <tbody>
+              <tr>
+                <th>Region</th>
+                <th>Node ID&IP</th>
+                <th>Bandwidth</th>
+                {/* <th>Count</th> */}
+              </tr>
+              {this.state.activeNodeShow.map((value, index, array) => {
+                let speed = ((value.machine_net_speed * 8) / 1000).toFixed(2);
+                let ip = value.ip.split(".")
+                return (
+                  <tr style={{fontSize:"15px"}}>
+                    <td style={{maxWidth:"200px"}}>{value.country + " ***  [" + value.city + "]"}</td>
+                    <td><div>{value.id}</div><div>{`ip:*.${ip[1]}.${ip[2]}.*`}</div></td>
+                    <td>{speed} Mb/s</td>
+                    {/* <td style={{ padding: "0px 2px" }}>1</td> */}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
           </div>
 
-          <div id="myearth" style={{ height: "500px" }}>
-            <div id="glow" style={{ height: "500px", width: "400px" }}></div>
+          <div class="group-xl group-middle discount-details justify-content-center justify-content-sm-start">
+            <div>
+              <p class="discount-details-title">Current nodes statics</p>
+              <ul class="discount-details-list">
+              {/* <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Total Bandwidth : </span><span style={{color: "#ffd234"}}>{this.state.totalBandwidthStr}</span></li> */}
+                <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Total nodes number : </span><span style={{color: "#ffd234"}}>{this.state.totalNode}</span></li>
+                <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Asia nodes number : </span><span style={{color: "#ffd234"}}>{this.state.asiaNode}</span></li>
+                <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>North America nodes number : </span><span style={{color: "#ffd234"}}>{this.state.naNode}</span></li>
+                <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Europe nodes number : </span><span style={{color: "#ffd234"}}>{this.state.europeNode}</span></li>
+                <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Other region nodes number : </span><span style={{color: "#ffd234"}} >{this.state.otherNode}</span></li>
+              </ul>
+            </div>
+            <a class="button button-isi button-primary" href="/login">
+              Start Mining
+            </a>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }

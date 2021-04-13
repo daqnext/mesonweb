@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 23:52:52
- * @LastEditTime: 2021-03-30 19:46:55
+ * @LastEditTime: 2021-04-08 15:08:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalTotalProfit/terminalTotalProfit.js
@@ -303,7 +303,7 @@ class TerminalTotalProfit extends React.Component {
                             style={{ marginLeft: "15px" }}
                         >
                             <i
-                                className="mr-2 text-primary"
+                                className="mr-2 text-primary-rocket"
                                 data-feather="calendar"
                             ></i>
                             <span>{label}</span>
@@ -311,7 +311,7 @@ class TerminalTotalProfit extends React.Component {
                         </div>
                     </DateRangePicker>
                     <button
-                        className="btn btn-primary btn-xs"
+                        className="btn btn-primary-rocket btn-xs"
                         type="button"
                         style={{ marginLeft: "5px" }}
                         onClick={async () => {

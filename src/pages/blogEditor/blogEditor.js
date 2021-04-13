@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 17:58:29
- * @LastEditTime: 2020-12-16 08:43:17
+ * @LastEditTime: 2021-04-09 23:15:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/test/test.js
@@ -117,7 +117,7 @@ class BlogEditorPage extends React.Component {
                     aria-live="assertive"
                     aria-atomic="true"
                 >
-                    <div className="toast-header text-primary">
+                    <div className="toast-header text-primary-rocket">
                         <strong className="mr-auto ml-2">Title</strong>
                     </div>
                     <div className="toast-body">
@@ -142,7 +142,7 @@ class BlogEditorPage extends React.Component {
                     aria-live="assertive"
                     aria-atomic="true"
                 >
-                    <div className="toast-header text-primary">
+                    <div className="toast-header text-primary-rocket">
                         <strong className="mr-auto ml-2">Cover img</strong>
                     </div>
                     <div className="toast-body cover-img">
@@ -278,10 +278,10 @@ class BlogEditorPage extends React.Component {
         const Content = this.renderContent();
 
         return (
-            <AdminLayout name="Admin" description="BlogEditor">
+            <AdminLayout name="Blog" description="BlogEditor">
                 {Content}
                 <button
-                    className="btn btn-primary btn-ms"
+                    className="btn btn-primary-rocket btn-ms"
                     type="button"
                     style={{ marginLeft: "5px", marginTop: "5px" }}
                     onClick={async () => {

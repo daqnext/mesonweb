@@ -1119,9 +1119,9 @@
     "@ckeditor/ckeditor5-widget" "^23.1.0"
 
 "@ckeditor/ckeditor5-react@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-react/download/@ckeditor/ckeditor5-react-3.0.0.tgz#05a1bdd7b26a8c1df6fd734376ea84e394d6ab47"
-  integrity sha1-BaG917JqjB32/XNDduqE45TWq0c=
+  version "3.0.2"
+  resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-react/download/@ckeditor/ckeditor5-react-3.0.2.tgz#257466959cf5c6e16ed3dd3afe860e4c177dd156"
+  integrity sha1-JXRmlZz1xuFu0906/oYOTBd90VY=
   dependencies:
     prop-types "^15.7.2"
 
@@ -6804,9 +6804,9 @@ locate-path@^5.0.0:
     p-locate "^4.1.0"
 
 lodash-es@^4.17.15:
-  version "4.17.15"
-  resolved "https://registry.npm.taobao.org/lodash-es/download/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
-  integrity sha1-Ib2Wg5NUQS8j16EDQOXqxu5FXXg=
+  version "4.17.21"
+  resolved "https://registry.npm.taobao.org/lodash-es/download/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha1-Q+YmxG5lkbd1C+srUBFzkMYJ4+4=
 
 lodash._getnative@^3.0.0:
   version "3.9.1"

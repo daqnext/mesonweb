@@ -136,3 +136,14 @@
     padding: 0 0.5em;
     font-size: 10px;
   }
+
+  @media (min-width: 768px){
+    .query-input{
+      margin-top: 100px;
+      margin-bottom: 5px;
+    }
+  }
+
+  #nodetable tr td {
+    padding: 1px 2px;
+  }

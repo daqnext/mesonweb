@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-03-24 19:15:34
+ * @LastEditTime: 2021-04-08 20:26:03
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /mesonweb/src/pages/monitoring/monitor.js
+ */
 
 import React from 'react';
 import AdminLayout from "../../components/layout/adminLayout";
@@ -49,18 +57,14 @@ class MonitorPage extends React.Component {
             return (<div></div>);
         }
 
-
-
-
-
         let monitorcontent=Object.keys(this.state.data).map((key,id) => {
             return(
 
                 <div className="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div className="toast-header text-primary">
+                    <div className="toast-header text-primary-rocket">
                         <strong className="mr-auto ml-2">{key}</strong>
                     </div>
-                    <div className="toast-body">
+                    <div className="toast-body" style={{color:"#555e68"}}>
                         {this.state.data[key]}
                     </div>
                 </div>

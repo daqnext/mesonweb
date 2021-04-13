@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-02 15:18:47
- * @LastEditTime: 2020-12-02 15:31:09
+ * @LastEditTime: 2021-04-08 15:15:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalBalance/terminalBalance.js
@@ -74,7 +74,7 @@ class TerminalBalancePage extends React.Component {
                 <div className="card border-light shadow-sm">
                     <div className="card-body">
                         <div className="small text-muted">Current Account Token</div>
-                        <div className="h3">{this.state.token}</div>
+                        <div className="h3" style={{color:"#555e68"}}>{this.state.token}</div>
                     </div>
                 </div>
             </AdminLayout>

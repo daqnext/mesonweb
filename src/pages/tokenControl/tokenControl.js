@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-21 18:46:13
- * @LastEditTime: 2020-12-02 15:16:30
+ * @LastEditTime: 2021-04-08 20:29:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/tokenControl/tokenControl.js
@@ -43,7 +43,7 @@ class TokenControlPage extends React.Component {
                     return (
                         <div
                             style={{ display: "block", marginTop: "5px" }}
-                            className="btn btn-secondary btn-sm"
+                            className="btn btn-secondary-rocket btn-sm"
                             onClick={async () => {
                                 console.log("delete click", data);
                                 this.DeleteBonusConfig(data.country);
@@ -250,10 +250,10 @@ class TokenControlPage extends React.Component {
                     aria-live="assertive"
                     aria-atomic="true"
                 >
-                    <div className="toast-header text-primary">
-                        <strong className="mr-auto ml-2">{key}</strong>
+                    <div className="toast-header">
+                        <strong className="mr-auto ml-2" style={{color:"#555e68"}}>{key}</strong>
                     </div>
-                    <div className="toast-body">
+                    <div className="toast-body" style={{color:"#555e68"}}>
                         {this.state.data[key] / 1000000000}
                     </div>
                 </div>
@@ -269,9 +269,10 @@ class TokenControlPage extends React.Component {
                     role="alert"
                     aria-live="assertive"
                     aria-atomic="true"
+                    
                 >
-                    <div className="toast-header text-primary">
-                        <strong className="mr-auto ml-2">TotalTokenPerDay</strong>
+                    <div className="toast-header text-primary-rocket">
+                        <strong className="mr-auto ml-2" >TotalTokenPerDay</strong>
                     </div>
                     <div className="toast-body">
                         <input
@@ -289,7 +290,7 @@ class TokenControlPage extends React.Component {
                             onClick={() => {
                                 this.SetNewTotalBonusPerDay();
                             }}
-                            className="btn btn-primary"
+                            className="btn btn-primary-rocket"
                             type="button"
 
                         >
@@ -307,7 +308,7 @@ class TokenControlPage extends React.Component {
                     aria-live="assertive"
                     aria-atomic="true"
                 >
-                    <div className="toast-header text-primary">
+                    <div className="toast-header text-primary-rocket">
                         <strong className="mr-auto ml-2"> Country Bonus Token</strong>
                     </div>
                     <div className="toast-body">
@@ -323,8 +324,8 @@ class TokenControlPage extends React.Component {
                     aria-live="assertive"
                     aria-atomic="true"
                 >
-                    <div className="toast-header text-primary">
-                        <strong className="mr-auto ml-2"> Country Token Config</strong>
+                    <div className="toast-header text-primary-rocket">
+                        <strong className="mr-auto ml-2" > Country Token Config</strong>
                     </div>
                     <div className="toast-body">
                         <form>
@@ -358,7 +359,7 @@ class TokenControlPage extends React.Component {
                                             this.state.newBonusToken
                                         );
                                     }}
-                                    className="btn btn-primary"
+                                    className="btn btn-primary-rocket"
                                     type="button"
                                     style={{ marginTop: "10px" }}
                                 >
