@@ -1,30 +1,30 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add plugins: [ HtmlEmbed, ... ],
+  /usr/local/bin/node /usr/local/bin/yarn add react-captca-code
 
 PATH: 
-  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin
+  /Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin
 
 Yarn version: 
   1.22.10
 
 Node version: 
-  12.18.3
+  14.15.4
 
 Platform: 
   darwin x64
 
 Trace: 
-  Error: Invalid URL
-      at module.exports.module.exports (/usr/local/lib/node_modules/yarn/lib/cli.js:71821:9)
-      at urlParts (/usr/local/lib/node_modules/yarn/lib/cli.js:31614:75)
-      at NpmRegistry.isRequestToRegistry (/usr/local/lib/node_modules/yarn/lib/cli.js:31657:19)
-      at NpmRegistry.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:31689:31)
-      at Generator.next (<anonymous>)
-      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:328:14
-      at new Promise (<anonymous>)
-      at new F (/usr/local/lib/node_modules/yarn/lib/cli.js:5301:28)
-      at NpmRegistry.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:307:12)
+  Error: https://registry.npm.taobao.org/react-captca-code: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66988:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140662:22)
+      at Request.emit (events.js:315:20)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141634:10)
+      at Request.emit (events.js:315:20)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141556:12)
+      at Object.onceWrapper (events.js:421:28)
+      at IncomingMessage.emit (events.js:327:22)
+      at endReadableNT (internal/streams/readable.js:1327:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
 
 npm manifest: 
   {
@@ -32,38 +32,93 @@ npm manifest:
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+      "@babel/core": "7.9.0",
       "@ckeditor/ckeditor5-build-classic": "^23.1.0",
       "@ckeditor/ckeditor5-font": "^23.1.0",
       "@ckeditor/ckeditor5-html-embed": "^23.1.0",
       "@ckeditor/ckeditor5-react": "^3.0.0",
       "@ckeditor/ckeditor5-upload": "^23.1.0",
       "@inovua/reactdatagrid-community": "^4.0.10",
+      "@svgr/webpack": "4.3.3",
       "@testing-library/jest-dom": "^4.2.4",
       "@testing-library/react": "^9.3.2",
       "@testing-library/user-event": "^7.1.2",
+      "@typescript-eslint/eslint-plugin": "^2.10.0",
+      "@typescript-eslint/parser": "^2.10.0",
       "axios": "^0.20.0",
+      "babel-eslint": "10.1.0",
+      "babel-jest": "^24.9.0",
+      "babel-loader": "8.1.0",
+      "babel-plugin-named-asset-import": "^0.3.6",
+      "babel-preset-react-app": "^9.1.2",
       "bootstrap-daterangepicker": "^3.1.0",
+      "camelcase": "^5.3.1",
+      "case-sensitive-paths-webpack-plugin": "2.3.0",
       "chartist": "^0.11.4",
+      "ckeditor5-custom-build": "file:./ckeditor5",
+      "copy-to-clipboard": "^3.3.1",
+      "css-loader": "3.4.2",
+      "dotenv": "8.2.0",
+      "dotenv-expand": "5.1.0",
+      "echarts": "^5.0.2",
+      "echarts-for-react": "^3.0.0-beta.2",
+      "eslint": "^6.6.0",
+      "eslint-config-react-app": "^5.2.1",
+      "eslint-loader": "3.0.3",
+      "eslint-plugin-flowtype": "4.6.0",
+      "eslint-plugin-import": "2.20.1",
+      "eslint-plugin-jsx-a11y": "6.2.3",
+      "eslint-plugin-react": "7.19.0",
+      "eslint-plugin-react-hooks": "^1.6.1",
+      "file-loader": "4.3.0",
+      "fs-extra": "^8.1.0",
+      "html-loader": "^1.3.2",
+      "html-webpack-plugin": "4.0.0-beta.11",
+      "identity-obj-proxy": "3.0.0",
       "install": "^0.13.0",
-      "jquery": "^3.5.1",
+      "jest": "24.9.0",
+      "jest-environment-jsdom-fourteen": "1.0.1",
+      "jest-resolve": "24.9.0",
+      "jest-watch-typeahead": "0.4.2",
+      "mini-css-extract-plugin": "0.9.0",
       "moment": "^2.29.1",
       "moment-timezone": "^0.5.32",
+      "optimize-css-assets-webpack-plugin": "5.0.3",
+      "pnp-webpack-plugin": "1.6.4",
+      "postcss-flexbugs-fixes": "4.1.0",
+      "postcss-loader": "3.0.0",
+      "postcss-normalize": "8.0.1",
+      "postcss-preset-env": "6.7.0",
+      "postcss-safe-parser": "4.0.1",
       "react": "^17.0.1",
       "react-alert": "^7.0.2",
       "react-alert-template-basic": "^1.0.0",
+      "react-app-polyfill": "^1.0.6",
       "react-bootstrap-daterangepicker": "^7.0.0",
       "react-chartist": "^0.14.3",
+      "react-dev-utils": "^10.2.1",
       "react-device-detect": "^1.14.0",
       "react-dom": "^16.14.0",
+      "react-dropzone": "^11.2.4",
       "react-phone-input-2": "^2.13.8",
-      "react-scripts": "3.4.3",
-      "react-typist": "^2.0.5"
+      "react-typist": "^2.0.5",
+      "resolve": "1.15.0",
+      "resolve-url-loader": "3.1.1",
+      "sass-loader": "8.0.2",
+      "semver": "6.3.0",
+      "style-loader": "0.23.1",
+      "terser-webpack-plugin": "2.3.8",
+      "ts-pnp": "1.1.6",
+      "url-loader": "2.3.0",
+      "webpack": "4.42.0",
+      "webpack-dev-server": "3.11.0",
+      "webpack-manifest-plugin": "2.2.0",
+      "workbox-webpack-plugin": "4.3.1"
     },
     "scripts": {
-      "start": "react-scripts start",
-      "build": "react-scripts build",
-      "test": "react-scripts test",
-      "eject": "react-scripts eject"
+      "start": "node scripts/start.js",
+      "build": "node scripts/build.js",
+      "test": "node scripts/test.js"
     },
     "eslintConfig": {
       "extends": "react-app"
@@ -80,7 +135,60 @@ npm manifest:
         "last 1 safari version"
       ]
     },
-    "proxy": "https://mesontest.shuquxs.xyz"
+    "jest": {
+      "roots": [
+        "<rootDir>/src"
+      ],
+      "collectCoverageFrom": [
+        "src/**/*.{js,jsx,ts,tsx}",
+        "!src/**/*.d.ts"
+      ],
+      "setupFiles": [
+        "react-app-polyfill/jsdom"
+      ],
+      "setupFilesAfterEnv": [],
+      "testMatch": [
+        "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+        "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+      ],
+      "testEnvironment": "jest-environment-jsdom-fourteen",
+      "transform": {
+        "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+        "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+        "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+      },
+      "transformIgnorePatterns": [
+        "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+        "^.+\\.module\\.(css|sass|scss)$"
+      ],
+      "modulePaths": [],
+      "moduleNameMapper": {
+        "^react-native$": "react-native-web",
+        "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+      },
+      "moduleFileExtensions": [
+        "web.js",
+        "js",
+        "web.ts",
+        "ts",
+        "web.tsx",
+        "tsx",
+        "json",
+        "web.jsx",
+        "jsx",
+        "node"
+      ],
+      "watchPlugins": [
+        "jest-watch-typeahead/filename",
+        "jest-watch-typeahead/testname"
+      ]
+    },
+    "babel": {
+      "presets": [
+        "react-app"
+      ]
+    },
+    "proxy":"https://meson.network"
   }
 
 yarn manifest: 
@@ -1196,12 +1304,33 @@ Lockfile:
       "@ckeditor/ckeditor5-ui" "^23.1.0"
       "@ckeditor/ckeditor5-utils" "^23.1.0"
   
+  "@ckeditor/ckeditor5-html-embed@^23.1.0":
+    version "23.1.0"
+    resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-html-embed/download/@ckeditor/ckeditor5-html-embed-23.1.0.tgz#cae124efa7ca842ed2268081f1641bbbc9a60f44"
+    integrity sha1-yuEk76fKhC7SJoCB8WQbu8mmD0Q=
+    dependencies:
+      "@ckeditor/ckeditor5-core" "^23.1.0"
+      "@ckeditor/ckeditor5-engine" "^23.1.0"
+      "@ckeditor/ckeditor5-ui" "^23.1.0"
+      "@ckeditor/ckeditor5-utils" "^23.1.0"
+      "@ckeditor/ckeditor5-widget" "^23.1.0"
+  
   "@ckeditor/ckeditor5-react@^3.0.0":
-    version "3.0.0"
-    resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-react/download/@ckeditor/ckeditor5-react-3.0.0.tgz#05a1bdd7b26a8c1df6fd734376ea84e394d6ab47"
-    integrity sha1-BaG917JqjB32/XNDduqE45TWq0c=
+    version "3.0.2"
+    resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-react/download/@ckeditor/ckeditor5-react-3.0.2.tgz#257466959cf5c6e16ed3dd3afe860e4c177dd156"
+    integrity sha1-JXRmlZz1xuFu0906/oYOTBd90VY=
     dependencies:
       prop-types "^15.7.2"
+  
+  "@ckeditor/ckeditor5-typing@^23.1.0":
+    version "23.1.0"
+    resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-typing/download/@ckeditor/ckeditor5-typing-23.1.0.tgz#c760ca4f5be938a351996dd078f50187ae693444"
+    integrity sha1-x2DKT1vpOKNRmW3QePUBh65pNEQ=
+    dependencies:
+      "@ckeditor/ckeditor5-core" "^23.1.0"
+      "@ckeditor/ckeditor5-engine" "^23.1.0"
+      "@ckeditor/ckeditor5-utils" "^23.1.0"
+      lodash-es "^4.17.15"
   
   "@ckeditor/ckeditor5-ui@^23.1.0":
     version "23.1.0"
@@ -1226,6 +1355,18 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-utils/download/@ckeditor/ckeditor5-utils-23.1.0.tgz#93d30c8bf0287e842af063e37bf528807ae275ed"
     integrity sha1-k9MMi/AofoQq8GPje/UogHride0=
     dependencies:
+      lodash-es "^4.17.15"
+  
+  "@ckeditor/ckeditor5-widget@^23.1.0":
+    version "23.1.0"
+    resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-widget/download/@ckeditor/ckeditor5-widget-23.1.0.tgz#93ac553d8af6893343dfd249a9f7360338c57c05"
+    integrity sha1-k6xVPYr2iTND39JJqfc2AzjFfAU=
+    dependencies:
+      "@ckeditor/ckeditor5-core" "^23.1.0"
+      "@ckeditor/ckeditor5-engine" "^23.1.0"
+      "@ckeditor/ckeditor5-typing" "^23.1.0"
+      "@ckeditor/ckeditor5-ui" "^23.1.0"
+      "@ckeditor/ckeditor5-utils" "^23.1.0"
       lodash-es "^4.17.15"
   
   "@cnakazawa/watch@^1.0.3":
@@ -1738,6 +1879,11 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/@types/json-schema/download/@types/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
     integrity sha1-9MfsQ+gbMZqYFRFQMXCfJph4kfA=
   
+  "@types/json-schema@^7.0.6":
+    version "7.0.7"
+    resolved "https://registry.npm.taobao.org/@types/json-schema/download/@types/json-schema-7.0.7.tgz?cache=0&sync_timestamp=1611095982716&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjson-schema%2Fdownload%2F%40types%2Fjson-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
+    integrity sha1-mKmTUWyFnrDVxMjwmDF6nqaNua0=
+  
   "@types/lodash.debounce@^4.0.6":
     version "4.0.6"
     resolved "https://registry.npm.taobao.org/@types/lodash.debounce/download/@types/lodash.debounce-4.0.6.tgz?cache=0&sync_timestamp=1605054930604&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Flodash.debounce%2Fdownload%2F%40types%2Flodash.debounce-4.0.6.tgz#c5a2326cd3efc46566c47e4c0aa248dc0ee57d60"
@@ -2138,7 +2284,7 @@ Lockfile:
       json-schema-traverse "^0.4.1"
       uri-js "^4.2.2"
   
-  ajv@^6.12.4:
+  ajv@^6.12.4, ajv@^6.12.5:
     version "6.12.6"
     resolved "https://registry.npm.taobao.org/ajv/download/ajv-6.12.6.tgz?cache=0&sync_timestamp=1602353833152&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fajv%2Fdownload%2Fajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
     integrity sha1-uvWmLoArB9l3A0WG+MO69a3ybfQ=
@@ -2422,6 +2568,11 @@ Lockfile:
     version "2.1.2"
     resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
     integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
+  
+  attr-accept@^2.2.1:
+    version "2.2.2"
+    resolved "https://registry.npm.taobao.org/attr-accept/download/attr-accept-2.2.2.tgz#646613809660110749e92f2c10833b70968d929b"
+    integrity sha1-ZGYTgJZgEQdJ6S8sEIM7cJaNkps=
   
   autoprefixer@^9.6.1:
     version "9.7.4"
@@ -3123,6 +3274,9 @@ Lockfile:
       inherits "^2.0.1"
       safe-buffer "^5.0.1"
   
+  "ckeditor5-custom-build@file:./ckeditor5":
+    version "0.0.1"
+  
   class-utils@^0.3.5:
     version "0.3.6"
     resolved "https://registry.yarnpkg.com/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
@@ -3402,6 +3556,13 @@ Lockfile:
     version "0.1.1"
     resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
     integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
+  
+  copy-to-clipboard@^3.3.1:
+    version "3.3.1"
+    resolved "https://registry.npm.taobao.org/copy-to-clipboard/download/copy-to-clipboard-3.3.1.tgz#115aa1a9998ffab6196f93076ad6da3b913662ae"
+    integrity sha1-EVqhqZmP+rYZb5MHatbaO5E2Yq4=
+    dependencies:
+      toggle-selection "^1.0.6"
   
   core-js-compat@^3.6.2:
     version "3.6.4"
@@ -4008,6 +4169,15 @@ Lockfile:
       domelementtype "^2.0.1"
       entities "^2.0.0"
   
+  dom-serializer@^1.0.1:
+    version "1.2.0"
+    resolved "https://registry.npm.taobao.org/dom-serializer/download/dom-serializer-1.2.0.tgz?cache=0&sync_timestamp=1607192967990&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdom-serializer%2Fdownload%2Fdom-serializer-1.2.0.tgz#3433d9136aeb3c627981daa385fc7f32d27c48f1"
+    integrity sha1-NDPZE2rrPGJ5gdqjhfx/MtJ8SPE=
+    dependencies:
+      domelementtype "^2.0.1"
+      domhandler "^4.0.0"
+      entities "^2.0.0"
+  
   domain-browser@^1.1.1:
     version "1.2.0"
     resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
@@ -4023,6 +4193,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-2.0.1.tgz#1f8bdfe91f5a78063274e803b4bdcedf6e94f94d"
     integrity sha512-5HOHUDsYZWV8FGWN0Njbr/Rn7f/eWSQi1v7+HsUVwXgn8nWWlL64zKDkS0n8ZmQ3mlWOMuXOnR+7Nx/5tMO5AQ==
   
+  domelementtype@^2.1.0:
+    version "2.1.0"
+    resolved "https://registry.npm.taobao.org/domelementtype/download/domelementtype-2.1.0.tgz?cache=0&sync_timestamp=1606866070324&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdomelementtype%2Fdownload%2Fdomelementtype-2.1.0.tgz#a851c080a6d1c3d94344aed151d99f669edf585e"
+    integrity sha1-qFHAgKbRw9lDRK7RUdmfZp7fWF4=
+  
   domexception@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/domexception/-/domexception-1.0.1.tgz#937442644ca6a31261ef36e3ec677fe805582c90"
@@ -4036,6 +4211,20 @@ Lockfile:
     integrity sha512-JiK04h0Ht5u/80fdLMCEmV4zkNh2BcoMFBmZ/91WtYZ8qVXSKjiw7fXMgFPnHcSZgOo3XdinHvmnDUeMf5R4wA==
     dependencies:
       domelementtype "1"
+  
+  domhandler@^3.0.0:
+    version "3.3.0"
+    resolved "https://registry.npm.taobao.org/domhandler/download/domhandler-3.3.0.tgz?cache=0&sync_timestamp=1606872211430&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdomhandler%2Fdownload%2Fdomhandler-3.3.0.tgz#6db7ea46e4617eb15cf875df68b2b8524ce0037a"
+    integrity sha1-bbfqRuRhfrFc+HXfaLK4UkzgA3o=
+    dependencies:
+      domelementtype "^2.0.1"
+  
+  domhandler@^4.0.0:
+    version "4.0.0"
+    resolved "https://registry.npm.taobao.org/domhandler/download/domhandler-4.0.0.tgz?cache=0&sync_timestamp=1606872211430&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdomhandler%2Fdownload%2Fdomhandler-4.0.0.tgz#01ea7821de996d85f69029e81fa873c21833098e"
+    integrity sha1-Aep4Id6ZbYX2kCnoH6hzwhgzCY4=
+    dependencies:
+      domelementtype "^2.1.0"
   
   domutils@1.5.1:
     version "1.5.1"
@@ -4052,6 +4241,15 @@ Lockfile:
     dependencies:
       dom-serializer "0"
       domelementtype "1"
+  
+  domutils@^2.0.0:
+    version "2.4.4"
+    resolved "https://registry.npm.taobao.org/domutils/download/domutils-2.4.4.tgz?cache=0&sync_timestamp=1607393087316&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdomutils%2Fdownload%2Fdomutils-2.4.4.tgz#282739c4b150d022d34699797369aad8d19bbbd3"
+    integrity sha1-KCc5xLFQ0CLTRpl5c2mq2NGbu9M=
+    dependencies:
+      dom-serializer "^1.0.1"
+      domelementtype "^2.0.1"
+      domhandler "^4.0.0"
   
   dot-case@^3.0.3:
     version "3.0.3"
@@ -4100,6 +4298,22 @@ Lockfile:
     dependencies:
       jsbn "~0.1.0"
       safer-buffer "^2.1.0"
+  
+  echarts-for-react@^3.0.0-beta.2:
+    version "3.0.0-beta.2"
+    resolved "https://registry.npm.taobao.org/echarts-for-react/download/echarts-for-react-3.0.0-beta.2.tgz#dc40e1129341f589072252e111bc5731dc3782c8"
+    integrity sha1-3EDhEpNB9YkHIlLhEbxXMdw3gsg=
+    dependencies:
+      fast-deep-equal "^3.1.3"
+      size-sensor "^1.0.0"
+  
+  echarts@^5.0.2:
+    version "5.0.2"
+    resolved "https://registry.npm.taobao.org/echarts/download/echarts-5.0.2.tgz?cache=0&sync_timestamp=1612592564808&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fecharts%2Fdownload%2Fecharts-5.0.2.tgz#1726d17a57cf05d62cd0567b4325e1201a56baf6"
+    integrity sha1-FybRelfPBdYs0FZ7QyXhIBpWuvY=
+    dependencies:
+      tslib "2.0.3"
+      zrender "5.0.4"
   
   ee-first@1.1.1:
     version "1.1.1"
@@ -4653,6 +4867,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.1.tgz#545145077c501491e33b15ec408c294376e94ae4"
     integrity sha512-8UEa58QDLauDNfpbrX55Q9jrGHThw2ZMdOky5Gl1CDtVeJDPVrG4Jxx1N8jw2gkWaff5UUuX1KJd+9zGe2B+ZA==
   
+  fast-deep-equal@^3.1.3:
+    version "3.1.3"
+    resolved "https://registry.npm.taobao.org/fast-deep-equal/download/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
+    integrity sha1-On1WtVnWy8PrUSMlJE5hmmXGxSU=
+  
   fast-glob@^2.0.2:
     version "2.2.7"
     resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-2.2.7.tgz#6953857c3afa475fff92ee6015d52da70a4cd39d"
@@ -4722,6 +4941,13 @@ Lockfile:
     dependencies:
       loader-utils "^1.2.3"
       schema-utils "^2.5.0"
+  
+  file-selector@^0.2.2:
+    version "0.2.4"
+    resolved "https://registry.npm.taobao.org/file-selector/download/file-selector-0.2.4.tgz?cache=0&sync_timestamp=1606034433078&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffile-selector%2Fdownload%2Ffile-selector-0.2.4.tgz#7b98286f9dbb9925f420130ea5ed0a69238d4d80"
+    integrity sha1-e5gob527mSX0IBMOpe0KaSONTYA=
+    dependencies:
+      tslib "^2.0.3"
   
   file-uri-to-path@1.0.0:
     version "1.0.0"
@@ -4978,11 +5204,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
     integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
   
-  fsevents@2.1.2, fsevents@~2.1.2:
-    version "2.1.2"
-    resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.1.2.tgz#4c0a1fb34bc68e543b4b82a9ec392bfbda840805"
-    integrity sha512-R4wDiBwZ0KzpgOWetKDug1FZcYhqYnUYKtfZYt4mD5SBz76q0KR4Q9o7GIPamsVPGmW3EYPPJ0dOOjvx32ldZA==
-  
   fsevents@^1.2.7:
     version "1.2.12"
     resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-1.2.12.tgz#db7e0d8ec3b0b45724fd4d83d43554a8f1f0de5c"
@@ -4990,6 +5211,11 @@ Lockfile:
     dependencies:
       bindings "^1.5.0"
       nan "^2.12.1"
+  
+  fsevents@~2.1.2:
+    version "2.1.2"
+    resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.1.2.tgz#4c0a1fb34bc68e543b4b82a9ec392bfbda840805"
+    integrity sha512-R4wDiBwZ0KzpgOWetKDug1FZcYhqYnUYKtfZYt4mD5SBz76q0KR4Q9o7GIPamsVPGmW3EYPPJ0dOOjvx32ldZA==
   
   function-bind@^1.1.1:
     version "1.1.1"
@@ -5302,10 +5528,33 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/html-escaper/-/html-escaper-2.0.0.tgz#71e87f931de3fe09e56661ab9a29aadec707b491"
     integrity sha512-a4u9BeERWGu/S8JiWEAQcdrg9v4QArtP9keViQjGMdff20fBdd8waotXaNmODqBe6uZ3Nafi7K/ho4gCQHV3Ig==
   
+  html-loader@^1.3.2:
+    version "1.3.2"
+    resolved "https://registry.npm.taobao.org/html-loader/download/html-loader-1.3.2.tgz?cache=0&sync_timestamp=1602263491843&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhtml-loader%2Fdownload%2Fhtml-loader-1.3.2.tgz#5a72ebba420d337083497c9aba7866c9e1aee340"
+    integrity sha1-WnLrukINM3CDSXyaunhmyeGu40A=
+    dependencies:
+      html-minifier-terser "^5.1.1"
+      htmlparser2 "^4.1.0"
+      loader-utils "^2.0.0"
+      schema-utils "^3.0.0"
+  
   html-minifier-terser@^5.0.1:
     version "5.0.4"
     resolved "https://registry.yarnpkg.com/html-minifier-terser/-/html-minifier-terser-5.0.4.tgz#e8cc02748acb983bd7912ea9660bd31c0702ec32"
     integrity sha512-fHwmKQ+GzhlqdxEtwrqLT7MSuheiA+rif5/dZgbz3GjoMXJzcRzy1L9NXoiiyxrnap+q5guSiv8Tz5lrh9g42g==
+    dependencies:
+      camel-case "^4.1.1"
+      clean-css "^4.2.3"
+      commander "^4.1.1"
+      he "^1.2.0"
+      param-case "^3.0.3"
+      relateurl "^0.2.7"
+      terser "^4.6.3"
+  
+  html-minifier-terser@^5.1.1:
+    version "5.1.1"
+    resolved "https://registry.npm.taobao.org/html-minifier-terser/download/html-minifier-terser-5.1.1.tgz#922e96f1f3bb60832c2634b79884096389b1f054"
+    integrity sha1-ki6W8fO7YIMsJjS3mIQJY4mx8FQ=
     dependencies:
       camel-case "^4.1.1"
       clean-css "^4.2.3"
@@ -5338,6 +5587,16 @@ Lockfile:
       entities "^1.1.1"
       inherits "^2.0.1"
       readable-stream "^3.1.1"
+  
+  htmlparser2@^4.1.0:
+    version "4.1.0"
+    resolved "https://registry.npm.taobao.org/htmlparser2/download/htmlparser2-4.1.0.tgz?cache=0&sync_timestamp=1607394335377&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhtmlparser2%2Fdownload%2Fhtmlparser2-4.1.0.tgz#9a4ef161f2e4625ebf7dfbe6c0a2f52d18a59e78"
+    integrity sha1-mk7xYfLkYl6/ffvmwKL1LRilnng=
+    dependencies:
+      domelementtype "^2.0.1"
+      domhandler "^3.0.0"
+      domutils "^2.0.0"
+      entities "^2.0.0"
   
   http-deceiver@^1.2.7:
     version "1.2.7"
@@ -6386,7 +6645,7 @@ Lockfile:
       import-local "^2.0.0"
       jest-cli "^24.9.0"
   
-  jquery@>=1.10, jquery@^3.5.1:
+  jquery@>=1.10:
     version "3.5.1"
     resolved "https://registry.npm.taobao.org/jquery/download/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
     integrity sha1-17TQjhv9uGrS8aPQOeoXMEcXq7U=
@@ -6709,6 +6968,15 @@ Lockfile:
       emojis-list "^3.0.0"
       json5 "^1.0.1"
   
+  loader-utils@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.npm.taobao.org/loader-utils/download/loader-utils-2.0.0.tgz#e4cace5b816d425a166b5f097e10cd12b36064b0"
+    integrity sha1-5MrOW4FtQloWa18JfhDNErNgZLA=
+    dependencies:
+      big.js "^5.2.2"
+      emojis-list "^3.0.0"
+      json5 "^2.1.2"
+  
   locate-path@^2.0.0:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-2.0.0.tgz#2b568b265eec944c6d9c0de9c3dbbbca0354cd8e"
@@ -6733,9 +7001,9 @@ Lockfile:
       p-locate "^4.1.0"
   
   lodash-es@^4.17.15:
-    version "4.17.15"
-    resolved "https://registry.npm.taobao.org/lodash-es/download/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
-    integrity sha1-Ib2Wg5NUQS8j16EDQOXqxu5FXXg=
+    version "4.17.21"
+    resolved "https://registry.npm.taobao.org/lodash-es/download/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+    integrity sha1-Q+YmxG5lkbd1C+srUBFzkMYJ4+4=
   
   lodash._getnative@^3.0.0:
     version "3.9.1"
@@ -8937,6 +9205,15 @@ Lockfile:
       prop-types "^15.6.2"
       scheduler "^0.19.1"
   
+  react-dropzone@^11.2.4:
+    version "11.2.4"
+    resolved "https://registry.npm.taobao.org/react-dropzone/download/react-dropzone-11.2.4.tgz#391a8d2e41a8a974340f83524d306540192e3313"
+    integrity sha1-ORqNLkGoqXQ0D4NSTTBlQBkuMxM=
+    dependencies:
+      attr-accept "^2.2.1"
+      file-selector "^0.2.2"
+      prop-types "^15.7.2"
+  
   react-error-overlay@^6.0.7:
     version "6.0.7"
     resolved "https://registry.npm.taobao.org/react-error-overlay/download/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
@@ -8958,66 +9235,6 @@ Lockfile:
       lodash.reduce "^4.6.0"
       lodash.startswith "^4.2.1"
       prop-types "^15.7.2"
-  
-  react-scripts@3.4.3:
-    version "3.4.3"
-    resolved "https://registry.npm.taobao.org/react-scripts/download/react-scripts-3.4.3.tgz#21de5eb93de41ee92cd0b85b0e1298d0bb2e6c51"
-    integrity sha1-Id5euT3kHuks0LhbDhKY0LsubFE=
-    dependencies:
-      "@babel/core" "7.9.0"
-      "@svgr/webpack" "4.3.3"
-      "@typescript-eslint/eslint-plugin" "^2.10.0"
-      "@typescript-eslint/parser" "^2.10.0"
-      babel-eslint "10.1.0"
-      babel-jest "^24.9.0"
-      babel-loader "8.1.0"
-      babel-plugin-named-asset-import "^0.3.6"
-      babel-preset-react-app "^9.1.2"
-      camelcase "^5.3.1"
-      case-sensitive-paths-webpack-plugin "2.3.0"
-      css-loader "3.4.2"
-      dotenv "8.2.0"
-      dotenv-expand "5.1.0"
-      eslint "^6.6.0"
-      eslint-config-react-app "^5.2.1"
-      eslint-loader "3.0.3"
-      eslint-plugin-flowtype "4.6.0"
-      eslint-plugin-import "2.20.1"
-      eslint-plugin-jsx-a11y "6.2.3"
-      eslint-plugin-react "7.19.0"
-      eslint-plugin-react-hooks "^1.6.1"
-      file-loader "4.3.0"
-      fs-extra "^8.1.0"
-      html-webpack-plugin "4.0.0-beta.11"
-      identity-obj-proxy "3.0.0"
-      jest "24.9.0"
-      jest-environment-jsdom-fourteen "1.0.1"
-      jest-resolve "24.9.0"
-      jest-watch-typeahead "0.4.2"
-      mini-css-extract-plugin "0.9.0"
-      optimize-css-assets-webpack-plugin "5.0.3"
-      pnp-webpack-plugin "1.6.4"
-      postcss-flexbugs-fixes "4.1.0"
-      postcss-loader "3.0.0"
-      postcss-normalize "8.0.1"
-      postcss-preset-env "6.7.0"
-      postcss-safe-parser "4.0.1"
-      react-app-polyfill "^1.0.6"
-      react-dev-utils "^10.2.1"
-      resolve "1.15.0"
-      resolve-url-loader "3.1.1"
-      sass-loader "8.0.2"
-      semver "6.3.0"
-      style-loader "0.23.1"
-      terser-webpack-plugin "2.3.8"
-      ts-pnp "1.1.6"
-      url-loader "2.3.0"
-      webpack "4.42.0"
-      webpack-dev-server "3.11.0"
-      webpack-manifest-plugin "2.2.0"
-      workbox-webpack-plugin "4.3.1"
-    optionalDependencies:
-      fsevents "2.1.2"
   
   react-transition-group@^4.4.1:
     version "4.4.1"
@@ -9561,6 +9778,15 @@ Lockfile:
       ajv "^6.12.4"
       ajv-keywords "^3.5.2"
   
+  schema-utils@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.npm.taobao.org/schema-utils/download/schema-utils-3.0.0.tgz#67502f6aa2b66a2d4032b4279a2944978a0913ef"
+    integrity sha1-Z1AvaqK2ai1AMrQnmilEl4oJE+8=
+    dependencies:
+      "@types/json-schema" "^7.0.6"
+      ajv "^6.12.5"
+      ajv-keywords "^3.5.2"
+  
   select-hose@^2.0.0:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
@@ -9762,6 +9988,11 @@ Lockfile:
     version "1.0.5"
     resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
     integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
+  
+  size-sensor@^1.0.0:
+    version "1.0.1"
+    resolved "https://registry.npm.taobao.org/size-sensor/download/size-sensor-1.0.1.tgz#f84e46206d3e259faff1d548e4b3beca93219dbb"
+    integrity sha1-+E5GIG0+JZ+v8dVI5LO+ypMhnbs=
   
   slash@^1.0.0:
     version "1.0.0"
@@ -10422,6 +10653,11 @@ Lockfile:
       regex-not "^1.0.2"
       safe-regex "^1.1.0"
   
+  toggle-selection@^1.0.6:
+    version "1.0.6"
+    resolved "https://registry.npm.taobao.org/toggle-selection/download/toggle-selection-1.0.6.tgz#6e45b1263f2017fa0acc7d89d78b15b8bf77da32"
+    integrity sha1-bkWxJj8gF/oKzH2J14sVuL932jI=
+  
   toidentifier@1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
@@ -10447,15 +10683,15 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.1.6.tgz#389a24396d425a0d3162e96d2b4638900fdc289a"
     integrity sha512-CrG5GqAAzMT7144Cl+UIFP7mz/iIhiy+xQ6GGcnjTezhALT02uPMRw7tgDSESgB5MsfKt55+GPWw4ir1kVtMIQ==
   
+  tslib@2.0.3, tslib@^2.0.0, tslib@^2.0.3:
+    version "2.0.3"
+    resolved "https://registry.npm.taobao.org/tslib/download/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
+    integrity sha1-jgdBrEX8DCJuWKF7/D5kubxsphw=
+  
   tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0:
     version "1.11.1"
     resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.1.tgz#eb15d128827fbee2841549e171f45ed338ac7e35"
     integrity sha512-aZW88SY8kQbU7gpV19lN24LtXh/yD4ZZg6qieAJDDg+YBsJcSmLGK9QpnUjAKVG/xefmvJGd1WUmfpT/g6AJGA==
-  
-  tslib@^2.0.0:
-    version "2.0.3"
-    resolved "https://registry.npm.taobao.org/tslib/download/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
-    integrity sha1-jgdBrEX8DCJuWKF7/D5kubxsphw=
   
   tsutils@^3.17.1:
     version "3.17.1"
@@ -11236,3 +11472,10 @@ Lockfile:
       which-module "^2.0.0"
       y18n "^4.0.0"
       yargs-parser "^13.1.2"
+  
+  zrender@5.0.4:
+    version "5.0.4"
+    resolved "https://registry.npm.taobao.org/zrender/download/zrender-5.0.4.tgz#89c355af908b9f64a301b38f751b7951f2c8a95a"
+    integrity sha1-icNVr5CLn2SjAbOPdRt5UfLIqVo=
+    dependencies:
+      tslib "2.0.3"
