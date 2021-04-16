@@ -10,8 +10,8 @@ import { withAlert } from "react-alert";
 import UserTypeSelector from "../../components/usertypes/usertypeselector";
 import UserManager from "../../manager/usermanager";
 import Global from "../../global/global";
-
-
+import Captcha from 'react-captcha-code';
+import { times } from 'chartist';
 
 
 class RegisterPage extends React.Component {
@@ -29,6 +29,10 @@ class RegisterPage extends React.Component {
         this.usertype='';
         this.username='';
 
+        this.inputCode=""
+        this.captchaRef=null
+        this.captchaCode=""
+
     }
 
 
@@ -41,11 +45,18 @@ class RegisterPage extends React.Component {
         }
     }
 
+    checkCaptcha(){
+        if(this.captchaCode!=this.inputCode){
+            this.props.alert.error("please input correct captcha");
+            return false;
+        }
+        return true;
+    }
 
 
     checkusername(){
         if(this.username==""){
-            this.props.alert.error("please input correct  username");
+            this.props.alert.error("please input correct username");
             return false;
         }
         return true;
@@ -120,6 +131,9 @@ class RegisterPage extends React.Component {
 
 
     createAccount(){
+        if(!this.checkCaptcha()){
+            return;
+        }
 
         if(!this.checkusername()){
             return;
@@ -179,8 +193,8 @@ class RegisterPage extends React.Component {
         return (
             <AdminLayout name="Register" description="Register page">
                 <div className="card border-light shadow-sm">
-                    <div className="card-body">
-                        <form>
+                    <div className="card-body" style={{color:"#555e68"}}>
+                        <form style={{textAlign:"left"}}>
                             <div className="form-group">
                                 <label
                                     className="small mb-1"
@@ -276,9 +290,39 @@ class RegisterPage extends React.Component {
                             </div>
 
                             <div className="form-row">
-                                <div className="col-md-6">
+                                <div className="col-md-2">
                                     <div className="form-group">
-                                        <label className="small mb-1">
+                                        <label className="small mb-2">
+                                        Captcha
+                                        </label>
+                                        <input
+                                            className="form-control py-3"
+                                            type="text"
+                                            placeholder="Enter captcha"
+                                            onChange={(event) => {
+                                                this.inputCode = event.target.value.trim();
+                                            }}
+                                        ></input>
+                                    </div>
+                                </div>
+                                <div className="col-md-2">
+                                    <div className="form-group">
+                                        <label className="small mb-2">
+                                            click to refresh
+                                        </label>
+                                        <div style={{textAlign:"left"}}>
+                                        <Captcha ref={this.captchaRef} charNum={4} onChange={(captcha)=>{
+                                            this.captchaCode=captcha
+                                            }} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="form-row">
+                                <div className="col-md-2">
+                                    <div className="form-group">
+                                        <label className="small mb-2">
                                             smscode
                                         </label>
                                         <input
@@ -291,9 +335,9 @@ class RegisterPage extends React.Component {
                                         ></input>
                                     </div>
                                 </div>
-                                <div className="col-md-6">
+                                <div className="col-md-2">
                                     <div className="form-group">
-                                        <label className="small mb-1">
+                                        <label className="small mb-2">
                                             send smscode
                                         </label>
                                         <div style={{textAlign:"left"}}>
@@ -308,7 +352,9 @@ class RegisterPage extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>              
+
+                            
 
                             <div className="form-group mt-4 mb-0">
                                 <div

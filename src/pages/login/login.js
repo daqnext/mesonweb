@@ -5,6 +5,8 @@ import axios from "axios";
 import UserManager from "../../manager/usermanager";
 import { withAlert } from "react-alert";
 import Global from "../../global/global";
+import Captcha from 'react-captcha-code';
+
 
 
 class LoginPage extends React.Component {
@@ -15,9 +17,18 @@ class LoginPage extends React.Component {
 
         this.user='';
         this.passwd='';
+        this.inputCode=""
+
+        this.captchaRef=null
+        this.captchaCode=""
     }
 
     checkfields(){
+
+        if(this.captchaCode!=this.inputCode){
+            this.props.alert.error("please input correct captcha");
+            return false;
+        }
 
         if(this.user==""){
             this.props.alert.error("please input correct UserName");
@@ -95,7 +106,7 @@ class LoginPage extends React.Component {
             >
 
                 <div className="card border-light shadow-sm">
-                    <div className="card-body">
+                    <div className="card-body" style={{color:"#555e68"}}>
                         <form style={{marginBottom:"20px",textAlign:"left"}}>
                             <div className="form-group">
                                 <label >User Name</label>
@@ -114,6 +125,42 @@ class LoginPage extends React.Component {
                                             this.passwd=event.target.value.trim();}}
                                         placeholder="Password" />
                             </div>
+
+                            <div className="form-row">
+                                <div className="col-md-2">
+                                    <div className="form-group">
+                                        <label className="small mb-2">
+                                        Captcha
+                                        </label>
+                                        <input
+                                            className="form-control py-3"
+                                            type="text"
+                                            placeholder="Enter captcha"
+                                            onChange={(event) => {
+                                                this.inputCode = event.target.value.trim();
+                                            }}
+                                        ></input>
+                                    </div>
+                                </div>
+                                <div className="col-md-2">
+                                    <div className="form-group">
+                                        <label className="small mb-2">
+                                            click to refresh
+                                        </label>
+                                        <div style={{textAlign:"left"}}>
+                                        <Captcha ref={this.captchaRef} charNum={4} onChange={(captcha)=>{
+                                            this.captchaCode=captcha
+                                            }} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                            
+                            
+                            </div>
+                            
                             <div   className="btn btn-primary-rocket" onClick={()=>{this.submitlogin();}}>Login</div>
                         </form>
                         <div className="card-footer text-center ">
