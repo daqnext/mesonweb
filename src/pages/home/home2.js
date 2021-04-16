@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-04-15 13:43:04
+ * @LastEditTime: 2021-04-16 17:12:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -269,6 +269,19 @@ class HomePage extends React.Component {
                     <div class="col-auto col-sm-4 col-lg-auto">
                       <a
                         class="clients-default"
+                        href="https://www.arweave.org/"
+                      >
+                        <img
+                          src="https://assets.meson.network:10443/static/images/logos/arweave.svg"
+                          alt=""
+                          width="116"
+                          height="26"
+                        ></img>
+                      </a>
+                    </div>
+                    <div class="col-auto col-sm-4 col-lg-auto">
+                      <a
+                        class="clients-default"
                         href="https://cointelegraph.com/news/blockchain-project-takes-on-cloudflare-and-amazon-web-services"
                       >
                         <img
@@ -286,19 +299,6 @@ class HomePage extends React.Component {
                           alt=""
                           width="86"
                           height="15"
-                        ></img>
-                      </a>
-                    </div>
-                    <div class="col-auto col-sm-4 col-lg-auto">
-                      <a
-                        class="clients-default"
-                        href="https://www.arweave.org/"
-                      >
-                        <img
-                          src="https://assets.meson.network:10443/static/images/logos/arweave.svg"
-                          alt=""
-                          width="116"
-                          height="26"
                         ></img>
                       </a>
                     </div>

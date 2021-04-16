@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 08:20:25
- * @LastEditTime: 2020-11-24 10:19:11
+ * @LastEditTime: 2021-04-16 17:18:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/adminMachine/adminTestSpeeder.js
@@ -44,7 +44,7 @@ import React, { useCallback } from "react";
              },
              {
                  name: "country",
-                 header: "country",
+                 header: "place",
                  defaultFlex: 1,
              },
              {

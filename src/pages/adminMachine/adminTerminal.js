@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 08:20:10
- * @LastEditTime: 2021-04-13 15:53:39
+ * @LastEditTime: 2021-04-16 17:17:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/adminMachine/adminTerminal.js
@@ -57,7 +57,7 @@ class AdminTerminal extends React.Component {
             },
             {
                 name: "country",
-                header: "country",
+                header: "place",
                 defaultFlex: 1,
             },
             {

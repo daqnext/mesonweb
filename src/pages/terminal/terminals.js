@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-04-08 20:49:27
+ * @LastEditTime: 2021-04-16 17:17:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -49,7 +49,7 @@ class TerminalPage extends React.Component {
             },
             {
                 name: "country",
-                header: "country",
+                header: "place",
                 defaultFlex: 1,
             },
             {

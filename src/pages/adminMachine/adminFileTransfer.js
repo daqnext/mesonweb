@@ -45,7 +45,7 @@ import UserManager from "../../manager/usermanager";
              },
              {
                  name: "country",
-                 header: "country",
+                 header: "place",
                  defaultFlex: 1,
              },
              {
