@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-04-11 09:25:57
+ * @LastEditTime: 2021-04-15 13:43:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -1232,6 +1232,20 @@ class HomePage extends React.Component {
 
                     <li class="unit unit-spacing-lg align-items-center">
                       <div class="unit-left">
+                        <span class="contact-default-icon icon fab fa-twitter "></span>
+                      </div>
+                      <div class="unit-body">
+                        <a
+                          class="contact-default-link"
+                          href="https://twitter.com/NetworkMeson"
+                        >
+                          Twitter
+                        </a>
+                      </div>
+                    </li>
+
+                    <li class="unit unit-spacing-lg align-items-center">
+                      <div class="unit-left">
                         <span class="contact-default-icon icon fab fa-medium "></span>
                       </div>
                       <div class="unit-body">
@@ -1368,6 +1382,11 @@ class HomePage extends React.Component {
                       <li>
                         <a href="https://github.com/daqnext">
                           <i class="icon  fab fa-github"></i> Github
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://twitter.com/NetworkMeson">
+                          <i class="icon fab fa-twitter"></i> Twitter
                         </a>
                       </li>
                       <li>
