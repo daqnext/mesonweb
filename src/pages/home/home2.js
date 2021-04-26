@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-04-16 17:12:38
+ * @LastEditTime: 2021-04-26 08:42:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -219,9 +219,9 @@ class HomePage extends React.Component {
                         </h2>
                       </div>
                       <p>
-                        Unflinching focus on creating real commercial
-                        applications, open network access standard, release
-                        monopolized value.
+                      Unflinching focus on creating real commercial
+                      applications, open network access standard, release
+                      monopolized value.
                       </p>
                       <div class="group-md group-middle justify-content-center">
                         <a class="button button-isi button-primary" href="/login">

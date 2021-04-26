@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 13:32:00
- * @LastEditTime: 2021-04-13 13:38:21
+ * @LastEditTime: 2021-04-20 22:33:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/nodeMap/nodeMap.js
@@ -345,7 +345,7 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
 
           <div class="group-xl group-middle discount-details justify-content-center justify-content-sm-start">
             <div>
-              <p class="discount-details-title">Current nodes statics</p>
+              <p class="discount-details-title">Current nodes statistics</p>
               <ul class="discount-details-list">
               {/* <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Total Bandwidth : </span><span style={{color: "#ffd234"}}>{this.state.totalBandwidthStr}</span></li> */}
                 <li style={{fontWeight: "bold",fontStyle:"italic"}}><span>Total nodes number : </span><span style={{color: "#ffd234"}}>{this.state.totalNode}</span></li>
