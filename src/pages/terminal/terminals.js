@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-04-16 17:17:51
+ * @LastEditTime: 2021-04-26 17:21:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -410,7 +410,6 @@ class TerminalPage extends React.Component {
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.5 check your earnings</div>
                 </div>
-
             );
         }
 

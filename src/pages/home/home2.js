@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-04-26 08:42:35
+ * @LastEditTime: 2021-04-27 16:54:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -218,10 +218,8 @@ class HomePage extends React.Component {
                           TESTNET-2.0
                         </h2>
                       </div>
-                      <p>
-                      Unflinching focus on creating real commercial
-                      applications, open network access standard, release
-                      monopolized value.
+                      <p style={{fontSize:"18px"}}>
+                      Bandwidth trading platform built on blockchain
                       </p>
                       <div class="group-md group-middle justify-content-center">
                         <a class="button button-isi button-primary" href="/login">
