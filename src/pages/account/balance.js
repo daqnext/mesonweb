@@ -5,6 +5,7 @@ import UserManager from "../../manager/usermanager";
 import axios from "axios";
 import DataTable from "../../components/table/datatable";
 import Global from "../../global/global";
+import QRCode  from 'qrcode.react'
 import AdminContent from "../../components/layout/adminContent";
 
 class BalancePage extends React.Component {
@@ -179,16 +180,23 @@ class BalancePage extends React.Component {
 
         if(this.state.currentpaymethod=='Erc20'){
 
-            let erc20img=Global.apiHost+"/api/v1/user/walletqrcode?token="+UserManager.GetUserToken();
+            //let erc20img=Global.apiHost+"/api/v1/user/walletqrcode?token="+UserManager.GetUserToken();
 
             paymentbody=(
                 <div>
                     <div style={{marginBottom:'20px'}}>
-                        <span>[ We only support USDT USDC Now ! Don't transfer other coins!]</span>
+                        <span style={{color:"#495057"}}>[ We only support USDT USDC Now ! Don't transfer other coins!]</span>
 
                         <input className="form-control"  style={{margin:'20px 0px'}} type="text" value={this.state.erc20wallet} />
 
-                        <img src={erc20img} style={{border:'1px solid #ececec'}} />
+                        {/* <img src={erc20img} style={{border:'1px solid #ececec'}} /> */}
+                        {this.state.erc20wallet.length>0&&
+                        (<QRCode
+                            style={{border:'1px solid #ececec'}}
+                            value={this.state.erc20wallet}  //value参数为生成二维码的链接
+                            size={200} //二维码的宽高尺寸
+                            fgColor="#000000"  //二维码的颜色
+                        />)}
                     </div>
 
                     <DataTable
@@ -206,25 +214,25 @@ class BalancePage extends React.Component {
 
         if(this.state.currentpaymethod=='DOT'){
             paymentbody=(<div style={{padding:'2px 10px'}}>
-                <span>[ DOT is under development ]</span>
+                <span style={{color:"#495057"}}>[ DOT is under development ]</span>
             </div>);
         }
 
         if(this.state.currentpaymethod=='Alipay[支付宝]'){
             paymentbody=(<div style={{padding:'2px 10px'}}>
-                 <span>[ Alipay[支付宝] is under development ]</span>
+                 <span style={{color:"#495057"}}>[ Alipay[支付宝] is under development ]</span>
             </div>);
         }
 
         if(this.state.currentpaymethod=='Wechat'){
             paymentbody=(<div style={{padding:'2px 10px'}}>
-                <span> [ Wechat is under development ]</span>
+                <span style={{color:"#495057"}}> [ Wechat is under development ]</span>
             </div>);
         }
 
         if(this.state.currentpaymethod=='Paypal'){
             paymentbody=(<div style={{padding:'2px 10px'}}>
-                <span>[ Paypal is under development ]</span>
+                <span style={{color:"#495057"}}>[ Paypal is under development ]</span>
             </div>);
         }
 

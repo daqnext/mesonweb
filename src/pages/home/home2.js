@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-04-27 16:54:34
+ * @LastEditTime: 2021-05-11 08:36:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -69,9 +69,10 @@ class HomePage extends React.Component {
 
         <div class="page">
           <div class="particles-js" id="particles-js"></div>
-          
+      
           <header class="section page-header page-header-absolute">
             {/* <!--RD Navbar--> */}
+            
             <div class="rd-navbar-wrap">
               <nav
                 class="rd-navbar rd-navbar-classic"
@@ -488,7 +489,7 @@ class HomePage extends React.Component {
                 <div class="timeline-dots">
                   <div class="timeline-dot">
                     <time class="timeline-dot-time" datetime="2019">
-                      Q1/2019
+                      Q1/2020
                     </time>
                     <div class="timeline-dot-title">
                       <a href="#">Internal Development TestNet-0.1</a>

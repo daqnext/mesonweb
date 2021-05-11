@@ -54,6 +54,13 @@
             </tr>
 
             <tr>
+                <td>Bandwidth</td>
+                <td style="text-align: left">
+                    <div>The upper limit of bandwidth is 1200 Mb/s. The bandwidth score will not increase if bandwidth over 1200 Mb/s.</div>
+                </td>
+            </tr>
+
+            <tr>
                 <td>StorageScore</td>
                 <td>
                     <table style="margin:0 auto">
@@ -63,7 +70,7 @@
                         </tr>
                         <tr>
                             <td>40GB</td>
-                            <td>60%</td>
+                            <td>50%</td>
                         </tr>
                         <tr>
                             <td>40GB ～ Bandwidth*5000.</td>
@@ -89,9 +96,9 @@
                 <td>Example</td>
                 <td style="text-align: left">
                     <div>If your bandwidth is 80Mb/s,"BandwidthScore" will be 27 </div>
-                    <div>1.if you set storage to 40GB ,"StorageScore" will be 60%</div>
+                    <div>1.if you set storage to 40GB ,"StorageScore" will be 50%</div>
                     <div>2.if you set storage to 80*5000 == 400,000(MB) = 400GB , "StorageScore" will be 90%</div>
-                    <div>under condition 1 ,'MiningScore' will be 27*60%==16.2</div>
+                    <div>under condition 1 ,'MiningScore' will be 27*50%==13.5</div>
                     <div>under condition 2 ,'MiningScore' will be 27*90%==24.3</div>
                 </td>
             </tr>

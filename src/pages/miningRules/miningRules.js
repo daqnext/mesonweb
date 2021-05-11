@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-30 10:00:02
- * @LastEditTime: 2021-03-30 20:14:36
+ * @LastEditTime: 2021-04-30 12:55:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/miningRules/miningRules.js
@@ -43,17 +43,19 @@ class MiningRulesPage extends React.Component {
           ['80',  27 ],
           ['200', 100],
           ['400', 500],
-          ['800 Mb/s', 1500],
+          ['800', 1500],
+          ['1200', 2250],
+          ['1200+', 2250],
         ]);
         
 
         var options = {
-        title: 'Bandwidth vs Bandwidth Score',
+        title: 'Bandwidth(Mb/s) vs Bandwidth Score',
         width: 480,
         height: 300,
         backgroundColor: '#f5f8fc',
-        curveType: 'function',
-          legend: { position: 'bottom' }
+        //curveType: 'function',
+        legend: { position: 'bottom' }
         };
 
 
@@ -62,15 +64,12 @@ class MiningRulesPage extends React.Component {
         chart.draw(data, options);
       }
 `
-
 new Function(typed)();
         
     }
 
-
     async componentDidMount() {
         
-
     }
 
 
