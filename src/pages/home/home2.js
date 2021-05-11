@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-05-11 08:36:12
+ * @LastEditTime: 2021-05-11 12:58:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -14,6 +14,7 @@ import NodeMapPage from "../nodeMap/nodeMap";
 import IndexBlogPage from "../indexBlog/indexBlog"
 import VideoDemoPage from "../videoDemo/videoDome";
 import "./home2.css";
+import Announcement from "react-announcement";
 
 class HomePage extends React.Component {
     componentDidMount() {
@@ -1414,6 +1415,16 @@ class HomePage extends React.Component {
               </p>
             </div>
           </footer>
+
+          <Announcement
+            title="[Meson Airdrop]"
+            subtitle="Fill out the questionnaire, have the chance to get the airdrop. GoGoGo🚀🚀🚀"
+            link="https://forms.gle/jHTUpYNd2hhEpaRWA"
+            imageSource="https://assets.meson.network:10443/static/images/meson_b.png"
+            secondsBeforeBannerShows={3}
+            daysToLive={0}
+            closeIconSize={25}
+          />
         </div>
       </div>
     );

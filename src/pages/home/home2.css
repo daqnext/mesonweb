@@ -33,3 +33,20 @@ html.lt-ie-10 .ie-panel {
 .footitems a {
   color: white;
 }
+
+.Announcement_fadein__2X6vU svg{
+  color:rgb(103, 103, 103);
+}
+
+.Announcement_fadein__2X6vU img{
+  display: none;
+}
+
+.Announcement_fadein__2X6vU div h3{
+  color:rgb(103, 103, 103) !important;
+  font-weight: initial !important;
+}
+
+.Announcement_fadein__2X6vU div p{
+  color:rgb(93, 93, 93) !important;
+}
