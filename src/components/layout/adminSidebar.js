@@ -208,6 +208,15 @@ class AdminSidebar extends React.Component {
                         <span>Register</span>
                     </a>
                 </li>
+
+                <li className= {this.getActive("/resetpassword")+" nav-item"} >
+                    <a href="/resetpassword" className="nav-link">
+                        <span className="sidebar-icon">
+                            <span className="fas fa-registered"></span>
+                        </span>
+                        <span>Reset Password</span>
+                    </a>
+                </li>
             </div>
         );
     }

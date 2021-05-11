@@ -2,7 +2,7 @@ import React from "react";
 import AdminLayout from "../../components/layout/adminLayout";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import "./register.css";
+import "./resetPassword.css";
 import SendCode from "../../components/sendcode/sendcode";
 import axios from "axios";
 import { withAlert } from "react-alert";
@@ -10,7 +10,7 @@ import UserTypeSelector from "../../components/usertypes/usertypeselector";
 import UserManager from "../../manager/usermanager";
 import Global from "../../global/global";
 import Captcha from "react-captcha-code";
-class RegisterPage extends React.Component {
+class ResetPasswordPage extends React.Component {
   constructor(props) {
     super(props);
     this.phoneinput = {};
@@ -400,6 +400,6 @@ class RegisterPage extends React.Component {
   }
 }
 
-export default withAlert()(RegisterPage);
+export default withAlert()(ResetPasswordPage);
 
 //export  default  RegisterPage;

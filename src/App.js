@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-04-09 10:07:50
+ * @LastEditTime: 2021-05-11 12:15:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -16,6 +16,7 @@ import LoginPage from "./pages/login/login";
 import WelcomePage from "./pages/welcome/welcome";
 import TestPage from "./pages/test/test";
 import RegisterPage from "./pages/register/register";
+import ResetPasswordPage from "./pages/resetPassword/resetPassword"
 import UserManagerPage from "./pages/user/usermanager";
 import BindDomain from "./pages/client/binddomain";
 import BalancePage from "./pages/account/balance";
@@ -47,6 +48,7 @@ function App() {
         home: HomePage,
         login: LoginPage,
         register: RegisterPage,
+        resetpassword:ResetPasswordPage,
         welcome: WelcomePage,
 
         //for admin

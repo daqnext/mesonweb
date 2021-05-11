@@ -5,17 +5,29 @@ import UserManager from "../../manager/usermanager";
 import { withAlert } from "react-alert";
 import Global from "../../global/global";
 import Captcha from "react-captcha-code";
+import PhoneInput from "react-phone-input-2";
 
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
 
+    this.phoneinput = {};
+    this.phoneinput.country = "cn";
+    this.phoneinput.number = "";
+    this.phoneinput.countrycode = "86";
+
     this.user = "";
     this.passwd = "";
+
     this.inputCode = "";
 
+    //
     this.captchaRef = null;
     this.captchaCode = "";
+
+    this.state={
+      loginType:"username"//"username","email" or "phone"
+    }
   }
 
   checkfields() {
@@ -43,7 +55,7 @@ class LoginPage extends React.Component {
     }
 
     if (this.captchaRef) {
-        this.captchaRef.click();
+      this.captchaRef.click();
     }
 
     axios
@@ -54,7 +66,6 @@ class LoginPage extends React.Component {
       })
       .then((response) => {
         if (response && response.data.status == 0) {
-          //this.props.alert.error("please wait 60 seconds before you send verify code again");
           UserManager.SetUserToken(response.data.data);
           window.location.href = "/welcome";
           return;
@@ -94,6 +105,7 @@ class LoginPage extends React.Component {
         <div className="card border-light shadow-sm">
           <div className="card-body" style={{ color: "#555e68" }}>
             <form style={{ marginBottom: "20px", textAlign: "left" }}>
+              {this.state.loginType=="username"&&
               <div className="form-group">
                 <label>User Name</label>
                 <input
@@ -105,6 +117,71 @@ class LoginPage extends React.Component {
                   aria-describedby="emailHelp"
                   placeholder="Enter UserName"
                 />
+              </div>}
+
+              {this.state.loginType=="phone"&&
+              <div className="form-group">
+              <label className="small mb-1" htmlFor="inputConfirmPassword">
+                PhoneNumber
+              </label>
+              <div className="phoneinputwrapper">
+                <PhoneInput
+                  onChange={(value, data, event, formattedValue) => {
+                    this.phoneinput.countrycode = data.dialCode;
+                    this.phoneinput.number = value.slice(data.dialCode.length);
+                    this.phoneinput.countrycode = this.phoneinput.countrycode.trim();
+                    this.phoneinput.number = this.phoneinput.number.trim();
+                  }}
+                  country={this.phoneinput.country}
+                  defaultMask={"..............................."}
+                  alwaysDefaultMask
+                  autoFormat={true}
+                  countryCodeEditable={false}
+                />
+              </div>
+              </div>}
+
+              {this.state.loginType=="email"&&
+              <div className="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                className="form-control"
+                onChange={(event) => {
+                  this.user = event.target.value.trim();
+                }}
+                aria-describedby="emailHelp"
+                placeholder="Enter Email"
+              />
+              </div>}
+
+              <div className="form-group">
+              <div className="form-row">
+                <label>
+                  <input name="loginType" type="radio" value="" checked={this.state.loginType=="username"} onClick={
+                      ()=>{
+                        this.setState({loginType:"username"})
+                      }
+                  }/>
+                  &nbsp;Username&nbsp;&nbsp;
+                </label>
+                <label>
+                  <input name="loginType" type="radio" value="" checked={this.state.loginType=="email"} onClick={
+                      ()=>{
+                        this.setState({loginType:"email"})
+                      }
+                  }/>
+                  &nbsp;Email&nbsp;&nbsp;
+                </label>
+                <label>
+                  <input name="loginType" type="radio" value="" checked={this.state.loginType=="phone"} onClick={
+                      ()=>{
+                        this.setState({loginType:"phone"})
+                      }
+                  }/>
+                  &nbsp;Phone&nbsp;&nbsp;
+                </label>
+              </div>
               </div>
 
               <div className="form-group">
@@ -160,6 +237,11 @@ class LoginPage extends React.Component {
                 }}
               >
                 Login
+              </div>
+              <div className="small" style={{marginTop:"5px"}}>
+                <a className="a-rocket" href="/register">
+                  Forget password?
+                </a>
               </div>
             </form>
             <div className="card-footer text-center ">

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-05-11 08:36:12
+ * @LastEditTime: 2021-05-11 12:53:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -11,28 +11,26 @@ import React from "react";
 import ArweaveDemoPage from "../arweaveDemo/arweaveDemo";
 import FileManagerDemoPage from "../fileManagerDemo/fileManagerDemo";
 import NodeMapPage from "../nodeMap/nodeMap";
-import IndexBlogPage from "../indexBlog/indexBlog"
+import IndexBlogPage from "../indexBlog/indexBlog";
 import VideoDemoPage from "../videoDemo/videoDome";
 import "./home2.css";
+import Announcement from "react-announcement";
 
 class HomePage extends React.Component {
-    componentDidMount() {
-        const scriptjs = `
+  componentDidMount() {
+    const scriptjs = `
         abc()
       `;
-        new Function(scriptjs)();
-      }
+    new Function(scriptjs)();
+  }
 
-
-      fileManager() {
-        return (
-            <FileManagerDemoPage></FileManagerDemoPage>
-        );
-      }
+  fileManager() {
+    return <FileManagerDemoPage></FileManagerDemoPage>;
+  }
 
   render() {
     return (
-      <div style={{backgroundColor:"#1748C8"}}>
+      <div style={{ backgroundColor: "#1748C8" }}>
         <div class="ie-panel">
           <a href="http://windows.microsoft.com/en-US/internet-explorer/">
             <img
@@ -69,10 +67,10 @@ class HomePage extends React.Component {
 
         <div class="page">
           <div class="particles-js" id="particles-js"></div>
-      
+
           <header class="section page-header page-header-absolute">
             {/* <!--RD Navbar--> */}
-            
+
             <div class="rd-navbar-wrap">
               <nav
                 class="rd-navbar rd-navbar-classic"
@@ -219,14 +217,20 @@ class HomePage extends React.Component {
                           TESTNET-2.0
                         </h2>
                       </div>
-                      <p style={{fontSize:"18px"}}>
-                      Bandwidth trading platform built on blockchain
+                      <p style={{ fontSize: "18px" }}>
+                        Bandwidth trading platform built on blockchain
                       </p>
                       <div class="group-md group-middle justify-content-center">
-                        <a class="button button-isi button-primary" href="/login">
+                        <a
+                          class="button button-isi button-primary"
+                          href="/login"
+                        >
                           Get started
                         </a>
-                        <a class="button button-default-outline" href="https://assets.meson.network:10443/static/docs/Meson-Network-v1.6.pdf">
+                        <a
+                          class="button button-default-outline"
+                          href="https://assets.meson.network:10443/static/docs/Meson-Network-v1.6.pdf"
+                        >
                           White Paper
                         </a>
                       </div>
@@ -243,7 +247,7 @@ class HomePage extends React.Component {
                       <img
                         src="https://assets.meson.network:10443/static/images/dash.gif"
                         // style="position:absolute;left:0;top:0"
-                        style={{position:"absolute",left:"0",top:"0"}}
+                        style={{ position: "absolute", left: "0", top: "0" }}
                       />
                     </div>
                   </div>
@@ -310,12 +314,12 @@ class HomePage extends React.Component {
           <div
             class="gradient-3"
             // style="margin-top: 190px;padding-bottom: 120px;"
-            style={{paddingTop:"120px"}}
+            style={{ paddingTop: "120px" }}
           >
             {/* <!-- Pre-Sale--> */}
             <section class="section section-xs" id="nodes">
               <div class="container">
-              <NodeMapPage></NodeMapPage>
+                <NodeMapPage></NodeMapPage>
                 {/* <div class="row row-30 justify-content-center justify-content-xl-between align-items-center align-items-xl-start">
                   <div class="col-sm-4 col-md-4 text-center">
                     <div id="myearth" 
@@ -415,8 +419,6 @@ class HomePage extends React.Component {
                     </div>
                   </div>
                 </div> */}
-
-                
               </div>
             </section>
             {/* <!-- Values--> */}
@@ -526,15 +528,16 @@ class HomePage extends React.Component {
             </section>
             {/* <!-- Section Mobile--> */}
             <section class="section section-xs section-inset-2">
-              <div class="container" 
-            //   style="text-align: left"
-              style={{textAlign:"left"}}
+              <div
+                class="container"
+                //   style="text-align: left"
+                style={{ textAlign: "left" }}
               >
                 <div class="row row-30">
                   <div
                     class="col-md-8 col-lg-6 col-xl-5 inset-bottom-md-100"
                     // style="margin-right: 100px"
-                    style={{marginRight:"100px"}}
+                    style={{ marginRight: "100px" }}
                   >
                     <div class="box-style-2 wow fadeInUp">
                       <div class="headings-default">
@@ -553,7 +556,10 @@ class HomePage extends React.Component {
                         <li>Global & fast CDN</li>
                       </ul>
                       <div class="group-xl group-middle justify-content-center">
-                        <a class="button button-isi button-primary" href="/login">
+                        <a
+                          class="button button-isi button-primary"
+                          href="/login"
+                        >
                           Start to use meson
                         </a>
                       </div>
@@ -563,14 +569,18 @@ class HomePage extends React.Component {
                   <div
                     class="col-md-4 col-lg-6 col-xl-5 align-self-middle d-md-block wow fadeInLeft"
                     // style="margin-top: 60px"
-                    style={{marginTop:"60px"}}
+                    style={{ marginTop: "60px" }}
                   >
                     <video
                       poster="https://assets.meson.network:10443/static/img/newCover.png"
                       src="https://coldcdn.com/api/cdn/wr1cs5/video/spacex2.mp4"
                       controls="controls"
-                    //   style="width: 100%; object-fit: fill; border-radius: 10px;"
-                    style={{width:"100%",objectFit:"fill",borderRadius:"10px"}}
+                      //   style="width: 100%; object-fit: fill; border-radius: 10px;"
+                      style={{
+                        width: "100%",
+                        objectFit: "fill",
+                        borderRadius: "10px",
+                      }}
                     ></video>
                   </div>
                 </div>
@@ -579,15 +589,16 @@ class HomePage extends React.Component {
 
             {/* <!-- Section ipfs--> */}
             <section class="section section-xs section-inset-2" id="demo">
-              <div class="container" 
-            //   style="text-align: left;"
-              style={{textAlign:"left"}}
+              <div
+                class="container"
+                //   style="text-align: left;"
+                style={{ textAlign: "left" }}
               >
                 <div class="row row-30">
                   <div
                     class="col-md-8 col-lg-6 col-xl-5 inset-bottom-md-100"
                     // style="margin-right: 100px;"
-                    style={{marginRight:"100px"}}
+                    style={{ marginRight: "100px" }}
                   >
                     <div class="box-style-2 wow fadeInUp">
                       <div class="headings-default">
@@ -609,9 +620,9 @@ class HomePage extends React.Component {
                   <div
                     class="col-md-4 col-lg-6 col-xl-5 align-self-middle   d-md-block wow fadeInLeft"
                     // style="margin-top: 60px"
-                    style={{marginTop:"60px"}}
+                    style={{ marginTop: "60px" }}
                   >
-                  <FileManagerDemoPage></FileManagerDemoPage>
+                    <FileManagerDemoPage></FileManagerDemoPage>
                     {/* <div 
                     // style="padding-top: 10px;"
                     style={{paddingTop:"10px"}}
@@ -658,15 +669,16 @@ class HomePage extends React.Component {
 
             {/* <!-- Section Arweave--> */}
             <section class="section section-xs section-inset-2">
-              <div class="container" 
-            //   style="text-align: left"
-              style={{textAlign:"left"}}
+              <div
+                class="container"
+                //   style="text-align: left"
+                style={{ textAlign: "left" }}
               >
                 <div class="row row-30">
                   <div
                     class="col-md-8 col-lg-6 col-xl-5 inset-bottom-md-100"
                     // style="margin-right: 100px;"
-                    style={{marginRight:"100px"}}
+                    style={{ marginRight: "100px" }}
                   >
                     <div class="box-style-2 wow fadeInUp">
                       <div class="headings-default">
@@ -688,7 +700,7 @@ class HomePage extends React.Component {
                   <div
                     class="col-md-4 col-lg-6 col-xl-5 align-self-middle d-md-block wow fadeInLeft"
                     // style="margin-top: 80px"
-                    style={{marginTop:"80px"}}
+                    style={{ marginTop: "80px" }}
                   >
                     <ArweaveDemoPage></ArweaveDemoPage>
                     {/* <div class="form-group">
@@ -776,7 +788,10 @@ class HomePage extends React.Component {
                     {/* <!-- Service default--> */}
                     <article class="service-default block-md">
                       <div class="service-default-icon">
-                        <img src="https://assets.meson.network:10443/static/images/miner.svg" style={{height:"50px"}} />
+                        <img
+                          src="https://assets.meson.network:10443/static/images/miner.svg"
+                          style={{ height: "50px" }}
+                        />
                       </div>
                       <div class="service-default-caption">
                         <div class="heading-6 service-default-title">
@@ -793,7 +808,10 @@ class HomePage extends React.Component {
                     {/* <!-- Service default--> */}
                     <article class="service-default block-md">
                       <div class="service-default-icon">
-                        <img src="https://assets.meson.network:10443/static/images/client.svg" style={{height:"60px"}}/>
+                        <img
+                          src="https://assets.meson.network:10443/static/images/client.svg"
+                          style={{ height: "60px" }}
+                        />
                       </div>
                       <div class="service-default-caption">
                         <div class="heading-6 service-default-title">
@@ -813,7 +831,10 @@ class HomePage extends React.Component {
                     {/* <!-- Service default--> */}
                     <article class="service-default block-md">
                       <div class="service-default-icon">
-                        <img src="https://assets.meson.network:10443/static/images/op.svg" style={{height:"60px"}} />
+                        <img
+                          src="https://assets.meson.network:10443/static/images/op.svg"
+                          style={{ height: "60px" }}
+                        />
                       </div>
                       <div class="service-default-caption">
                         <div class="heading-6 service-default-title">
@@ -1186,7 +1207,10 @@ class HomePage extends React.Component {
                     </div>
                   </div>
 
-                  <ul class="contact-default d-inline-block inset-left-xl-70" style={{margin:"0 auto"}}>
+                  <ul
+                    class="contact-default d-inline-block inset-left-xl-70"
+                    style={{ margin: "0 auto" }}
+                  >
                     <li class="unit unit-spacing-lg align-items-center">
                       <div class="unit-left">
                         <span class="contact-default-icon icon fab fa-discord"></span>
@@ -1277,10 +1301,10 @@ class HomePage extends React.Component {
           </div>
 
           <div class="gradient-1 bg-vide-1 bg-vide-2">
-
             {/* <!-- Breadcrumbs--> */}
-            <section class="breadcrumbs-custom"
-            //style={{background:"url(https://assets.meson.network:10443/static/video/video-3.jpg)"}}
+            <section
+              class="breadcrumbs-custom"
+              //style={{background:"url(https://assets.meson.network:10443/static/video/video-3.jpg)"}}
             >
               <div class="container">
                 <div class="headings-default">
@@ -1291,8 +1315,8 @@ class HomePage extends React.Component {
             </section>
           </div>
 
-          {/* <!-- news start--> */}   
-                  
+          {/* <!-- news start--> */}
+
           <IndexBlogPage></IndexBlogPage>
 
           {/* <!-- news end--> */}
@@ -1341,7 +1365,10 @@ class HomePage extends React.Component {
                         </a>
                       </li>
                       <li>
-                        <a class="rd-nav-link" href="https://assets.meson.network:10443/static/docs/Meson-Network-v1.6.pdf">
+                        <a
+                          class="rd-nav-link"
+                          href="https://assets.meson.network:10443/static/docs/Meson-Network-v1.6.pdf"
+                        >
                           White Paper
                         </a>
                       </li>
@@ -1404,7 +1431,7 @@ class HomePage extends React.Component {
               </div>
             </div>
           </section>
-          
+
           <footer class="section footer-classic context-light wow fadeInUp">
             <div class="container">
               <p class="rights">
@@ -1414,6 +1441,15 @@ class HomePage extends React.Component {
               </p>
             </div>
           </footer>
+          <Announcement
+            title="[Meson Airdrop]"
+            subtitle="Fill out the questionnaire, have the chance to get the airdrop. GoGoGo🚀🚀🚀"
+            link="https://forms.gle/jHTUpYNd2hhEpaRWA"
+            imageSource="https://assets.meson.network:10443/static/images/meson_b.png"
+            secondsBeforeBannerShows={3}
+            daysToLive={0}
+            closeIconSize={25}
+          />
         </div>
       </div>
     );
