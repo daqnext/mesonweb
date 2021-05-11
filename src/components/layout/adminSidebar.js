@@ -181,6 +181,31 @@ class AdminSidebar extends React.Component {
         );
     }
 
+    renderCommonUserSiderBar() {
+        return (
+            <li className="nav-item">
+                <a className="nav-link d-flex justify-content-between align-items-center"
+                   href="#submenu-user" data-toggle="collapse"
+                   data-target="#submenu-user" aria-expanded="true">
+                        <span>
+                            <span className="sidebar-icon">
+                                <span className="fas fa-user"></span>
+                            </span>
+                            User
+                        </span>
+                    <span className="link-arrow">
+                            <span className="fas fa-chevron-right"></span>
+                        </span>
+                </a>
+                <div className="multi-level collapse show" role="list" id="submenu-user" aria-expanded="false">
+                    <ul className="flex-column nav">
+                        <li  className= {this.getActive("/resetpassword")+" nav-item"}><a className="nav-link" href="/resetpassword"><span>Reset Password</span></a></li>
+                    </ul>
+                </div>
+            </li>
+        );
+    }
+
 
 
     ///////////////////////////////
@@ -212,7 +237,7 @@ class AdminSidebar extends React.Component {
                 <li className= {this.getActive("/resetpassword")+" nav-item"} >
                     <a href="/resetpassword" className="nav-link">
                         <span className="sidebar-icon">
-                            <span className="fas fa-registered"></span>
+                            <span className="fas fa-recycle"></span>
                         </span>
                         <span>Reset Password</span>
                     </a>
@@ -230,6 +255,7 @@ class AdminSidebar extends React.Component {
         const UserClientSiderBar = this.renderUserClientSiderBar();
         const UserTerminalSiderBar = this.renderUserTerminalSiderBar();
         const UserBlogSiderBar = this.renderUserBlogSiderBar();
+        const CommonUserBar = this.renderCommonUserSiderBar();
         return (
             <div>
 
@@ -243,6 +269,7 @@ class AdminSidebar extends React.Component {
                 </li>
 
                 {UserAdminSiderBar}
+                {CommonUserBar}
                 {UserTerminalSiderBar}
                 {UserClientSiderBar}
                 {UserBlogSiderBar}

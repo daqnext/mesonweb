@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 08:20:10
- * @LastEditTime: 2021-04-16 17:17:28
+ * @LastEditTime: 2021-05-11 17:38:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/adminMachine/adminTerminal.js
@@ -354,9 +354,13 @@ class AdminTerminal extends React.Component {
                             return [];
                         }
                         let responseData = response.data.data;
-                        console.log(responseData);
+                        //console.log(responseData);
+                        
 
                         let terminalInfos = responseData.data;
+                        if (terminalInfos==null) {
+                            return [];
+                        }
                         let tableData = [];
                         for (
                             let index = 0;

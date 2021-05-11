@@ -26,6 +26,10 @@ class RegisterPage extends React.Component {
     this.inputCode = "";
     this.captchaRef = null;
     this.captchaCode = "";
+
+    this.state={
+      loginType:"email"//"email" or "phone"
+    }
   }
 
   async componentDidMount() {
@@ -54,15 +58,49 @@ class RegisterPage extends React.Component {
   }
 
   checkphonenumber() {
-    if (this.phoneinput.number == "") {
+    if (this.state.loginType!="phone") {
+      return true
+    }
+
+    if (this.phoneinput.number.length<=6) {
       this.props.alert.error("please input correct phone number");
       return false;
     }
+
+    let reg=/^[0-9]*$/
+    let pattern = new RegExp(reg)
+
+    if (!pattern.test(this.phoneinput.number)){
+      this.props.alert.error("please input correct phone number");
+      return false;
+    }
+
+    return true;
+  }
+
+  checkemail(){
+    if (this.state.loginType!="email") {
+      return true
+    }
+
+    if (this.email.length<=4) {
+      this.props.alert.error("please input correct email address");
+      return false;
+    }
+
+    let reg=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+    let pattern = new RegExp(reg)
+
+    if (!pattern.test(this.email)){
+      this.props.alert.error("please input correct email address");
+      return false;
+    }
+
     return true;
   }
 
   checkvcode() {
-    if (this.vcode == "") {
+    if (this.vcode.length<4||this.vcode.length>6) {
       this.props.alert.error("please input correct vcode");
       return false;
     }
@@ -92,19 +130,20 @@ class RegisterPage extends React.Component {
   }
 
   clicksendvcode() {
-    if (!this.checkphonenumber()) {
-      return;
+    if(this.state.loginType=="phone"&&!this.checkphonenumber()){
+      return
     }
+
     axios
-      .post(Global.apiHost + "/api/v1/user/getvcode", {
+      .post(Global.apiHost + "/api/v1/user/registergetvcode", {
         phonecountrycode: "+" + this.phoneinput.countrycode,
         phonenumber: this.phoneinput.number,
       })
       .then((response) => {
-        console.log(response);
+        //console.log(response);
 
         if (response.data.status == 2003) {
-          this.props.alert.error("sorry Phone is already registered!");
+          this.props.alert.error("Phone already exist");
           return;
         }
 
@@ -112,8 +151,55 @@ class RegisterPage extends React.Component {
           this.props.alert.error(
             "please wait 60 seconds before you send verify code again"
           );
+          return
+        }
+
+        if (response && response.data.status == 0) {
+          this.props.alert.success(
+            "VCode send"
+          );
+          return
         }
       });
+  }
+
+  clicksendemailvcode(){
+    if (this.state.loginType=="email"&&!this.checkemail()) {
+      return;
+    }
+
+    axios
+      .post(Global.apiHost + "/api/v1/user/registergetemailvcode", {
+        email: this.email
+      })
+      .then((response) => {
+        //console.log(response);
+
+        if (response&&response.data.status == 2006){
+          this.props.alert.error("Email format is not correct");
+          return;
+        }
+
+        if (response.data.status == 2002) {
+          this.props.alert.error("Email already exist");
+          return;
+        }
+
+        if (response && response.data.status == 102) {
+          this.props.alert.error(
+            "please wait 60 seconds before you send verify code again"
+          );
+          return
+        }
+
+        if (response && response.data.status == 0) {
+          this.props.alert.success(
+            "VCode send"
+          );
+          return
+        }
+      });
+
   }
 
   createAccount() {
@@ -137,6 +223,10 @@ class RegisterPage extends React.Component {
       return;
     }
 
+    if(!this.checkemail()){
+      return
+    }
+
     if (!this.checkvcode()) {
       return;
     }
@@ -148,10 +238,12 @@ class RegisterPage extends React.Component {
     axios
       .post(Global.apiHost + "/api/v1/user/register", {
         username: this.username,
+        email:this.email,
         phonecountrycode: "+" + this.phoneinput.countrycode,
         phonenumber: this.phoneinput.number,
         passwd: this.passwd,
         vcode: this.vcode,
+        type:this.state.loginType,
         usertype: this.usertype,
       })
       .then((response) => {
@@ -235,19 +327,21 @@ class RegisterPage extends React.Component {
                 />
               </div>
 
+              {this.state.loginType=="email"&&
               <div className="form-group">
               <label>Email</label>
               <input
                 type="email"
                 className="form-control"
                 onChange={(event) => {
-                  this.user = event.target.value.trim();
+                  this.email = event.target.value.trim();
                 }}
                 aria-describedby="emailHelp"
                 placeholder="Enter Email"
               />
-              </div>
+              </div>}
 
+              {this.state.loginType=="phone"&&
               <div className="form-group">
                 <label className="small mb-1" htmlFor="inputConfirmPassword">
                   PhoneNumber
@@ -269,6 +363,27 @@ class RegisterPage extends React.Component {
                     countryCodeEditable={false}
                   />
                 </div>
+              </div>}
+
+              <div className="form-group">
+              <div className="form-row">
+                <label>
+                  <input name="loginType" type="radio" value="" checked={this.state.loginType=="email"} onClick={
+                      ()=>{
+                        this.setState({loginType:"email"})
+                      }
+                  }/>
+                  &nbsp;Email&nbsp;&nbsp;
+                </label>
+                <label>
+                  <input name="loginType" type="radio" value="" checked={this.state.loginType=="phone"} onClick={
+                      ()=>{
+                        this.setState({loginType:"phone"})
+                      }
+                  }/>
+                  &nbsp;Phone&nbsp;&nbsp;
+                </label>
+              </div>
               </div>
 
               <div className="form-group">
@@ -310,6 +425,7 @@ class RegisterPage extends React.Component {
                 </div>
               </div>
 
+              {this.state.loginType=="phone"&&
               <div className="form-row">
                 <div className="col-md-2">
                   <div className="form-group">
@@ -339,9 +455,9 @@ class RegisterPage extends React.Component {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>}
 
-
+              {this.state.loginType=="email"&&
               <div className="form-row">
                 <div className="col-md-2">
                   <div className="form-group">
@@ -362,16 +478,16 @@ class RegisterPage extends React.Component {
                     <div style={{ textAlign: "left" }}>
                       <SendCode
                         checkphonecorrect={() => {
-                          return this.checkphonenumber();
+                          return this.checkemail();
                         }}
                         click={() => {
-                          this.clicksendvcode();
+                          this.clicksendemailvcode();
                         }}
                       ></SendCode>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>}
 
 
               <div className="form-group mt-4 mb-0">

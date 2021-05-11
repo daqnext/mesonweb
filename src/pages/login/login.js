@@ -17,6 +17,7 @@ class LoginPage extends React.Component {
     this.phoneinput.countrycode = "86";
 
     this.user = "";
+    this.email ="";
     this.passwd = "";
 
     this.inputCode = "";
@@ -30,14 +31,66 @@ class LoginPage extends React.Component {
     }
   }
 
+  checkphonenumber() {
+    if (this.state.loginType!="phone") {
+      return true
+    }
+
+    if (this.phoneinput.number.length<=6) {
+      this.props.alert.error("please input correct phone number");
+      return false;
+    }
+
+    let reg=/^[0-9]*$/
+    let pattern = new RegExp(reg)
+
+    if (!pattern.test(this.phoneinput.number)){
+      this.props.alert.error("please input correct phone number");
+      return false;
+    }
+
+    return true;
+  }
+
+  checkemail(){
+    if (this.state.loginType!="email") {
+      return true
+    }
+
+    if (this.email.length<=4) {
+      this.props.alert.error("please input correct email address");
+      return false;
+    }
+
+    let reg=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+    let pattern = new RegExp(reg)
+
+    if (!pattern.test(this.email)){
+      this.props.alert.error("please input correct email address");
+      return false;
+    }
+
+    return true;
+  }
+
+
+
   checkfields() {
     if (this.captchaCode != this.inputCode) {
       this.props.alert.error("please input correct captcha");
       return false;
     }
 
-    if (this.user == "") {
+    if (this.state.loginType=="username"&&this.user == "") {
       this.props.alert.error("please input correct UserName");
+      return false;
+    }
+
+    if (!this.checkemail()) {
+      return false;
+    }
+
+    if (!this.checkphonenumber()) {
       return false;
     }
 
@@ -58,11 +111,23 @@ class LoginPage extends React.Component {
       this.captchaRef.click();
     }
 
+    // type loginJson struct {
+    //   UserName  string   `json:"username"`
+    //   Email     string   `json:"email"`
+    //   PhoneCode string   `json:"phonecountrycode"`
+    //   PhoneNum  string   `json:"phonenumber"`
+    //   Password string `json:"password" binding:"required"`
+    //   Type     string `json:"type" binding:"required"`
+    // }
+
     axios
       .post(Global.apiHost + "/api/v1/user/login", {
-        user: this.user,
+        username: this.user,
+        email:this.email,
+        phonecountrycode: "+" + this.phoneinput.countrycode,
+        phonenumber: this.phoneinput.number,
         password: this.passwd,
-        type: "username",
+        type: this.state.loginType,
       })
       .then((response) => {
         if (response && response.data.status == 0) {
@@ -71,13 +136,28 @@ class LoginPage extends React.Component {
           return;
         }
 
+        if (response && response.data.status == 105) {
+          this.props.alert.error("User forbidden");
+          return;
+        }
+
         if (response && response.data.status == 2004) {
-          this.props.alert.error("UserName/Password wrong");
+          this.props.alert.error("Password wrong");
           return;
         }
 
         if (response && response.data.status == 2101) {
           this.props.alert.error("User Not exist");
+          return;
+        }
+
+        if (response && response.data.status == 2102) {
+          this.props.alert.error("Email Not exist");
+          return;
+        }
+
+        if (response && response.data.status == 2103) {
+          this.props.alert.error("Phone Not exist");
           return;
         }
 
@@ -148,7 +228,7 @@ class LoginPage extends React.Component {
                 type="email"
                 className="form-control"
                 onChange={(event) => {
-                  this.user = event.target.value.trim();
+                  this.email = event.target.value.trim();
                 }}
                 aria-describedby="emailHelp"
                 placeholder="Enter Email"
@@ -239,7 +319,7 @@ class LoginPage extends React.Component {
                 Login
               </div>
               <div className="small" style={{marginTop:"5px"}}>
-                <a className="a-rocket" href="/register">
+                <a className="a-rocket" href="/resetpassword">
                   Forget password?
                 </a>
               </div>
