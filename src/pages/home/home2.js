@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-05-11 12:53:12
+ * @LastEditTime: 2021-05-13 11:31:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -30,17 +30,8 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "#1748C8" }}>
-        <div class="ie-panel">
-          <a href="http://windows.microsoft.com/en-US/internet-explorer/">
-            <img
-              src="https://assets.meson.network:10443/static/images/ie8-panel/warning_bar_0000_us.jpg"
-              height="42"
-              width="820"
-              alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."
-            ></img>
-          </a>
-        </div>
+      <div>
+        
 
         <div class="preloader">
           <div class="preloader-body">
@@ -66,8 +57,8 @@ class HomePage extends React.Component {
         </div>
 
         <div class="page">
-          <div class="particles-js" id="particles-js"></div>
-
+          {/* <div class="particles-js" id="particles-js"></div> */}
+      
           <header class="section page-header page-header-absolute">
             {/* <!--RD Navbar--> */}
 
@@ -197,7 +188,7 @@ class HomePage extends React.Component {
             </div>
           </header>
 
-          <div class="gradient-1 bg-vide-1">
+          <div class="gradient-1">
             {/* <div
               class="gradient-6 bg-vide"
               //data-vide-bg="/static/video/video-1"
@@ -236,20 +227,21 @@ class HomePage extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6 wow fadeIn">
+                  <div class="col-md-6 col-xl-5 wow fadeIn">
                     <div class="img-style-1 img-style-3">
                       <img
-                        src="https://assets.meson.network:10443/static/images/image-1-715x521.png"
+                        // style={{maxWidth:"550px",marginTop:"45px",width:"100%",height:"100%"}}
+                        src="https://assets.meson.network:10443/static/images/bg.svg"
                         alt=""
                         width="715"
                         height="521"
                       />
                       <img
-                        src="https://assets.meson.network:10443/static/images/dash.gif"
+                        src="https://assets.meson.network:10443/static/images/Meson_11.gif"
                         // style="position:absolute;left:0;top:0"
-                        style={{ position: "absolute", left: "0", top: "0" }}
+                        style={{position:"absolute",left:"0",top:"0",width:"100%",height:"100%"}}
                       />
-                    </div>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -275,7 +267,7 @@ class HomePage extends React.Component {
                         href="https://www.arweave.org/"
                       >
                         <img
-                          src="https://assets.meson.network:10443/static/images/logos/arweave.svg"
+                          src="https://assets.meson.network:10443/static/images/logos/arweave-logo.svg"
                           alt=""
                           width="116"
                           height="26"
@@ -314,7 +306,7 @@ class HomePage extends React.Component {
           <div
             class="gradient-3"
             // style="margin-top: 190px;padding-bottom: 120px;"
-            style={{ paddingTop: "120px" }}
+            style={{paddingTop:"120px", marginTop:"-1px"}}
           >
             {/* <!-- Pre-Sale--> */}
             <section class="section section-xs" id="nodes">
@@ -1445,7 +1437,7 @@ class HomePage extends React.Component {
             title="[Meson Airdrop]"
             subtitle="Fill out the questionnaire, have the chance to get the airdrop. GoGoGo🚀🚀🚀"
             link="https://forms.gle/jHTUpYNd2hhEpaRWA"
-            imageSource="https://assets.meson.network:10443/static/images/meson_b.png"
+            imageSource=""
             secondsBeforeBannerShows={3}
             daysToLive={0}
             closeIconSize={25}

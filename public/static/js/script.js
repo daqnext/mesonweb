@@ -1308,7 +1308,7 @@ $(function() {
 			particlesJS("particles-js", {
 				"particles": {
 					"number": {"value": 50, "density": {"enable": false, "value_area": 800}},
-					"color": {"value": "#1365b3"},
+					"color": {"value": "#222222"},
 					"shape": {
 						"type": "circle",
 						"stroke": {"width": 0, "color": "#000000"},
