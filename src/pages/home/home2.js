@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-05-13 11:09:45
+ * @LastEditTime: 2021-05-15 14:51:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -520,7 +520,7 @@ class HomePage extends React.Component {
             {/* <!-- Section Mobile--> */}
             <section class="section section-xs section-inset-2">
               <div class="container" 
-            //   style="text-align: left"
+              //   style="text-align: left"
               style={{textAlign:"left"}}
               >
                 <div class="row row-30">
@@ -570,6 +570,107 @@ class HomePage extends React.Component {
               </div>
             </section>
 
+            {/* video-Acc */}
+            <section class="section section-xs section-inset-2">
+              <div class="container" 
+              //   style="text-align: left"
+              style={{textAlign:"left"}}
+              >
+                <div class="row row-30">
+                  <div
+                    class="col-md-8 col-lg-6 col-xl-5 inset-bottom-md-100"
+                    // style="margin-right: 100px"
+                    style={{marginRight:"100px"}}
+                  >
+                    <div class="box-style-2 wow fadeInUp">
+                      <div class="headings-default">
+                        <div class="headings-default-subtitle">Tutorial</div>
+                        <h3>How To Use Meson CDN</h3>
+                      </div>
+                      <p class="d-inline-block text-width-medium">
+                        It's easy to use Meson to accelerate your website and files.
+                      </p>
+                      <ul class="list-marked list-2-columns d-inline-block d-md-block">
+                        <li>No SDK</li>
+                        <li>One-click to use</li>
+                      </ul>
+                      <div class="group-xl group-middle justify-content-center">
+                        <a class="button button-isi button-primary" href="/login">
+                          Start to use meson
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-md-4 col-lg-6 col-xl-5 align-self-middle d-md-block wow fadeInLeft"
+                    // style="margin-top: 60px"
+                    style={{marginTop:"60px"}}
+                  >
+                    <video
+                      poster="https://assets.meson.network:10443/static/img/Accelerated_by_Using_Meson_Network.jpg"
+                      src="https://coldcdn.com/api/cdn/wr1cs5/video/AcceleratedByUsingMesonNetwork.mp4"
+                      controls="controls"
+                    //   style="width: 100%; object-fit: fill; border-radius: 10px;"
+                    style={{width:"100%",objectFit:"fill",borderRadius:"10px"}}
+                    ></video>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+            {/* video-startMining */}
+            <section class="section section-xs section-inset-2">
+              <div class="container" 
+              //   style="text-align: left"
+              style={{textAlign:"left"}}
+              >
+                <div class="row row-30">
+                  <div
+                    class="col-md-8 col-lg-6 col-xl-5 inset-bottom-md-100"
+                    // style="margin-right: 100px"
+                    style={{marginRight:"100px"}}
+                  >
+                    <div class="box-style-2 wow fadeInUp">
+                      <div class="headings-default">
+                        <div class="headings-default-subtitle">Tutorial</div>
+                        <h3>Start Mining</h3>
+                      </div>
+                      <p class="d-inline-block text-width-medium">
+                        Start mining in 3 minutes.
+                      </p>
+                      <ul class="list-marked list-2-columns d-inline-block d-md-block">
+                        <li>general server mining</li>
+                        <li>token rewards</li>
+                        <li>no cpu memory cost</li>
+                      </ul>
+                      <div class="group-xl group-middle justify-content-center">
+                        <a class="button button-isi button-primary" href="/login">
+                          Start to use meson
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-md-4 col-lg-6 col-xl-5 align-self-middle d-md-block wow fadeInLeft"
+                    // style="margin-top: 60px"
+                    style={{marginTop:"60px"}}
+                  >
+                    <video
+                      poster="https://assets.meson.network:10443/static/img/3_Minutes_to_Mine_Meson.jpg"
+                      src="https://coldcdn.com/api/cdn/wr1cs5/video/3MinutesToMineMeson.mp4"
+                      controls="controls"
+                    //   style="width: 100%; object-fit: fill; border-radius: 10px;"
+                    style={{width:"100%",objectFit:"fill",borderRadius:"10px"}}
+                    ></video>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            
             {/* <!-- Section ipfs--> */}
             <section class="section section-xs section-inset-2" id="demo">
               <div class="container" 
