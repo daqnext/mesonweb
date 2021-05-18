@@ -10,6 +10,7 @@ import UserTypeSelector from "../../components/usertypes/usertypeselector";
 import UserManager from "../../manager/usermanager";
 import Global from "../../global/global";
 import Captcha from "react-captcha-code";
+import Utils from "../../utils/utils"
 class ResetPasswordPage extends React.Component {
   constructor(props) {
     super(props);
@@ -23,23 +24,49 @@ class ResetPasswordPage extends React.Component {
     this.vcode = "";
     
 
+    this.captchaId = 0;
     this.inputCode = "";
     this.captchaRef = null;
     this.captchaCode = "";
 
     this.state={
-      loginType:"email"//"email" or "phone"
+      loginType:"email",//"email" or "phone"
+      captchaBase64: ""
     }
+  }
+
+  async GetCaptchaFromServer(){
+    let url = "/api/v1/user/getcaptcha"
+    axios
+      .get(Global.apiHost + url)
+      .then((response) => {
+        if (response&&response.data.status == 108){
+          this.props.alert.error("Please wait at least 5 seconds before refresh");
+          return;
+        }
+        if (response&&response.data.status == 0){
+          this.setState({
+            captchaBase64:response.data.data.base64Code
+          })
+          this.captchaId=response.data.data.id
+          return;
+        }
+      })
   }
 
   async componentDidMount() {
     if (UserManager.GetUserInfo() == null) {
       await UserManager.UpdateUserInfo();
     }
+    this.GetCaptchaFromServer()
   }
 
   checkCaptcha() {
-    if (this.captchaCode != this.inputCode) {
+    // if (this.captchaCode != this.inputCode) {
+    //   this.props.alert.error("please input correct captcha");
+    //   return false;
+    // }
+    if (this.inputCode.length!=4) {
       this.props.alert.error("please input correct captcha");
       return false;
     }
@@ -202,9 +229,7 @@ class ResetPasswordPage extends React.Component {
       return;
     }
 
-    if (this.captchaRef) {
-        this.captchaRef.click();
-    }
+    this.GetCaptchaFromServer()
 
     // type resetPasswordMsg struct{
     //   Email     string   `json:"email"`
@@ -223,9 +248,14 @@ class ResetPasswordPage extends React.Component {
         passwd: this.passwd,
         vcode: this.vcode,
         type: this.state.loginType,
+        captcha:this.inputCode,
+        captchaId:this.captchaId,
       })
       .then((response) => {
         switch (response.data.status) {
+          case 107:
+            this.props.alert.error("Captcha wrong");
+            return;
           case 2006:
             this.props.alert.error("Email format error");            
             return;
@@ -364,13 +394,17 @@ class ResetPasswordPage extends React.Component {
                   <div className="form-group">
                     <label className="small mb-2">click to refresh</label>
                     <div style={{ textAlign: "left" }}>
-                      <Captcha
+                      {/* <Captcha
                         onRef={(ref) => {this.captchaRef= ref.current}}
                         charNum={4}
                         onChange={(captcha) => {
                           this.captchaCode = captcha;
+                          //captcha send to server
                         }}
-                      />
+                      /> */}
+                      <img src={this.state.captchaBase64} alt="click to refresh" onClick={()=>{
+                        this.GetCaptchaFromServer()
+                      }}/>
                     </div>
                   </div>
                 </div>

@@ -3,9 +3,11 @@ import AdminLayout from "../../components/layout/adminLayout";
 import axios from "axios";
 import UserManager from "../../manager/usermanager";
 import { withAlert } from "react-alert";
+import Utils from "../../utils/utils"
 import Global from "../../global/global";
 import Captcha from "react-captcha-code";
 import PhoneInput from "react-phone-input-2";
+import { times } from "chartist";
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -20,14 +22,14 @@ class LoginPage extends React.Component {
     this.email ="";
     this.passwd = "";
 
+    this.captchaId = 0;
     this.inputCode = "";
-
-    //
     this.captchaRef = null;
     this.captchaCode = "";
 
     this.state={
-      loginType:"username"//"username","email" or "phone"
+      loginType:"username",//"username","email" or "phone"
+      captchaBase64: ""
     }
   }
 
@@ -76,7 +78,12 @@ class LoginPage extends React.Component {
 
 
   checkfields() {
-    if (this.captchaCode != this.inputCode) {
+    // if (this.captchaCode != this.inputCode) {
+    //   this.props.alert.error("please input correct captcha");
+    //   return false;
+    // }
+
+    if (this.inputCode.length!=4) {
       this.props.alert.error("please input correct captcha");
       return false;
     }
@@ -107,9 +114,7 @@ class LoginPage extends React.Component {
       return;
     }
 
-    if (this.captchaRef) {
-      this.captchaRef.click();
-    }
+    this.GetCaptchaFromServer()
 
     // type loginJson struct {
     //   UserName  string   `json:"username"`
@@ -128,6 +133,8 @@ class LoginPage extends React.Component {
         phonenumber: this.phoneinput.number,
         password: this.passwd,
         type: this.state.loginType,
+        captcha:this.inputCode,
+        captchaId:this.captchaId,
       })
       .then((response) => {
         if (response && response.data.status == 0) {
@@ -138,6 +145,11 @@ class LoginPage extends React.Component {
 
         if (response && response.data.status == 105) {
           this.props.alert.error("User forbidden");
+          return;
+        }
+
+        if (response && response.data.status == 107) {
+          this.props.alert.error("Captcha wrong");
           return;
         }
 
@@ -170,6 +182,25 @@ class LoginPage extends React.Component {
       });
   }
 
+  async GetCaptchaFromServer(){
+    let url = "/api/v1/user/getcaptcha"
+    axios
+      .get(Global.apiHost + url)
+      .then((response) => {
+        if (response&&response.data.status == 108){
+          this.props.alert.error("Please wait at least 5 seconds before refresh");
+          return;
+        }
+        if (response&&response.data.status == 0){
+          this.setState({
+            captchaBase64:response.data.data.base64Code
+          })
+          this.captchaId=response.data.data.id
+          return;
+        }
+      })
+  }
+
   async componentDidMount() {
     if (UserManager.GetUserInfo() == null) {
       await UserManager.UpdateUserInfo();
@@ -177,6 +208,7 @@ class LoginPage extends React.Component {
     if (UserManager.GetUserToken() != null) {
       window.location.href = "/welcome";
     }
+    this.GetCaptchaFromServer()
   }
 
   render() {
@@ -294,7 +326,7 @@ class LoginPage extends React.Component {
                   <div className="form-group">
                     <label className="small mb-2">click to refresh</label>
                     <div style={{ textAlign: "left" }}>
-                      <Captcha
+                      {/* <Captcha
                         onRef={(ref) => {
                           this.captchaRef = ref.current;
                         }}
@@ -302,7 +334,10 @@ class LoginPage extends React.Component {
                         onChange={(captcha) => {
                           this.captchaCode = captcha;
                         }}
-                      />
+                      /> */}
+                      <img src={this.state.captchaBase64} alt="click to refresh" onClick={()=>{
+                        this.GetCaptchaFromServer()
+                      }}/>
                     </div>
                   </div>
                 </div>
