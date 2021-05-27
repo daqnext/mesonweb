@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-05-17 08:32:32
+ * @LastEditTime: 2021-05-24 09:40:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -617,7 +617,8 @@ class HomePage extends React.Component {
                     style={{marginTop:"60px"}}
                   >
                     <video
-                      poster="https://assets.meson.network:10443/static/img/Accelerated_by_Using_Meson_Network.jpg"
+                      poster={process.env.PUBLIC_URL + '/static/img/Accelerated_by_Using_Meson_Network_3.jpg'}
+                      //poster="https://assets.meson.network:10443/static/img/Accelerated_by_Using_Meson_Network_2.jpg"
                       src="https://coldcdn.com/api/cdn/wr1cs5/video/AcceleratedByUsingMesonNetwork.mp4"
                       controls="controls"
                     //   style="width: 100%; object-fit: fill; border-radius: 10px;"
@@ -668,7 +669,8 @@ class HomePage extends React.Component {
                     style={{marginTop:"60px"}}
                   >
                     <video
-                      poster="https://assets.meson.network:10443/static/img/3_Minutes_to_Mine_Meson.jpg"
+                      poster={process.env.PUBLIC_URL + '/static/img/3_Minutes_to_Mine_Meson_3.jpg'}
+                      //poster="https://assets.meson.network:10443/static/img/3_Minutes_to_Mine_Meson_2.jpg"
                       src="https://coldcdn.com/api/cdn/wr1cs5/video/3MinutesToMineMeson.mp4"
                       controls="controls"
                     //   style="width: 100%; object-fit: fill; border-radius: 10px;"
