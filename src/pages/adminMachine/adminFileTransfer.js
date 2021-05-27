@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 08:20:43
- * @LastEditTime: 2020-11-24 10:14:56
+ * @LastEditTime: 2021-05-24 09:50:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/adminMachine/adminFileTransfer.js
@@ -178,6 +178,9 @@ import UserManager from "../../manager/usermanager";
                          console.log(responseData);
 
                          let terminalInfos = responseData.data;
+                         if (terminalInfos==null) {
+                            return [];
+                        }
                          let tableData = [];
                          for (
                              let index = 0;

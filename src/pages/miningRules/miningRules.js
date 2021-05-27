@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-30 10:00:02
- * @LastEditTime: 2021-04-30 12:55:51
+ * @LastEditTime: 2021-05-26 16:16:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/miningRules/miningRules.js
@@ -26,6 +26,20 @@ class MiningRulesPage extends React.Component {
             let totalToken = response.data
             console.log(totalToken)
             $('#total_token').html(totalToken/1e9);
+          }
+        })
+
+        var getTotalReleasedToken = {
+          "url": "/api/v1/common/totalreleasedtoken",
+          "method": "GET",
+      };
+       
+        $.ajax(getTotalReleasedToken).done(function (response) {
+          if (response.status == 0) {
+            let totalReleased = response.data
+            console.log(totalReleased)
+            let total=(totalReleased/1e9).toFixed(0)
+            $('#total_token_released').html(total);
           }
         })
 

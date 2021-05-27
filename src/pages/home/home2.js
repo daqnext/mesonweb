@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-05-24 09:40:44
+ * @LastEditTime: 2021-05-24 17:31:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -205,7 +205,7 @@ class HomePage extends React.Component {
                         <h2>
                           MESON.NETWORK
                           <br />
-                          TESTNET-2.0
+                          TESTNET-2.5
                         </h2>
                       </div>
                       <p style={{ fontSize: "18px" }}>
