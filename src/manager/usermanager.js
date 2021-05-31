@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-02-19 14:57:34
+ * @LastEditTime: 2021-05-24 10:12:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/manager/usermanager.js
@@ -51,7 +51,7 @@ class UserManager
         return result;
     }
 
-    static   GetUserInfo(){
+static   GetUserInfo(){
         return UserManager.userinfo;
     }
 

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2020-12-21 21:20:31
+ * @LastEditTime: 2021-05-24 09:50:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -79,6 +79,9 @@ class AdminMachinePage extends React.Component {
                         console.log(responseData);
 
                         let terminalInfos = responseData.data;
+                        if (terminalInfos==null) {
+                            return [];
+                        }
                         let tableData = [];
                         for (
                             let index = 0;

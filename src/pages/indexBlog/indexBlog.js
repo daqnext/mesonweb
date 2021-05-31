@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-08 17:31:34
- * @LastEditTime: 2021-04-09 20:01:14
+ * @LastEditTime: 2021-05-18 21:11:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/indexBlog/indexBlog.js
@@ -12,6 +12,7 @@ import axios from "axios";
 import Global from "../../global/global";
 import moment from "moment";
 import { times } from "chartist";
+import './indexBlog.css';
 
 export default class IndexBlog extends React.Component {
   constructor(props) {
@@ -188,7 +189,7 @@ export default class IndexBlog extends React.Component {
                           height="311"
                         />
                       </a>
-                      <div class="post-body" style={{ height: "150px" }}>
+                      <div class="post-body index-blog-post-body" style={{ height: "150px" }}>
                         <div class="post-info-panel">
                           <ul class="list-inline">
                             <li>

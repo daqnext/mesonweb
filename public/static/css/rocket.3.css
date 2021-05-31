@@ -3501,22 +3501,25 @@ fieldset:disabled a.btn {
 
 .btn-primary-rocket {
     color: #ffffff;
-    background-color: #02233e;
-    border-color: #02233e;
+    background-color: #1c1c1c;
+    border: 1px solid #02233e !important;
     box-shadow: 0 2px 18px rgba(0, 0, 0, 0.02);
+    border-radius:4px !important;
 }
 
 .btn-primary-rocket:hover {
-    color: #ffffff;
-    background-color: #07398f;
-    border-color: #073482;
+    background-color: white;
+    /* border-color: #FFD234; */
 }
 
 .btn-primary-rocket:focus, .btn-primary-rocket.focus {
-    color: #ffffff;
+      color: #ffffff !important;
+    background-color: #1c1c1c !important;
+    border: 1px solid #02233e !important;
+    /* color: #ffffff;
     background-color: #07398f;
     border-color: #073482;
-    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.02), 0 0 0 0.0625rem rgba(46, 99, 190, 0.5);
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.02), 0 0 0 0.0625rem rgba(46, 99, 190, 0.5); */
 }
 
 .btn-primary-rocket.disabled, .btn-primary-rocket:disabled {
@@ -11730,7 +11733,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-    background-color: #02233e !important;
+    background-color: #1b1b1b !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -32335,7 +32338,7 @@ button.section-github:focus {
 .sidebar .nav-item:hover > .nav-link, .sidebar .nav-item:focus > .nav-link, .sidebar .nav-item.active > .nav-link {
     color: #eaedf2;
     /* background-color: #1756c5; */
-    background-color: #02182a;
+    background-color: #353535;
     border-radius: 0.5rem;
 }
 

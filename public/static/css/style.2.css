@@ -1177,8 +1177,9 @@ a[href*='tel'], a[href*='mailto'] {
 	right: 0;
 	left: 0;
 	bottom: 0;
-	border-radius: 6px;
+	/* border-radius: 6px; */
 	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid #292929;
 	pointer-events: none;
 }
 
@@ -1205,7 +1206,7 @@ a[href*='tel'], a[href*='mailto'] {
 
 @media (min-width: 1200px) {
 	.box-style-1 {
-		padding: 50px 0 40px;
+		padding: 50px 0 70px;
 	}
 	.box-style-1::before {
 		right: -70px;
@@ -1431,7 +1432,8 @@ a[href*='tel'], a[href*='mailto'] {
 	bottom: 0;
 	left: 0;
 	border-radius: 6px;
-	background: #1748C8;
+	/* background: #1d1d1d; */
+	border: 1px solid #1b1b1b;
 	box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.15);
 	pointer-events: none;
 }
@@ -2777,12 +2779,12 @@ img {
 
 .img-style-1::before {
 	position: absolute;
-    top: 59%;
-    left: 44%;
+    top: 43%;
+    left: 0%;
     content: '';
-    width: 17.5%;
-    height: 16.9%;
-    background: url(/static/images/meson_b.png);
+    width: 16.5%;
+    height: 15.9%;
+    background: url(https://assets.meson.network:10443/static/images/meson-logo.svg);
     background-size: cover;
     animation: coinY 2s infinite linear;
     pointer-events: none;
@@ -2791,12 +2793,12 @@ img {
 
 .img-style-1::after {
 	position: absolute;
-    top: 61%;
-    left: 48%;
+    top: 43%;
+    left: 3%;
     content: '';
     width: 9.93%;
     height: 19.96%;
-    background: url(/static/images/image-4-71x104.png);
+    background: url(https://assets.meson.network:10443/static/images/image-4-71x104.png);
     background-size: cover;
     pointer-events: none;
 }
@@ -3243,15 +3245,15 @@ hr {
 }
 
 .button-default-outline-3, .button-default-outline-3:focus {
-	color: #1748C8;
+	color: white;
 	background-color: transparent;
 	border-color: #d1d1d1;
 }
 
 .button-default-outline-3:hover, .button-default-outline-3:active, .button-default-outline-3.active {
-	color: #1748C8;
+	color: #FFD234b;
 	background-color: transparent;
-	border-color: #1748C8;
+	border-color: #FFD234;
 }
 
 .button-default-outline-3.button-ujarak::before {
@@ -5220,7 +5222,7 @@ textarea.form-input {
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
 	border-radius: 12px;
 	color: #ffffff;
-	background: #1748C8;
+	background: #141414;
 	border: 3px solid rgba(255, 255, 255, 0.2);
 	transform: translate3d(-50%, 0, 0);
 	transition: all .3s ease-in-out;
@@ -5235,7 +5237,7 @@ textarea.form-input {
 	padding: 70px 15px 30px;
 	border-radius: 12px;
 	color: rgba(255, 255, 255, 0.7);
-	background: linear-gradient(178.65deg, #072a9a 13%, #245ef9 100%);
+	background: #1c1c1c;
 }
 
 @media (min-width: 768px) {
@@ -7852,7 +7854,7 @@ html [class*='section-'].section-bottom-0 {
 }
 
 .bg-secondary-9 {
-	background-color: #1a3ead;
+	background-color: #1c1c1c;
 }
 
 .bg-secondary-9:not([style*="background-"]) + .bg-secondary-9:not([style*="background-"]) {
@@ -7912,23 +7914,23 @@ html [class*='section-'].section-bottom-0 {
 }
 
 .gradient-1 {
-	background: linear-gradient(294.56deg, #1644be 4.31%, #153497 41.03%, #17369a 98.68%);
+	background: linear-gradient(294.56deg, #131313 4.31%, #131313 41.03%, #131313 98.68%);
 }
 
 .gradient-2 {
-	background: linear-gradient(178.65deg, #163599 5.88%, #1537a4 39.46%, #2248c2 92.28%);
+	background: linear-gradient(180deg, #131313 0%, #131313 100%);
 }
 
 .gradient-3 {
-	background: linear-gradient(180deg, #2248c2 0%, #173699 100%);
+	background: linear-gradient(180deg, #131313 0%, #131313 100%);
 }
 
 .gradient-4 {
-	background: linear-gradient(180deg, #17369a 0%, #1f47b1 100%);
+	background: linear-gradient(180deg, #131313 0%, #131313 100%);
 }
 
 .gradient-5 {
-	background: linear-gradient(180deg, #1a3ead 0%, #2248c2 100%);
+	background: linear-gradient(180deg, #131313 0%, #131313 100%);
 }
 
 .gradient-6 {
@@ -8569,7 +8571,7 @@ html:not(.lt-ie10) .not-animated {
 	justify-content: center;
 	align-items: center;
 	padding: 20px;
-	background: linear-gradient(178.65deg, #163599 5.88%, #1537a4 39.46%, #2248c2 92.28%);
+	background: linear-gradient(294.56deg, #131313 4.31%, #131313 41.03%, #131313 98.68%);
 	transition: .3s all ease;
 }
 
@@ -9084,7 +9086,7 @@ html.tablet .ui-to-top {
 }
 
 .rd-navbar-static .rd-nav-item.active .rd-nav-link {
-	color: #1748C8;
+	color: #ffd234;
 	background: transparent;
 }
 
@@ -9140,12 +9142,12 @@ html.tablet .ui-to-top {
 	letter-spacing: .05em;
 	text-transform: uppercase;
 	font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-	color: #000000;
+	color: white;
 	transition: all .3s ease-in-out;
 }
 
 .rd-navbar-static .rd-nav-link:hover {
-	color: #1748C8;
+	color: #FFD234;
 }
 
 @media (min-width: 1200px) {
@@ -9757,7 +9759,7 @@ html.tablet .ui-to-top {
 .rd-navbar-fixed .rd-navbar-panel {
 	color: #000000;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-	background: #1748C8;
+	background: #1b1b1b;
 }
 
 .rd-navbar-fixed .rd-navbar-nav-wrap {
@@ -9858,13 +9860,14 @@ html.rd-navbar-fixed-linked .page {
 	right: 0;
 	left: 0;
 	z-index: 1080;
-	background: transparent;
+	background: #1c1c1c;
+	box-shadow: 1px 1px 1px #0a0a0a;
 }
 
 @media (min-width: 1200px) {
 	.rd-navbar-classic.rd-navbar-static .rd-navbar-main-outer {
-		padding-left: 15px;
-		padding-right: 15px;
+		/* padding-left: 15px;
+		padding-right: 15px; */
 	}
 }
 
@@ -9876,7 +9879,7 @@ html.rd-navbar-fixed-linked .page {
 	max-width: 1170px;
 	margin-left: auto;
 	margin-right: auto;
-	background: #ffffff;
+	/* background: #1b1b1b; */
 }
 
 .rd-navbar-classic.rd-navbar-static .rd-navbar-main-element {
@@ -9902,7 +9905,7 @@ html.rd-navbar-fixed-linked .page {
 	display: flex;
 	align-items: center;
 	padding: 15px;
-	background: #1748C8;
+	/* background: #1748C8; */
 }
 
 @media (min-width: 1200px) {
@@ -10034,8 +10037,8 @@ html.rd-navbar-fixed-linked .page {
 }
 
 .rd-navbar-modern.rd-navbar-static .rd-navbar-main-outer {
-	padding-left: 15px;
-	padding-right: 15px;
+	/* padding-left: 15px;
+	padding-right: 15px; */
 }
 
 .rd-navbar-modern.rd-navbar-static .rd-navbar-main {
@@ -11463,7 +11466,7 @@ html.rd-navbar-fixed-linked .page {
 
 .card-corporate .card-title a,
 .card-corporate .card-body {
-	background: #1748C8;
+	/* background: #1748C8; */
 }
 
 .card-corporate .card-title a {
@@ -16328,7 +16331,7 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 }
 
 .select-ln-dropdown .select2-results__option[aria-selected='true'] {
-	background: #1748C8;
+	background: #1c1c1c;
 }
 
 .select2-container--open {
@@ -17032,4 +17035,8 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 
 .daterangepicker{
 	color: #444444 !important
+}
+
+a.rd-nav-link:hover{
+	color:#FFD234;
 }

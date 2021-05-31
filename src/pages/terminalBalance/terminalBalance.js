@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-02 15:18:47
- * @LastEditTime: 2021-04-08 15:15:11
+ * @LastEditTime: 2021-05-26 16:16:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalBalance/terminalBalance.js
@@ -29,7 +29,7 @@ class TerminalBalancePage extends React.Component {
 
 
     updatebalance(){
-
+        
         axios.get(Global.apiHost+"/api/v1/user/gettoken", {headers: {
                 Authorization: "Bearer "+UserManager.GetUserToken()
             }}).then( (response_rp)=>{

@@ -16,13 +16,13 @@ html.lt-ie-10 .ie-panel {
 #nodetable {
   text-align: center;
   margin: 20px 0px;
-  background: #2255dc;
+  background: #202020;
   border: 2px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
 }
 
 #nodetable th {
-  background-color: #2045b9;
+  background-color: #2f2f2f;
   padding: 5px 10px;
 }
 
@@ -33,3 +33,26 @@ html.lt-ie-10 .ie-panel {
 .footitems a {
   color: white;
 }
+
+.Announcement_fadein__2X6vU svg{
+  color:rgb(103, 103, 103);
+}
+
+.Announcement_fadein__2X6vU img{
+  display: none !important;
+}
+
+.Announcement_fadeout__2SXlo img{
+  display: none !important;
+}
+
+.Announcement_fadein__2X6vU div h3{
+  color:rgb(103, 103, 103) !important;
+  font-weight: initial !important;
+}
+
+.Announcement_fadein__2X6vU div p{
+  color:rgb(93, 93, 93) !important;
+}
+
+ 

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 08:20:25
- * @LastEditTime: 2021-04-16 17:18:37
+ * @LastEditTime: 2021-05-11 22:08:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/adminMachine/adminTestSpeeder.js
@@ -177,6 +177,9 @@ import React, { useCallback } from "react";
                          console.log(responseData);
 
                          let terminalInfos = responseData.data;
+                         if (terminalInfos==null) {
+                            return [];
+                        }
                          let tableData = [];
                          for (
                              let index = 0;

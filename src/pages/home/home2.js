@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-05-11 08:36:12
+ * @LastEditTime: 2021-05-24 17:31:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -11,38 +11,27 @@ import React from "react";
 import ArweaveDemoPage from "../arweaveDemo/arweaveDemo";
 import FileManagerDemoPage from "../fileManagerDemo/fileManagerDemo";
 import NodeMapPage from "../nodeMap/nodeMap";
-import IndexBlogPage from "../indexBlog/indexBlog"
+import IndexBlogPage from "../indexBlog/indexBlog";
 import VideoDemoPage from "../videoDemo/videoDome";
 import "./home2.css";
+import Announcement from "react-announcement";
 
 class HomePage extends React.Component {
-    componentDidMount() {
-        const scriptjs = `
+  componentDidMount() {
+    const scriptjs = `
         abc()
       `;
-        new Function(scriptjs)();
-      }
+    new Function(scriptjs)();
+  }
 
-
-      fileManager() {
-        return (
-            <FileManagerDemoPage></FileManagerDemoPage>
-        );
-      }
+  fileManager() {
+    return <FileManagerDemoPage></FileManagerDemoPage>;
+  }
 
   render() {
     return (
-      <div style={{backgroundColor:"#1748C8"}}>
-        <div class="ie-panel">
-          <a href="http://windows.microsoft.com/en-US/internet-explorer/">
-            <img
-              src="https://assets.meson.network:10443/static/images/ie8-panel/warning_bar_0000_us.jpg"
-              height="42"
-              width="820"
-              alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."
-            ></img>
-          </a>
-        </div>
+      <div>
+        
 
         <div class="preloader">
           <div class="preloader-body">
@@ -68,11 +57,11 @@ class HomePage extends React.Component {
         </div>
 
         <div class="page">
-          <div class="particles-js" id="particles-js"></div>
+          {/* <div class="particles-js" id="particles-js"></div> */}
       
           <header class="section page-header page-header-absolute">
             {/* <!--RD Navbar--> */}
-            
+
             <div class="rd-navbar-wrap">
               <nav
                 class="rd-navbar rd-navbar-classic"
@@ -199,7 +188,7 @@ class HomePage extends React.Component {
             </div>
           </header>
 
-          <div class="gradient-1 bg-vide-1">
+          <div class="gradient-1">
             {/* <div
               class="gradient-6 bg-vide"
               //data-vide-bg="/static/video/video-1"
@@ -216,36 +205,43 @@ class HomePage extends React.Component {
                         <h2>
                           MESON.NETWORK
                           <br />
-                          TESTNET-2.0
+                          TESTNET-2.5
                         </h2>
                       </div>
-                      <p style={{fontSize:"18px"}}>
-                      Bandwidth trading platform built on blockchain
+                      <p style={{ fontSize: "18px" }}>
+                        Bandwidth trading platform built on blockchain
                       </p>
                       <div class="group-md group-middle justify-content-center">
-                        <a class="button button-isi button-primary" href="/login">
+                        <a
+                          class="button button-isi button-primary"
+                          href="/login"
+                        >
                           Get started
                         </a>
-                        <a class="button button-default-outline" href="https://assets.meson.network:10443/static/docs/Meson-Network-v1.6.pdf">
+                        <a
+                          class="button button-default-outline"
+                          href="https://assets.meson.network:10443/static/docs/Meson-Network-v1.6.pdf"
+                        >
                           White Paper
                         </a>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6 wow fadeIn">
+                  <div class="col-md-6 col-xl-5 wow fadeIn">
                     <div class="img-style-1 img-style-3">
                       <img
-                        src="https://assets.meson.network:10443/static/images/image-1-715x521.png"
+                        // style={{maxWidth:"550px",marginTop:"45px",width:"100%",height:"100%"}}
+                        src="https://assets.meson.network:10443/static/images/bg.svg"
                         alt=""
                         width="715"
                         height="521"
                       />
                       <img
-                        src="https://assets.meson.network:10443/static/images/dash.gif"
+                        src="https://assets.meson.network:10443/static/images/Meson_11.gif"
                         // style="position:absolute;left:0;top:0"
-                        style={{position:"absolute",left:"0",top:"0"}}
+                        style={{position:"absolute",left:"0",top:"0",width:"100%",height:"100%"}}
                       />
-                    </div>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -271,7 +267,7 @@ class HomePage extends React.Component {
                         href="https://www.arweave.org/"
                       >
                         <img
-                          src="https://assets.meson.network:10443/static/images/logos/arweave.svg"
+                          src="https://assets.meson.network:10443/static/images/logos/arweave-logo.svg"
                           alt=""
                           width="116"
                           height="26"
@@ -310,12 +306,12 @@ class HomePage extends React.Component {
           <div
             class="gradient-3"
             // style="margin-top: 190px;padding-bottom: 120px;"
-            style={{paddingTop:"120px"}}
+            style={{paddingTop:"120px", marginTop:"-1px"}}
           >
             {/* <!-- Pre-Sale--> */}
             <section class="section section-xs" id="nodes">
               <div class="container">
-              <NodeMapPage></NodeMapPage>
+                <NodeMapPage></NodeMapPage>
                 {/* <div class="row row-30 justify-content-center justify-content-xl-between align-items-center align-items-xl-start">
                   <div class="col-sm-4 col-md-4 text-center">
                     <div id="myearth" 
@@ -415,8 +411,6 @@ class HomePage extends React.Component {
                     </div>
                   </div>
                 </div> */}
-
-                
               </div>
             </section>
             {/* <!-- Values--> */}
@@ -526,15 +520,16 @@ class HomePage extends React.Component {
             </section>
             {/* <!-- Section Mobile--> */}
             <section class="section section-xs section-inset-2">
-              <div class="container" 
-            //   style="text-align: left"
-              style={{textAlign:"left"}}
+              <div
+                class="container"
+                //   style="text-align: left"
+                style={{ textAlign: "left" }}
               >
                 <div class="row row-30">
                   <div
                     class="col-md-8 col-lg-6 col-xl-5 inset-bottom-md-100"
                     // style="margin-right: 100px"
-                    style={{marginRight:"100px"}}
+                    style={{ marginRight: "100px" }}
                   >
                     <div class="box-style-2 wow fadeInUp">
                       <div class="headings-default">
@@ -553,6 +548,62 @@ class HomePage extends React.Component {
                         <li>Global & fast CDN</li>
                       </ul>
                       <div class="group-xl group-middle justify-content-center">
+                        <a
+                          class="button button-isi button-primary"
+                          href="/login"
+                        >
+                          Start to use meson
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-md-4 col-lg-6 col-xl-5 align-self-middle d-md-block wow fadeInLeft"
+                    // style="margin-top: 60px"
+                    style={{ marginTop: "60px" }}
+                  >
+                    <video
+                      poster="https://assets.meson.network:10443/static/img/newCover.png"
+                      src="https://coldcdn.com/api/cdn/wr1cs5/video/spacex2.mp4"
+                      controls="controls"
+                      //   style="width: 100%; object-fit: fill; border-radius: 10px;"
+                      style={{
+                        width: "100%",
+                        objectFit: "fill",
+                        borderRadius: "10px",
+                      }}
+                    ></video>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* video-Acc */}
+            <section class="section section-xs section-inset-2">
+              <div class="container" 
+              //   style="text-align: left"
+              style={{textAlign:"left"}}
+              >
+                <div class="row row-30">
+                  <div
+                    class="col-md-8 col-lg-6 col-xl-5 inset-bottom-md-100"
+                    // style="margin-right: 100px"
+                    style={{marginRight:"100px"}}
+                  >
+                    <div class="box-style-2 wow fadeInUp">
+                      <div class="headings-default">
+                        <div class="headings-default-subtitle">Tutorial</div>
+                        <h3>How To Use Meson CDN</h3>
+                      </div>
+                      <p class="d-inline-block text-width-medium">
+                        It's easy to use Meson to accelerate your website and files.
+                      </p>
+                      <ul class="list-marked list-2-columns d-inline-block d-md-block">
+                        <li>No SDK</li>
+                        <li>One-click to use</li>
+                      </ul>
+                      <div class="group-xl group-middle justify-content-center">
                         <a class="button button-isi button-primary" href="/login">
                           Start to use meson
                         </a>
@@ -566,8 +617,9 @@ class HomePage extends React.Component {
                     style={{marginTop:"60px"}}
                   >
                     <video
-                      poster="https://assets.meson.network:10443/static/img/newCover.png"
-                      src="https://coldcdn.com/api/cdn/wr1cs5/video/spacex2.mp4"
+                      poster={process.env.PUBLIC_URL + '/static/img/Accelerated_by_Using_Meson_Network_3.jpg'}
+                      //poster="https://assets.meson.network:10443/static/img/Accelerated_by_Using_Meson_Network_2.jpg"
+                      src="https://coldcdn.com/api/cdn/wr1cs5/video/AcceleratedByUsingMesonNetwork.mp4"
                       controls="controls"
                     //   style="width: 100%; object-fit: fill; border-radius: 10px;"
                     style={{width:"100%",objectFit:"fill",borderRadius:"10px"}}
@@ -577,17 +629,71 @@ class HomePage extends React.Component {
               </div>
             </section>
 
-            {/* <!-- Section ipfs--> */}
-            <section class="section section-xs section-inset-2" id="demo">
+
+            {/* video-startMining */}
+            <section class="section section-xs section-inset-2">
               <div class="container" 
-            //   style="text-align: left;"
+              //   style="text-align: left"
               style={{textAlign:"left"}}
               >
                 <div class="row row-30">
                   <div
                     class="col-md-8 col-lg-6 col-xl-5 inset-bottom-md-100"
-                    // style="margin-right: 100px;"
+                    // style="margin-right: 100px"
                     style={{marginRight:"100px"}}
+                  >
+                    <div class="box-style-2 wow fadeInUp">
+                      <div class="headings-default">
+                        <div class="headings-default-subtitle">Tutorial</div>
+                        <h3>Start Mining</h3>
+                      </div>
+                      <p class="d-inline-block text-width-medium">
+                        Start mining in 3 minutes.
+                      </p>
+                      <ul class="list-marked list-2-columns d-inline-block d-md-block">
+                        <li>general server mining</li>
+                        <li>token rewards</li>
+                        <li>no cpu memory cost</li>
+                      </ul>
+                      <div class="group-xl group-middle justify-content-center">
+                        <a class="button button-isi button-primary" href="/login">
+                          Start to use meson
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-md-4 col-lg-6 col-xl-5 align-self-middle d-md-block wow fadeInLeft"
+                    // style="margin-top: 60px"
+                    style={{marginTop:"60px"}}
+                  >
+                    <video
+                      poster={process.env.PUBLIC_URL + '/static/img/3_Minutes_to_Mine_Meson_3.jpg'}
+                      //poster="https://assets.meson.network:10443/static/img/3_Minutes_to_Mine_Meson_2.jpg"
+                      src="https://coldcdn.com/api/cdn/wr1cs5/video/3MinutesToMineMeson.mp4"
+                      controls="controls"
+                    //   style="width: 100%; object-fit: fill; border-radius: 10px;"
+                    style={{width:"100%",objectFit:"fill",borderRadius:"10px"}}
+                    ></video>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            
+            {/* <!-- Section ipfs--> */}
+            <section class="section section-xs section-inset-2" id="demo">
+              <div
+                class="container"
+                //   style="text-align: left;"
+                style={{ textAlign: "left" }}
+              >
+                <div class="row row-30">
+                  <div
+                    class="col-md-8 col-lg-6 col-xl-5 inset-bottom-md-100"
+                    // style="margin-right: 100px;"
+                    style={{ marginRight: "100px" }}
                   >
                     <div class="box-style-2 wow fadeInUp">
                       <div class="headings-default">
@@ -609,9 +715,9 @@ class HomePage extends React.Component {
                   <div
                     class="col-md-4 col-lg-6 col-xl-5 align-self-middle   d-md-block wow fadeInLeft"
                     // style="margin-top: 60px"
-                    style={{marginTop:"60px"}}
+                    style={{ marginTop: "60px" }}
                   >
-                  <FileManagerDemoPage></FileManagerDemoPage>
+                    <FileManagerDemoPage></FileManagerDemoPage>
                     {/* <div 
                     // style="padding-top: 10px;"
                     style={{paddingTop:"10px"}}
@@ -658,15 +764,16 @@ class HomePage extends React.Component {
 
             {/* <!-- Section Arweave--> */}
             <section class="section section-xs section-inset-2">
-              <div class="container" 
-            //   style="text-align: left"
-              style={{textAlign:"left"}}
+              <div
+                class="container"
+                //   style="text-align: left"
+                style={{ textAlign: "left" }}
               >
                 <div class="row row-30">
                   <div
                     class="col-md-8 col-lg-6 col-xl-5 inset-bottom-md-100"
                     // style="margin-right: 100px;"
-                    style={{marginRight:"100px"}}
+                    style={{ marginRight: "100px" }}
                   >
                     <div class="box-style-2 wow fadeInUp">
                       <div class="headings-default">
@@ -688,7 +795,7 @@ class HomePage extends React.Component {
                   <div
                     class="col-md-4 col-lg-6 col-xl-5 align-self-middle d-md-block wow fadeInLeft"
                     // style="margin-top: 80px"
-                    style={{marginTop:"80px"}}
+                    style={{ marginTop: "80px" }}
                   >
                     <ArweaveDemoPage></ArweaveDemoPage>
                     {/* <div class="form-group">
@@ -776,7 +883,10 @@ class HomePage extends React.Component {
                     {/* <!-- Service default--> */}
                     <article class="service-default block-md">
                       <div class="service-default-icon">
-                        <img src="https://assets.meson.network:10443/static/images/miner.svg" style={{height:"50px"}} />
+                        <img
+                          src="https://assets.meson.network:10443/static/images/miner.svg"
+                          style={{ height: "50px" }}
+                        />
                       </div>
                       <div class="service-default-caption">
                         <div class="heading-6 service-default-title">
@@ -793,7 +903,10 @@ class HomePage extends React.Component {
                     {/* <!-- Service default--> */}
                     <article class="service-default block-md">
                       <div class="service-default-icon">
-                        <img src="https://assets.meson.network:10443/static/images/client.svg" style={{height:"60px"}}/>
+                        <img
+                          src="https://assets.meson.network:10443/static/images/client.svg"
+                          style={{ height: "60px" }}
+                        />
                       </div>
                       <div class="service-default-caption">
                         <div class="heading-6 service-default-title">
@@ -813,7 +926,10 @@ class HomePage extends React.Component {
                     {/* <!-- Service default--> */}
                     <article class="service-default block-md">
                       <div class="service-default-icon">
-                        <img src="https://assets.meson.network:10443/static/images/op.svg" style={{height:"60px"}} />
+                        <img
+                          src="https://assets.meson.network:10443/static/images/op.svg"
+                          style={{ height: "60px" }}
+                        />
                       </div>
                       <div class="service-default-caption">
                         <div class="heading-6 service-default-title">
@@ -1186,7 +1302,10 @@ class HomePage extends React.Component {
                     </div>
                   </div>
 
-                  <ul class="contact-default d-inline-block inset-left-xl-70" style={{margin:"0 auto"}}>
+                  <ul
+                    class="contact-default d-inline-block inset-left-xl-70"
+                    style={{ margin: "0 auto" }}
+                  >
                     <li class="unit unit-spacing-lg align-items-center">
                       <div class="unit-left">
                         <span class="contact-default-icon icon fab fa-discord"></span>
@@ -1277,10 +1396,10 @@ class HomePage extends React.Component {
           </div>
 
           <div class="gradient-1 bg-vide-1 bg-vide-2">
-
             {/* <!-- Breadcrumbs--> */}
-            <section class="breadcrumbs-custom"
-            //style={{background:"url(https://assets.meson.network:10443/static/video/video-3.jpg)"}}
+            <section
+              class="breadcrumbs-custom"
+              //style={{background:"url(https://assets.meson.network:10443/static/video/video-3.jpg)"}}
             >
               <div class="container">
                 <div class="headings-default">
@@ -1291,8 +1410,8 @@ class HomePage extends React.Component {
             </section>
           </div>
 
-          {/* <!-- news start--> */}   
-                  
+          {/* <!-- news start--> */}
+
           <IndexBlogPage></IndexBlogPage>
 
           {/* <!-- news end--> */}
@@ -1341,7 +1460,10 @@ class HomePage extends React.Component {
                         </a>
                       </li>
                       <li>
-                        <a class="rd-nav-link" href="https://assets.meson.network:10443/static/docs/Meson-Network-v1.6.pdf">
+                        <a
+                          class="rd-nav-link"
+                          href="https://assets.meson.network:10443/static/docs/Meson-Network-v1.6.pdf"
+                        >
                           White Paper
                         </a>
                       </li>
@@ -1404,7 +1526,7 @@ class HomePage extends React.Component {
               </div>
             </div>
           </section>
-          
+
           <footer class="section footer-classic context-light wow fadeInUp">
             <div class="container">
               <p class="rights">
@@ -1414,6 +1536,15 @@ class HomePage extends React.Component {
               </p>
             </div>
           </footer>
+          <Announcement
+            title="[Meson Airdrop]"
+            subtitle="Fill out the questionnaire, have the chance to get the airdrop. GoGoGo🚀🚀🚀"
+            link="https://forms.gle/jHTUpYNd2hhEpaRWA"
+            imageSource=""
+            secondsBeforeBannerShows={3}
+            daysToLive={0}
+            closeIconSize={25}
+          />
         </div>
       </div>
     );
