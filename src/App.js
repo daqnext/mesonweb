@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-05-11 12:15:32
+ * @LastEditTime: 2021-05-31 17:42:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -35,7 +35,7 @@ import AdminBlogList from './pages/adminBlogList/adminBlogList';
 import FileManagerPage from './pages/fileManager/fileManager'
 import MiningRulesPage from './pages/miningRules/miningRules'
 import BlogPage from './pages/blogContent/blogContent'
-
+import LiveStreamingPlayPage from './pages/liveStreamingPlayPage/liveStreamingPlayPage'
 import DemoFileManagerPage from "./pages/fileManagerDemo/fileManagerDemo";
 import DemoArweavePage from "./pages/arweaveDemo/arweaveDemo";
 import TimeManager from './manager/timemanager';
@@ -80,7 +80,10 @@ function App() {
         
         //for demo
         demofilemanager: DemoFileManagerPage,
-        demoarweave:DemoArweavePage
+        demoarweave:DemoArweavePage,
+
+        //live streaming page
+        livestreaming:LiveStreamingPlayPage
     };
 
 

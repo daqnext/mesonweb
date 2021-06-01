@@ -84,6 +84,7 @@
     "terser-webpack-plugin": "2.3.8",
     "ts-pnp": "1.1.6",
     "url-loader": "2.3.0",
+    "video.js": "^7.11.8",
     "webpack": "4.42.0",
     "webpack-dev-server": "3.11.0",
     "webpack-manifest-plugin": "2.2.0",
@@ -163,5 +164,5 @@
     ]
   },
   "homepage": "https://assets.meson.network:10443",
-  "proxy": "https://coldcdndev.online"
+  "proxy": "https://meson.network"
 }
