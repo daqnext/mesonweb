@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-05-27 14:55:14
+ * @LastEditTime: 2021-06-01 08:44:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -51,6 +51,14 @@ class TerminalPage extends React.Component {
                 name: "country",
                 header: "place",
                 defaultFlex: 1,
+            },
+            {
+                name: "speed_mbs",
+                header: "speed",
+                defaultFlex: 1,
+                render: ({ value }) => {
+                    return <div>{value.toFixed(2)} Mb/s</div>;
+                },
             },
             {
                 name: "cdn_space_usage",
@@ -312,6 +320,7 @@ class TerminalPage extends React.Component {
                                 machine_ip: terminalInfo.machine_ip,
                                 port: terminalInfo.port,
                                 country: terminalInfo.country,
+                                speed_mbs:terminalInfo.speed_mbs,
                                 cdn_space_usage: (
                                     ((terminalInfo.cdn_disk_total -
                                         terminalInfo.cdn_disk_available) /
