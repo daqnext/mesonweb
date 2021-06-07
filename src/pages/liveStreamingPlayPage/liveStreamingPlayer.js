@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-31 17:33:36
- * @LastEditTime: 2021-05-31 17:47:39
+ * @LastEditTime: 2021-06-02 10:46:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/liveStreamingPlayPage/liveStreamingPlayPage.js
@@ -36,10 +36,11 @@ class LiveStreamingPlayer extends Component {
         errorDisplay: false,
         controlBar: true,
         type: "application/x-mpegURL",
+        autoplay:false
       },
-      function () {
-        this.play();
-      }
+      // function () {
+      //   this.play();
+      // }
     );
     this.player.src({ src });
   }
@@ -48,9 +49,13 @@ class LiveStreamingPlayer extends Component {
     return (
       <video
         id="custom-video"
-        className="video-js"
-        controls
+        className="video-js vjs-big-play-centered"
         preload="auto"
+        // style={{
+        //   width:"80vw",
+        //   height:"auto",
+        // }}
+        controls
       ></video>
     );
   }

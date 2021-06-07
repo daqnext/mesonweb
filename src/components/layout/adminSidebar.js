@@ -175,6 +175,36 @@ class AdminSidebar extends React.Component {
                         <li className= {this.getActive("/clienttraffic")+" nav-item"}><a className="nav-link" href="/clienttraffic"><span>Traffic</span></a></li>
                         <li className={this.getActive("/balance") + " nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>
                         <li className= {this.getActive("/filemanager")+" nav-item"}><a className="nav-link" href="/filemanager"><span>FileManager</span></a></li>
+                        <li className= {this.getActive("/streams")+" nav-item"}><a className="nav-link" href="/streams"><span>Livestreaming</span></a></li>
+                    </ul>
+                </div>
+            </li>
+        );
+    }
+
+    renderLiveStreamingSiderBar() {
+        if (!UserManager.checkUserHasAuth(UserManager.UserAuth.client)) {
+            return <div></div>;
+        }
+
+        return (
+            <li className="nav-item">
+                <a className="nav-link d-flex justify-content-between align-items-center"
+                   href="#submenu-livestreaming" data-toggle="collapse"
+                   data-target="#submenu-livestreaming" aria-expanded="true">
+                        <span>
+                            <span className="sidebar-icon">
+                                <span className="fas fa-skiing"></span>
+                            </span>
+                            LiveStreaming
+                        </span>
+                    <span className="link-arrow">
+                            <span className="fas fa-chevron-right"></span>
+                        </span>
+                </a>
+                <div className="multi-level collapse show" role="list" id="submenu-livestreaming" aria-expanded="false">
+                    <ul className="flex-column nav">
+                        <li  className= {this.getActive("/streams")+" nav-item"}><a className="nav-link" href="/streams"><span>Streams</span></a></li>
                     </ul>
                 </div>
             </li>
@@ -255,6 +285,7 @@ class AdminSidebar extends React.Component {
         const UserClientSiderBar = this.renderUserClientSiderBar();
         const UserTerminalSiderBar = this.renderUserTerminalSiderBar();
         const UserBlogSiderBar = this.renderUserBlogSiderBar();
+        const UserLiveStreamingBar = this.renderLiveStreamingSiderBar();
         const CommonUserBar = this.renderCommonUserSiderBar();
         return (
             <div>
@@ -272,6 +303,7 @@ class AdminSidebar extends React.Component {
                 {CommonUserBar}
                 {UserTerminalSiderBar}
                 {UserClientSiderBar}
+                {/* {UserLiveStreamingBar} */}
                 {UserBlogSiderBar}
 
             </div>

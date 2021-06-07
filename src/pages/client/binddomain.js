@@ -213,7 +213,7 @@ class BindDomain extends React.Component {
 
                     <form>
                         <div className="form-group">
-                            <label >add your location</label>
+                            <label  style={{ color: "#555e68" }}>add your location</label>
                             {inputurlerrordisplay}
                             <input className="form-control"
                                    //value={this.state.inputurl}
@@ -235,7 +235,7 @@ class BindDomain extends React.Component {
 
 
                         <div  className="form-group" >
-                            <label>For http accerlation in your own application replace your location url to :</label>
+                            <label style={{ color: "#555e68" }}>For http accerlation in your own application replace your location url to :</label>
                             <div className="input-group input-group-joined input-group-solid">
                                 <input  value={"http://"+this.coldcdnDomainPrefix} className="form-control" type="text" placeholder="Input group append..." aria-label="Search"/>
                                     <div className="input-group-append">
@@ -245,7 +245,7 @@ class BindDomain extends React.Component {
                         </div>
 
                         <div  className="form-group" >
-                            <label >For https accerlation in your own application replace your location url to </label>
+                            <label style={{ color: "#555e68" }}>For https accerlation in your own application replace your location url to </label>
                             <div className="input-group input-group-joined input-group-solid">
                                 <input  value={"https://"+this.coldcdnDomainPrefix} className="form-control" type="text" placeholder="Input group append..." aria-label="Search"/>
                                 <div className="input-group-append">
@@ -293,7 +293,7 @@ class BindDomain extends React.Component {
                     <div style={{color:'yellow'}}>3.now you can simply replace the old url and get a new url:  </div>
                     <div> https://coldcdn.com/api/cdn/r7JEqR/static/testfiles/t1.jpg </div>
                     <div> now request this new url and meson needs some time to deploy the file on distributed terminals globally</div>
-                    <div> anyone can request the new url which is accelerated by meson.net globally</div>
+                    <div> anyone can request the new url which is accelerated by meson.network globally</div>
                 </div>
 
                 {Content}
