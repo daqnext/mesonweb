@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-31 17:46:53
- * @LastEditTime: 2021-06-04 16:37:03
+ * @LastEditTime: 2021-06-08 17:06:56
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/liveStreamingPlayPage/liveStreamingPlayPage.js
@@ -40,7 +40,7 @@ class LiveStreamingPlayPage extends Component {
       
         let streamInfo=response.data.data
         if (streamInfo.streamPlatformType=="MesonStream") {
-          let m3u8FileUrl="https://"+streamInfo.originServerDomain+"/"+streamInfo.userId+"/"+streamInfo.streamKey+"/"+"mesonlive.m3u8";
+          let m3u8FileUrl="http://"+streamInfo.originServerDomain+":8080/"+streamInfo.userId+"/"+streamInfo.streamKey+"/"+"mesonlive.m3u8";
         this.setState({
           title:streamInfo.streamName,
           videoSrc:m3u8FileUrl,
