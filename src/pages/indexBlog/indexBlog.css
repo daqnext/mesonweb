@@ -17,3 +17,9 @@
 .post-info-panel{
     border: 1px solid #333333
 }
+
+@media (max-width: 767px) {
+    .post-info-panel{
+        border: none
+    }
+}

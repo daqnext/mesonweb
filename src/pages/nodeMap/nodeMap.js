@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 13:32:00
- * @LastEditTime: 2021-06-12 23:09:44
+ * @LastEditTime: 2021-06-13 20:46:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/nodeMap/nodeMap.js
@@ -121,6 +121,11 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
     `;
     new Function(jscode)();
 
+    this.someNodeInfo=[]
+    this.allNodeInfo=[]
+    this.lastShowNodeInfo=[]
+    this.lastShowAllButtonState=true
+    
     this.state = {
       // vmData: [
       //   // { name: "Hangzhou", value: [120.16, 30.29, 24] },
@@ -130,6 +135,7 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
       activeNodeShow: [],
       showAllNodeButton: true,
       queryId: "",
+      isLoadingRecord:false,
 
       totalNode: 0,
       asiaNode: 0,
@@ -142,6 +148,7 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
 
   async GetAllAccNodeInfo() {
     //get terminal Data from server
+    this.setState({isLoadingRecord:true})
     let response = await axios.get(
       Global.apiHost + "/api/v1/common/activenode"
     );
@@ -155,7 +162,10 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
     });
 
     // this.setState({ activeNode: responseData });
-    this.setState({ activeNodeShow: responseData, showAllNodeButton: false });
+    this.setState({ activeNodeShow: responseData, showAllNodeButton: false,isLoadingRecord:false });
+    this.allNodeInfo=responseData
+    this.lastShowNodeInfo=this.allNodeInfo
+    this.lastShowAllButtonState=false
   }
 
   async GetPartAccNodeInfo() {
@@ -174,6 +184,9 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
 
     // this.setState({ activeNode: responseData });
     this.setState({ activeNodeShow: responseData, showAllNodeButton: true });
+    this.someNodeInfo=responseData
+    this.lastShowNodeInfo=this.someNodeInfo
+    this.lastShowAllButtonState=true
   }
 
   async GetNodeStatisticsInfo() {
@@ -210,7 +223,7 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
     let responseData = response.data.data;
 
     // this.setState({ activeNode: responseData });
-    this.setState({ activeNodeShow: responseData, showAllNodeButton: true });
+    this.setState({ activeNodeShow: responseData, showAllNodeButton: false });
   }
 
   async componentDidMount() {
@@ -288,6 +301,10 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
               let id = event.target.value;
               id = id.trim();
               this.setState({ queryId: id });
+              if (id=="") {
+                //this.setState({activeNodeShow:this.lastShowNodeInfo,showAllNodeButton:this.lastShowAllButtonState})
+                this.setState({activeNodeShow:this.someNodeInfo,showAllNodeButton:true})
+              }
             }}
             className="form-control"
             placeholder="input your node id here:"
@@ -399,7 +416,7 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
                   );
                 })}
 
-                {this.state.showAllNodeButton && (
+                {(this.state.showAllNodeButton && this.state.isLoadingRecord ==false )&& (
                   <tr style={{ fontSize: "15px" ,height:"40px"}}>
                     <td colspan="3">
                       <a style={{ textAlign: "center" }} onClick={()=>{
@@ -407,6 +424,15 @@ script.src = 'https://assets.meson.network:10443/static/map/miniature.earth.core
                       }}>
                         Show all terminals
                       </a>
+                    </td>
+                  </tr>
+                )}
+                {(this.state.isLoadingRecord )&& (
+                  <tr style={{ fontSize: "15px" ,height:"40px"}}>
+                    <td colspan="3">
+                      <div style={{ textAlign: "center" }}>
+                        Loading...
+                      </div>
                     </td>
                   </tr>
                 )}
