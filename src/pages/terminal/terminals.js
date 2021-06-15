@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-05-27 14:55:14
+ * @LastEditTime: 2021-06-13 17:43:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -51,6 +51,19 @@ class TerminalPage extends React.Component {
                 name: "country",
                 header: "place",
                 defaultFlex: 1,
+            },
+            // {
+            //     name: "city",
+            //     header: "city",
+            //     defaultFlex: 1,
+            // },
+            {
+                name: "speed_mbs",
+                header: "speed",
+                defaultFlex: 1,
+                render: ({ value }) => {
+                    return <div>{value.toFixed(2)} Mb/s</div>;
+                },
             },
             {
                 name: "cdn_space_usage",
@@ -312,6 +325,8 @@ class TerminalPage extends React.Component {
                                 machine_ip: terminalInfo.machine_ip,
                                 port: terminalInfo.port,
                                 country: terminalInfo.country,
+                                //city:terminalInfo.city,
+                                speed_mbs:terminalInfo.speed_mbs,
                                 cdn_space_usage: (
                                     ((terminalInfo.cdn_disk_total -
                                         terminalInfo.cdn_disk_available) /
@@ -405,7 +420,8 @@ class TerminalPage extends React.Component {
                     <div>####### Tutorial: How to install and run miner terminal on linux server#######</div>
                     <div style={{ color: '#FFD234' }}>Please make sure the port you use is opened on the firewall and sudo permission can be used</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{ color: 'yellow' }}>$ wget '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-linux-amd64.tar.gz'</div>
+                    <div style={{ color: 'yellow' }}>$ wget '{Global.coldCdnApiHost}/api/cdn/f2cobx/terminal/v{this.state.terminalLatestVersion}/meson-linux-amd64.tar.gz'</div>
+                    <div>If the above link is abnormal, please try the backup link '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-linux-amd64.tar.gz'</div>
                     <div>#Step.2 unzip the package</div>
                     <div style={{color:'yellow'}}>$ tar -zxf meson-linux-amd64.tar.gz</div>
                     <div>#Step.3 install the app as service</div>
@@ -432,7 +448,8 @@ class TerminalPage extends React.Component {
                     <div>####### Tutorial: How to install and run miner terminal on linux server#######</div>
                     <div style={{ color: '#FFD234' }}>Please make sure the port you use is opened on the firewall and sudo permission can be used</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-linux-386.tar.gz'</div>
+                    <div style={{color:'yellow'}}>$ wget '{Global.coldCdnApiHost}/api/cdn/f2cobx/terminal/v{this.state.terminalLatestVersion}/meson-linux-386.tar.gz'</div>
+                    <div>If the above link is abnormal, please try the backup link '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-linux-386.tar.gz'</div>
                     <div>#Step.2 unzip the package</div>
                     <div style={{color:'yellow'}}>$ tar -zxf meson-linux-386.tar.gz</div>
                     <div>#Step.3 install the app as service</div>
@@ -460,7 +477,8 @@ class TerminalPage extends React.Component {
                     <div>####### Tutorial: How to install and run miner terminal on windows server#######</div>
                     <div style={{ color: '#FFD234' }}>Please make sure the port you use is opened on the firewall</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-windows-amd64.zip'</div>
+                    <div style={{color:'yellow'}}>$ wget '{Global.coldCdnApiHost}/api/cdn/f2cobx/terminal/v{this.state.terminalLatestVersion}/meson-windows-amd64.zip'</div>
+                    <div>If the above link is abnormal, please try the backup link '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-windows-amd64.zip'</div>
                     <div>#Step.2 unzip the package</div>
                     <div style={{color:'yellow'}}>$ unzip meson-windows-amd64.zip</div>
                     <div>#Step.3 run the app</div>
@@ -480,7 +498,8 @@ class TerminalPage extends React.Component {
                     <div>####### Tutorial: How to install and run miner terminal on windows server#######</div>
                     <div style={{ color: '#FFD234' }}>Please make sure the port you use is opened on the firewall</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-windows-386.zip'</div>
+                    <div style={{color:'yellow'}}>$ wget '{Global.coldCdnApiHost}/api/cdn/f2cobx/terminal/v{this.state.terminalLatestVersion}/meson-windows-386.zip'</div>
+                    <div>If the above link is abnormal, please try the backup link '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-windows-386.zip'</div>
                     <div>#Step.2 unzip the package</div>
                     <div style={{color:'yellow'}}>$ unzip meson-windows-386.zip</div>
                     <div>#Step.3 run the app</div>
@@ -498,24 +517,25 @@ class TerminalPage extends React.Component {
             tutorialcontent=(
                 <div>
                     <div>####### Tutorial: How to install and run miner terminal on mac server#######</div>
-                    <div style={{ color: '#FFD234' }}>Please make sure the port you use is opened on the firewall and sudo permission can be used</div>
+                    <div style={{ color: '#FFD234' }}>Please make sure the port you use is opened on the firewall</div>
                     <div>#Step.1 download the terminal package</div>
-                    <div style={{color:'yellow'}}>$ wget '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-darwin-amd64.tar.gz'</div>
+                    <div style={{color:'yellow'}}>$ wget '{Global.coldCdnApiHost}/api/cdn/f2cobx/terminal/v{this.state.terminalLatestVersion}/meson-darwin-amd64.tar.gz'</div>
+                    <div>If the above link is abnormal, please try the backup link '{Global.assetsHost}/static/terminal/v{this.state.terminalLatestVersion}/meson-darwin-amd64.tar.gz'</div>
                     <div>#Step.2 unzip the package</div>
                     <div style={{color:'yellow'}}>$ tar -zxf meson-darwin-amd64.tar.gz</div>
                     <div>#Step.3 install the app as service</div>
                     <div style={{color:'yellow'}}>$ cd ./meson-darwin-amd64</div>
-                    <div style={{color:'yellow'}}>$ sudo ./meson service-install</div>
+                    <div style={{color:'yellow'}}>$ ./meson service-install</div>
                     <div>#Step.4 input your token, port and space provide</div>
                     <div>#Step.5 start the app</div>
-                    <div style={{color:'yellow'}}>$ sudo ./meson service-start</div>
+                    <div style={{color:'yellow'}}>$ ./meson service-start</div>
                     <div>#Step.6 wait about 1 minutes and check status</div>
-                    <div style={{color:'yellow'}}>$ sudo ./meson service-status</div>
+                    <div style={{color:'yellow'}}>$ ./meson service-status</div>
                     <div>after 2-3 minutes you will have a new terminal record  </div>
                     <div>#Step.7 check your earnings</div>
                     <div>### Other commands ###</div>
-                    <div>"sudo ./meson service-stop" to stop app</div>
-                    <div>"sudo ./meson service-remove" to remove app</div>
+                    <div>"./meson service-stop" to stop app</div>
+                    <div>"./meson service-remove" to remove app</div>
                     <div style={{marginTop:"10px"}}>Please check <a href="https://docs.meson.network">https://docs.meson.network</a> for more tutorials</div>
                 </div>
 
