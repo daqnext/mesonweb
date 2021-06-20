@@ -183,7 +183,7 @@ class AdminSidebar extends React.Component {
     }
 
     renderLiveStreamingSiderBar() {
-        if (!UserManager.checkUserHasAuth(UserManager.UserAuth.client)) {
+        if (!UserManager.checkUserHasAuth(UserManager.UserAuth.livestream)) {
             return <div></div>;
         }
 
@@ -204,7 +204,7 @@ class AdminSidebar extends React.Component {
                 </a>
                 <div className="multi-level collapse show" role="list" id="submenu-livestreaming" aria-expanded="false">
                     <ul className="flex-column nav">
-                        <li  className= {this.getActive("/streams")+" nav-item"}><a className="nav-link" href="/streams"><span>Streams</span></a></li>
+                        <li  className= {this.getActive("/streams")+" nav-item"}><a className="nav-link" href="/streams"><span>Livestreaming</span></a></li>
                     </ul>
                 </div>
             </li>

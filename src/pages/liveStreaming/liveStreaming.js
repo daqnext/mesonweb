@@ -132,6 +132,11 @@ class LiveStreaming extends React.Component {
               <div className="form-group col-md-3">
                 <button
                   onClick={() => {
+                    if (!UserManager.checkUserHasAuth(UserManager.UserAuth.livestream)) {
+                      this.props.alert.error("No Auth. Please apply in our Telegram");
+                      return
+                    }
+                    
                     console.log("Create Stream click,",this.state.inputName);
                     this.createStream()
                   }}
@@ -164,38 +169,24 @@ class LiveStreaming extends React.Component {
             padding: "25px 20px",
           }}
         >
-          <div>#####Tutorial on how to accelerate your file ###########</div>
-          <div>for example you want a file to be accelerated : </div>
-          <div>https://yourdomain.com/static/testfiles/t1.jpg</div>
+          <div style={{marginBottom:"10px",color: '#FFD234'}}>Livestreaming is not open to the public. Please apply in our <a style={{color:'yellow'}} href="https://t.me/mesonnetwork">Telegram</a> if you want to try.</div>
+          <div>#####Tutorial on how to start livestreaming in meson###########</div>
+          <div>First of all you need install OBS on your computer</div>
+          <div>https://obsproject.com/</div>
           <div style={{ color: "yellow" }}>
-            1.you can input yourdomain.com into [add your location] then click
-            [Check input url]
-          </div>
-          <div style={{ color: "yellow" }}>
-            2.if no error then click [Add Record]
-          </div>
-          <div>
-            {" "}
-            after step 2 you will have a new record [in bottom table] with a cdn
-            url like 'coldcdn.com/api/cdn/r7JEqR'
+            1. Input stream name and click [Create Stream]
           </div>
           <div style={{ color: "yellow" }}>
-            3.now you can simply replace the old url and get a new url:{" "}
+            2. A new record will appear in the table and input 'steam key' and 'RTMP ingest URL' into your OBS
+          </div>
+          <div style={{ color: "yellow" }}>
+            3. Share the 'Playback URL' to your audiences
           </div>
           <div>
             {" "}
-            https://coldcdn.com/api/cdn/r7JEqR/static/testfiles/t1.jpg{" "}
+            Your livestreaming video will use the global acceleration service from meson{" "}
           </div>
-          <div>
-            {" "}
-            now request this new url and meson needs some time to deploy the
-            file on distributed terminals globally
-          </div>
-          <div>
-            {" "}
-            anyone can request the new url which is accelerated by meson.net
-            globally
-          </div>
+          <div style={{marginTop:"10px"}}>Please check <a href="https://docs.meson.network">https://docs.meson.network</a> for more tutorials</div>
         </div>
 
         {Content}

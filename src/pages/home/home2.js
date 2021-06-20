@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-05-24 17:31:19
+ * @LastEditTime: 2021-06-19 13:02:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -508,8 +508,9 @@ class HomePage extends React.Component {
                     </div>
                   </div>
                   <div class="timeline-dot">
-                    <time class="timeline-dot-time" datetime="2019">
-                      Q3&Q4/2021
+                    <time class="timeline-dot-time" datetime="2019" style={{width:"100px"}}>
+                    Q4/2021<br/>~<br/>Q2/2022
+                    {/* <a href="https://t.me/mesonnetwork" target="_blank">https://t.me/mesonnetwork</a> */}
                     </time>
                     <div class="timeline-dot-title">
                       <a href="#">MainNet Launch</a>
@@ -1545,6 +1546,16 @@ class HomePage extends React.Component {
             daysToLive={0}
             closeIconSize={25}
           />
+          {/* <Announcement
+            className="scam-alert"
+            title="[scam!alert!]"
+            subtitle="Meson has not released any contract or token yet! Don't trust any scam contract or token! Welcome to join the official tg group:https://t.me/mesonnetwork"
+            link="https://t.me/mesonnetwork"
+            imageSource=""
+            secondsBeforeBannerShows={3}
+            daysToLive={0}
+            closeIconSize={25}
+          /> */}
         </div>
       </div>
     );

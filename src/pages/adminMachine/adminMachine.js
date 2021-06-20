@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-05-24 09:50:52
+ * @LastEditTime: 2021-06-16 11:44:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -18,6 +18,7 @@ import Global from "../../global/global";
 import DataTable from "../../components/table/datatable";
 import AdminTerminal from "./adminTerminal";
 import AdminFileTransfer from "./adminFileTransfer";
+import AdminLivestreamServer from "./adminLivestreamServer";
 import AdminFileStore from "./adminFileStore";
 import AdminSpeedTester from "./adminSpeedTester";
 
@@ -29,7 +30,8 @@ class AdminMachinePage extends React.Component {
             "terminal",
             "validator",
             "speedTester",
-            "fileTransfer",
+            // "fileTransfer",
+            "livestream",
             "fileStore",
         ];
 
@@ -196,10 +198,18 @@ class AdminMachinePage extends React.Component {
             );
         }
 
-        if (this.state.machineType == "fileTransfer") {
+        // if (this.state.machineType == "fileTransfer") {
+        //     machineContent = (
+        //         <div>
+        //             <AdminFileTransfer></AdminFileTransfer>
+        //         </div>
+        //     );
+        // }
+
+        if (this.state.machineType == "livestream") {
             machineContent = (
                 <div>
-                    <AdminFileTransfer></AdminFileTransfer>
+                    <AdminLivestreamServer></AdminLivestreamServer>
                 </div>
             );
         }

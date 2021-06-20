@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-03 09:59:52
- * @LastEditTime: 2021-06-04 17:08:49
+ * @LastEditTime: 2021-06-17 12:53:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/liveStreaming/getAllStreams.js
@@ -130,7 +130,7 @@ class GetallStreams extends React.Component {
             
             return (
                 <td>
-                    <span>https://meson.network/livestreaming?id={data["id"]}</span>
+                    <span>https://coldcdn.com/api/v1/livestreaming/play/{data["id"]}</span>
                 </td>
             );
        
