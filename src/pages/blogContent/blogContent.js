@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-09 09:48:27
- * @LastEditTime: 2021-05-18 21:10:33
+ * @LastEditTime: 2021-07-03 20:16:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/blogContent/blogContent.js
@@ -401,7 +401,7 @@ export default class IndexBlog extends React.Component {
                   <div class="inset-left-xl-70">
                     <div class="title-style-1">Community</div>
                     <ul class="list-style-1 d-inline-block footitems">
-                      <li>
+                    <li>
                         <a href="https://discord.gg/z6YfSHDkmS">
                           <i class="icon fab fa-discord"></i> Discord
                         </a>
@@ -417,8 +417,18 @@ export default class IndexBlog extends React.Component {
                         </a>
                       </li>
                       <li>
+                        <a href="https://twitter.com/NetworkMeson">
+                          <i class="icon fab fa-twitter"></i> Twitter
+                        </a>
+                      </li>
+                      <li>
                         <a href="https://medium.com/meson-network">
                           <i class="icon  fab fa-medium"></i> Medium
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://community.meson.network">
+                          <i class="icon  fas fa-comments"></i> Forum
                         </a>
                       </li>
                       <li>

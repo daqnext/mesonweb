@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-06-03 09:18:44
+ * @LastEditTime: 2021-06-29 13:41:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -40,6 +40,10 @@ import Streams from './pages/liveStreaming/liveStreaming'
 import DemoFileManagerPage from "./pages/fileManagerDemo/fileManagerDemo";
 import DemoArweavePage from "./pages/arweaveDemo/arweaveDemo";
 import TimeManager from './manager/timemanager';
+import BindEmail from './pages/bindEmail/bindEmail';
+import BindPhone from './pages/bindPhone/bindPhone';
+import ChangeEmail from './pages/changeEmail/changeEmail';
+import ChangePhone from './pages/changePhone/changePhone';
 
 
 function App() {
@@ -51,6 +55,10 @@ function App() {
         register: RegisterPage,
         resetpassword:ResetPasswordPage,
         welcome: WelcomePage,
+        bindemail:BindEmail,
+        bindphone:BindPhone,
+        changeemail:ChangeEmail,
+        changephone:ChangePhone,
 
         //for admin
         test: TestPage,

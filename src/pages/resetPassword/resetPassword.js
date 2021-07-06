@@ -16,9 +16,9 @@ class ResetPasswordPage extends React.Component {
     super(props);
     this.email=""
     this.phoneinput = {};
-    this.phoneinput.country = "cn";
+    this.phoneinput.country = "us";
     this.phoneinput.number = "";
-    this.phoneinput.countrycode = "86";
+    this.phoneinput.countrycode = "1";
     this.passwd = "";
     this.passwd2 = "";
     this.vcode = "";

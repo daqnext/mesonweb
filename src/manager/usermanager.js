@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-06-16 17:14:27
+ * @LastEditTime: 2021-06-29 09:47:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/manager/usermanager.js
@@ -19,7 +19,7 @@ class UserManager
     static usertoken=null;
 
 
-    static UserAuth={
+static UserAuth={
         admin:'admin',
         client:'client',
         terminal: 'terminal',
@@ -85,7 +85,19 @@ static   GetUserInfo(){
         window.location.href="/";
     }
 
+    static IsUserBindEmail(){
+        if (UserManager.userinfo&&UserManager.userinfo.email != ""){
+            return true
+        }
+        return false
+    }
 
+    static IsUserBindPhone(){
+        if (UserManager.userinfo&&UserManager.userinfo.phonenum != ""){
+            return true
+        }
+        return false
+    }
 
 }
 
