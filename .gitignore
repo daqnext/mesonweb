@@ -6,3 +6,4 @@
 .gitignore.swp
 /public/static/terminal
 .DS_Store
+.vscode/settings.json

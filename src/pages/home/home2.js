@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-07-03 20:16:44
+ * @LastEditTime: 2021-07-20 20:29:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -538,7 +538,7 @@ class HomePage extends React.Component {
                         <h3>Video Acceleration by Meson</h3>
                       </div>
                       <p class="d-inline-block text-width-medium">
-                        Meson provids standard http 302 redirection with no
+                        Meson provides standard http 302 redirection with no
                         heavy SDK integration and can be used to transmit video
                         globally{" "}
                       </p>
@@ -708,7 +708,7 @@ class HomePage extends React.Component {
                       <ul class="list-marked list-2-columns d-inline-block d-md-block">
                         <li>IPFS storage</li>
                         <li>Layer1 & Layer2</li>
-                        <li>Global file accerlation</li>
+                        <li>Global file acceleration</li>
                       </ul>
                     </div>
                   </div>
@@ -788,7 +788,7 @@ class HomePage extends React.Component {
                       <ul class="list-marked list-2-columns d-inline-block d-md-block">
                         <li>Arweave storage</li>
                         <li>Layer1 & Layer2</li>
-                        <li>Global file accerlation</li>
+                        <li>Global file acceleration</li>
                       </ul>
                     </div>
                   </div>
@@ -1110,7 +1110,7 @@ class HomePage extends React.Component {
                               >
                                 <div class="card-body">
                                   <p>
-                                    Meson.Network will delpoy AI system to
+                                    Meson.Network will deploy AI system to
                                     detect the illegal content according to the
                                     rule in different countries
                                   </p>
