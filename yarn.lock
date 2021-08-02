@@ -9318,6 +9318,11 @@ react-bootstrap-daterangepicker@^7.0.0:
   resolved "https://registry.npm.taobao.org/react-bootstrap-daterangepicker/download/react-bootstrap-daterangepicker-7.0.0.tgz#172228cccaa3b0f4a42e84eb6d646b4988a0df64"
   integrity sha1-FyIozMqjsPSkLoTrbWRrSYig32Q=
 
+react-bootstrap-sweetalert@^5.1.15:
+  version "5.1.15"
+  resolved "https://registry.npm.taobao.org/react-bootstrap-sweetalert/download/react-bootstrap-sweetalert-5.1.15.tgz#5baab8571d974419be7045b5f24f939eb8841697"
+  integrity sha1-W6q4Vx2XRBm+cEW18k+TnriEFpc=
+
 react-captcha-code@^1.0.7:
   version "1.0.7"
   resolved "https://registry.npm.taobao.org/react-captcha-code/download/react-captcha-code-1.0.7.tgz#2f4bdecb555d2304912ccc88f8934b7a4d7565a4"
