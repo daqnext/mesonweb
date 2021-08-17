@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-29 09:55:50
- * @LastEditTime: 2021-06-29 15:11:43
+ * @LastEditTime: 2021-08-16 21:58:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/bindEmail/bindEmail.js
@@ -194,7 +194,7 @@ class BindEmail extends React.Component {
 
   render() {
     return (
-      <AdminLayout name="Register" description="Register page">
+      <AdminLayout name="User" description="Bind Email">
         <div className="card border-light shadow-sm">
           <div className="card-body" style={{ color: "#555e68" }}>
             <form style={{ textAlign: "left" }}>

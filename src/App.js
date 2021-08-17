@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-06-29 13:41:50
+ * @LastEditTime: 2021-08-16 21:49:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -44,6 +44,8 @@ import BindEmail from './pages/bindEmail/bindEmail';
 import BindPhone from './pages/bindPhone/bindPhone';
 import ChangeEmail from './pages/changeEmail/changeEmail';
 import ChangePhone from './pages/changePhone/changePhone';
+import AdminAirdrop from './pages/adminAirdrop/adminAirdrop';
+import UserAirdrop from './pages/userAirdrop/userAirdrop';
 
 
 function App() {
@@ -68,6 +70,7 @@ function App() {
         adminmachine: AdminMachine,
         adminpricesetting: AdminPriceSetting,
         adminbloglist:AdminBlogList,
+        adminairdrop:AdminAirdrop,
 
         //for terminal pages
         terminals: TerminalPage,
@@ -75,6 +78,7 @@ function App() {
         terminaltraffic: TerminalTraffic,
         terminaltotalprofit: TerminalTotalProfit,
         terminalbalance: TerminalBalance,
+        userairdrop:UserAirdrop,
 
         /////blow for client pages
         binddomain: BindDomain,

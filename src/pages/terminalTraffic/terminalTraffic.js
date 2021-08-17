@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-10 19:56:44
- * @LastEditTime: 2021-04-08 15:08:42
+ * @LastEditTime: 2021-08-16 21:59:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminalProfit/terminalProfit.js
@@ -236,7 +236,7 @@ class TerminalProfit extends React.Component {
 
     render() {
         return (
-            <AdminLayout name="Terminal" description="Profit">
+            <AdminLayout name="Terminal" description="Traffic">
                 <div style={{ marginTop: "10px" }}>
                     <this.DataGrid></this.DataGrid>
                 </div>

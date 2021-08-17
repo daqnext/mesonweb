@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-08-02 13:35:38
+ * @LastEditTime: 2021-08-02 20:30:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminal/terminals.js
@@ -316,15 +316,18 @@ class TerminalPage extends React.Component {
                 name: "country",
                 header: "place",
                 defaultFlex: 1.5,
+                shouldComponentUpdate: () => true,
                 render: (value) => {
-                    //console.log(value.value);
+                    console.log(this.state.ipCountryMap[value.data.info.machine_ip]);
                     return (
                         <select
                             className="custom-select"
                             id="inlineFormCustomSelectMesages"
-                            value={this.state.ipCountryMap[value.data.info.machine_ip]}
+                            //value={this.state.ipCountryMap[value.data.info.machine_ip]}
+                            defaultValue={this.state.ipCountryMap[value.data.info.machine_ip]}
                             onChange={(e) => {
                                 console.log(value);
+                                console.log(e.target.defaultValue);
                                 console.log(e.target.value);
 
                                 const recordInfo = value.data.info;
@@ -350,23 +353,24 @@ class TerminalPage extends React.Component {
                                         }
                                         console.log(ipCountryMap);
                                         this.setState({ ipCountryMap: ipCountryMap }, () => {
+                                            console.log("state set");
                                             console.log(this.state.ipCountryMap);
-                                            this.reRenderTable();
+                                            //this.reRenderTable();
                                         });
 
-                                        axios.post(
-                                            Global.apiHost + "/api/v1/terminal/modifyiplocation",
-                                            {
-                                                Ip: recordInfo.machine_ip,
-                                                CountryCode: newCountryCode,
-                                                MachineTag:recordInfo.id
-                                            },
-                                            {
-                                                headers: {
-                                                    Authorization: "Bearer " + UserManager.GetUserToken(),
-                                                },
-                                            }
-                                        );
+                                        // axios.post(
+                                        //     Global.apiHost + "/api/v1/terminal/modifyiplocation",
+                                        //     {
+                                        //         Ip: recordInfo.machine_ip,
+                                        //         CountryCode: newCountryCode,
+                                        //         MachineTag:recordInfo.id
+                                        //     },
+                                        //     {
+                                        //         headers: {
+                                        //             Authorization: "Bearer " + UserManager.GetUserToken(),
+                                        //         },
+                                        //     }
+                                        // );
 
                                         //this.loadData();
                                     }
@@ -383,7 +387,6 @@ class TerminalPage extends React.Component {
                         </select>
                     );
                 },
-                getEditStartValue: (value) => (value / 1000).toFixed(3),
             },
             // {
             //     name: "city",
@@ -608,23 +611,308 @@ class TerminalPage extends React.Component {
     loadData = null;
     reRenderTable = null;
     DataGrid = () => {
-        const reRenderTable = useCallback(() => {
-            const data = ({ skip, limit, sortInfo }) => {
-                return new Promise((resolve, reject) => {
-                    console.log(this.state.tableData);
-                    resolve({
-                        data: this.tableData.data,
-                        count: this.tableData.count,
-                    });
-                });
-            };
-            //console.log(data);
-            this.setState({ tableData: data }, () => {
-                console.log(this.state.tableData);
-            });
-            console.log("finish");
-        }, []);
-        this.reRenderTable = reRenderTable;
+        const columns = [
+            {
+                name: "id",
+                header: "ID",
+                defaultWidth: 150,
+                editable: false,
+                render: ({ value }) => {
+                    return <div>{"id-" + value}</div>;
+                },
+            },
+            // {
+            //     name: "machine_mac",
+            //     header: "Mac Addr",
+            //     defaultFlex: 1,
+            // },
+            {
+                name: "machine_ip",
+                header: "IP",
+                defaultFlex: 0.8,
+                editable: false,
+            },
+            {
+                name: "port",
+                header: "port",
+                defaultFlex: 0.4,
+                editable: false,
+            },
+            {
+                name: "country",
+                header: "place",
+                defaultFlex: 1.5,
+                shouldComponentUpdate: () => true,
+                style: {padding:"0"},
+                render: useCallback(({ data }) => {
+                    //console.log(data);
+                    return (
+                        <select
+                            className="custom-select"
+                            id="inlineFormCustomSelectMesages"
+                            value={this.state.ipCountryMap[data.info.machine_ip]}
+                            onChange={(e) => {
+                                console.log(data);
+                                console.log(e.target.value);
+                                const recordInfo = data;
+                                const newCoutry = e.target.value;
+                                const onConfirm = async () => {
+                                    const response = await axios.post(
+                                        Global.apiHost + "/api/v1/terminal/modifyiplocation",
+                                        {
+                                            Ip: recordInfo.machine_ip,
+                                            CountryCode: newCoutry,
+                                            MachineTag: recordInfo.id,
+                                        },
+                                        {
+                                            headers: {
+                                                Authorization: "Bearer " + UserManager.GetUserToken(),
+                                            },
+                                        }
+                                    );
+
+                                    if (!response || !response.data) {
+                                        this.props.alert.error("request error");
+                                        return;
+                                    }
+
+                                    if (response.data.status === 101) {
+                                        this.props.alert.error("Have no auth");
+                                        return;
+                                    }
+
+                                    if (response.data.status === 103) {
+                                        this.props.alert.error("Request params error");
+                                        return;
+                                    }
+                                    if (response.data.status === 5002) {
+                                        this.props.alert.error("Can not find terminal");
+                                        return;
+                                    }
+
+                                    if (response.data.status !== 0) {
+                                        this.props.alert.error("Can not find terminal");
+                                        return;
+                                    }
+
+                                    const ipCountryMap = { ...this.state.ipCountryMap };
+                                    for (const key in ipCountryMap) {
+                                        if (key == data.machine_ip) {
+                                            ipCountryMap[data.machine_ip] = newCoutry;
+                                        }
+                                    }
+                                    this.setState({ ipCountryMap: ipCountryMap });
+                                    this.props.alert.success("Location changed");
+                                };
+
+                                Confirm.ShowConfirm(
+                                    "warning",
+                                    "Are you sure",
+                                    "You will permanently change the location of your machine.",
+                                    true,
+                                    "warning",
+                                    "primary",
+                                    "Confirm",
+                                    onConfirm
+                                );
+
+                                
+                            }}
+                        >
+                            {countryList.map((value, index, array) => {
+                                return (
+                                    <option key={index} value={value[0]}>
+                                        {value[1]}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    );
+                }, []),
+            },
+            // {
+            //     name: "city",
+            //     header: "city",
+            //     defaultFlex: 1,
+            // },
+            {
+                name: "speed_mbs",
+                header: "speed",
+                defaultFlex: 0.6,
+                editable: false,
+                render: ({ value }) => {
+                    return <div>{value.toFixed(2)} Mb/s</div>;
+                },
+            },
+            {
+                name: "cdn_space_usage",
+                header: "cdn_space_usage",
+                defaultFlex: 0.9,
+                editable: false,
+                render: ({ value }) => {
+                    let percent = value;
+                    let width2 = percent + "%";
+                    //console.log(width2);
+
+                    let className = "progress-bar bg-secondary";
+                    if (percent < 60) {
+                        className = "progress-bar bg-tertiary";
+                    } else if (percent < 85) {
+                        className = "progress-bar bg-primary";
+                    }
+                    return (
+                        <div>
+                            <div>{width2}</div>
+                            <div className="progress mb-0">
+                                <div
+                                    className={className}
+                                    role="progressbar"
+                                    aria-valuenow={'"' + percent + '"'}
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                    style={{ width: percent + "px" }}
+                                ></div>
+                            </div>
+                        </div>
+                    );
+                },
+            },
+            // {
+            //     name: "disk_usage",
+            //     header: "disk_usage",
+            //     defaultFlex: 1,
+            //     render: ({ value }) => {
+            //         let percent = value;
+            //         let width2 =   percent + "%" ;
+            //         //console.log(width2);
+
+            //         let className = "progress-bar bg-secondary";
+            //         if (percent < 60) {
+            //             className = "progress-bar bg-tertiary";
+            //         } else if (percent < 85) {
+            //             className = "progress-bar bg-primary";
+            //         }
+            //         return (
+            //             <div>
+            //                 <div>{width2}</div>
+            //                 <div className="progress mb-0">
+            //                     <div className={className} role="progressbar"
+            //                          aria-valuenow={'"'+percent+'"'}
+            //                          aria-valuemin="0" aria-valuemax="100"
+            //                          style={{width:percent+'px'}} ></div>
+            //                 </div>
+            //             </div>
+
+            //         );
+            //     },
+            // },
+            {
+                name: "memory_usage",
+                header: "memory_usage",
+                defaultFlex: 0.8,
+                editable: false,
+                render: ({ value }) => {
+                    let percent = value;
+                    let className = "progress-bar bg-secondary";
+                    if (percent < 60) {
+                        className = "progress-bar bg-tertiary";
+                    } else if (percent < 85) {
+                        className = "progress-bar bg-primary";
+                    }
+                    return (
+                        <div>
+                            <div>{percent + "%"}</div>
+                            <div className="progress mb-0">
+                                <div
+                                    className={className}
+                                    role="progressbar"
+                                    aria-valuenow={'"' + percent + '"'}
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                    style={{ width: percent + "px" }}
+                                ></div>
+                            </div>
+                        </div>
+                    );
+                },
+            },
+            {
+                name: "version",
+                header: "version",
+                defaultFlex: 0.4,
+                editable: false,
+                render: ({ value }) => {
+                    if (this.state.terminalAllowVersion != "") {
+                        let allowVersionStr = this.state.terminalAllowVersion.split(".");
+                        let terminalVersionStr = value.split(".");
+                        let disableVersion = false;
+                        for (let i = 0; i < allowVersionStr.length; i++) {
+                            if (parseInt(allowVersionStr[i]) > parseInt(terminalVersionStr[i])) {
+                                disableVersion = true;
+                                break;
+                            } else if (parseInt(allowVersionStr[i]) < parseInt(terminalVersionStr[i])) {
+                                disableVersion = false;
+                                break;
+                            }
+
+                            if (disableVersion == true) {
+                                return (
+                                    <td>
+                                        <div>
+                                            <span className="disable-version"></span>
+                                            &nbsp;{value}
+                                        </div>
+                                        <div>Disable Version</div>
+                                    </td>
+                                );
+                            }
+                        }
+                    }
+
+                    if (this.state.terminalLatestVersion != "") {
+                        if (this.state.terminalLatestVersion != value) {
+                            return (
+                                <div>
+                                    <div>
+                                        <span className="low-version"></span>
+                                        &nbsp;{value}
+                                    </div>
+                                    <div>Low Version</div>
+                                </div>
+                            );
+                        }
+                    }
+
+                    return (
+                        <div>
+                            <span className="status-on"></span>
+                            &nbsp;{value}
+                        </div>
+                    );
+                },
+            },
+            {
+                name: "machine_status",
+                header: "status",
+                defaultFlex: 0.4,
+                editable: false,
+                render: ({ value }) => {
+                    if (value === "up") {
+                        return (
+                            <div>
+                                <span className="status-on"></span> &nbsp;ON
+                            </div>
+                        );
+                    } else {
+                        return (
+                            <div>
+                                <span className="status-down"></span> &nbsp;DOWN
+                            </div>
+                        );
+                    }
+                },
+            },
+        ];
 
         const loadData = useCallback(() => {
             const data = ({ skip, limit, sortInfo }) => {
@@ -705,7 +993,7 @@ class TerminalPage extends React.Component {
                 <div></div>
                 <ReactDataGrid
                     idProperty="id"
-                    columns={this.columns}
+                    columns={columns}
                     dataSource={this.state.tableData}
                     //onEditComplete={onEditComplete}
                     pagination
@@ -979,8 +1267,8 @@ class TerminalPage extends React.Component {
                     </div>
                 </div>
 
-                <div style={{ color: "yellow" }}>
-                    Attention: For better token reward please check the country information in the table below , if the country item is not correct
+                <div style={{ color: "#bf9500",padding:"10px" }}>
+                    Attention: For better token reward please check the country information in the table below, if the country item is not correct
                     please correct it manually.
                 </div>
                 {Content}

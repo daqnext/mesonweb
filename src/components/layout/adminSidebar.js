@@ -77,6 +77,7 @@ class AdminSidebar extends React.Component {
                         <li className= {this.getActive("/adminmachine")+" nav-item"}  ><a className="nav-link" href="/adminmachine"><span>AdminMachine</span></a></li>
                         <li className={this.getActive("/adminpricesetting") + " nav-item"}  ><a className="nav-link" href="/adminpricesetting"><span>AdminPriceSetting</span></a></li>
                         <li className= {this.getActive("/adminbloglist")+" nav-item"}  ><a className="nav-link" href="/adminbloglist"><span>BlogList</span></a></li>
+                        <li className= {this.getActive("/adminairdrop")+" nav-item"}  ><a className="nav-link" href="/adminairdrop"><span>Airdrop</span></a></li>
                     </ul>
                 </div>
             </li>
@@ -142,6 +143,7 @@ class AdminSidebar extends React.Component {
                         <li className= {this.getActive("/terminaltraffic")+" nav-item"}><a className="nav-link" href="/terminaltraffic"><span>Traffic</span></a></li>
                         <li className={this.getActive("/terminaltotalprofit") + " nav-item"}><a className="nav-link" href="/terminaltotalprofit"><span>Earnings</span></a></li>
                         <li className= {this.getActive("/terminalbalance")+" nav-item"}><a className="nav-link" href="/terminalbalance"><span>TokenBalance</span></a></li>
+                        <li className= {this.getActive("/userairdrop")+" nav-item"}><a className="nav-link" href="/userairdrop"><span>Airdrop</span></a></li>
                     </ul>
                 </div>
             </li>
@@ -175,7 +177,7 @@ class AdminSidebar extends React.Component {
                         <li className= {this.getActive("/clienttraffic")+" nav-item"}><a className="nav-link" href="/clienttraffic"><span>Traffic</span></a></li>
                         <li className={this.getActive("/balance") + " nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>
                         <li className= {this.getActive("/filemanager")+" nav-item"}><a className="nav-link" href="/filemanager"><span>FileManager</span></a></li>
-                        <li className= {this.getActive("/streams")+" nav-item"}><a className="nav-link" href="/streams"><span>Livestreaming</span></a></li>
+                        {/* <li className= {this.getActive("/streams")+" nav-item"}><a className="nav-link" href="/streams"><span>Livestreaming</span></a></li> */}
                     </ul>
                 </div>
             </li>

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-29 10:10:48
- * @LastEditTime: 2021-06-29 15:15:49
+ * @LastEditTime: 2021-08-16 21:58:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/bindPhone/bindPhone.js
@@ -209,7 +209,7 @@ class BindPhone extends React.Component {
 
   render() {
     return (
-      <AdminLayout name="Register" description="Register page">
+      <AdminLayout name="User" description="Bind Phone">
         <div className="card border-light shadow-sm">
           <div className="card-body" style={{ color: "#555e68" }}>
             <form style={{ textAlign: "left" }}>
