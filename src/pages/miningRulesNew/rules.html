@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    
+    <style type="text/css">
+        table,
+        th,
+        td {
+            padding: 10px 10px;
+            color: #5a5a5a;
+            border: 1px solid #b1b1b1;
+            border-collapse: collapse;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div style="max-width:800px;margin: 5% auto">
+        <table style="width:100%;text-align: center;">
+            <tr style="font-style: italic;font-size: 22px;">
+                <th>Item</th>
+                <th>Value</th>
+            </tr>
+
+            <tr>
+                <td>Network type</td>
+                <td>Test network</td>
+            </tr>
+
+            <tr>
+                <td>Token/MiningScore per Day </td>
+                <td><p id="token_per_score" style="margin-top: 10px;">0.507(Current)</p><p style="margin-top: 0;">The reward ratio drops to a stable value (0.3500token/score per day) after 12 months;
+                    [The curve shows the process]</p></td>
+                <!-- <td id="token_per_score">0.507</td> -->
+            </tr>
+
+            <tr>
+                <td>Reward ratio drops curve</td>
+                <td>
+                    <div id="curve_chart_token_down"></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>MiningScore</td>
+                <td>MiningScore=BandwidthScore * StorageScore</td>
+            </tr>
+
+            <!-- <tr>
+                <td>Percentage of earning from some node miner</td>
+                <td ><img style="max-width:67%;" src="https://assets.meson.network:10443/static/img/CodeCogsEqn.svg"></img></td>
+            </tr> -->
+
+            <tr>
+                <td>BandwidthScore</td>
+                <td>
+                    <div id="curve_chart"></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Bandwidth</td>
+                <td style="text-align: left">
+                    <div>The upper limit of bandwidth is 1200 Mb/s. The bandwidth score will not increase if bandwidth over 1200 Mb/s.</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>StorageScore</td>
+                <td>
+                    <table style="margin:0 auto">
+                        <tr>
+                            <th>Storage</th>
+                            <th>StorageScore</th>
+                        </tr>
+                        <tr>
+                            <td>40GB</td>
+                            <td>50%</td>
+                        </tr>
+                        <tr>
+                            <td>40GB ～ Bandwidth*1000.</td>
+                            <td>Increase linearly</td>
+                        </tr>
+                        <tr>
+                            <td>Bandwidth*1000</td>
+                            <td>90%</td>
+                        </tr>
+                        <tr>
+                            <td>Bandwidth*100000 and above</td>
+                            <td>100%</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Minium storage requirement</td>
+                <td>40GB</td>
+            </tr>
+            <tr>
+                <td>Example</td>
+                <td style="text-align: left">
+                    <div>If your bandwidth is 80Mb/s,"BandwidthScore" will be 27 </div>
+                    <div>1.if you set storage to 40GB ,"StorageScore" will be 50%</div>
+                    <div>2.if you set storage to 80*1000 == 80,000(MB) = 80GB , "StorageScore" will be 90%</div>
+                    <div>under condition 1 ,'MiningScore' will be 27*50%==13.5</div>
+                    <div>under condition 2 ,'MiningScore' will be 27*90%==24.3</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>

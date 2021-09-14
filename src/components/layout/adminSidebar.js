@@ -237,11 +237,11 @@ class AdminSidebar extends React.Component {
                         <li  className= {this.getActive("/bindemail")+" nav-item"}><a className="nav-link" href="/bindemail"><span>Bind Email</span></a></li>:
                         <li  className= {this.getActive("/changeemail")+" nav-item"}><a className="nav-link" href="/changeemail"><span>Change Email</span></a></li>
                         }
-                        {
+                        {/* {
                         UserManager.IsUserBindPhone()==false?
                         <li  className= {this.getActive("/bindphone")+" nav-item"}><a className="nav-link" href="/bindphone"><span>Bind Phone</span></a></li>:
                         <li  className= {this.getActive("/changephone")+" nav-item"}><a className="nav-link" href="/changephone"><span>Change Phone</span></a></li>
-                        }
+                        } */}
                     
                     </ul>
                 </div>

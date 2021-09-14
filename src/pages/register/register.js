@@ -395,7 +395,7 @@ class RegisterPage extends React.Component {
                 </div>
               </div>}
 
-              <div className="form-group">
+              {/* <div className="form-group">
               <div className="form-row">
                 <label>
                   <input name="loginType" type="radio" value="" checked={this.state.loginType=="email"} onClick={
@@ -406,15 +406,15 @@ class RegisterPage extends React.Component {
                   &nbsp;Email&nbsp;&nbsp;
                 </label>
                 <label>
-                  <input name="loginType" type="radio" value="" checked={this.state.loginType=="phone"} onClick={
+                  <input name="loginType" disabled type="radio" value="" checked={this.state.loginType=="phone"} onClick={
                       ()=>{
                         this.setState({loginType:"phone"})
                       }
                   }/>
-                  &nbsp;Phone&nbsp;&nbsp;
+                  &nbsp;Phone(deprecated)&nbsp;&nbsp;
                 </label>
               </div>
-              </div>
+              </div> */}
 
               <div className="form-group">
                 <label className="small mb-1">select your user type</label>

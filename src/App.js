@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-08-16 21:49:32
+ * @LastEditTime: 2021-09-14 13:41:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -34,6 +34,7 @@ import UserBlogList from './pages/userBlogList/userBlogList';
 import AdminBlogList from './pages/adminBlogList/adminBlogList';
 import FileManagerPage from './pages/fileManager/fileManager'
 import MiningRulesPage from './pages/miningRules/miningRules'
+import NewMiningRulesPage from './pages/miningRulesNew/miningRulesNew'
 import BlogPage from './pages/blogContent/blogContent'
 import LiveStreamingPlayPage from './pages/liveStreamingPlayPage/liveStreamingPlayPage'
 import Streams from './pages/liveStreaming/liveStreaming'
@@ -41,7 +42,7 @@ import DemoFileManagerPage from "./pages/fileManagerDemo/fileManagerDemo";
 import DemoArweavePage from "./pages/arweaveDemo/arweaveDemo";
 import TimeManager from './manager/timemanager';
 import BindEmail from './pages/bindEmail/bindEmail';
-import BindPhone from './pages/bindPhone/bindPhone';
+//import BindPhone from './pages/bindPhone/bindPhone';
 import ChangeEmail from './pages/changeEmail/changeEmail';
 import ChangePhone from './pages/changePhone/changePhone';
 import AdminAirdrop from './pages/adminAirdrop/adminAirdrop';
@@ -58,7 +59,7 @@ function App() {
         resetpassword:ResetPasswordPage,
         welcome: WelcomePage,
         bindemail:BindEmail,
-        bindphone:BindPhone,
+        //bindphone:BindPhone,
         changeemail:ChangeEmail,
         changephone:ChangePhone,
 
