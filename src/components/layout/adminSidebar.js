@@ -78,6 +78,11 @@ class AdminSidebar extends React.Component {
                         <li className={this.getActive("/adminpricesetting") + " nav-item"}  ><a className="nav-link" href="/adminpricesetting"><span>AdminPriceSetting</span></a></li>
                         <li className= {this.getActive("/adminbloglist")+" nav-item"}  ><a className="nav-link" href="/adminbloglist"><span>BlogList</span></a></li>
                         <li className= {this.getActive("/adminairdrop")+" nav-item"}  ><a className="nav-link" href="/adminairdrop"><span>Airdrop</span></a></li>
+
+                        {/* finance server ready */}
+                        <li className= {this.getActive("/adminairdrop_f")+" nav-item"}  ><a className="nav-link" href="/adminairdrop_f"><span>AdminAirdrop_f</span></a></li>
+                        <li className= {this.getActive("/withdrawmgr_f")+" nav-item"}><a className="nav-link" href="/withdrawmgr_f"><span>WithdrawMgr_f</span></a></li>
+
                     </ul>
                 </div>
             </li>
@@ -144,6 +149,13 @@ class AdminSidebar extends React.Component {
                         <li className={this.getActive("/terminaltotalprofit") + " nav-item"}><a className="nav-link" href="/terminaltotalprofit"><span>Earnings</span></a></li>
                         <li className= {this.getActive("/terminalbalance")+" nav-item"}><a className="nav-link" href="/terminalbalance"><span>TokenBalance</span></a></li>
                         <li className= {this.getActive("/userairdrop")+" nav-item"}><a className="nav-link" href="/userairdrop"><span>Airdrop</span></a></li>
+
+                        {/* finance server */}
+                        {/* <li className= {this.getActive("/terminaltotalprofit_f") + " nav-item"}><a className="nav-link" href="/terminaltotalprofit_f"><span>Earnings_f</span></a></li> */}
+                        {/* <li className= {this.getActive("/terminalbalance_f")+" nav-item"}><a className="nav-link" href="/terminalbalance_f"><span>TokenBalance_f</span></a></li> */}
+                        {/* <li className= {this.getActive("/userairdrop_f")+" nav-item"}><a className="nav-link" href="/userairdrop_f"><span>UserAirdrop_f</span></a></li> */}
+                        
+                        
                     </ul>
                 </div>
             </li>
@@ -177,7 +189,9 @@ class AdminSidebar extends React.Component {
                         <li className= {this.getActive("/clienttraffic")+" nav-item"}><a className="nav-link" href="/clienttraffic"><span>Traffic</span></a></li>
                         <li className={this.getActive("/balance") + " nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>
                         <li className= {this.getActive("/filemanager")+" nav-item"}><a className="nav-link" href="/filemanager"><span>FileManager</span></a></li>
-                        {/* <li className= {this.getActive("/streams")+" nav-item"}><a className="nav-link" href="/streams"><span>Livestreaming</span></a></li> */}
+                        
+                        {/* finance_server */}
+                        {/* <li className= {this.getActive("/balance_f") + " nav-item"}><a className="nav-link" href="/balance_f"><span>Balance_f</span></a></li> */}
                     </ul>
                 </div>
             </li>
@@ -298,7 +312,6 @@ class AdminSidebar extends React.Component {
         const UserClientSiderBar = this.renderUserClientSiderBar();
         const UserTerminalSiderBar = this.renderUserTerminalSiderBar();
         const UserBlogSiderBar = this.renderUserBlogSiderBar();
-        const UserLiveStreamingBar = this.renderLiveStreamingSiderBar();
         const CommonUserBar = this.renderCommonUserSiderBar();
         return (
             <div>
@@ -316,7 +329,6 @@ class AdminSidebar extends React.Component {
                 {CommonUserBar}
                 {UserTerminalSiderBar}
                 {UserClientSiderBar}
-                {/* {UserLiveStreamingBar} */}
                 {UserBlogSiderBar}
 
             </div>

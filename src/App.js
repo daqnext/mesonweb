@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-09-14 13:41:13
+ * @LastEditTime: 2021-10-26 17:16:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -47,6 +47,22 @@ import ChangeEmail from './pages/changeEmail/changeEmail';
 import ChangePhone from './pages/changePhone/changePhone';
 import AdminAirdrop from './pages/adminAirdrop/adminAirdrop';
 import UserAirdrop from './pages/userAirdrop/userAirdrop';
+
+//finance server page
+import AdminAirdrop_f from "./pages/adminAirdrop_f/adminAirdrop_f";
+import Balance_f from "./pages/account_f/balance_f";
+import TerminalTotalProfit_f from "./pages/terminalTotalProfit_f/terminalTotalProfit_f"
+import TerminalBalance_f from "./pages/terminalBalance_f/terminalBalance_f"
+import UserAirdrop_f from "./pages/userAirdrop_f/userAirdrop_f"
+import WithdrawMgr_f from "./pages/withdrawmgr_f/withdrawmgr_f"
+
+{/* <li className= {this.getActive("/adminairdrop_f")+" nav-item"}  ><a className="nav-link" href="/adminairdrop_f"><span>AdminAirdrop_f</span></a></li>
+                        <li className= {this.getActive("/balance_f") + " nav-item"}><a className="nav-link" href="/balance_f"><span>Balance_f</span></a></li>
+                        <li className= {this.getActive("/terminaltotalprofit_f") + " nav-item"}><a className="nav-link" href="/terminaltotalprofit_f"><span>Earnings_f</span></a></li>
+                        <li className= {this.getActive("/terminalbalance_f")+" nav-item"}><a className="nav-link" href="/terminalbalance_f"><span>TokenBalance_f</span></a></li>
+                        <li className= {this.getActive("/userairdrop_f")+" nav-item"}><a className="nav-link" href="/userairdrop_f"><span>UserAirdrop_f</span></a></li>
+                        <li className= {this.getActive("/withdrawmgr_f")+" nav-item"}><a className="nav-link" href="/withdrawmgr_f"><span>WithdrawMgr_f</span></a></li> */}
+
 
 
 function App() {
@@ -98,7 +114,16 @@ function App() {
 
         //live streaming page
         livestreaming:LiveStreamingPlayPage,
-        streams:Streams
+        streams:Streams,
+
+        //finance server page
+        adminairdrop_f:AdminAirdrop_f,
+        balance_f:Balance_f,
+        terminaltotalprofit_f:TerminalTotalProfit_f,
+        terminalbalance_f:TerminalBalance_f,
+        userairdrop_f:UserAirdrop_f,
+        withdrawmgr_f:WithdrawMgr_f,
+
     };
 
 

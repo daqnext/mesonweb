@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 08:20:43
- * @LastEditTime: 2021-05-11 22:08:49
+ * @LastEditTime: 2021-10-27 12:53:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/adminMachine/adminFileTransfer.js
@@ -22,16 +22,19 @@ import UserManager from "../../manager/usermanager";
                  name: "id",
                  header: "ID",
                  defaultWidth: 80,
+                 editable:true
              },
              {
                  name: "machine_mac",
                  header: "Mac Addr",
                  defaultFlex: 1,
+                 editable:true
              },
              {
                  name: "machine_ip",
                  header: "IP",
                  defaultFlex: 1,
+                 editable:true
              },
              {
                  name: "port",
