@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-26 11:46:09
- * @LastEditTime: 2021-10-29 13:05:59
+ * @LastEditTime: 2021-10-29 21:58:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/withdrawmgr_f/withdrawmgr_f.js
@@ -137,7 +137,7 @@ class WithdrawMgr_f extends React.Component {
             targetWalletAddress: "",
             amount: "",
             queryStart: moment().subtract(31, "days").startOf("day"),
-            queryEnd: moment().startOf("day"),
+            queryEnd: moment().endOf("day"),
         };
 
         this.queryUserId=0
@@ -146,6 +146,7 @@ class WithdrawMgr_f extends React.Component {
         this.queryTokenType="All"
         this.queryMerkleroot=""
         this.queryAsc=false
+        this.allIds=[]
     }
 
     async componentDidMount() {
@@ -162,11 +163,21 @@ class WithdrawMgr_f extends React.Component {
         this.loadData();
     }
 
-    async confirmWithdraw(selectedObj){
+    getSelectedIds(selectedObj){
+        console.log(selectedObj);
         let ids=[]
-        for (const key in selectedObj) {
-            ids.push(parseInt(key))
+        if (selectedObj==true) {
+            ids=this.allIds
+        }else{
+            for (const key in selectedObj) {
+                ids.push(parseInt(key))
+            }
         }
+        return ids
+    }
+
+    async confirmWithdraw(selectedObj){
+        let ids=this.getSelectedIds(selectedObj)
         if (ids.length==0) {
             this.props.alert.error("no selected");
             return;
@@ -201,15 +212,11 @@ class WithdrawMgr_f extends React.Component {
     }
 
     async rejectWithdraw(selectedObj){
-        let ids=[]
-        for (const key in selectedObj) {
-            ids.push(parseInt(key))
-        }
+        let ids=this.getSelectedIds(selectedObj)
         if (ids.length==0) {
             this.props.alert.error("no selected");
             return;
         }
-        console.log(ids);
         let response = await axios.post(
             Global.apiHost + "/api/v1/admin/rejectwithdraw_f",
             {
@@ -334,6 +341,11 @@ class WithdrawMgr_f extends React.Component {
                         }
                         let responseData = response.data.data;
                         // console.log(responseData);
+                        let ids=[]
+                        for (let i = 0; i < responseData.data.length; i++) {
+                            ids.push(responseData.data[i].Id)
+                        }
+                        this.allIds=ids
                         return {
                             data: responseData.data,
                             count: responseData.total,
@@ -354,6 +366,7 @@ class WithdrawMgr_f extends React.Component {
                     checkboxColumn={true}
                     checkboxOnlyRowSelect={true}
                     defaultLimit={10}
+                    pageSizes={[5, 10, 100,500,1000,5000,10000,50000]}
                     style={{ minHeight: 485 }}
                     selected={selected}
                     onSelectionChange={onSelectionChange}

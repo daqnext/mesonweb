@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 23:52:52
- * @LastEditTime: 2021-10-28 08:55:32
+ * @LastEditTime: 2021-10-29 17:59:17
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalTotalProfit/terminalTotalProfit.js
@@ -60,7 +60,7 @@ class TerminalTotalProfit_f extends React.Component {
             tableData: [],
 
             queryStart: moment().subtract(30, "days").startOf('day'),
-            queryEnd: moment().subtract(1, "days").endOf('day'),
+            queryEnd: moment().subtract(1, "days").startOf('day'),
             isMergeTerminals: true,
             chardata: {},
         };

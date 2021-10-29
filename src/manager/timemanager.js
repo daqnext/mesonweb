@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-23 16:10:59
- * @LastEditTime: 2021-03-14 16:10:15
+ * @LastEditTime: 2021-10-29 18:08:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/manager/timemanager.js
@@ -15,7 +15,7 @@ import moment from "moment";
 
 
 class TimeManager {
-    static timeZone = "Europe/London";
+    static timeZone = "Atlantic/Reykjavik";
     //static timeZone =null;
     static async UpdateServerTimeZone(){
         momentTimeZone.tz.setDefault(TimeManager.timeZone);

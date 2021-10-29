@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-02 15:18:47
- * @LastEditTime: 2021-10-27 16:57:00
+ * @LastEditTime: 2021-10-29 17:56:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalBalance/terminalBalance.js
@@ -161,8 +161,9 @@ class TerminalBalancePage_f extends React.Component {
             tableData: [],
             targetWalletAddress: "",
             amount: "",
+            vcode:"",
             queryStart: moment().subtract(31, "days").startOf("day"),
-            queryEnd: moment().startOf("day"),
+            queryEnd: moment().endOf("day"),
         };
     }
 
@@ -266,7 +267,7 @@ class TerminalBalancePage_f extends React.Component {
                 break;
 
             default:
-                this.props.alert.error("Add withdraw Error");
+                this.props.alert.error(response.data.msg);
                 return;
         }
     }
@@ -420,7 +421,9 @@ class TerminalBalancePage_f extends React.Component {
                                                 type="text"
                                                 placeholder="Enter vcode"
                                                 onChange={(event) => {
-                                                    this.vcode = event.target.value.trim();
+                                                    this.setState({
+                                                        vcode: event.currentTarget.value.trim(),
+                                                    });
                                                 }}
                                             ></input>
                                         </div>
