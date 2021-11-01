@@ -1,7 +1,8 @@
+/* eslint-disable no-undef */
 /*
  * @Author: your name
  * @Date: 2020-12-02 15:18:47
- * @LastEditTime: 2021-10-29 17:56:01
+ * @LastEditTime: 2021-11-01 15:53:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalBalance/terminalBalance.js
@@ -18,6 +19,557 @@ import ReactDataGrid from "@inovua/reactdatagrid-community";
 import { withAlert } from "react-alert";
 import moment from "moment";
 import DateRangePicker from "react-bootstrap-daterangepicker";
+
+var abi = [
+    {
+        inputs: [
+            {
+                internalType: "address",
+                name: "_MSNcontractAddr",
+                type: "address",
+            },
+        ],
+        stateMutability: "nonpayable",
+        type: "constructor",
+    },
+    {
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "address",
+                name: "keeper_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "string",
+                name: "keeper_name",
+                type: "string",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "add_keeper_EVENT",
+        type: "event",
+    },
+    {
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "add_merkle_root_EVENT",
+        type: "event",
+    },
+    {
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "time",
+                type: "uint256",
+            },
+        ],
+        name: "claim_erc20_EVENT",
+        type: "event",
+    },
+    {
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "address",
+                name: "keeper_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "string",
+                name: "keeper_name",
+                type: "string",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "remove_keeper_EVENT",
+        type: "event",
+    },
+    {
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "remove_merkle_root_EVENT",
+        type: "event",
+    },
+    {
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "address",
+                name: "oldOwner",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "address",
+                name: "newOwner",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "set_MiningOwner_EVENT",
+        type: "event",
+    },
+    {
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+            {
+                indexed: false,
+                internalType: "string",
+                name: "userid",
+                type: "string",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "stake_token_EVENT",
+        type: "event",
+    },
+    {
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "address",
+                name: "_from",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "withdraw_contract_EVENT",
+        type: "event",
+    },
+    {
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "_amount",
+                type: "uint256",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "withdraw_eth_EVENT",
+        type: "event",
+    },
+    {
+        stateMutability: "payable",
+        type: "fallback",
+    },
+    {
+        inputs: [
+            {
+                internalType: "address",
+                name: "keeper_addr",
+                type: "address",
+            },
+            {
+                internalType: "string",
+                name: "keeper_name",
+                type: "string",
+            },
+        ],
+        name: "add_keeper",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+            {
+                internalType: "uint256",
+                name: "index",
+                type: "uint256",
+            },
+            {
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+            {
+                internalType: "bytes32[]",
+                name: "merkleProof",
+                type: "bytes32[]",
+            },
+        ],
+        name: "claim_erc20",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "get_MiningOwner",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "address",
+                name: "addr",
+                type: "address",
+            },
+        ],
+        name: "get_acc_staking",
+        outputs: [
+            {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "get_contract_balance",
+        outputs: [
+            {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "address",
+                name: "keeper_addr",
+                type: "address",
+            },
+        ],
+        name: "get_keeper",
+        outputs: [
+            {
+                internalType: "string",
+                name: "",
+                type: "string",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+        ],
+        name: "get_merkle_balance",
+        outputs: [
+            {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "get_msn_addr",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "address",
+                name: "keeper_addr",
+                type: "address",
+            },
+        ],
+        name: "remove_keeper",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+        ],
+        name: "remove_merkle_root",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "address",
+                name: "_newOwner",
+                type: "address",
+            },
+        ],
+        name: "set_MiningOwner",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+            {
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+        ],
+        name: "set_merkle_root",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+            {
+                internalType: "string",
+                name: "userid",
+                type: "string",
+            },
+        ],
+        name: "stake_token",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "withdraw_contract",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "withdraw_eth",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+    },
+    {
+        stateMutability: "payable",
+        type: "receive",
+    },
+];
+
+async function claimErc20(contract_address, abi, merkleRoot, index, amount,proof, merkleInfo) {
+    try {
+        //let merkleProof = merkleInfo.proof;
+        if (typeof window.ethereum !== "undefined") {
+            const [account] = await window.ethereum.request({ method: "eth_requestAccounts" });
+            if (!merkleInfo.hasOwnProperty(account)) {
+                alert("your current wallet:" + account + "|please swith to correct erc20 wallet");
+                return;
+            }
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            let contract = new ethers.Contract(contract_address, abi, signer);
+            console.log("contract",contract_address);
+            console.log("root",merkleRoot);
+            console.log("index",index);
+            console.log("amount",amount);
+            console.log("proof",proof);
+            let transcation = await contract.claim_erc20(merkleRoot, index.toString(), amount.toString(), proof);
+            await transcation.wait();
+        } else {
+            try {
+                await window.ethereum.request({ method: "eth_requestAccounts" });
+            } catch (e) {
+                alert("Error:" + e.message);
+            }
+        }
+    } catch (e) {
+        alert("Error:" + e.message);
+    }
+}
 
 class TerminalBalancePage_f extends React.Component {
     constructor(props) {
@@ -50,15 +602,15 @@ class TerminalBalancePage_f extends React.Component {
             },
             {
                 name: "Address",
-                header: "Address",
+                header: "Recipient Address",
                 defaultFlex: 1,
-                editable:true
+                editable: true,
             },
             {
                 name: "Amount",
                 header: "Amount",
                 defaultFlex: 1,
-                editable:true,
+                editable: true,
                 render: ({ value }) => {
                     return <div>{Utils.ParseMesonTokenStringToNormal(value)}</div>;
                 },
@@ -77,21 +629,21 @@ class TerminalBalancePage_f extends React.Component {
                         case "pending":
                             return (
                                 <div>
-                                    <span className="status-on" style={{backgroundColor:"orange"}}></span> &nbsp;Pending
+                                    <span className="status-on" style={{ backgroundColor: "orange" }}></span> &nbsp;Pending
                                 </div>
                             );
 
                         case "confirmed":
                             return (
                                 <div>
-                                    <span className="status-on" style={{backgroundColor:"skyblue"}}></span> &nbsp;Confirmed
+                                    <span className="status-on" style={{ backgroundColor: "skyblue" }}></span> &nbsp;Confirmed
                                 </div>
                             );
 
                         case "rejected":
                             return (
                                 <div>
-                                    <span className="status-on" style={{backgroundColor:"red"}}></span> &nbsp;Rejected
+                                    <span className="status-on" style={{ backgroundColor: "red" }}></span> &nbsp;Rejected
                                 </div>
                             );
 
@@ -116,41 +668,129 @@ class TerminalBalancePage_f extends React.Component {
                 defaultFlex: 0.3,
                 render: ({ data }) => {
                     //console.log(data);
-                    if (data.Status != "pending") {
-                        return null;
+                    switch (data.Status) {
+                        case "pending":
+                            return (
+                                <div style={{ display: "flex" }}>
+                                    <div
+                                        style={{ marginLeft: "5px" }}
+                                        className="btn btn-primary-rocket btn-sm"
+                                        onClick={async () => {
+                                            //console.log(data);
+                                            let response = await axios.post(
+                                                Global.apiHost + "/api/v1/user/cancelwithdraw_f",
+                                                {
+                                                    Id: data.Id,
+                                                },
+                                                {
+                                                    headers: {
+                                                        Authorization: "Bearer " + UserManager.GetUserToken(),
+                                                    },
+                                                }
+                                            );
+
+                                            if (response.data.status == 0) {
+                                                this.props.alert.success("Cmd Sended");
+                                                this.loadData();
+                                                return;
+                                            }
+
+                                            this.props.alert.error("Cmd send error");
+                                        }}
+                                    >
+                                        Cancel
+                                    </div>
+                                </div>
+                            );
+
+                        case "confirmed":
+                            return null;
+
+                        case "rejected":
+                            return null;
+
+                        case "finished":
+                            return (
+                                <div style={{ display: "flex" }}>
+                                    <div
+                                        style={{ marginLeft: "5px" }}
+                                        className="btn btn-primary-rocket btn-sm"
+                                        onClick={async () => {
+                                            console.log("get token click");
+                                            console.log(data);
+                                            let response 
+                                            let contractAddress
+                                            try {
+                                                response=await axios.post(
+                                                    Global.apiHost + "/api/v1/user/withdrawcontractname_f",
+                                                    {
+                                                        Contract: "MSNTT_MINING",
+                                                    },
+                                                    {
+                                                        headers: {
+                                                            Authorization: "Bearer " + UserManager.GetUserToken(),
+                                                        },
+                                                    }
+                                                );
+    
+                                                if (response.data.status == 0) {
+                                                    console.log(response.data.data);
+                                                   contractAddress=response.data.data
+                                                }else{
+                                                    this.props.alert.error("get contract error");
+                                                }
+    
+                                                
+                                                response = await axios.post(
+                                                    Global.apiHost + "/api/v1/user/withdrawmerkle_f",
+                                                    {
+                                                        Merkle: data.MerkleRoot,
+                                                    },
+                                                    {
+                                                        headers: {
+                                                            Authorization: "Bearer " + UserManager.GetUserToken(),
+                                                        },
+                                                    }
+                                                );
+    
+                                                if (response.data.status == 0) {
+                                                    console.log(response.data.data);
+    
+                                                    
+                                                        let merkleInfo = JSON.parse(response.data.data);
+                                                        console.log(merkleInfo);
+    
+                                                        console.log("root", merkleInfo.root);
+    
+                                                        let indexKey = data.FinanceId + ":index";
+                                                        console.log("index", merkleInfo[indexKey]);
+    
+                                                        let amountKey = data.FinanceId + ":amount";
+                                                        console.log("amount", merkleInfo[amountKey]);
+    
+                                                        let proofKey = data.FinanceId + ":proof";
+                                                        console.log("proof", merkleInfo[proofKey]);
+    
+                                                        claimErc20(contractAddress,abi,merkleInfo.root,merkleInfo[indexKey],merkleInfo[amountKey],merkleInfo[proofKey],merkleInfo);
+                                                    
+    
+                                                    return;
+                                                }
+    
+                                                this.props.alert.error("send error");
+                                            } catch (error) {
+                                                this.props.alert.error(error);
+                                            }
+                                            
+                                        }}
+                                    >
+                                        Get Token
+                                    </div>
+                                </div>
+                            );
+                        default:
+                            return null;
                     }
-                    return (
-                        <div style={{ display: "flex" }}>
-                            <div
-                                style={{ marginLeft: "5px" }}
-                                className="btn btn-primary-rocket btn-sm"
-                                onClick={async () => {
-                                    //console.log(data);
-                                    let response = await axios.post(
-                                        Global.apiHost + "/api/v1/user/cancelwithdraw_f",
-                                        {
-                                            Id: data.Id,
-                                        },
-                                        {
-                                            headers: {
-                                                Authorization: "Bearer " + UserManager.GetUserToken(),
-                                            },
-                                        }
-                                    );
-
-                                    if (response.data.status == 0) {
-                                        this.props.alert.success("Cmd Sended");
-                                        this.loadData();
-                                        return;
-                                    }
-
-                                    this.props.alert.error("Cmd send error");
-                                }}
-                            >
-                                Cancel
-                            </div>
-                        </div>
-                    );
                 },
             },
         ];
@@ -161,7 +801,7 @@ class TerminalBalancePage_f extends React.Component {
             tableData: [],
             targetWalletAddress: "",
             amount: "",
-            vcode:"",
+            vcode: "",
             queryStart: moment().subtract(31, "days").startOf("day"),
             queryEnd: moment().endOf("day"),
         };
@@ -377,15 +1017,15 @@ class TerminalBalancePage_f extends React.Component {
                     <div className="toast-body h6" style={{ color: "#555e68" }}>
                         Please bind your email first.
                         <button
-                                    onClick={() => {
-                                        window.location="/bindemail"
-                                    }}
-                                    className="btn btn-primary-rocket"
-                                    type="button"
-                                    style={{marginLeft:"10px"}}
-                                >
-                                    Bind email
-                                </button>
+                            onClick={() => {
+                                window.location = "/bindemail";
+                            }}
+                            className="btn btn-primary-rocket"
+                            type="button"
+                            style={{ marginLeft: "10px" }}
+                        >
+                            Bind email
+                        </button>
                     </div>
                 ) : (
                     <div className="toast-body" style={{ color: "#555e68" }}>

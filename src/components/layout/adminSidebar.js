@@ -188,7 +188,7 @@ class AdminSidebar extends React.Component {
                         <li  className= {this.getActive("/binddomain")+" nav-item"}><a className="nav-link" href="/binddomain"><span>BindDomain</span></a></li>
                         <li className= {this.getActive("/clienttraffic")+" nav-item"}><a className="nav-link" href="/clienttraffic"><span>Traffic</span></a></li>
                         <li className={this.getActive("/balance") + " nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>
-                        <li className= {this.getActive("/filemanager")+" nav-item"}><a className="nav-link" href="/filemanager"><span>FileManager</span></a></li>
+                        {/* <li className= {this.getActive("/filemanager")+" nav-item"}><a className="nav-link" href="/filemanager"><span>FileManager</span></a></li> */}
                         
                         {/* finance_server */}
                         {/* <li className= {this.getActive("/balance_f") + " nav-item"}><a className="nav-link" href="/balance_f"><span>Balance_f</span></a></li> */}

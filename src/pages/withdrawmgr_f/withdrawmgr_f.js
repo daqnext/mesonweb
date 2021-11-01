@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-26 11:46:09
- * @LastEditTime: 2021-10-29 21:58:20
+ * @LastEditTime: 2021-11-01 17:09:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/withdrawmgr_f/withdrawmgr_f.js
@@ -62,7 +62,7 @@ class WithdrawMgr_f extends React.Component {
             },
             {
                 name: "Address",
-                header: "Address",
+                header: "Recipient Address",
                 defaultFlex: 1,
                 editable:true
             },
@@ -287,6 +287,8 @@ class WithdrawMgr_f extends React.Component {
         const onSelectionChange = useCallback(({ selected }) => {
             setSelected(selected);
             this.selected = selected;
+            //add sum amount
+            
         }, []);
 
         const loadData = useCallback(() => {

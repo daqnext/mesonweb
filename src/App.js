@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-10-26 17:16:30
+ * @LastEditTime: 2021-11-01 16:59:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -32,7 +32,7 @@ import AdminPriceSetting from './pages/adminPriceSettting/adminPriceSetting';
 import BlogEditorPage from './pages/blogEditor/blogEditor';
 import UserBlogList from './pages/userBlogList/userBlogList';
 import AdminBlogList from './pages/adminBlogList/adminBlogList';
-import FileManagerPage from './pages/fileManager/fileManager'
+// import FileManagerPage from './pages/fileManager/fileManager'
 import MiningRulesPage from './pages/miningRules/miningRules'
 import NewMiningRulesPage from './pages/miningRulesNew/miningRulesNew'
 import BlogPage from './pages/blogContent/blogContent'
@@ -101,7 +101,7 @@ function App() {
         binddomain: BindDomain,
         clienttraffic: ClientTraffic,
         balance: BalancePage,
-        filemanager: FileManagerPage,
+        // filemanager: FileManagerPage,
 
         //for blog
         blogeditor: BlogEditorPage,
