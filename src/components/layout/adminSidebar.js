@@ -153,8 +153,8 @@ class AdminSidebar extends React.Component {
                         {/* finance server */}
                         {/* <li className= {this.getActive("/terminaltotalprofit_f") + " nav-item"}><a className="nav-link" href="/terminaltotalprofit_f"><span>Earnings_f</span></a></li> */}
                         {/* <li className= {this.getActive("/terminalbalance_f")+" nav-item"}><a className="nav-link" href="/terminalbalance_f"><span>TokenBalance_f</span></a></li> */}
+                        {/* <li className= {this.getActive("/stake_f")+" nav-item"}><a className="nav-link" href="/stake_f"><span>Stake_f</span></a></li> */}
                         {/* <li className= {this.getActive("/userairdrop_f")+" nav-item"}><a className="nav-link" href="/userairdrop_f"><span>UserAirdrop_f</span></a></li> */}
-                        
                         
                     </ul>
                 </div>

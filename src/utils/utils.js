@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-17 11:47:50
- * @LastEditTime: 2021-10-27 16:58:45
+ * @LastEditTime: 2021-11-03 15:40:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/utils/utils.js
@@ -36,8 +36,8 @@ export default class Utils {
         str = str.replace(/\b(0+)/gi, "");
 
         let result = "";
-        let leftPart="0"
-        let rightPart="0"
+        let leftPart = "0";
+        let rightPart = "0";
         if (str.length <= 18) {
             rightPart = str.padStart(18, "0");
             //console.log(rightPart);
@@ -47,45 +47,50 @@ export default class Utils {
         }
 
         rightPart = rightPart.replace(/(0+)\b/gi, "");
-            while(rightPart.length < 5) {
-                rightPart=rightPart+"0"
-            }
-            result = leftPart + "." + rightPart;
+        while (rightPart.length < 5) {
+            rightPart = rightPart + "0";
+        }
+        result = leftPart + "." + rightPart;
 
         //console.log(result);
-        return result
+        return result;
     }
 
-    static ParseNormalToMesonTokenString(numStr){
-        if (numStr=="0") {
-            return "0"
+    static ParseNormalToMesonTokenString(numStr) {
+        if (numStr == "0") {
+            return "0";
         }
-        
-        let a=numStr.split(".")
+
+        let a = numStr.split(".");
         //console.log(a);
-        let left=""
-        let right=""
-        
-        if (a[0]=="0") {
-            left=""
-        }else if (a[0]=="-0") {
-            left="-"
-        }else{
-            left=a[0]
+        let left = "";
+        let right = "";
+
+        if (a[0] == "0") {
+            left = "";
+        } else if (a[0] == "-0") {
+            left = "-";
+        } else {
+            left = a[0];
         }
-        
-        if (a.length<=1) {
-            right="000000000000000000"
-        }else{
-            right=a[1].substr(0,18)
-            right=right.padEnd(18, "0")
+
+        if (a.length <= 1) {
+            right = "000000000000000000";
+        } else {
+            right = a[1].substr(0, 18);
+            right = right.padEnd(18, "0");
         }
-        
-        if (left==""||left=="-"){
+
+        if (left == "" || left == "-") {
             right = right.replace(/\b(0+)/gi, "");
         }
-        
-        return left+right
+
+        let str = left + right;
+        str = str.replace(/\b(0+)/gi, "");
+        if (str == "") {
+            str = "0";
+        }
+        return str;
     }
 
     static ParseUSDStringToNormal(str) {
@@ -97,8 +102,8 @@ export default class Utils {
         str = str.replace(/\b(0+)/gi, "");
 
         let result = "";
-        let leftPart="0"
-        let rightPart="0"
+        let leftPart = "0";
+        let rightPart = "0";
         if (str.length <= 6) {
             rightPart = str.padStart(6, "0");
             //console.log(rightPart);
@@ -108,12 +113,22 @@ export default class Utils {
         }
 
         rightPart = rightPart.replace(/(0+)\b/gi, "");
-            while(rightPart.length < 6) {
-                rightPart=rightPart+"0"
-            }
-            result = leftPart + "." + rightPart;
+        while (rightPart.length < 6) {
+            rightPart = rightPart + "0";
+        }
+        result = leftPart + "." + rightPart;
 
         //console.log(result);
-        return result
+        return result;
+    }
+
+    static HandleErc20Error(message, alertObj) {
+        if (message.search("missing provider") != -1) {
+            alertObj.error("Please open your wallet");
+        } else if (message.search("transaction failed") != -1) {
+            alertObj.error("transaction failed");
+        } else {
+            alertObj.error(message);
+        }
     }
 }

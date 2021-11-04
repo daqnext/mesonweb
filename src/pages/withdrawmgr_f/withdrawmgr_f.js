@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-26 11:46:09
- * @LastEditTime: 2021-11-01 17:09:27
+ * @LastEditTime: 2021-11-03 18:30:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/withdrawmgr_f/withdrawmgr_f.js
@@ -18,6 +18,8 @@ import ReactDataGrid from "@inovua/reactdatagrid-community";
 import { withAlert } from "react-alert";
 import moment from "moment";
 import DateRangePicker from "react-bootstrap-daterangepicker";
+import BN from "bn.js";
+import { Confirm } from "../../components/confirm/confirm";
 
 class WithdrawMgr_f extends React.Component {
     constructor(props) {
@@ -52,34 +54,34 @@ class WithdrawMgr_f extends React.Component {
                 name: "UserName",
                 header: "UserName",
                 defaultFlex: 0.3,
-                editable:true
+                editable: true,
             },
             {
                 name: "UserEmail",
                 header: "Email",
                 defaultFlex: 0.3,
-                editable:true
+                editable: true,
             },
             {
                 name: "Address",
                 header: "Recipient Address",
                 defaultFlex: 1,
-                editable:true
+                editable: true,
             },
             {
                 name: "MerkleRoot",
                 header: "MerkleRoot",
                 defaultFlex: 1,
-                editable:true
+                editable: true,
             },
             {
                 name: "Amount",
                 header: "Amount",
-                defaultFlex: 1,
+                defaultFlex: 0.8,
                 render: ({ value }) => {
                     return <div>{Utils.ParseMesonTokenStringToNormal(value)}</div>;
                 },
-                editable:true
+                editable: true,
             },
             {
                 name: "CreditName",
@@ -119,6 +121,12 @@ class WithdrawMgr_f extends React.Component {
                                     <span className="status-on"></span> &nbsp;Finished
                                 </div>
                             );
+                        case "received":
+                            return (
+                                <div>
+                                    <span className="status-on"></span> &nbsp;Received
+                                </div>
+                            );
                         default:
                             return (
                                 <div>
@@ -138,15 +146,19 @@ class WithdrawMgr_f extends React.Component {
             amount: "",
             queryStart: moment().subtract(31, "days").startOf("day"),
             queryEnd: moment().endOf("day"),
+            selectedSum: null,
+            merkleRootAmount:null,
+            selectedIds:[]
         };
 
-        this.queryUserId=0
-        this.queryStatus="All"
-        this.queryTargetAddress=""
-        this.queryTokenType="All"
-        this.queryMerkleroot=""
-        this.queryAsc=false
-        this.allIds=[]
+        this.queryUserId = 0;
+        this.queryStatus = "Pending";
+        this.queryTargetAddress = "";
+        this.queryTokenType = "All";
+        this.queryMerkleroot = "";
+        this.queryAsc = false;
+        this.allIds = [];
+        this.selectedIds = []
     }
 
     async componentDidMount() {
@@ -158,34 +170,29 @@ class WithdrawMgr_f extends React.Component {
         this.setState({
             dataready: true,
         });
-        this.selected = {};
 
         this.loadData();
     }
 
-    getSelectedIds(selectedObj){
-        console.log(selectedObj);
-        let ids=[]
-        if (selectedObj==true) {
-            ids=this.allIds
-        }else{
-            for (const key in selectedObj) {
-                ids.push(parseInt(key))
-            }
+    sumOfSelected(ids) {
+        let sum = new BN("0");
+        for (let i = 0; i < ids.length; i++) {
+            let obj = this.allDataMap[ids[i]];
+            let amount = new BN(obj.Amount, 10);
+            sum.iadd(amount);
         }
-        return ids
+        return sum;
     }
 
-    async confirmWithdraw(selectedObj){
-        let ids=this.getSelectedIds(selectedObj)
-        if (ids.length==0) {
+    async confirmWithdraw(ids) {
+        if (ids.length == 0) {
             this.props.alert.error("no selected");
             return;
         }
         let response = await axios.post(
             Global.apiHost + "/api/v1/admin/confirmwithdraw_f",
             {
-                Ids:ids
+                Ids: ids,
             },
             {
                 headers: {
@@ -211,16 +218,15 @@ class WithdrawMgr_f extends React.Component {
         }
     }
 
-    async rejectWithdraw(selectedObj){
-        let ids=this.getSelectedIds(selectedObj)
-        if (ids.length==0) {
+    async rejectWithdraw(ids) {
+        if (ids.length == 0) {
             this.props.alert.error("no selected");
             return;
         }
         let response = await axios.post(
             Global.apiHost + "/api/v1/admin/rejectwithdraw_f",
             {
-                Ids:ids
+                Ids: ids,
             },
             {
                 headers: {
@@ -246,15 +252,51 @@ class WithdrawMgr_f extends React.Component {
         }
     }
 
-    async FinishWithdraw(merkleroot){
-        if (merkleroot=="") {
+    async GetMerkleRootAmount(merkleroot){
+        if (!merkleroot||merkleroot == "") {
+            this.props.alert.error("no merkleroot");
+            return;
+        }
+        let response = await axios.post(
+            Global.apiHost + "/api/v1/admin/getmerklerootamount_f",
+            {
+                MerkleRoot: merkleroot,
+            },
+            {
+                headers: {
+                    Authorization: "Bearer " + UserManager.GetUserToken(),
+                },
+            }
+        );
+
+        if (response == null || response.data == null) {
+            this.props.alert.error("Request error");
+            return;
+        }
+
+        switch (response.data.status) {
+            case 0:
+                this.setState({merkleRootAmount:response.data.data})
+                break;
+
+            default:
+                //this.props.alert.error(response.data.msg);
+                this.setState({merkleRootAmount:"0"})
+                this.props.alert.error("MerkleRoot error");
+                // this.props.alert.error("Add withdraw Error");
+                return;
+        }
+    }
+
+    async FinishWithdraw(merkleroot) {
+        if (!merkleroot||merkleroot == "") {
             this.props.alert.error("no merkleroot");
             return;
         }
         let response = await axios.post(
             Global.apiHost + "/api/v1/admin/finishwithdraw_f",
             {
-                MerkleRoot:merkleroot
+                MerkleRoot: merkleroot,
             },
             {
                 headers: {
@@ -283,40 +325,62 @@ class WithdrawMgr_f extends React.Component {
 
     loadData = null;
     DataGrid = () => {
-        const [selected, setSelected] = useState({});
-        const onSelectionChange = useCallback(({ selected }) => {
-            setSelected(selected);
-            this.selected = selected;
-            //add sum amount
+        //const [selected, setSelected] = useState({});
+        const onSelectionChange = useCallback(({ selected, data, unselected }) => {
+            //console.log(selected);
+            //console.log(unselected);
+
+            this.selectedIds = [];
+            if (selected === true) {
+                this.selectedIds = JSON.parse(JSON.stringify(this.allIds));
+                if (unselected) {
+                    for (const key in unselected) {
+                        let index = this.selectedIds.indexOf(parseInt(key));
+                        if (index > -1) {
+                            this.selectedIds.splice(index, 1);
+                        }
+                    }
+                }
+            } else {
+                for (const key in selected) {
+                    this.selectedIds.push(parseInt(key));
+                }
+            }
+
+            this.setState({selectedIds:this.selectedIds})
+
             
+            // //add sum amount
+            let sum = this.sumOfSelected(this.selectedIds);
+            this.setState({ selectedSum: sum });
         }, []);
 
         const loadData = useCallback(() => {
             const data = ({ skip, limit, sortInfo }) => {
                 // console.log(skip, limit);
-                let queryCondition={
+                let queryCondition = {
                     startTime: Math.floor(this.state.queryStart.valueOf() / 1000),
-                            endTime: Math.floor(this.state.queryEnd.valueOf() / 1000),
-                            Limit: limit,
-                            Offset: skip,
+                    endTime: Math.floor(this.state.queryEnd.valueOf() / 1000),
+                    Limit: limit,
+                    Offset: skip,
+                };
+                if (this.queryAsc == true) {
+                    queryCondition.Idasc = true;
                 }
-                if (this.queryAsc==true) {
-                    queryCondition.Idasc=true
+                if (this.queryMerkleroot != "") {
+                    queryCondition.Merkleroot = this.queryMerkleroot;
                 }
-                if (this.queryMerkleroot!="") {
-                    queryCondition.Merkleroot=this.queryMerkleroot
+                if (this.queryTokenType != "All") {
+                    queryCondition.Credit_Name = this.queryTokenType;
                 }
-                if (this.queryTokenType!="All") {
-                    queryCondition.Credit_Name=this.queryTokenType
+                if (this.queryUserId != 0) {
+                    queryCondition.UserId = this.queryUserId;
                 }
-                if (this.queryUserId!=0) {
-                    queryCondition.UserId=this.queryUserId
+                if (this.queryTargetAddress != "") {
+                    queryCondition.Address = this.queryTargetAddress;
                 }
-                if (this.queryTargetAddress!="") {
-                    queryCondition.Address=this.queryTargetAddress
-                }
-                if (this.queryStatus!="All") {
-                    queryCondition.Status=this.queryStatus
+                if (this.queryStatus != "All") {
+                    queryCondition.Status = this.queryStatus;
                 }
 
                 console.log(queryCondition);
@@ -343,11 +407,14 @@ class WithdrawMgr_f extends React.Component {
                         }
                         let responseData = response.data.data;
                         // console.log(responseData);
-                        let ids=[]
+                        let ids = [];
+                        let allDataMap = {};
                         for (let i = 0; i < responseData.data.length; i++) {
-                            ids.push(responseData.data[i].Id)
+                            ids.push(responseData.data[i].Id);
+                            allDataMap[responseData.data[i].Id] = responseData.data[i];
                         }
-                        this.allIds=ids
+                        this.allIds = ids;
+                        this.allDataMap = allDataMap;
                         return {
                             data: responseData.data,
                             count: responseData.total,
@@ -367,10 +434,11 @@ class WithdrawMgr_f extends React.Component {
                     pagination
                     checkboxColumn={true}
                     checkboxOnlyRowSelect={true}
-                    defaultLimit={10}
-                    pageSizes={[5, 10, 100,500,1000,5000,10000,50000]}
+                    defaultLimit={10000}
+                    pageSizes={[5, 10, 100, 500, 1000, 5000, 10000, 50000]}
                     style={{ minHeight: 485 }}
-                    selected={selected}
+                    //selected={selected}
+                    defaultGroupBy={[]}
                     onSelectionChange={onSelectionChange}
                 ></ReactDataGrid>
             </div>
@@ -386,21 +454,18 @@ class WithdrawMgr_f extends React.Component {
                 </div>
 
                 <div className="card-body" style={{ color: "#555e68" }}>
-                    <form
-                        className="row card-body"
-                        style={{ textAlign: "left" }}
-                    >
+                    <form className="row card-body" style={{ textAlign: "left" }}>
                         <div className="row">
                             <div className="col-md-4">
                                 <label>user id</label>
                                 <input
                                     className="form-control"
                                     onChange={(event) => {
-                                        let idStr=event.currentTarget.value.trim()
-                                        if (idStr=="") {
-                                            this.queryUserId=0
-                                        }else{
-                                            this.queryUserId=parseInt(idStr)
+                                        let idStr = event.currentTarget.value.trim();
+                                        if (idStr == "") {
+                                            this.queryUserId = 0;
+                                        } else {
+                                            this.queryUserId = parseInt(idStr);
                                         }
                                     }}
                                     type="text"
@@ -412,15 +477,16 @@ class WithdrawMgr_f extends React.Component {
                                 <select
                                     className="form-control"
                                     onChange={(event) => {
-                                        this.queryStatus=event.currentTarget.value.trim()
+                                        this.queryStatus = event.currentTarget.value.trim();
                                     }}
                                     type="text"
                                 >
                                     <option>All</option>
-                                    <option>Pending</option>
+                                    <option selected>Pending</option>
                                     <option>Confirmed</option>
                                     <option>Rejected</option>
                                     <option>Finished</option>
+                                    <option>Received</option>
                                 </select>
                             </div>
 
@@ -429,7 +495,7 @@ class WithdrawMgr_f extends React.Component {
                                 <input
                                     className="form-control"
                                     onChange={(event) => {
-                                        this.queryTargetAddress=event.currentTarget.value.trim()
+                                        this.queryTargetAddress = event.currentTarget.value.trim();
                                     }}
                                     type="text"
                                 />
@@ -440,7 +506,7 @@ class WithdrawMgr_f extends React.Component {
                                 <select
                                     className="form-control"
                                     onChange={(event) => {
-                                        this.queryTokenType= event.currentTarget.value.trim();
+                                        this.queryTokenType = event.currentTarget.value.trim();
                                     }}
                                     type="text"
                                 >
@@ -454,9 +520,7 @@ class WithdrawMgr_f extends React.Component {
                                 <input
                                     className="form-control"
                                     onChange={(event) => {
-                                        
-                                        this.queryMerkleroot= event.currentTarget.value.trim()
-                                        
+                                        this.queryMerkleroot = event.currentTarget.value.trim();
                                     }}
                                     type="text"
                                 />
@@ -467,11 +531,11 @@ class WithdrawMgr_f extends React.Component {
                                 <select
                                     className="form-control"
                                     onChange={(event) => {
-                                        let sort =event.currentTarget.value.trim();
-                                        if (sort=="desc") {
-                                            this.queryAsc=false
-                                        }else{
-                                            this.queryAsc=true
+                                        let sort = event.currentTarget.value.trim();
+                                        if (sort == "desc") {
+                                            this.queryAsc = false;
+                                        } else {
+                                            this.queryAsc = true;
                                         }
                                     }}
                                     type="text"
@@ -540,13 +604,26 @@ class WithdrawMgr_f extends React.Component {
 
                 <div className="toast-body" style={{ color: "#555e68" }}>
                     <form>
-                        <div className="form-row">
+                        <div className="form-row">                            
                             <button
                                 onClick={() => {
-                                    console.log("confirm click", this.selected);
-                                    this.confirmWithdraw(this.selected)
+                                    //console.log("confirm click", this.selectedIds);
+                                    //this.confirmWithdraw(this.selectedIds);
+
+                                    Confirm.ShowConfirm(
+                                        "warning",
+                                        "Are you sure",
+                                        "You will confirm withdraw.",
+                                        true,
+                                        "warning",
+                                        "primary",
+                                        "Confirm",
+                                        () => {
+                                            this.confirmWithdraw(this.selectedIds);
+                                        }
+                                    );
                                 }}
-                                className="btn btn-primary-rocket"
+                                className="col-1 btn btn-primary-rocket"
                                 type="button"
                                 // style={{ marginTop: "10px" }}
                             >
@@ -555,17 +632,31 @@ class WithdrawMgr_f extends React.Component {
 
                             <button
                                 onClick={() => {
-                                    console.log("reject click", this.selected);
-                                    this.rejectWithdraw(this.selected)
+                                    //console.log("reject click", this.selectedIds);
+                                    //this.rejectWithdraw(this.selectedIds);
+
+                                    Confirm.ShowConfirm(
+                                        "warning",
+                                        "Are you sure",
+                                        "You will reject withdraw.",
+                                        true,
+                                        "warning",
+                                        "primary",
+                                        "Confirm",
+                                        () => {
+                                            this.rejectWithdraw(this.selectedIds);
+                                        }
+                                    );
                                 }}
-                                className="btn btn-primary-rocket"
+                                className="col-1 btn btn-primary-rocket"
                                 type="button"
                                 style={{ marginLeft: "10px" }}
                             >
                                 Reject
                             </button>
+                            <div className="col-2"></div>
 
-                            <div className="col-6" style={{ marginLeft: "40px" }}>
+                            <div className="col-4" >
                                 <input
                                     className="form-control py-3"
                                     type="text"
@@ -577,8 +668,32 @@ class WithdrawMgr_f extends React.Component {
                             </div>
                             <button
                                 onClick={() => {
+                                    console.log("get merkle amount click", this.finishMerkleRoot);
+                                    this.GetMerkleRootAmount(this.finishMerkleRoot);
+                                }}
+                                className="btn btn-primary-rocket"
+                                type="button"
+                                style={{ marginRight: "10px" }}
+                            >
+                                Get Total Amount
+                            </button>
+                            <button
+                                onClick={() => {
                                     console.log("finish click", this.finishMerkleRoot);
-                                    this.FinishWithdraw(this.finishMerkleRoot)
+                                    //this.FinishWithdraw(this.finishMerkleRoot);
+
+                                    Confirm.ShowConfirm(
+                                        "warning",
+                                        "Are you sure",
+                                        `${this.finishMerkleRoot}`,
+                                        true,
+                                        "warning",
+                                        "primary",
+                                        "Confirm",
+                                        () => {
+                                            this.FinishWithdraw(this.finishMerkleRoot);
+                                        }
+                                    );
                                 }}
                                 className="btn btn-primary-rocket"
                                 type="button"
@@ -586,6 +701,15 @@ class WithdrawMgr_f extends React.Component {
                             >
                                 Finish
                             </button>
+                            <div className="col-4" style={{ marginTop: "5px" }}>
+                                TotalCount:{this.state.selectedIds.length}                                
+                            </div>
+                            <div className="col-4" style={{ marginTop: "5px",marginLeft:"15px" }}>                           
+                                Total Merkle Root Amount: {this.state.merkleRootAmount ? this.state.merkleRootAmount.toString(10):"0"}
+                            </div>
+                            <div className="col-12" style={{ marginTop: "5px" }}>                           
+                                TotalAmount:{this.state.selectedSum ? this.state.selectedSum.toString(10):"0"}
+                            </div>
                         </div>
                     </form>
                 </div>

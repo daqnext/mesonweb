@@ -9,7 +9,7 @@
     "@ckeditor/ckeditor5-html-embed": "^23.1.0",
     "@ckeditor/ckeditor5-react": "^3.0.0",
     "@ckeditor/ckeditor5-upload": "^23.1.0",
-    "@inovua/reactdatagrid-community": "^4.0.10",
+    "@inovua/reactdatagrid-community": "^4.2.1",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",

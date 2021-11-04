@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 23:52:52
- * @LastEditTime: 2021-10-29 17:59:17
+ * @LastEditTime: 2021-11-03 09:00:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalTotalProfit/terminalTotalProfit.js
@@ -152,7 +152,7 @@ class TerminalTotalProfit_f extends React.Component {
             this.state.queryEnd.format("YYYY-MM-DD");
         return (
             <div>
-                <div className="row">
+                <div className="row" style={{marginBottom:"20px"}}>
                     <DateRangePicker
                         className="col-4"
                         initialSettings={{

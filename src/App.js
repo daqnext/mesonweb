@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-11-01 16:59:15
+ * @LastEditTime: 2021-11-02 16:16:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -55,6 +55,7 @@ import TerminalTotalProfit_f from "./pages/terminalTotalProfit_f/terminalTotalPr
 import TerminalBalance_f from "./pages/terminalBalance_f/terminalBalance_f"
 import UserAirdrop_f from "./pages/userAirdrop_f/userAirdrop_f"
 import WithdrawMgr_f from "./pages/withdrawmgr_f/withdrawmgr_f"
+import Stake_f from "./pages/stake_f/stake_f"
 
 {/* <li className= {this.getActive("/adminairdrop_f")+" nav-item"}  ><a className="nav-link" href="/adminairdrop_f"><span>AdminAirdrop_f</span></a></li>
                         <li className= {this.getActive("/balance_f") + " nav-item"}><a className="nav-link" href="/balance_f"><span>Balance_f</span></a></li>
@@ -123,6 +124,7 @@ function App() {
         terminalbalance_f:TerminalBalance_f,
         userairdrop_f:UserAirdrop_f,
         withdrawmgr_f:WithdrawMgr_f,
+        stake_f:Stake_f
 
     };
 

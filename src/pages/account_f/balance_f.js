@@ -134,6 +134,10 @@ class BalancePage_f extends React.Component {
         this.updatewallet();
 
         ///this.gettabledata();
+
+        setInterval(() => {
+            this.gettabledata();
+        }, 60*1000);
     }
 
 
@@ -257,15 +261,15 @@ class BalancePage_f extends React.Component {
                 <div className="card border-light shadow-sm">
                     <div className="card-body">
                         <div className="small text-muted">Current Account Balance</div>
-                        <div className="h3" style={{color:"#555e68"}}>Total: ${Utils.ParseUSDStringToNormal(this.state.summarize)}</div>
+                        {/* <div className="h3" style={{color:"#555e68"}}>Total: ${Utils.ParseUSDStringToNormal(this.state.summarize)}</div> */}
                         {this.state.coins&&this.state.coins.map((value,index,array)=>{
                             if (value.amount=="0"){
                                 return 
                             }
-                            return <div className="h4" key={index} style={{color:"#555e68"}}>{value.type}: ${Utils.ParseUSDStringToNormal(value.amount)}</div>;
+                            return <div className="h5" key={index} style={{color:"#555e68"}}>{value.type}: ${Utils.ParseUSDStringToNormal(value.amount)}</div>;
                         })}
                         {this.state.unCommitted!="0"&&
-                        <div className="h4" style={{color:"#555e68"}}>UnCommited:${-Utils.ParseUSDStringToNormal(this.state.unCommitted)}</div>}
+                        <div className="h5" style={{color:"#555e68"}}>UnCommited: ${-Utils.ParseUSDStringToNormal(this.state.unCommitted)}</div>}
                     </div>
                 </div>
 

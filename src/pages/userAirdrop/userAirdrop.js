@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-21 18:46:13
- * @LastEditTime: 2021-08-17 09:04:50
+ * @LastEditTime: 2021-11-03 09:00:17
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/tokenControl/tokenControl.js
@@ -190,7 +190,7 @@ class UserAirdropPage extends React.Component {
 
         return (
             <div>
-                <div className="row">
+                <div className="row" style={{marginBottom:"20px"}}>
                         <DateRangePicker
                             className="col-4"
                             initialSettings={{

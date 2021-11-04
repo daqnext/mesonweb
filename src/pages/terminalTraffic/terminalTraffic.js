@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-10 19:56:44
- * @LastEditTime: 2021-08-16 21:59:28
+ * @LastEditTime: 2021-11-03 09:00:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/terminalProfit/terminalProfit.js
@@ -153,7 +153,7 @@ class TerminalProfit extends React.Component {
 
             <div className="card border-light shadow-sm">
                 <div className="card-body">
-                <div className="row">
+                <div className="row" style={{marginBottom:"20px"}}>
                     <DateRangePicker
                         className="col-4"
                         initialSettings={{
