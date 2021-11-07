@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-26 11:46:09
- * @LastEditTime: 2021-11-03 18:30:35
+ * @LastEditTime: 2021-11-04 15:44:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/withdrawmgr_f/withdrawmgr_f.js
@@ -208,7 +208,7 @@ class WithdrawMgr_f extends React.Component {
 
         switch (response.data.status) {
             case 0:
-                this.props.alert.success("confirm withdraw Success");
+                this.props.alert.success("confirm exchange Success");
                 this.loadData();
                 break;
 
@@ -242,7 +242,7 @@ class WithdrawMgr_f extends React.Component {
 
         switch (response.data.status) {
             case 0:
-                this.props.alert.success("reject withdraw Success");
+                this.props.alert.success("reject exchange Success");
                 this.loadData();
                 break;
 
@@ -283,7 +283,7 @@ class WithdrawMgr_f extends React.Component {
                 //this.props.alert.error(response.data.msg);
                 this.setState({merkleRootAmount:"0"})
                 this.props.alert.error("MerkleRoot error");
-                // this.props.alert.error("Add withdraw Error");
+                // this.props.alert.error("Add exchange Error");
                 return;
         }
     }
@@ -312,13 +312,13 @@ class WithdrawMgr_f extends React.Component {
 
         switch (response.data.status) {
             case 0:
-                this.props.alert.success("Finish Withdraw Success");
+                this.props.alert.success("Finish Exchange Success");
                 this.loadData();
                 break;
 
             default:
                 this.props.alert.error(response.data.msg);
-                // this.props.alert.error("Add withdraw Error");
+                // this.props.alert.error("Add exchange Error");
                 return;
         }
     }
@@ -491,7 +491,7 @@ class WithdrawMgr_f extends React.Component {
                             </div>
 
                             <div className="col-md-4">
-                                <label>target wallet address</label>
+                                <label>recipient wallet address</label>
                                 <input
                                     className="form-control"
                                     onChange={(event) => {
@@ -613,7 +613,7 @@ class WithdrawMgr_f extends React.Component {
                                     Confirm.ShowConfirm(
                                         "warning",
                                         "Are you sure",
-                                        "You will confirm withdraw.",
+                                        "You will confirm exchange.",
                                         true,
                                         "warning",
                                         "primary",
@@ -638,7 +638,7 @@ class WithdrawMgr_f extends React.Component {
                                     Confirm.ShowConfirm(
                                         "warning",
                                         "Are you sure",
-                                        "You will reject withdraw.",
+                                        "You will reject exchange.",
                                         true,
                                         "warning",
                                         "primary",
@@ -723,12 +723,12 @@ class WithdrawMgr_f extends React.Component {
         }
 
         return (
-            <AdminLayout name="Admin" description="Withdraw Manager">
+            <AdminLayout name="Admin" description="Exchange Manager">
                 {this.withdrawArea()}
                 {this.operation()}
                 <div className="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
                     <div className="toast-header text-primary-rocket">
-                        <strong className="mr-auto ml-2"> Withdraw Record</strong>
+                        <strong className="mr-auto ml-2"> Exchange Record</strong>
                     </div>
                     <div className="toast-body">
                         <this.DataGrid></this.DataGrid>

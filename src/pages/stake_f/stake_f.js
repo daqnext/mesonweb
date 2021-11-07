@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-02 15:18:47
- * @LastEditTime: 2021-11-03 15:18:05
+ * @LastEditTime: 2021-11-07 17:19:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalBalance/terminalBalance.js
@@ -20,6 +20,7 @@ import { withAlert } from "react-alert";
 import moment from "moment";
 import DateRangePicker from "react-bootstrap-daterangepicker";
 import BN from "bn.js";
+import { Loading } from "../../components/loading/loading";
 
 let MSN_abi = [
     {
@@ -1267,6 +1268,33 @@ class StakePage_f extends React.Component {
                 header: "TokenType",
                 defaultFlex: 0.5,
             },
+            {
+                name: "status",
+                header: "Status",
+                defaultFlex: 0.3,
+                render: ({ value }) => {
+                    switch (value) {
+                        case "pending":
+                            return (
+                                <div>
+                                    <span className="status-on" style={{ backgroundColor: "orange" }}></span> &nbsp;Pending
+                                </div>
+                            );
+                        case "confirmed":
+                            return (
+                                <div>
+                                    <span className="status-on"></span> &nbsp;Confirmed
+                                </div>
+                            );
+                        default:
+                            return (
+                                <div>
+                                    <span>{value}</span>
+                                </div>
+                            );
+                    }
+                },
+            },
         ];
 
         this.state = {
@@ -1298,14 +1326,14 @@ class StakePage_f extends React.Component {
             let msn_contract = new ethers.Contract(msn_contract_address, msn_abi, provider);
 
             let balance = await msn_contract.balanceOf(account);
-            console.log(balance);
-            console.log(stake_amount);
-            console.log(balance.toString());
+            // console.log(balance);
+            // console.log(stake_amount);
+            // console.log(balance.toString());
             let amountBN = new BN(stake_amount, 10);
             let balanceBN = new BN(balance.toString(),10)
             if (amountBN.gt(balanceBN)) {
                 this.props.alert.error("balance not enough");
-                return;
+                return null;
             }
 
             let mining_allowance = await msn_contract.allowance(account, msn_mining_contract_address);
@@ -1323,16 +1351,19 @@ class StakePage_f extends React.Component {
                 //console.log("hide page loader .......");
                 if (mining_allowance_result.status != 1) {
                     this.props.alert.error("approve error,please try again");
-                    return;
+                    return null;
                 }
             }
             ///////////////
             let msn_mining_contract = new ethers.Contract(msn_mining_contract_address, msn_mining_abi, signer);
             let stake_transcation = await msn_mining_contract.stake_token(stake_amount, stake_userid);
-            await stake_transcation.wait();
+            return await stake_transcation.wait();
+            //console.log(result);
+            //await stake_transcation.wait();
         } catch (e) {
             //alert('Error:' + e.message);
             Utils.HandleErc20Error(e.message, this.props.alert);
+            return null
         }
     }
 
@@ -1420,10 +1451,71 @@ class StakePage_f extends React.Component {
                             return [];
                         }
                         let responseData = response.data.data;
-                        console.log(responseData);
+                        //console.log(responseData);
+                        
+                        let stakeRecord=[]
+                        //
+                        let confirmedTxMap={}
+                        for (let i = 0; i < responseData.length; i++) {
+                            responseData[i].status="confirmed"
+                            //console.log(responseData[i].log);
+
+                            // if (i==0) {
+                            //     responseData[i].log='{"Blocktime":12323,"Useraddress":"xasfasdf","Tx":"0x9e2252d180187005abccaf10ac539fe9909bc2cf554ab7455e279f853d87ae20"}'
+                            // }
+
+                            if (responseData[i].log&&responseData[i].log!="") {
+                                try {
+                                    let v=JSON.parse(responseData[i].log)
+                                    //console.log(v.Tx);
+                                    if (v.Tx&&v.Tx!="") {
+                                        responseData[i].tx=v.Tx
+                                        confirmedTxMap[v.Tx]=1
+                                    }
+                                } catch (error) {
+                                    //console.log(error);
+                                }
+                            }
+                            
+                            stakeRecord.push(responseData[i])
+                        }
+
+                        //console.log(stakeRecord);
+
+
+                        //read localStorage
+                        let existRecordStr=localStorage.getItem("stakeRecord")
+                        let existRecord=[]
+                        if (existRecordStr!=null) {
+                            try {
+                                existRecord=JSON.parse(existRecordStr)
+                            } catch (error) {
+                                
+                            }
+                            
+                        }
+
+                        let pendingRecordArray=[]
+                        // stakeRecord.push(...existRecord)
+                        let nowTime=moment().unix()
+                        for (let i = 0; i < existRecord.length; i++) {
+                            if(nowTime-existRecord[i].createTime>60*20){
+                                continue
+                            }
+                            if(confirmedTxMap[existRecord[i].tx_hash]){
+                                continue
+                            }
+                            pendingRecordArray.push(existRecord[i])
+                        }
+
+                        stakeRecord.splice(0,0,...pendingRecordArray)
+                        
+                        let newStr=JSON.stringify(pendingRecordArray)
+                        localStorage.setItem("stakeRecord",newStr)
+
                         return {
-                            data: responseData,
-                            count: responseData.length,
+                            data: stakeRecord,
+                            count: stakeRecord.length,
                         };
                     });
             };
@@ -1537,6 +1629,8 @@ class StakePage_f extends React.Component {
                                             }
                                         }
 
+                                        Loading.ShowLoading("Waiting....")
+
                                         response = await axios.post(
                                             Global.apiHost + "/api/v1/user/withdrawcontractname_f",
                                             {
@@ -1554,6 +1648,7 @@ class StakePage_f extends React.Component {
                                             msn_mining_contractAddress = response.data.data;
                                         } else {
                                             this.props.alert.error("get msn_mining contract error");
+                                            Loading.HideLoading()
                                             return;
                                         }
 
@@ -1574,6 +1669,7 @@ class StakePage_f extends React.Component {
                                             msn_contractAddress = response.data.data;
                                         } else {
                                             this.props.alert.error("get msn contract error");
+                                            Loading.HideLoading()
                                             return;
                                         }
 
@@ -1582,7 +1678,7 @@ class StakePage_f extends React.Component {
                                         console.log("this.financeId", this.financeId);
                                         console.log("stakeAmount", stakeAmount);
 
-                                        await this.stakeErc20(
+                                        let result = await this.stakeErc20(
                                             msn_contractAddress,
                                             MSN_abi,
                                             msn_mining_contractAddress,
@@ -1590,8 +1686,57 @@ class StakePage_f extends React.Component {
                                             this.financeId.toString(),
                                             stakeAmount
                                         );
+
+
+                                        if (result==null||result.status!=1) {
+                                            this.props.alert.error("stake error");
+                                            Loading.HideLoading()
+                                            return
+                                        }
+
+                                        //console.log(result);
+                                        if (result && result.status==1) {
+                                            Loading.HideLoading()
+                                            console.log("commit success","tx",result.transactionHash);
+                                        }
+
+                                        //add to localStorage
+                                        // amount: "1000000000000000000"
+                                        // credit_name: "MSNTT"
+                                        // date: "2021-11-05 02:57:57"
+                                        // reason: "MSN_MINING_STAKE"
+                                        // tx_hash: ""
+                                        // type: "ADD"
+                                        // unixtimesec: 0
+                                        // userid: 14
+
+                                        let newRecord={
+                                            amount:stakeAmount,
+                                            credit_name: "MSNTT",
+                                            reason: "MSN_MINING_STAKE",
+                                            tx_hash: result.transactionHash.toLowerCase(),
+                                            type: "ADD",
+                                            date: moment().format("YYYY-MM-DD hh:mm:ss"),
+                                            createTime:moment().unix(),
+                                            status:"pending"
+                                        }
+                                        let existRecordStr=localStorage.getItem("stakeRecord")
+                                        let existRecord=[]
+                                        if (existRecordStr!=null) {
+                                            existRecord=JSON.parse(existRecordStr)
+                                        }
+                                        let newRecordArray=[]
+                                        newRecordArray.push(newRecord)
+                                        newRecordArray.push(...existRecord)
+
+                                        let str=JSON.stringify(newRecordArray)
+                                        localStorage.setItem("stakeRecord",str)
+
+                                        this.loadData()
+
                                     } catch (error) {
                                         this.props.alert.error(error.message);
+                                        Loading.HideLoading()
                                         return;
                                     }
                                 }}

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-11-02 16:16:44
+ * @LastEditTime: 2021-11-04 17:50:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -119,13 +119,16 @@ function App() {
 
         //finance server page
         adminairdrop_f:AdminAirdrop_f,
+        exchangemgr_f:WithdrawMgr_f,
+
+        //for client page
         balance_f:Balance_f,
+
+        //for terminal tage
         terminaltotalprofit_f:TerminalTotalProfit_f,
         terminalbalance_f:TerminalBalance_f,
         userairdrop_f:UserAirdrop_f,
-        withdrawmgr_f:WithdrawMgr_f,
         stake_f:Stake_f
-
     };
 
 

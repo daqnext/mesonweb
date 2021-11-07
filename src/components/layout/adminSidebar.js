@@ -80,8 +80,8 @@ class AdminSidebar extends React.Component {
                         <li className= {this.getActive("/adminairdrop")+" nav-item"}  ><a className="nav-link" href="/adminairdrop"><span>Airdrop</span></a></li>
 
                         {/* finance server ready */}
-                        <li className= {this.getActive("/adminairdrop_f")+" nav-item"}  ><a className="nav-link" href="/adminairdrop_f"><span>AdminAirdrop_f</span></a></li>
-                        <li className= {this.getActive("/withdrawmgr_f")+" nav-item"}><a className="nav-link" href="/withdrawmgr_f"><span>WithdrawMgr_f</span></a></li>
+                        <li className= {this.getActive("/adminairdrop_f")+" nav-item"}  ><a className="nav-link" href="/adminairdrop_f"><span>AdminAirdrop</span></a></li>
+                        <li className= {this.getActive("/exchangemgr_f")+" nav-item"}><a className="nav-link" href="/exchangemgr_f"><span>ExchangeMgr</span></a></li>
 
                     </ul>
                 </div>
@@ -146,15 +146,26 @@ class AdminSidebar extends React.Component {
                         <li className= {this.getActive("/terminals")+" nav-item"}><a className="nav-link" href="/terminals"><span>Terminals</span></a></li>
                         <li className= {this.getActive("/miningrules")+" nav-item"}><a className="nav-link" href="/miningrules"><span>Mining Rules</span></a></li>
                         <li className= {this.getActive("/terminaltraffic")+" nav-item"}><a className="nav-link" href="/terminaltraffic"><span>Traffic</span></a></li>
+                        {UserManager.GetUserInfo().username=="Meson Destroyer"?
+                        <>
+                        <li className= {this.getActive("/terminaltotalprofit_f") + " nav-item"}><a className="nav-link" href="/terminaltotalprofit_f"><span>Earnings</span></a></li>
+                        <li className= {this.getActive("/terminalbalance_f")+" nav-item"}><a className="nav-link" href="/terminalbalance_f"><span>TokenBalance</span></a></li>
+                        <li className= {this.getActive("/stake_f")+" nav-item"}><a className="nav-link" href="/stake_f"><span>Stake</span></a></li>
+                        <li className= {this.getActive("/userairdrop_f")+" nav-item"}><a className="nav-link" href="/userairdrop_f"><span>Airdrop</span></a></li>
+                        </>
+                        :
+                        <>
                         <li className={this.getActive("/terminaltotalprofit") + " nav-item"}><a className="nav-link" href="/terminaltotalprofit"><span>Earnings</span></a></li>
                         <li className= {this.getActive("/terminalbalance")+" nav-item"}><a className="nav-link" href="/terminalbalance"><span>TokenBalance</span></a></li>
                         <li className= {this.getActive("/userairdrop")+" nav-item"}><a className="nav-link" href="/userairdrop"><span>Airdrop</span></a></li>
-
+                        </>
+                        }
+                        
                         {/* finance server */}
-                        {/* <li className= {this.getActive("/terminaltotalprofit_f") + " nav-item"}><a className="nav-link" href="/terminaltotalprofit_f"><span>Earnings_f</span></a></li> */}
-                        {/* <li className= {this.getActive("/terminalbalance_f")+" nav-item"}><a className="nav-link" href="/terminalbalance_f"><span>TokenBalance_f</span></a></li> */}
-                        {/* <li className= {this.getActive("/stake_f")+" nav-item"}><a className="nav-link" href="/stake_f"><span>Stake_f</span></a></li> */}
-                        {/* <li className= {this.getActive("/userairdrop_f")+" nav-item"}><a className="nav-link" href="/userairdrop_f"><span>UserAirdrop_f</span></a></li> */}
+                        {/* <li className= {this.getActive("/terminaltotalprofit") + " nav-item"}><a className="nav-link" href="/terminaltotalprofit"><span>Earnings</span></a></li> */}
+                        {/* <li className= {this.getActive("/terminalbalance")+" nav-item"}><a className="nav-link" href="/terminalbalance"><span>TokenBalance</span></a></li> */}
+                        {/* <li className= {this.getActive("/stake")+" nav-item"}><a className="nav-link" href="/stake_f"><span>Stake</span></a></li> */}
+                        {/* <li className= {this.getActive("/userairdrop")+" nav-item"}><a className="nav-link" href="/userairdrop"><span>UserAirdrop</span></a></li> */}
                         
                     </ul>
                 </div>
@@ -187,11 +198,13 @@ class AdminSidebar extends React.Component {
                     <ul className="flex-column nav">
                         <li  className= {this.getActive("/binddomain")+" nav-item"}><a className="nav-link" href="/binddomain"><span>BindDomain</span></a></li>
                         <li className= {this.getActive("/clienttraffic")+" nav-item"}><a className="nav-link" href="/clienttraffic"><span>Traffic</span></a></li>
-                        <li className={this.getActive("/balance") + " nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>
-                        {/* <li className= {this.getActive("/filemanager")+" nav-item"}><a className="nav-link" href="/filemanager"><span>FileManager</span></a></li> */}
+        
+                        {UserManager.GetUserInfo().username=="Meson Destroyer"?
+                        <li className= {this.getActive("/balance_f") + " nav-item"}><a className="nav-link" href="/balance_f"><span>Balance</span></a></li>:
+                        <li className={this.getActive("/balance") + " nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>}
                         
                         {/* finance_server */}
-                        {/* <li className= {this.getActive("/balance_f") + " nav-item"}><a className="nav-link" href="/balance_f"><span>Balance_f</span></a></li> */}
+                        {/* <li className= {this.getActive("/balance") + " nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li> */}
                     </ul>
                 </div>
             </li>

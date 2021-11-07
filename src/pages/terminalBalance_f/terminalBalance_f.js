@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-02 15:18:47
- * @LastEditTime: 2021-11-04 08:43:10
+ * @LastEditTime: 2021-11-05 17:41:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalBalance/terminalBalance.js
@@ -19,6 +19,7 @@ import ReactDataGrid from "@inovua/reactdatagrid-community";
 import { withAlert } from "react-alert";
 import moment from "moment";
 import DateRangePicker from "react-bootstrap-daterangepicker";
+import { Confirm } from "../../components/confirm/confirm";
 
 let abi = [
     {
@@ -807,7 +808,7 @@ class TerminalBalancePage_f extends React.Component {
             if (typeof window.ethereum !== "undefined") {
                 [account]=await window.ethereum.request({ method: "eth_requestAccounts" });
             }
-            if (account!=targetAddress) {
+            if (account.toLowerCase()!=targetAddress.toLowerCase()) {
                 this.props.alert.error(`Please switch to correct wallet`);
                 return
             }
@@ -1024,7 +1025,7 @@ class TerminalBalancePage_f extends React.Component {
 
         switch (response.data.status) {
             case 0:
-                this.props.alert.success("Add withdraw Success");
+                this.props.alert.success("Add exchange Success");
                 this.loadData();
                 break;
 
@@ -1118,7 +1119,7 @@ class TerminalBalancePage_f extends React.Component {
                     </button>
                     <div className="col-10" style={{ marginTop: "10px", color: "rgb(28 28 28)", fontSize: "16px" }}>
                         {/* It takes about [1-5 minutes] to receive your token. */}
-                        It takes about [5-7 days] for admin to confirm your withdraw.
+                        It takes [1 ~ 7] days for the system to check all data before confirmation.
                     </div>
                 </div>
                 <ReactDataGrid
@@ -1137,7 +1138,7 @@ class TerminalBalancePage_f extends React.Component {
         return (
             <div className="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
                 <div className="toast-header text-primary-rocket">
-                    <strong className="mr-auto ml-2"> Withdraw to wallet</strong>
+                    <strong className="mr-auto ml-2"> Exchange to your ERC20 wallet</strong>
                 </div>
 
                 {UserManager.GetUserInfo() && UserManager.GetUserInfo().email == "" ? (
@@ -1158,7 +1159,7 @@ class TerminalBalancePage_f extends React.Component {
                     <div className="toast-body" style={{ color: "#555e68" }}>
                         <form>
                             <div className="form-group">
-                                <label>recipient wallet</label>
+                                <label>recipient ERC20 wallet</label>
                                 <input
                                     className="form-control"
                                     onChange={(event) => {
@@ -1255,7 +1256,7 @@ class TerminalBalancePage_f extends React.Component {
                                     type="button"
                                     style={{ marginTop: "10px" }}
                                 >
-                                    Add Withdraw
+                                    Exchange token to your ERC20 wallet
                                 </button>
 
                                 {/* <button
@@ -1296,7 +1297,7 @@ class TerminalBalancePage_f extends React.Component {
 
                 <div className="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
                     <div className="toast-header text-primary-rocket">
-                        <strong className="mr-auto ml-2"> Withdraw Record</strong>
+                        <strong className="mr-auto ml-2"> Exchange Record</strong>
                     </div>
                     <div className="toast-body">
                         <this.DataGrid></this.DataGrid>
