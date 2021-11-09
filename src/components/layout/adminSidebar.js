@@ -77,11 +77,8 @@ class AdminSidebar extends React.Component {
                         <li className= {this.getActive("/adminmachine")+" nav-item"}  ><a className="nav-link" href="/adminmachine"><span>AdminMachine</span></a></li>
                         <li className={this.getActive("/adminpricesetting") + " nav-item"}  ><a className="nav-link" href="/adminpricesetting"><span>AdminPriceSetting</span></a></li>
                         <li className= {this.getActive("/adminbloglist")+" nav-item"}  ><a className="nav-link" href="/adminbloglist"><span>BlogList</span></a></li>
-                        <li className= {this.getActive("/adminairdrop")+" nav-item"}  ><a className="nav-link" href="/adminairdrop"><span>Airdrop</span></a></li>
-
-                        {/* finance server ready */}
-                        <li className= {this.getActive("/adminairdrop_f")+" nav-item"}  ><a className="nav-link" href="/adminairdrop_f"><span>AdminAirdrop</span></a></li>
-                        <li className= {this.getActive("/exchangemgr_f")+" nav-item"}><a className="nav-link" href="/exchangemgr_f"><span>ExchangeMgr</span></a></li>
+                        <li className= {this.getActive("/adminairdrop")+" nav-item"}  ><a className="nav-link" href="/adminairdrop"><span>AdminAirdrop</span></a></li>
+                        <li className= {this.getActive("/exchangemgr")+" nav-item"}><a className="nav-link" href="/exchangemgr"><span>ExchangeMgr</span></a></li>
 
                     </ul>
                 </div>
@@ -182,7 +179,7 @@ class AdminSidebar extends React.Component {
                     <ul className="flex-column nav">
                         <li  className= {this.getActive("/binddomain")+" nav-item"}><a className="nav-link" href="/binddomain"><span>BindDomain</span></a></li>
                         <li className= {this.getActive("/clienttraffic")+" nav-item"}><a className="nav-link" href="/clienttraffic"><span>Traffic</span></a></li>
-                        <li className= {this.getActive("/balance") + " nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>:
+                        <li className= {this.getActive("/balance") + " nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>
                     </ul>
                 </div>
             </li>
