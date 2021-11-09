@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-21 18:46:13
- * @LastEditTime: 2021-11-03 09:00:23
+ * @LastEditTime: 2021-11-08 10:56:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/tokenControl/tokenControl.js
@@ -98,8 +98,8 @@ class UserAirdropPage_f extends React.Component {
     loadData = null;
     DataGrid = () => {
         const loadData = useCallback(() => {
-            const data = ({ skip, limit, sortInfo }) => {
-                console.log(skip, limit);
+            const data = () => {
+                //console.log(skip, limit);
                 return axios
                     .post(
                         Global.apiHost+"/api/v1/user/transferrecord_f",
@@ -110,8 +110,6 @@ class UserAirdropPage_f extends React.Component {
                             endTime: Math.floor(
                                 this.state.queryEnd.valueOf() / 1000
                             ),
-                            limit: limit,
-                            offset: skip,
                         },
                         {
                             headers: {
@@ -214,7 +212,7 @@ class UserAirdropPage_f extends React.Component {
                     idProperty="id"
                     columns={this.columns}
                     dataSource={this.state.tableData}
-                    pagination
+                    pagination="local"
                     defaultLimit={10}
                     style={{ minHeight: 485 }}
                 ></ReactDataGrid>

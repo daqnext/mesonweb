@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-19 23:52:52
- * @LastEditTime: 2021-11-03 09:00:01
+ * @LastEditTime: 2021-11-08 17:34:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalTotalProfit/terminalTotalProfit.js
@@ -290,7 +290,7 @@ class TerminalTotalProfit_f extends React.Component {
                                 style={{ padding: "10px 20px" }}
                             >
                                 <div className="small text-muted">
-                                    Tokens Committed Today
+                                    Tokens Confirmed Today
                                 </div>
                                 <div
                                     className="h4 d-flex align-items-center"
@@ -313,7 +313,7 @@ class TerminalTotalProfit_f extends React.Component {
                                 style={{ padding: "10px 20px" }}
                             >
                                 <div className="small text-muted">
-                                    Tokens Uncommitted
+                                    Tokens Unconfirmed
                                 </div>
                                 <div
                                     className="h4 d-flex align-items-center"

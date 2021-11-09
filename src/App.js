@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-02 12:31:01
- * @LastEditTime: 2021-11-04 17:50:42
+ * @LastEditTime: 2021-11-08 12:21:56
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/App.js
@@ -48,6 +48,7 @@ import ChangePhone from './pages/changePhone/changePhone';
 import AdminAirdrop from './pages/adminAirdrop/adminAirdrop';
 import UserAirdrop from './pages/userAirdrop/userAirdrop';
 
+import Bridge from "./pages/bridge/bridge"
 //finance server page
 import AdminAirdrop_f from "./pages/adminAirdrop_f/adminAirdrop_f";
 import Balance_f from "./pages/account_f/balance_f";
@@ -88,20 +89,20 @@ function App() {
         adminmachine: AdminMachine,
         adminpricesetting: AdminPriceSetting,
         adminbloglist:AdminBlogList,
-        adminairdrop:AdminAirdrop,
+        // adminairdrop:AdminAirdrop,
 
         //for terminal pages
         terminals: TerminalPage,
         miningrules: MiningRulesPage,
         terminaltraffic: TerminalTraffic,
-        terminaltotalprofit: TerminalTotalProfit,
-        terminalbalance: TerminalBalance,
-        userairdrop:UserAirdrop,
+        // terminaltotalprofit: TerminalTotalProfit,
+        // terminalbalance: TerminalBalance,
+        // userairdrop:UserAirdrop,
 
         /////blow for client pages
         binddomain: BindDomain,
         clienttraffic: ClientTraffic,
-        balance: BalancePage,
+        // balance: BalancePage,
         // filemanager: FileManagerPage,
 
         //for blog
@@ -118,17 +119,18 @@ function App() {
         streams:Streams,
 
         //finance server page
-        adminairdrop_f:AdminAirdrop_f,
-        exchangemgr_f:WithdrawMgr_f,
+        adminairdrop:AdminAirdrop_f,
+        exchangemgr:WithdrawMgr_f,
 
         //for client page
-        balance_f:Balance_f,
+        balance:Balance_f,
 
         //for terminal tage
-        terminaltotalprofit_f:TerminalTotalProfit_f,
-        terminalbalance_f:TerminalBalance_f,
-        userairdrop_f:UserAirdrop_f,
-        stake_f:Stake_f
+        terminaltotalprofit:TerminalTotalProfit_f,
+        terminalbalance:TerminalBalance_f,
+        userairdrop:UserAirdrop_f,
+        stake:Stake_f,
+        bridge:Bridge
     };
 
 

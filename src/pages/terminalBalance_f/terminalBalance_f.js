@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-02 15:18:47
- * @LastEditTime: 2021-11-05 17:41:04
+ * @LastEditTime: 2021-11-08 13:59:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalBalance/terminalBalance.js
@@ -20,550 +20,551 @@ import { withAlert } from "react-alert";
 import moment from "moment";
 import DateRangePicker from "react-bootstrap-daterangepicker";
 import { Confirm } from "../../components/confirm/confirm";
+import WithdrawVideoTutorial from "../../components/withdrawVideoTutorial/withdrawVideoTutorial";
 
 let abi = [
     {
-    "inputs": [
-    {
-    "internalType": "address",
-    "name": "_MSNcontractAddr",
-    "type": "address"
-    }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
+        inputs: [
+            {
+                internalType: "address",
+                name: "_MSNcontractAddr",
+                type: "address",
+            },
+        ],
+        stateMutability: "nonpayable",
+        type: "constructor",
     },
     {
-    "anonymous": false,
-    "inputs": [
-    {
-    "indexed": false,
-    "internalType": "address",
-    "name": "trigger_user_addr",
-    "type": "address"
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "address",
+                name: "keeper_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "string",
+                name: "keeper_name",
+                type: "string",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "add_keeper_EVENT",
+        type: "event",
     },
     {
-    "indexed": false,
-    "internalType": "address",
-    "name": "keeper_addr",
-    "type": "address"
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "add_merkle_root_EVENT",
+        type: "event",
     },
     {
-    "indexed": false,
-    "internalType": "string",
-    "name": "keeper_name",
-    "type": "string"
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "time",
+                type: "uint256",
+            },
+        ],
+        name: "claim_erc20_EVENT",
+        type: "event",
     },
     {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "blocktime",
-    "type": "uint256"
-    }
-    ],
-    "name": "add_keeper_EVENT",
-    "type": "event"
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "address",
+                name: "keeper_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "string",
+                name: "keeper_name",
+                type: "string",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "remove_keeper_EVENT",
+        type: "event",
     },
     {
-    "anonymous": false,
-    "inputs": [
-    {
-    "indexed": false,
-    "internalType": "address",
-    "name": "trigger_user_addr",
-    "type": "address"
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "remove_merkle_root_EVENT",
+        type: "event",
     },
     {
-    "indexed": false,
-    "internalType": "bytes32",
-    "name": "merkleRoot",
-    "type": "bytes32"
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "address",
+                name: "oldOwner",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "address",
+                name: "newOwner",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "set_MiningOwner_EVENT",
+        type: "event",
     },
     {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+            {
+                indexed: false,
+                internalType: "string",
+                name: "userid",
+                type: "string",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "stake_token_EVENT",
+        type: "event",
     },
     {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "blocktime",
-    "type": "uint256"
-    }
-    ],
-    "name": "add_merkle_root_EVENT",
-    "type": "event"
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "address",
+                name: "_from",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "withdraw_contract_EVENT",
+        type: "event",
     },
     {
-    "anonymous": false,
-    "inputs": [
-    {
-    "indexed": false,
-    "internalType": "address",
-    "name": "trigger_user_addr",
-    "type": "address"
+        anonymous: false,
+        inputs: [
+            {
+                indexed: false,
+                internalType: "address",
+                name: "trigger_user_addr",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "_amount",
+                type: "uint256",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "blocktime",
+                type: "uint256",
+            },
+        ],
+        name: "withdraw_eth_EVENT",
+        type: "event",
     },
     {
-    "indexed": false,
-    "internalType": "bytes32",
-    "name": "merkleRoot",
-    "type": "bytes32"
+        stateMutability: "payable",
+        type: "fallback",
     },
     {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
+        inputs: [
+            {
+                internalType: "address",
+                name: "keeper_addr",
+                type: "address",
+            },
+            {
+                internalType: "string",
+                name: "keeper_name",
+                type: "string",
+            },
+        ],
+        name: "add_keeper",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
     },
     {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "time",
-    "type": "uint256"
-    }
-    ],
-    "name": "claim_erc20_EVENT",
-    "type": "event"
+        inputs: [
+            {
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+            {
+                internalType: "uint256",
+                name: "index",
+                type: "uint256",
+            },
+            {
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+            {
+                internalType: "bytes32[]",
+                name: "merkleProof",
+                type: "bytes32[]",
+            },
+        ],
+        name: "claim_erc20",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
     },
     {
-    "anonymous": false,
-    "inputs": [
-    {
-    "indexed": false,
-    "internalType": "address",
-    "name": "trigger_user_addr",
-    "type": "address"
+        inputs: [
+            {
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+            {
+                internalType: "uint256",
+                name: "index",
+                type: "uint256",
+            },
+        ],
+        name: "erc20_claimed",
+        outputs: [
+            {
+                internalType: "bool",
+                name: "",
+                type: "bool",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
     },
     {
-    "indexed": false,
-    "internalType": "address",
-    "name": "keeper_addr",
-    "type": "address"
+        inputs: [],
+        name: "get_MiningOwner",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
     },
     {
-    "indexed": false,
-    "internalType": "string",
-    "name": "keeper_name",
-    "type": "string"
+        inputs: [
+            {
+                internalType: "address",
+                name: "addr",
+                type: "address",
+            },
+        ],
+        name: "get_acc_staking",
+        outputs: [
+            {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
     },
     {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "blocktime",
-    "type": "uint256"
-    }
-    ],
-    "name": "remove_keeper_EVENT",
-    "type": "event"
+        inputs: [],
+        name: "get_contract_balance",
+        outputs: [
+            {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
     },
     {
-    "anonymous": false,
-    "inputs": [
-    {
-    "indexed": false,
-    "internalType": "address",
-    "name": "trigger_user_addr",
-    "type": "address"
+        inputs: [
+            {
+                internalType: "address",
+                name: "keeper_addr",
+                type: "address",
+            },
+        ],
+        name: "get_keeper",
+        outputs: [
+            {
+                internalType: "string",
+                name: "",
+                type: "string",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
     },
     {
-    "indexed": false,
-    "internalType": "bytes32",
-    "name": "merkleRoot",
-    "type": "bytes32"
+        inputs: [
+            {
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+        ],
+        name: "get_merkle_balance",
+        outputs: [
+            {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
     },
     {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "blocktime",
-    "type": "uint256"
-    }
-    ],
-    "name": "remove_merkle_root_EVENT",
-    "type": "event"
+        inputs: [],
+        name: "get_msn_addr",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
     },
     {
-    "anonymous": false,
-    "inputs": [
-    {
-    "indexed": false,
-    "internalType": "address",
-    "name": "trigger_user_addr",
-    "type": "address"
+        inputs: [
+            {
+                internalType: "address",
+                name: "keeper_addr",
+                type: "address",
+            },
+        ],
+        name: "remove_keeper",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
     },
     {
-    "indexed": false,
-    "internalType": "address",
-    "name": "oldOwner",
-    "type": "address"
+        inputs: [
+            {
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+        ],
+        name: "remove_merkle_root",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
     },
     {
-    "indexed": false,
-    "internalType": "address",
-    "name": "newOwner",
-    "type": "address"
+        inputs: [
+            {
+                internalType: "address",
+                name: "_newOwner",
+                type: "address",
+            },
+        ],
+        name: "set_MiningOwner",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
     },
     {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "blocktime",
-    "type": "uint256"
-    }
-    ],
-    "name": "set_MiningOwner_EVENT",
-    "type": "event"
+        inputs: [
+            {
+                internalType: "bytes32",
+                name: "merkleRoot",
+                type: "bytes32",
+            },
+            {
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+        ],
+        name: "set_merkle_root",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
     },
     {
-    "anonymous": false,
-    "inputs": [
-    {
-    "indexed": false,
-    "internalType": "address",
-    "name": "trigger_user_addr",
-    "type": "address"
+        inputs: [
+            {
+                internalType: "uint256",
+                name: "amount",
+                type: "uint256",
+            },
+            {
+                internalType: "string",
+                name: "userid",
+                type: "string",
+            },
+        ],
+        name: "stake_token",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
     },
     {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
+        inputs: [],
+        name: "withdraw_contract",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
     },
     {
-    "indexed": false,
-    "internalType": "string",
-    "name": "userid",
-    "type": "string"
+        inputs: [],
+        name: "withdraw_eth",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
     },
     {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "blocktime",
-    "type": "uint256"
-    }
-    ],
-    "name": "stake_token_EVENT",
-    "type": "event"
+        stateMutability: "payable",
+        type: "receive",
     },
-    {
-    "anonymous": false,
-    "inputs": [
-    {
-    "indexed": false,
-    "internalType": "address",
-    "name": "trigger_user_addr",
-    "type": "address"
-    },
-    {
-    "indexed": false,
-    "internalType": "address",
-    "name": "_from",
-    "type": "address"
-    },
-    {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
-    },
-    {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "blocktime",
-    "type": "uint256"
-    }
-    ],
-    "name": "withdraw_contract_EVENT",
-    "type": "event"
-    },
-    {
-    "anonymous": false,
-    "inputs": [
-    {
-    "indexed": false,
-    "internalType": "address",
-    "name": "trigger_user_addr",
-    "type": "address"
-    },
-    {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "_amount",
-    "type": "uint256"
-    },
-    {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "blocktime",
-    "type": "uint256"
-    }
-    ],
-    "name": "withdraw_eth_EVENT",
-    "type": "event"
-    },
-    {
-    "stateMutability": "payable",
-    "type": "fallback"
-    },
-    {
-    "inputs": [
-    {
-    "internalType": "address",
-    "name": "keeper_addr",
-    "type": "address"
-    },
-    {
-    "internalType": "string",
-    "name": "keeper_name",
-    "type": "string"
-    }
-    ],
-    "name": "add_keeper",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-    },
-    {
-    "inputs": [
-    {
-    "internalType": "bytes32",
-    "name": "merkleRoot",
-    "type": "bytes32"
-    },
-    {
-    "internalType": "uint256",
-    "name": "index",
-    "type": "uint256"
-    },
-    {
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
-    },
-    {
-    "internalType": "bytes32[]",
-    "name": "merkleProof",
-    "type": "bytes32[]"
-    }
-    ],
-    "name": "claim_erc20",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-    },
-    {
-    "inputs": [
-    {
-    "internalType": "bytes32",
-    "name": "merkleRoot",
-    "type": "bytes32"
-    },
-    {
-    "internalType": "uint256",
-    "name": "index",
-    "type": "uint256"
-    }
-    ],
-    "name": "erc20_claimed",
-    "outputs": [
-    {
-    "internalType": "bool",
-    "name": "",
-    "type": "bool"
-    }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-    },
-    {
-    "inputs": [],
-    "name": "get_MiningOwner",
-    "outputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-    },
-    {
-    "inputs": [
-    {
-    "internalType": "address",
-    "name": "addr",
-    "type": "address"
-    }
-    ],
-    "name": "get_acc_staking",
-    "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-    },
-    {
-    "inputs": [],
-    "name": "get_contract_balance",
-    "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-    },
-    {
-    "inputs": [
-    {
-    "internalType": "address",
-    "name": "keeper_addr",
-    "type": "address"
-    }
-    ],
-    "name": "get_keeper",
-    "outputs": [
-    {
-    "internalType": "string",
-    "name": "",
-    "type": "string"
-    }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-    },
-    {
-    "inputs": [
-    {
-    "internalType": "bytes32",
-    "name": "merkleRoot",
-    "type": "bytes32"
-    }
-    ],
-    "name": "get_merkle_balance",
-    "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-    },
-    {
-    "inputs": [],
-    "name": "get_msn_addr",
-    "outputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-    },
-    {
-    "inputs": [
-    {
-    "internalType": "address",
-    "name": "keeper_addr",
-    "type": "address"
-    }
-    ],
-    "name": "remove_keeper",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-    },
-    {
-    "inputs": [
-    {
-    "internalType": "bytes32",
-    "name": "merkleRoot",
-    "type": "bytes32"
-    }
-    ],
-    "name": "remove_merkle_root",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-    },
-    {
-    "inputs": [
-    {
-    "internalType": "address",
-    "name": "_newOwner",
-    "type": "address"
-    }
-    ],
-    "name": "set_MiningOwner",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-    },
-    {
-    "inputs": [
-    {
-    "internalType": "bytes32",
-    "name": "merkleRoot",
-    "type": "bytes32"
-    },
-    {
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
-    }
-    ],
-    "name": "set_merkle_root",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-    },
-    {
-    "inputs": [
-    {
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
-    },
-    {
-    "internalType": "string",
-    "name": "userid",
-    "type": "string"
-    }
-    ],
-    "name": "stake_token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-    },
-    {
-    "inputs": [],
-    "name": "withdraw_contract",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-    },
-    {
-    "inputs": [],
-    "name": "withdraw_eth",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-    },
-    {
-    "stateMutability": "payable",
-    "type": "receive"
-    }
-    ]
+];
 
 class TerminalBalancePage_f extends React.Component {
     constructor(props) {
@@ -794,31 +795,29 @@ class TerminalBalancePage_f extends React.Component {
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             let contract = new ethers.Contract(contract_address, abi, provider);
             let result = await contract.erc20_claimed(merkleRoot, index);
-            return result
+            return result;
         } catch (e) {
-            Utils.HandleErc20Error(e.message,this.props.alert)
+            Utils.HandleErc20Error(e.message, this.props.alert);
             return false;
         }
     }
 
-    async claimErc20(contract_address, abi, merkleRoot, index, amount, proof,targetAddress) {
+    async claimErc20(contract_address, abi, merkleRoot, index, amount, proof, targetAddress) {
         try {
             //let merkleProof = merkleInfo.proof;
-            let account
+            let account;
             if (typeof window.ethereum !== "undefined") {
-                [account]=await window.ethereum.request({ method: "eth_requestAccounts" });
+                [account] = await window.ethereum.request({ method: "eth_requestAccounts" });
             }
-            if (account.toLowerCase()!=targetAddress.toLowerCase()) {
+            if (account.toLowerCase() != targetAddress.toLowerCase()) {
                 this.props.alert.error(`Please switch to correct wallet`);
-                return
+                return;
             }
 
             let proofArray = proof;
             if (typeof proof == "string") {
                 proofArray = eval(proof);
             }
-
-            
 
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const signer = provider.getSigner();
@@ -834,7 +833,7 @@ class TerminalBalancePage_f extends React.Component {
         } catch (e) {
             //alert("Error:" + e.message);
             console.log(e.message);
-            Utils.HandleErc20Error(e.message,this.props.alert)
+            Utils.HandleErc20Error(e.message, this.props.alert);
         }
     }
 
@@ -882,18 +881,18 @@ class TerminalBalancePage_f extends React.Component {
             return;
         }
 
-        let receivedIds=[]
+        let receivedIds = [];
         for (let i = 0; i < finishedWithdraws.length; i++) {
             const info = finishedWithdraws[i];
-            let result=await this.checkReceivedErc20(contractAddress, abi, info.MerkleRoot, info.MerkleIndex.toString());
-            if (result==true) {
-                receivedIds.push(info.Id)
+            let result = await this.checkReceivedErc20(contractAddress, abi, info.MerkleRoot, info.MerkleIndex.toString());
+            if (result == true) {
+                receivedIds.push(info.Id);
             }
         }
 
         //console.log(receivedIds);
-        if (receivedIds.length==0) {
-            return
+        if (receivedIds.length == 0) {
+            return;
         }
 
         try {
@@ -914,7 +913,7 @@ class TerminalBalancePage_f extends React.Component {
             }
 
             if (response.data.status == 0) {
-                this.loadData()
+                this.loadData();
                 // return;
             } else {
                 this.props.alert.error(response.data.msg);
@@ -1214,29 +1213,29 @@ class TerminalBalancePage_f extends React.Component {
                                 </div>
 
                                 <button
-                                    onClick={() => {
+                                    onClick={async () => {
                                         //check
-                                        if (!(this.state.targetWalletAddress.startsWith("0x")||this.state.targetWalletAddress.startsWith("0X"))) {
+                                        if (!(this.state.targetWalletAddress.startsWith("0x") || this.state.targetWalletAddress.startsWith("0X"))) {
                                             this.props.alert.error("Please input correct address");
-                                            return
+                                            return;
                                         }
 
-                                        if (this.state.targetWalletAddress.length!=42) {
+                                        if (this.state.targetWalletAddress.length != 42) {
                                             this.props.alert.error("Please input correct address");
-                                            return
+                                            return;
                                         }
 
-                                        let amount=Utils.ParseNormalToMesonTokenString(this.state.amount)
+                                        let amount = Utils.ParseNormalToMesonTokenString(this.state.amount);
                                         console.log(amount);
-                                        if (amount=="0") {
+                                        if (amount == "0") {
                                             this.props.alert.error("Please input correct amount");
-                                            return
+                                            return;
                                         }
                                         if (amount.startsWith("-")) {
                                             this.props.alert.error("Please input correct amount");
-                                            return
+                                            return;
                                         }
-
+                                        
                                         Confirm.ShowConfirm(
                                             "warning",
                                             "Are you sure",
@@ -1249,8 +1248,6 @@ class TerminalBalancePage_f extends React.Component {
                                                 this.AddWithdraw(this.state.targetWalletAddress, amount, this.state.vcode);
                                             }
                                         );
-
-                                        
                                     }}
                                     className="btn btn-primary-rocket"
                                     type="button"
@@ -1258,17 +1255,6 @@ class TerminalBalancePage_f extends React.Component {
                                 >
                                     Exchange token to your ERC20 wallet
                                 </button>
-
-                                {/* <button
-                                    onClick={() => {
-                                        this.checkReceived()
-                                    }}
-                                    className="btn btn-primary-rocket"
-                                    type="button"
-                                    style={{ marginTop: "10px" }}
-                                >
-                                    test
-                                </button> */}
                             </div>
                         </form>
                     </div>
@@ -1293,6 +1279,7 @@ class TerminalBalancePage_f extends React.Component {
                     </div>
                 </div>
 
+                <WithdrawVideoTutorial/>
                 {this.withdrawArea()}
 
                 <div className="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">

@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-02 15:18:47
- * @LastEditTime: 2021-11-07 17:19:19
+ * @LastEditTime: 2021-11-08 14:03:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalBalance/terminalBalance.js
@@ -21,6 +21,7 @@ import moment from "moment";
 import DateRangePicker from "react-bootstrap-daterangepicker";
 import BN from "bn.js";
 import { Loading } from "../../components/loading/loading";
+import WithdrawVideoTutorial from "../../components/withdrawVideoTutorial/withdrawVideoTutorial";
 
 let MSN_abi = [
     {
@@ -1330,7 +1331,7 @@ class StakePage_f extends React.Component {
             // console.log(stake_amount);
             // console.log(balance.toString());
             let amountBN = new BN(stake_amount, 10);
-            let balanceBN = new BN(balance.toString(),10)
+            let balanceBN = new BN(balance.toString(), 10);
             if (amountBN.gt(balanceBN)) {
                 this.props.alert.error("balance not enough");
                 return null;
@@ -1363,7 +1364,7 @@ class StakePage_f extends React.Component {
         } catch (e) {
             //alert('Error:' + e.message);
             Utils.HandleErc20Error(e.message, this.props.alert);
-            return null
+            return null;
         }
     }
 
@@ -1396,10 +1397,12 @@ class StakePage_f extends React.Component {
 
         this.getFinanceId();
         this.updatebalance();
+        await this.LoadTotalData();
         this.loadData();
 
-        setInterval(() => {
+        setInterval(async () => {
             this.updatebalance();
+            await this.LoadTotalData();
             this.loadData();
         }, 60 * 1000);
     }
@@ -1427,97 +1430,98 @@ class StakePage_f extends React.Component {
     }
 
     loadData = null;
+    async LoadTotalData() {
+        let response = await axios.post(
+            Global.apiHost + "/api/v1/user/stakerecord_f",
+            {
+                startTime: Math.floor(this.state.queryStart.valueOf() / 1000),
+                endTime: Math.floor(this.state.queryEnd.valueOf() / 1000),
+            },
+            {
+                headers: {
+                    Authorization: "Bearer " + UserManager.GetUserToken(),
+                },
+            }
+        );
+
+        if (response.data.status != 0) {
+            return [];
+        }
+        let responseData = response.data.data;
+        //console.log(responseData);
+
+        let stakeRecord = [];
+        //
+        let confirmedTxMap = {};
+        for (let i = 0; i < responseData.length; i++) {
+            responseData[i].status = "confirmed";
+            //console.log(responseData[i].log);
+
+            // if (i==0) {
+            //     responseData[i].log='{"Blocktime":12323,"Useraddress":"xasfasdf","Tx":"0x9e2252d180187005abccaf10ac539fe9909bc2cf554ab7455e279f853d87ae20"}'
+            // }
+
+            if (responseData[i].log && responseData[i].log != "") {
+                try {
+                    let v = JSON.parse(responseData[i].log);
+                    //console.log(v.Tx);
+                    if (v.Tx && v.Tx != "") {
+                        responseData[i].tx = v.Tx;
+                        confirmedTxMap[v.Tx] = 1;
+                    }
+                } catch (error) {
+                    //console.log(error);
+                }
+            }
+
+            stakeRecord.push(responseData[i]);
+        }
+
+        //console.log(stakeRecord);
+
+        //read localStorage
+        let existRecordStr = localStorage.getItem("stakeRecord");
+        let existRecord = [];
+        if (existRecordStr != null) {
+            try {
+                existRecord = JSON.parse(existRecordStr);
+            } catch (error) {}
+        }
+
+        let pendingRecordArray = [];
+        // stakeRecord.push(...existRecord)
+        let nowTime = moment().unix();
+        for (let i = 0; i < existRecord.length; i++) {
+            if (nowTime - existRecord[i].createTime > 60 * 20) {
+                continue;
+            }
+            if (confirmedTxMap[existRecord[i].tx_hash]) {
+                continue;
+            }
+            pendingRecordArray.push(existRecord[i]);
+        }
+
+        stakeRecord.splice(0, 0, ...pendingRecordArray);
+
+        let newStr = JSON.stringify(pendingRecordArray);
+        localStorage.setItem("stakeRecord", newStr);
+
+        this.tableData = stakeRecord;
+
+        // return {
+        //     data: stakeRecord,
+        //     count: stakeRecord.length,
+        // };
+    }
+
     DataGrid = () => {
         const loadData = useCallback(() => {
             const data = ({ skip, limit, sortInfo }) => {
-                console.log(skip, limit);
-                return axios
-                    .post(
-                        Global.apiHost + "/api/v1/user/stakerecord_f",
-                        {
-                            startTime: Math.floor(this.state.queryStart.valueOf() / 1000),
-                            endTime: Math.floor(this.state.queryEnd.valueOf() / 1000),
-                            limit: limit,
-                            offset: skip,
-                        },
-                        {
-                            headers: {
-                                Authorization: "Bearer " + UserManager.GetUserToken(),
-                            },
-                        }
-                    )
-                    .then((response) => {
-                        if (response.data.status != 0) {
-                            return [];
-                        }
-                        let responseData = response.data.data;
-                        //console.log(responseData);
-                        
-                        let stakeRecord=[]
-                        //
-                        let confirmedTxMap={}
-                        for (let i = 0; i < responseData.length; i++) {
-                            responseData[i].status="confirmed"
-                            //console.log(responseData[i].log);
-
-                            // if (i==0) {
-                            //     responseData[i].log='{"Blocktime":12323,"Useraddress":"xasfasdf","Tx":"0x9e2252d180187005abccaf10ac539fe9909bc2cf554ab7455e279f853d87ae20"}'
-                            // }
-
-                            if (responseData[i].log&&responseData[i].log!="") {
-                                try {
-                                    let v=JSON.parse(responseData[i].log)
-                                    //console.log(v.Tx);
-                                    if (v.Tx&&v.Tx!="") {
-                                        responseData[i].tx=v.Tx
-                                        confirmedTxMap[v.Tx]=1
-                                    }
-                                } catch (error) {
-                                    //console.log(error);
-                                }
-                            }
-                            
-                            stakeRecord.push(responseData[i])
-                        }
-
-                        //console.log(stakeRecord);
-
-
-                        //read localStorage
-                        let existRecordStr=localStorage.getItem("stakeRecord")
-                        let existRecord=[]
-                        if (existRecordStr!=null) {
-                            try {
-                                existRecord=JSON.parse(existRecordStr)
-                            } catch (error) {
-                                
-                            }
-                            
-                        }
-
-                        let pendingRecordArray=[]
-                        // stakeRecord.push(...existRecord)
-                        let nowTime=moment().unix()
-                        for (let i = 0; i < existRecord.length; i++) {
-                            if(nowTime-existRecord[i].createTime>60*20){
-                                continue
-                            }
-                            if(confirmedTxMap[existRecord[i].tx_hash]){
-                                continue
-                            }
-                            pendingRecordArray.push(existRecord[i])
-                        }
-
-                        stakeRecord.splice(0,0,...pendingRecordArray)
-                        
-                        let newStr=JSON.stringify(pendingRecordArray)
-                        localStorage.setItem("stakeRecord",newStr)
-
-                        return {
-                            data: stakeRecord,
-                            count: stakeRecord.length,
-                        };
-                    });
+                let limitTableData = this.tableData.slice(skip, skip + limit);
+                return Promise.resolve({
+                    data: limitTableData,
+                    count: this.tableData.length,
+                });
             };
             this.setState({ tableData: data });
         }, []);
@@ -1562,8 +1566,9 @@ class StakePage_f extends React.Component {
                         className="btn btn-primary-rocket btn-xs"
                         type="button"
                         style={{ marginLeft: "5px" }}
-                        onClick={() => {
-                            loadData();
+                        onClick={async () => {
+                            await this.LoadTotalData();
+                            this.loadData();
                         }}
                     >
                         Query Record
@@ -1607,7 +1612,7 @@ class StakePage_f extends React.Component {
                             <button
                                 onClick={async () => {
                                     console.log("stake click", this.stakeAmount);
-                                    if(this.stakeAmount.startsWith("-")){
+                                    if (this.stakeAmount.startsWith("-")) {
                                         this.props.alert.error("please input correct stake amount");
                                         return;
                                     }
@@ -1629,7 +1634,7 @@ class StakePage_f extends React.Component {
                                             }
                                         }
 
-                                        Loading.ShowLoading("Waiting....")
+                                        Loading.ShowLoading("Waiting....");
 
                                         response = await axios.post(
                                             Global.apiHost + "/api/v1/user/withdrawcontractname_f",
@@ -1648,7 +1653,7 @@ class StakePage_f extends React.Component {
                                             msn_mining_contractAddress = response.data.data;
                                         } else {
                                             this.props.alert.error("get msn_mining contract error");
-                                            Loading.HideLoading()
+                                            Loading.HideLoading();
                                             return;
                                         }
 
@@ -1669,7 +1674,7 @@ class StakePage_f extends React.Component {
                                             msn_contractAddress = response.data.data;
                                         } else {
                                             this.props.alert.error("get msn contract error");
-                                            Loading.HideLoading()
+                                            Loading.HideLoading();
                                             return;
                                         }
 
@@ -1687,17 +1692,16 @@ class StakePage_f extends React.Component {
                                             stakeAmount
                                         );
 
-
-                                        if (result==null||result.status!=1) {
+                                        if (result == null || result.status != 1) {
                                             this.props.alert.error("stake error");
-                                            Loading.HideLoading()
-                                            return
+                                            Loading.HideLoading();
+                                            return;
                                         }
 
                                         //console.log(result);
-                                        if (result && result.status==1) {
-                                            Loading.HideLoading()
-                                            console.log("commit success","tx",result.transactionHash);
+                                        if (result && result.status == 1) {
+                                            Loading.HideLoading();
+                                            console.log("commit success", "tx", result.transactionHash);
                                         }
 
                                         //add to localStorage
@@ -1710,33 +1714,33 @@ class StakePage_f extends React.Component {
                                         // unixtimesec: 0
                                         // userid: 14
 
-                                        let newRecord={
-                                            amount:stakeAmount,
+                                        let newRecord = {
+                                            amount: stakeAmount,
                                             credit_name: "MSNTT",
                                             reason: "MSN_MINING_STAKE",
                                             tx_hash: result.transactionHash.toLowerCase(),
                                             type: "ADD",
                                             date: moment().format("YYYY-MM-DD hh:mm:ss"),
-                                            createTime:moment().unix(),
-                                            status:"pending"
+                                            createTime: moment().unix(),
+                                            status: "pending",
+                                        };
+                                        let existRecordStr = localStorage.getItem("stakeRecord");
+                                        let existRecord = [];
+                                        if (existRecordStr != null) {
+                                            existRecord = JSON.parse(existRecordStr);
                                         }
-                                        let existRecordStr=localStorage.getItem("stakeRecord")
-                                        let existRecord=[]
-                                        if (existRecordStr!=null) {
-                                            existRecord=JSON.parse(existRecordStr)
-                                        }
-                                        let newRecordArray=[]
-                                        newRecordArray.push(newRecord)
-                                        newRecordArray.push(...existRecord)
+                                        let newRecordArray = [];
+                                        newRecordArray.push(newRecord);
+                                        newRecordArray.push(...existRecord);
 
-                                        let str=JSON.stringify(newRecordArray)
-                                        localStorage.setItem("stakeRecord",str)
-
-                                        this.loadData()
-
+                                        let str = JSON.stringify(newRecordArray);
+                                        localStorage.setItem("stakeRecord", str);
+                                        
+                                        await this.LoadTotalData()
+                                        this.loadData();
                                     } catch (error) {
                                         this.props.alert.error(error.message);
-                                        Loading.HideLoading()
+                                        Loading.HideLoading();
                                         return;
                                     }
                                 }}
@@ -1759,7 +1763,7 @@ class StakePage_f extends React.Component {
         }
 
         return (
-            <AdminLayout name="Terminal" description="Token">
+            <AdminLayout name="Terminal" description="Stake">
                 <div className="card border-light shadow-sm" style={{ marginBottom: "20px" }}>
                     <div className="card-body">
                         <div className="small text-muted">Current Account Token</div>
@@ -1768,6 +1772,7 @@ class StakePage_f extends React.Component {
                         </div>
                     </div>
                 </div>
+                <WithdrawVideoTutorial/>
 
                 {this.operation()}
 
