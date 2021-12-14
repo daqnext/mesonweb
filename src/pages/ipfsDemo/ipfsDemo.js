@@ -22,12 +22,30 @@ class IpfsDemoPage extends React.Component {
     super(props);
     this.state = {
       inputHash: "",
+      ipfsDemoBindName:""
     };
   }
 
+  async componentDidMount(){
+    //get ipfsDemoBindName
+    try {
+      let response = await axios.get(Global.apiHost + "/api/v1/common/ipfsdemobindname");
+      if (response.data.status != 0) {
+          return;
+      }
+      this.setState({ ipfsDemoBindName: response.data.data });
+  } catch (error) {
+      console.error(error);
+  }
+  }
+
   render() {
+    if (this.state.ipfsDemoBindName == "") {
+      return <div></div>;
+  }
     return (
         <div>
+          
           <div className="form-group">
             <input
               style={{ 
@@ -103,7 +121,7 @@ class IpfsDemoPage extends React.Component {
                 id="mesonlink"
                 value={
                   Global.coldCdnApiHost +
-                  "/api/cdn/4wdhj2/" +
+                  "/api/cdn/"+this.state.ipfsDemoBindName+"/" +
                   this.state.inputHash
                 }
                 onChange={(event)=>{
@@ -128,7 +146,7 @@ class IpfsDemoPage extends React.Component {
                   onClick={() => {
                     copy(
                       Global.coldCdnApiHost +
-                        "/api/cdn/4wdhj2/" +
+                      "/api/cdn/"+this.state.ipfsDemoBindName+"/" +
                         this.state.inputHash
                     );
                     this.props.alert.success("meson Url Copied");
@@ -140,6 +158,8 @@ class IpfsDemoPage extends React.Component {
             </div>
             
           </div>
+
+          <div style={{marginTop:"10px"}}>This is test link, invalid in 30 minutes</div>
         </div>
     );
   }

@@ -1036,6 +1036,16 @@ class HomePage extends React.Component {
                             Mining
                           </a>
                         </li>
+                        <li class="nav-item" role="presentation">
+                          <a
+                            class="nav-link"
+                            href="https://docs.meson.network/faq"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            More FAQ in doc
+                          </a>
+                        </li>
                       </ul>
                       {/* <!--Tab panes--> */}
                       <div class="tab-content">
