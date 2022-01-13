@@ -141,7 +141,7 @@ class ArweaveDemoPage extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div style={{marginTop:"10px"}}>This is test link, invalid in 30 minutes</div>
+                <div style={{marginTop:"10px"}}>This is a test link, invalid in 30 minutes</div>
             </div>
         );
     }
