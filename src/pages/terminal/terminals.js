@@ -616,7 +616,7 @@ class TerminalPage extends React.Component {
                 name: "id",
                 header: "ID",
                 defaultWidth: 150,
-                editable: false,
+                editable: true,
                 render: ({ value }) => {
                     return <div>{"id-" + value}</div>;
                 },
@@ -630,7 +630,7 @@ class TerminalPage extends React.Component {
                 name: "machine_ip",
                 header: "IP",
                 defaultFlex: 0.8,
-                editable: false,
+                editable: true,
             },
             {
                 name: "port",

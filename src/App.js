@@ -11,6 +11,7 @@ import './app.css'
 import "@inovua/reactdatagrid-community/index.css";
 import "bootstrap-daterangepicker/daterangepicker.css";
 
+import RedirectPage from './pages/redirectPage/redirectPage';
 import HomePage from "./pages/home/home2";
 import LoginPage from "./pages/login/login";
 import WelcomePage from "./pages/welcome/welcome";
@@ -138,11 +139,10 @@ function App() {
         if (window.location.pathname=="/"+urlkey) {
             const Page = router_map[urlkey];
             return <Page />;
-            break;
         }
     }
 
-    return <HomePage />;
+    return <RedirectPage></RedirectPage>;
 }
 
 export default App;
