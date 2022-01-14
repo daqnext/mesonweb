@@ -26,32 +26,31 @@
     href="https://assets.meson.network:10443/static/assets/brand/logo32.png">
   <link rel="icon" type="image/png" sizes="16x16"
     href="https://assets.meson.network:10443/static/assets/brand/logo16.png">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://assets.meson.network:10443/static/css/rocket.3.css" />
   <script src="https://assets.meson.network:10443/static/js/core.min.js"></script>
-  <script src="https://assets.meson.network:10443/static/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="https://assets.meson.network:10443/static/vendor/jquery-countdown/dist/jquery.countdown.min.js">
-  </script>
-  <script src="https://assets.meson.network:10443/static/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js">
-  </script>
-  <script src="https://assets.meson.network:10443/static/vendor/popper.js/dist/umd/popper.min.js"></script>
   <script src="https://assets.meson.network:10443/static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="https://assets.meson.network:10443/static/vendor/headroom.js/dist/headroom.min.js"></script>
-  <script src="https://assets.meson.network:10443/static/js/rocket.js"></script>
   <script src="https://assets.meson.network:10443/static/vendor/clipboard/clipboard.min.js"></script>
-  <script src="https://assets.meson.network:10443/static/js/typed.js"></script>
-  <script src="https://assets.meson.network:10443/static/js/loader.js"></script>
-  <script src="https://assets.meson.network:10443/static/js/jsapi_compiled_default_module.js"></script>
-  <script src="https://assets.meson.network:10443/static/js/jsapi_compiled_graphics_module.js"></script>
-  <script src="https://assets.meson.network:10443/static/js/jsapi_compiled_ui_module.js"></script>
-  <script src="https://assets.meson.network:10443/static/js/jsapi_compiled_corechart_module.js"></script>
   <script src="https://assets.meson.network:10443/static/js/a076d05399.js"></script>
   <script src="https://assets.meson.network:10443/static/js/script.js"></script>
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://assets.meson.network:10443/static/css/bootstrap.2.css">
   <link rel="stylesheet" href="https://assets.meson.network:10443/static/css/fonts.css">
   <link rel="stylesheet" href="https://assets.meson.network:10443/static/css/style.2.css" id="main-styles-link">
   <link rel="stylesheet" href="https://assets.meson.network:10443/static/css/fa.brands.min.css" id="main-styles-link">
   <link rel="stylesheet" href="https://assets.meson.network:10443/static/css/fa.solid.min.css" id="main-styles-link">
+  <!-- <script src="https://assets.meson.network:10443/static/vendor/jquery.easing/jquery.easing.min.js"></script> -->
+  <!-- <script src="https://assets.meson.network:10443/static/vendor/jquery-countdown/dist/jquery.countdown.min.js"></script> -->
+  <!-- <script src="https://assets.meson.network:10443/static/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script> -->
+  <!-- <script src="https://assets.meson.network:10443/static/vendor/popper.js/dist/umd/popper.min.js"></script> -->
+  <!-- <script src="https://assets.meson.network:10443/static/vendor/headroom.js/dist/headroom.min.js"></script> -->
+  <!-- <script src="https://assets.meson.network:10443/static/js/rocket.js"></script> -->
+  <!-- <script src="https://assets.meson.network:10443/static/js/typed.js"></script> -->
+  <!-- <script src="https://assets.meson.network:10443/static/js/loader.js"></script> -->
+  <!-- <script src="https://assets.meson.network:10443/static/js/jsapi_compiled_default_module.js"></script> -->
+  <!-- <script src="https://assets.meson.network:10443/static/js/jsapi_compiled_graphics_module.js"></script> -->
+  <!-- <script src="https://assets.meson.network:10443/static/js/jsapi_compiled_ui_module.js"></script> -->
+  <!-- <script src="https://assets.meson.network:10443/static/js/jsapi_compiled_corechart_module.js"></script> -->
+  
 
   <style>
     /* indexPage */
@@ -528,52 +527,13 @@
                       </tr>
                     </thead>
                     <tbody id="nodeTableBody">
-                      <!-- {this.state.activeNodeShow.length<=0&&( <tr style="font-size: 15px; height:40px">
+                      <tr style="font-size: 15px;height:40px;">
                         <td colspan="3">
                           <div style="text-align: center">
-                            No record
+                            Loading...
                           </div>
                         </td>
-                        </tr>
-                        )} -->
-                      <!-- {this.state.activeNodeShow.map((value, index, array) => {
-                        let speed = ((value.machine_net_speed * 8) / 1000).toFixed(2);
-                        let ip = value.ip.split(".");
-                        return (
-                        <tr class="table-tr">
-                          <td class="table-td">
-                            {value.country + " *** [" + value.city + "]"}
-                          </td>
-                          <td>
-                            <div>{value.id}</div>
-                            <div>{`ip:*.${ip[1]}.${ip[2]}.*`}</div>
-                          </td>
-                          <td>{speed} Mb/s</td>
-                        </tr>
-                        );
-                        })} -->
-
-                      <!-- {(this.state.showAllNodeButton && this.state.isLoadingRecord ==false )&&
-                        (
-                        <tr style="font-size: 15px; height:40px">
-                          <td colspan="3">
-                            <a style="text-align: center" onClick={(event)=>{
-                              this.GetAllAccNodeInfo()
-                              }}>
-                              Show all terminals
-                            </a>
-                          </td>
-                        </tr>
-                        )} -->
-                      <!-- {(this.state.isLoadingRecord )&& (
-                        <tr style="font-size: 15px ;height:40px">
-                          <td colspan="3">
-                            <div style="text-align: center">
-                              Loading...
-                            </div>
-                          </td>
-                        </tr>
-                        )} -->
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -1387,15 +1347,6 @@
           </p>
         </div>
       </footer>
-      <!-- <Announcement
-            title="[Meson Airdrop]"
-            subtitle="Fill out the questionnaire, have the chance to get the airdrop. GoGoGo🚀🚀🚀"
-            link="https://forms.gle/jHTUpYNd2hhEpaRWA"
-            imageSource=""
-            secondsBeforeBannerShows={3}
-            daysToLive={0}
-            closeIconSize={25}
-          /> -->
     </div>
   </div>
 
@@ -1531,41 +1482,40 @@
 
       $("#nodeTableBody").append(
         '<tr id="showAllButton" style="font-size: 15px; height: 40px;"><td colspan="3"><a style="text-align: center;">Show all terminals</a></td></tr>'
-        )
+      )
 
 
-        //query all node
-  $("#showAllButton").one("click", function () {
-    $("#showAllButton td a").text("loading...")
+      //query all node
+      $("#showAllButton").one("click", function () {
+        $("#showAllButton td a").text("loading...")
 
-    $.ajax({
-      "url": "https://coldcdn.com/api/v1/common/activenode",
-      "method": "GET",
-    }).done(function (response) {
-      if (response.status == 0) {
-        $("#nodeTableBody").empty()
-        let nodeInfos = response.data
+        $.ajax({
+          "url": "https://coldcdn.com/api/v1/common/activenode",
+          "method": "GET",
+        }).done(function (response) {
+          if (response.status == 0) {
+            $("#nodeTableBody").empty()
+            let nodeInfos = response.data
 
-        var $row = $('<tr class="table-tr"></tr>');
-        for (let i = 0; i < nodeInfos.length; i++) {
-          let speed = ((nodeInfos[i].machine_net_speed * 8) / 1000).toFixed(2);
-          let ip = nodeInfos[i].ip.split(".");
-          $row.append($('<td class="table-td">' + nodeInfos[i].country + "*** [" + nodeInfos[i].city + "]" +
-            "</td>"));
-          $row.append($("<td><div>" + nodeInfos[i].id + "</div><div>" + "ip:*." + ip[1] + "." + ip[2] + ".*" +
-            "</td>"));
-          $row.append($("<td>" + speed + " Mb/s</td>"));
-          $("#nodeTableBody").append($row);
-          $row = $('<tr class="table-tr"></tr>');
-        }
+            var $row = $('<tr class="table-tr"></tr>');
+            for (let i = 0; i < nodeInfos.length; i++) {
+              let speed = ((nodeInfos[i].machine_net_speed * 8) / 1000).toFixed(2);
+              let ip = nodeInfos[i].ip.split(".");
+              $row.append($('<td class="table-td">' + nodeInfos[i].country + "*** [" + nodeInfos[i].city +
+                "]" +
+                "</td>"));
+              $row.append($("<td><div>" + nodeInfos[i].id + "</div><div>" + "ip:*." + ip[1] + "." + ip[2] +
+                ".*" +
+                "</td>"));
+              $row.append($("<td>" + speed + " Mb/s</td>"));
+              $("#nodeTableBody").append($row);
+              $row = $('<tr class="table-tr"></tr>');
+            }
 
-        $('#showAllButton').remove()
-      }
-    });
-  });
-
-
-
+            $('#showAllButton').remove()
+          }
+        });
+      });
 
     }
   });
@@ -1603,6 +1553,18 @@
       if (response.status == 0) {
         $("#nodeTableBody").empty()
         let nodeInfos = response.data
+        if (nodeInfos.length <= 0) {
+          $("#nodeTableBody").append(`
+          <tr style={{ fontSize: "15px" ,height:"40px"}}>
+                    <td colspan="3">
+                      <div style={{ textAlign: "center" }} >
+                        No record
+                      </div>
+                    </td>
+                  </tr>`);
+          return
+        }
+
         var $row = $('<tr class="table-tr"></tr>');
         for (let i = 0; i < nodeInfos.length; i++) {
           let speed = ((nodeInfos[i].machine_net_speed * 8) / 1000).toFixed(2);
