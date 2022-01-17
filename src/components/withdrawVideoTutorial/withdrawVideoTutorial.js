@@ -35,6 +35,20 @@ class WithdrawVideoTutorial extends React.Component {
                         <i>[Link2]</i>
                     </a>
                 </div>
+                
+                <div className="toast-header text-primary-rocket">
+                    <strong className="mr-auto ml-2">FAQ-read me first</strong>
+                </div>
+                <div className="toast-body" style={{ marginLeft: "5px" }}>
+                    <a
+                        href="https://docs.meson.network/faq#about-test-tokens"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: "#007bff", textDecoration: "underline" }}
+                    >
+                        <i>[About Token]</i>
+                    </a>
+                </div>
             </div>
         );
     }

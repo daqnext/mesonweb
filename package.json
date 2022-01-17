@@ -165,6 +165,5 @@
       "react-app"
     ]
   },
-  "homepage": "https://assets.meson.network:10443",
   "proxy": "https://meson.network"
 }
