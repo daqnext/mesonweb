@@ -59,6 +59,8 @@ import UserAirdrop_f from "./pages/userAirdrop_f/userAirdrop_f"
 import WithdrawMgr_f from "./pages/withdrawmgr_f/withdrawmgr_f"
 import Stake_f from "./pages/stake_f/stake_f"
 
+import IpfsUpload from "./pages/ipfsUpload/ipfsUpload"
+
 {/* <li className= {this.getActive("/adminairdrop_f")+" nav-item"}  ><a className="nav-link" href="/adminairdrop_f"><span>AdminAirdrop_f</span></a></li>
                         <li className= {this.getActive("/balance_f") + " nav-item"}><a className="nav-link" href="/balance_f"><span>Balance_f</span></a></li>
                         <li className= {this.getActive("/terminaltotalprofit_f") + " nav-item"}><a className="nav-link" href="/terminaltotalprofit_f"><span>Earnings_f</span></a></li>
@@ -126,6 +128,8 @@ function App() {
         //for client page
         balance:Balance_f,
 
+        ipfsuploader:IpfsUpload,
+
         //for terminal tage
         terminaltotalprofit:TerminalTotalProfit_f,
         terminalbalance:TerminalBalance_f,
@@ -142,7 +146,7 @@ function App() {
         }
     }
 
-    return <RedirectPage></RedirectPage>;
+    return <HomePage></HomePage>;
 }
 
 export default App;

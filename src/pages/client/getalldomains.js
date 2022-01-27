@@ -56,17 +56,48 @@ class GetallDomains extends React.Component {
     }
 
     async gettabledata() {
-        let response = await axios.get(
-            Global.apiHost + "/api/v1/client/getdomains",
-            {
-                headers: {
-                    Authorization: "Bearer " + UserManager.GetUserToken(),
-                },
-            }
-        );
+        // let response = await axios.get(
+        //     Global.apiHost + "/api/v1/client/getdomains",
+        //     {
+        //         headers: {
+        //             Authorization: "Bearer " + UserManager.GetUserToken(),
+        //         },
+        //     }
+        // );
 
-        // console.log(response.data.data);
-        return response.data.data;
+        // // console.log(response.data.data);
+        // return response.data.data;
+
+        try {
+            let response = await axios.get(
+                Global.apiHost + "/api/v1/client/getdomains",
+                {
+                    headers: {
+                        Authorization: "Bearer " + UserManager.GetUserToken(),
+                    },
+                }
+            );
+            
+            //console.log(response.data);
+            if (response.data.status!=0) {
+                this.props.alert.error("get bind domain error");
+                return []
+            }
+
+            let domainArray=response.data.data
+            for (let i = 0; i < response.data.data.length; i++) {
+                if (domainArray[i].originurl=="ipfs.coldcdn.com") {
+                    domainArray.splice(i,1)
+                    //console.log(this.state.userIpfsBindName);
+                    break
+                }
+            }
+
+            return domainArray
+        } catch (error) {
+            this.props.alert.error("get bind domain error");
+            return [];
+        }
     }
 
     async gettableupdateconfig() {

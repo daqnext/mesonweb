@@ -180,6 +180,7 @@ class AdminSidebar extends React.Component {
                         <li  className= {this.getActive("/binddomain")+" nav-item"}><a className="nav-link" href="/binddomain"><span>BindDomain</span></a></li>
                         <li className= {this.getActive("/clienttraffic")+" nav-item"}><a className="nav-link" href="/clienttraffic"><span>Traffic</span></a></li>
                         <li className= {this.getActive("/balance") + " nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>
+                        <li  className= {this.getActive("/ipfsuploader")+" nav-item"}><a className="nav-link" href="/ipfsuploader"><span>IPFS Uploader</span></a></li>
                     </ul>
                 </div>
             </li>
