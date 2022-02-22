@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="title" content="meson network">
+    <meta name="author" content="meson.network">
+    <meta name="description" content="meson network provides fast,stable,cheap content delivery globally">
+    <meta name="keywords" content="meson,network,video,streaming,game,cdn,fast,stable,cheap">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meson.network/">
+    <meta property="og:title" content="meson network">
+    <meta property="og:description" content="meson network provides fast,stable,cheap content delivery globally">
+    <meta property="twitter:card" content="meson network">
+    <meta property="twitter:url" content="https://meson.network/">
+    <meta property="twitter:title" content="meson network">
+    <meta property="twitter:description" content="meson network provides fast,stable,cheap content delivery globally">
+    <title>Meson.Network</title>
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="120x120"
+        href="https://assets.meson.network:10443/static/assets/brand/logo120.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://assets.meson.network:10443/static/assets/brand/logo32.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://assets.meson.network:10443/static/assets/brand/logo16.png">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://assets.meson.network:10443/static/css/rocket.3.css" />
+    <script src="https://assets.meson.network:10443/static/js/core.min.js"></script>
+    <script src="https://assets.meson.network:10443/static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://assets.meson.network:10443/static/vendor/clipboard/clipboard.min.js"></script>
+    <script src="https://assets.meson.network:10443/static/js/a076d05399.js"></script>
+    <script src="https://assets.meson.network:10443/static/js/script.js"></script>
+    <link rel="stylesheet" href="https://assets.meson.network:10443/static/css/bootstrap.2.css">
+    <link rel="stylesheet" href="https://assets.meson.network:10443/static/css/fonts.css">
+    <link rel="stylesheet" href="https://assets.meson.network:10443/static/css/style.2.css" id="main-styles-link">
+    <link rel="stylesheet" href="https://assets.meson.network:10443/static/css/fa.brands.min.css" id="main-styles-link">
+    <link rel="stylesheet" href="https://assets.meson.network:10443/static/css/fa.solid.min.css" id="main-styles-link">
+    <!-- <script src="https://assets.meson.network:10443/static/vendor/jquery.easing/jquery.easing.min.js"></script> -->
+    <!-- <script src="https://assets.meson.network:10443/static/vendor/jquery-countdown/dist/jquery.countdown.min.js"></script> -->
+    <!-- <script src="https://assets.meson.network:10443/static/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script> -->
+    <!-- <script src="https://assets.meson.network:10443/static/vendor/popper.js/dist/umd/popper.min.js"></script> -->
+    <!-- <script src="https://assets.meson.network:10443/static/vendor/headroom.js/dist/headroom.min.js"></script> -->
+    <!-- <script src="https://assets.meson.network:10443/static/js/rocket.js"></script> -->
+    <!-- <script src="https://assets.meson.network:10443/static/js/typed.js"></script> -->
+    <!-- <script src="https://assets.meson.network:10443/static/js/loader.js"></script> -->
+    <!-- <script src="https://assets.meson.network:10443/static/js/jsapi_compiled_default_module.js"></script> -->
+    <!-- <script src="https://assets.meson.network:10443/static/js/jsapi_compiled_graphics_module.js"></script> -->
+    <!-- <script src="https://assets.meson.network:10443/static/js/jsapi_compiled_ui_module.js"></script> -->
+    <!-- <script src="https://assets.meson.network:10443/static/js/jsapi_compiled_corechart_module.js"></script> -->
+
+
+    <style>
+        /* indexPage */
+        .ie-panel {
+            display: none;
+            background: #212121;
+            padding: 10px 0;
+            box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);
+            clear: both;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        html.ie-10 .ie-panel,
+        html.lt-ie-10 .ie-panel {
+            display: block;
+        }
+
+        #nodetable {
+            text-align: center;
+            margin: 20px 0px;
+            background: #202020;
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+        }
+
+        #nodetable tr th {
+            background-color: #2f2f2f;
+            padding: 5px 10px;
+        }
+
+        #nodetable td {
+            padding: 5px 10px;
+        }
+
+        .footitems a {
+            color: white;
+        }
+
+        .Announcement_fadein__2X6vU svg {
+            color: rgb(103, 103, 103);
+        }
+
+        .Announcement_fadein__2X6vU img {
+            display: none !important;
+        }
+
+        .Announcement_fadeout__2SXlo img {
+            display: none !important;
+        }
+
+        .Announcement_fadein__2X6vU div h3 {
+            color: rgb(103, 103, 103) !important;
+            font-weight: initial !important;
+        }
+
+        .Announcement_fadein__2X6vU div p {
+            color: rgb(93, 93, 93) !important;
+        }
+
+        /* nodeMap */
+        @keyframes breathing {
+            0% {
+                -webkit-transform: scale(0);
+                -ms-transform: scale(0);
+                transform: scale(0);
+                opacity: 0.05;
+            }
+
+            35% {
+                -webkit-transform: scale(0.8);
+                -ms-transform: scale(0.8);
+                transform: scale(0.8);
+                opacity: 0.2;
+            }
+
+            70% {
+                -webkit-transform: scale(1.2);
+                -ms-transform: scale(1.2);
+                transform: scale(1.2);
+                opacity: 0.3;
+            }
+
+            100% {
+                -webkit-transform: scale(1.5);
+                -ms-transform: scale(1.5);
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .point {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            top: -50%;
+            left: -50%;
+            border-radius: 100%;
+            background: #ff8f4f;
+            background: radial-gradient(circle,
+                    rgba(255, 143, 79, 0.14889705882352944) 0,
+                    #ff8f4f 100%);
+            -webkit-animation: breathing 2s linear infinite;
+            animation: breathing 2s linear infinite;
+        }
+
+        .point-a {
+            content: "";
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            background-color: #ff8f4f;
+            width: 11px;
+            height: 11px;
+            border-radius: 100%;
+            display: block;
+        }
+
+        .city-label {
+            color: #dce6ef;
+            background-color: #ff8f4f;
+            font-size: 12px;
+            border-radius: 5px;
+            margin-top: 13px;
+            width: 120px;
+            height: 24px;
+            line-height: 24px;
+            margin-left: -54px;
+            box-sizing: border-box;
+            margin-top: 21px;
+            display: none;
+            z-index: 1000;
+            box-shadow: #032340 0 0 9px;
+            position: absolute;
+            top: -54px;
+        }
+
+        .point-a:hover .city-label {
+            display: block;
+        }
+
+        .city-label:after {
+            content: " ";
+            position: absolute;
+            right: 60px;
+            border-top: 0;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            border-top: 5px solid #fe8e4f;
+            bottom: -5px;
+        }
+
+
+        #back-link {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #0d130e;
+            padding: 0.5em;
+            font-size: 26px;
+            z-index: 10000;
+            border-right: 1px RGBA(255, 255, 255, 0.5) solid;
+            border-bottom: 1px RGBA(255, 255, 255, 0.5) solid;
+        }
+
+        #back-link img {
+            display: block;
+            width: 4em;
+            height: auto;
+        }
+
+        /* @media (max-width: 1199px) {
+    #back-link {
+      font-size: 20px;
+    }
+  }
+  @media (max-width: 511px) {
+    #back-link {
+      font-size: 16px;
+    }
+  } */
+
+        #legal-footer-wrap {
+            position: relative;
+            height: 0;
+            z-index: 10002;
+            font-family: Arial, sans-serif;
+        }
+
+        #legal-footer {
+            position: absolute;
+            bottom: 0.5em;
+            right: 0.5em;
+        }
+
+        #legal-footer a {
+            text-decoration: none;
+            color: inherit;
+            padding: 0 0.5em;
+            font-size: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .query-input {
+                margin-top: 100px;
+                margin-bottom: 5px;
+            }
+        }
+
+        #nodetable tr td {
+            padding: 1px 2px;
+        }
+
+        .table-tr {
+            font-size: 15px;
+        }
+
+        .table-td {
+            max-width: 200px;
+        }
+
+
+        /* arweaveDemo */
+        /* WebKit browsers */
+        .arweave-hash-input::-webkit-input-placeholder {
+            color: #cccccc;
+
+        }
+
+        /* Mozilla Firefox 4 to 18 */
+        .arweave-hash-input:-moz-placeholder {
+            color: #cccccc;
+            opacity: 1;
+
+        }
+
+        /* Mozilla Firefox 19+ */
+        .arweave-hash-input::-moz-placeholder {
+            color: #cccccc;
+
+        }
+
+        /* Internet Explorer 10+ */
+        .arweave-hash-input:-ms-input-placeholder {
+            color: #cccccc;
+
+        }
+
+        .investors-logo {
+            line-height: 125px;
+            text-align: center;
+        }
+
+        .investors-logo img {
+            padding: 15px;
+            width: 150px;
+        }
+
+        .person-link {
+            color: rgb(189, 183, 183);
+            font-size: 18px;
+            margin-left: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="preloader">
+            <div class="preloader-body">
+                <div class="cssload-container">
+                    <span class="cssload-dots"></span>
+                    <span class="cssload-dots"></span>
+                    <span class="cssload-dots"></span>
+                    <span class="cssload-dots"></span>
+                    <span class="cssload-dots"></span>
+                    <span class="cssload-dots"></span>
+                    <span class="cssload-dots"></span>
+                    <span class="cssload-dots"></span>
+                    <span class="cssload-dots"></span>
+                    <span class="cssload-dots"></span>
+                </div>
+                <img src="https://assets.meson.network:10443/static/images/logo-default-324x88.png" alt="" width="162"
+                    height="44"></img>
+            </div>
+        </div>
+
+        <div class="page">
+            <header class="section page-header page-header-absolute">
+                <div class="rd-navbar-wrap">
+                    <nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed"
+                        data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed"
+                        data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+                        data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static"
+                        data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static"
+                        data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px"
+                        data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px" data-lg-stick-up="true"
+                        data-xl-stick-up="true" data-xxl-stick-up="true" data-lg-auto-height="false"
+                        data-xl-auto-height="false" data-xxl-auto-height="false">
+                        <div class="rd-navbar-main-outer">
+                            <div class="rd-navbar-main" style="max-width: 1260px;">
+
+                                <div class="rd-navbar-panel">
+
+                                    <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap">
+                                        <span></span>
+                                    </button>
+
+                                    <div class="rd-navbar-brand">
+
+                                        <a class="brand" href="index.html">
+                                            <img class="brand-logo-light"
+                                                src="https://assets.meson.network:10443/static/images/logo-default-324x88.png"
+                                                alt="" width="162" height="44"></img>
+                                        </a>
+                                    </div>
+                                    <div class="select-ln-wrap">
+                                        <select data-container-class="select-ln"
+                                            data-dropdown-class="select-ln-dropdown">
+                                            <option>EN</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="rd-navbar-main-element">
+                                    <div class="rd-navbar-nav-wrap">
+                                        <ul class="rd-navbar-nav">
+
+                                            <li class="rd-nav-item">
+                                                <a class="rd-nav-link" href="index.html">
+                                                    Home
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a class="button button-xs button-default-outline-3 rd-navbar-fixed-element-1"
+                                        href="/login">
+                                        <span class="button-text">Log In</span>
+                                        <span class="icon mdi mdi-login"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- team members -->
+            <div class="gradient-5">
+                <section class="section section-xs section-inset-1 text-center" id="members">
+                    <div class="container">
+                        <div class="box-relative wow fadeInUp">
+                            <div class="headings-default">
+                                <div class="headings-default-subtitle">Team</div>
+                                <h3>
+                                    Team Members
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="row row-lg row-30 justify-content-center">
+
+                            <div class="block-xs">
+                                <div class="text-center"><img src="./static/images/avatar/sherlock_gray.png"
+                                        alt="sherlock_black.png" class="rounded-md mb-1 w-full h-auto object-cover" />
+                                    <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                        Sherlock Shi
+                                    </h6>
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        Co-Founder & CEO
+                                    </div>
+                                    <a href="https://twitter.com/SherlockShi_AHA" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://www.linkedin.com/in/sherlock-shi-21b477a3/" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><img src="./static/images/avatar/leo_gray.png"
+                                        alt="leo_gray.png" class="rounded-md mb-1 w-full h-auto object-cover" />
+
+                                    <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                        Leo Li
+                                    </h6>
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        Co-Founder
+                                    </div>
+                                    <a href="https://twitter.com/Leohelloworld" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://www.linkedin.com/in/leo-li-147829124/" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><img src="./static/images/avatar/bruce_gray.png"
+                                        alt="bruce_gray.png" class="rounded-md mb-1 w-full h-auto object-cover" />
+
+                                    <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                        Bruce Wayne
+                                    </h6>
+
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        Core Engineer
+                                    </div>
+                                    <a href="https://github.com/daqnext" target="_blank">
+                                        <i class="icon fab fa-github person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://www.linkedin.com/in/bruce-wayne-b35a35210/" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><img src="./static/images/avatar/kaichen_gray.png"
+                                        alt="kaichen_gray.png" class="rounded-md mb-1 w-full h-auto object-cover" />
+
+                                    <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                        Kaichen Wang
+                                    </h6>
+
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        Core Backend & Research Engineer
+                                    </div>
+                                    <a href="https://github.com/sndnsos" target="_blank">
+                                        <i class="icon fab fa-github person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://www.linkedin.com/in/owkeshin/" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="block-xs">
+                                <div class="text-center"><img src="./static/images/avatar/martin_gray.png"
+                                        alt="martin_gray.png" class="rounded-md mb-1 w-full h-auto object-cover" />
+
+                                    <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                        Martin To
+                                    </h6>
+
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        Head of Community Builder
+                                    </div>
+                                    <a href="https://t.me/Martinicrypto" target="_blank">
+                                        <i class="icon fab fa-telegram person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://www.linkedin.com/in/martin-d-304711218/" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><img src="./static/images/avatar/howard_gray.png"
+                                        alt="howard_gray.png" class="rounded-md mb-1 w-full h-auto object-cover" />
+
+                                    <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                        Howard Z
+                                    </h6>
+
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        Head of Marketing & Eco
+                                    </div>
+                                    <a href="https://twitter.com/HowardZjh" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://www.linkedin.com/in/howard-zen-4b764bb/" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><img src="./static/images/avatar/zionfuo_gray.png"
+                                        alt="zionfuo_gray.png" class="rounded-md mb-1 w-full h-auto object-cover" />
+
+                                    <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                        Zion Wang
+                                    </h6>
+
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        Developer Advocate
+                                    </div>
+                                    <a href="https://twitter.com/bitruss_" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://www.linkedin.com/in/wgf/" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><img src="./static/images/avatar/cc_gray.png" alt="cc_gray.png"
+                                        class="rounded-md mb-1 w-full h-auto object-cover" />
+
+                                    <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                        Cecilia Li
+                                    </h6>
+                                    </a>
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        BD & Networking(Advisor)
+                                    </div>
+                                    <a href="https://twitter.com/Cecilia_liCC" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://www.linkedin.com/in/cecilialiglobal/" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><img src="./static/images/avatar/frank_gray.png"
+                                        alt="frank_gray.png" class="rounded-md mb-1 w-full h-auto object-cover" />
+
+                                    <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                        Frank Wang
+                                    </h6>
+
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        Transformative Works
+                                    </div>
+                                    <a href="https://twitter.com/FranktheFTank" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://twitter.com/NetworkMeson" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                </section>
+            </div>
+
+
+            <div class="gradient-5">
+                <section class="section section-xs section-inset-1 text-center" id="investors">
+                    <div class="container">
+                        <div class="box-relative wow fadeInUp">
+                            <div class="headings-default">
+                                <div class="headings-default-subtitle">Investors</div>
+                                <h3>
+                                    Personal Investors
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="row row-lg row-30 justify-content-center">
+
+                            <div class="block-xs">
+                                <div class="text-center"><a href="https://www.linkedin.com/in/sherlock-shi-21b477a3/"
+                                        target="_blank"><img src="./static/images/investor/Alex Rusnak.png"
+                                            alt="sherlock_black.png"
+                                            class="rounded-md mb-1 w-full h-auto object-cover" /></a>
+                                    <a href="https://www.linkedin.com/in/sherlock-shi-21b477a3/" target="_blank">
+                                        <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                            Alex Rusnak
+                                        </h6>
+                                    </a>
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        Founder of Proxima
+                                    </div>
+                                    <a href="https://twitter.com/alexrusnak" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://www.linkedin.com/in/alex-rusnak-147437a/" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><a href="https://www.linkedin.com/in/leo-li-147829124/"
+                                        target="_blank"><img src="./static/images/investor/Jack Herrick.png"
+                                            alt="leo_gray.png" class="rounded-md mb-1 w-full h-auto object-cover" /></a>
+                                    <a href="https://www.linkedin.com/in/leo-li-147829124/" target="_blank">
+                                        <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                            Jack Herrick
+                                        </h6>
+                                    </a>
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        Founder of wikiHow
+                                    </div>
+                                    <a href="https://twitter.com/jackh" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://www.linkedin.com/in/jackherrick/" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><a href="https://www.linkedin.com/in/bruce-wayne-b35a35210/"
+                                        target="_blank"><img src="./static/images/investor/Josh Hannah.png"
+                                            alt="bruce_gray.png"
+                                            class="rounded-md mb-1 w-full h-auto object-cover" /></a>
+                                    <a href="https://www.linkedin.com/in/bruce-wayne-b35a35210/" target="_blank">
+                                        <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                            Josh Hannah
+                                        </h6>
+                                    </a>
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        General Partner of Matrix Partners
+                                    </div>
+                                    <a href="https://twitter.com/jdh" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><a href="https://www.linkedin.com/in/owkeshin/"
+                                        target="_blank"><img src="./static/images/investor/Liang Xinjun.png"
+                                            alt="kaichen_gray.png"
+                                            class="rounded-md mb-1 w-full h-auto object-cover" /></a>
+                                    <a href="https://www.linkedin.com/in/owkeshin/" target="_blank">
+                                        <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                            Xinjun Liang
+                                        </h6>
+                                    </a>
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        Cofounder of Fosun International
+                                    </div>
+                                    <a href="https://www.linkedin.com/in/xinjun-liang-245030bb/" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+
+                            <div class="block-xs">
+                                <div class="text-center"><a href="https://www.linkedin.com/in/howard-zen-4b764bb/"
+                                        target="_blank"><img src="./static/images/investor/Mao Shihang.png"
+                                            alt="howard_gray.png"
+                                            class="rounded-md mb-1 w-full h-auto object-cover" /></a>
+                                    <a href="https://www.linkedin.com/in/howard-zen-4b764bb/" target="_blank">
+                                        <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                            Shihang Mao
+                                        </h6>
+                                    </a>
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        Cofounder of F2Pool & Cobo
+                                    </div>
+                                    <a href="https://twitter.com/bitfish1" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://www.linkedin.com/in/shixing“discus-fish-mao-247695166/"
+                                        target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><a href="https://www.linkedin.com/in/wgf/" target="_blank"><img
+                                            src="./static/images/investor/Meltem Demiror.png" alt="zionfuo_gray.png"
+                                            class="rounded-md mb-1 w-full h-auto object-cover" /></a>
+                                    <a href="https://www.linkedin.com/in/wgf/" target="_blank">
+                                        <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                            Meltem Demiror
+                                        </h6>
+                                    </a>
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        CSO of CoinShares
+                                    </div>
+                                    <a href="https://twitter.com/Melt_Dem" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://www.linkedin.com/in/meltdem/" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><a href="https://www.linkedin.com/in/cecilialiglobal/"
+                                        target="_blank"><img src="./static/images/investor/SamWilliams.png"
+                                            alt="cc_gray.png" class="rounded-md mb-1 w-full h-auto object-cover" /></a>
+                                    <a href="https://www.linkedin.com/in/cecilialiglobal/" target="_blank">
+                                        <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                            Sam Williams
+                                        </h6>
+                                    </a>
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        CEO & Cofounder of Arweave
+                                    </div>
+                                    <a href="https://twitter.com/samecwilliams" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>&nbsp;
+                                    <a href="https://www.linkedin.com/in/sam-williams-2b5111144/" target="_blank">
+                                        <i class="icon fab fa-linkedin person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><a href="https://www.linkedin.com/in/frank-wang-00a73180/"
+                                        target="_blank"><img src="./static/images/investor/SujiYan.png"
+                                            alt="frank_gray.png"
+                                            class="rounded-md mb-1 w-full h-auto object-cover" /></a>
+                                    <a href="https://www.linkedin.com/in/frank-wang-00a73180/" target="_blank">
+                                        <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                            Suji Yan
+                                        </h6>
+                                    </a>
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        Founder of Mask Network
+                                    </div>
+                                    <a href="https://twitter.com/suji_yan" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="block-xs">
+                                <div class="text-center"><a href="https://www.linkedin.com/in/martin-d-304711218/"
+                                        target="_blank"><img src="./static/images/investor/Thomas Bailey.png"
+                                            alt="martin_gray.png"
+                                            class="rounded-md mb-1 w-full h-auto object-cover" /></a>
+                                    <a href="https://www.linkedin.com/in/martin-d-304711218/" target="_blank">
+                                        <h6 class="label-lg md:text-md sm:text-xs text-gray-700 font-semibold mb-1">
+                                            Thomas Bailey
+                                        </h6>
+                                    </a>
+                                    <div class="body-md text-gray-600" style="font-size: small;">
+                                        VP of Notation Capital
+                                    </div>
+                                    <a href="https://www.linkedin.com/in/thomas-bailey-b6827234/" target="_blank">
+                                        <i class="icon fab fa-twitter person-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                </section>
+            </div>
+
+
+            <div class="gradient-5">
+                <section class="section section-lg" id="contacts">
+                    <div class="container">
+                        <div class="row row-30 row-md-50 align-items-center">
+                            <div class="col-md-6 wow fadeInUp">
+                                <div class="inset-right-xl-70">
+                                    <div class="headings-default">
+                                        <div class="headings-default-subtitle">Contacts</div>
+                                        <h3>Join Meson Community</h3>
+                                    </div>
+                                    <p class="d-inline-block text-width-medium">
+                                        Unflinching focus on creating real commercial
+                                        applications, Open network access standard, Release
+                                        monopolized value
+                                    </p>
+                                </div>
+                            </div>
+
+                            <ul class="contact-default d-inline-block inset-left-xl-70" style=" margin: 0 auto">
+                                <li class="unit unit-spacing-lg align-items-center">
+                                    <div class="unit-left">
+                                        <span class="contact-default-icon icon fab fa-discord"></span>
+                                    </div>
+                                    <div class="unit-body">
+                                        <a class="contact-default-link" href="https://discord.gg/z6YfSHDkmS">
+                                            Join us on Discord
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li class="unit unit-spacing-lg align-items-center">
+                                    <div class="unit-left">
+                                        <span class="contact-default-icon icon fab fa-telegram"></span>
+                                    </div>
+                                    <div class="unit-body">
+                                        <a class="contact-default-link" href="https://t.me/mesonnetwork">
+                                            Join us on Telegram
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li class="unit unit-spacing-lg align-items-center">
+                                    <div class="unit-left">
+                                        <span class="contact-default-icon icon fab fa-github "></span>
+                                    </div>
+                                    <div class="unit-body">
+                                        <a class="contact-default-link" href="https://github.com/daqnext">
+                                            Join us on Github
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li class="unit unit-spacing-lg align-items-center">
+                                    <div class="unit-left">
+                                        <span class="contact-default-icon icon fab fa-twitter "></span>
+                                    </div>
+                                    <div class="unit-body">
+                                        <a class="contact-default-link" href="https://twitter.com/NetworkMeson">
+                                            Twitter
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li class="unit unit-spacing-lg align-items-center">
+                                    <div class="unit-left">
+                                        <span class="contact-default-icon icon fab fa-medium "></span>
+                                    </div>
+                                    <div class="unit-body">
+                                        <a class="contact-default-link" href="https://medium.com/meson-network">
+                                            Medium
+                                        </a>
+                                    </div>
+                                </li>
+
+
+                                <li class="unit unit-spacing-lg align-items-center">
+                                    <div class="unit-left">
+                                        <span class="contact-default-icon icon fas fa-envelope"></span>
+                                    </div>
+                                    <div class="unit-body">
+                                        <a class="contact-default-link" href="mailto:admin@meson.network">
+                                            Email US
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+            <section class="section section-md bg-secondary-9 text-sm-left wow fadeInUp">
+                <div class="container">
+                    <div class="row row-30 row-md-50">
+                        <div class="ol-sm-6 col-lg-3">
+                            <div class="inset-left-xl-70">
+                                <div class="title-style-1">General</div>
+                                <ul class="list-style-1 d-inline-block footitems">
+                                    <li>
+                                        <a class="rd-nav-link" href="#roadmap">
+                                            Roadmap
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="rd-nav-link"
+                                            href="https://assets.meson.network:10443/static/docs/Meson-Network-v1.6.pdf">
+                                            White Paper
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="rd-nav-link" href="#demo">
+                                            Demo
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="rd-nav-link" href="#faq">
+                                            Faq
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="rd-nav-link" href="#contacts">
+                                            Contacts
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="rd-nav-link" href="members_investors.html">
+                                            About us
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="inset-left-xl-70">
+                                <div class="title-style-1">Community</div>
+                                <ul class="list-style-1 d-inline-block footitems">
+                                    <li>
+                                        <a href="https://discord.gg/z6YfSHDkmS">
+                                            <i class="icon fab fa-discord"></i> Discord
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://t.me/mesonnetwork">
+                                            <i class="icon fab fa-telegram"></i> Telegram
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/daqnext">
+                                            <i class="icon  fab fa-github"></i> Github
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/NetworkMeson">
+                                            <i class="icon fab fa-twitter"></i> Twitter
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://medium.com/meson-network">
+                                            <i class="icon  fab fa-medium"></i> Medium
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:admin@meson.network">
+                                            <i class="icon fas fa-envelope"></i> Email US
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="section footer-classic context-light wow fadeInUp">
+                <div class="container">
+                    <p class="rights">
+                        <span>
+                            Copyright © meson.network 2022. All rights reserved.
+                        </span>
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    // page
+    abc()
+</script>
+
+</html>
