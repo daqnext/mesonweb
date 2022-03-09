@@ -683,11 +683,11 @@ class TerminalBalancePage_f extends React.Component {
                                                 {
                                                     Id: data.Id,
                                                 },
-                                                {
-                                                    headers: {
-                                                        Authorization: "Bearer " + UserManager.GetUserToken(),
-                                                    },
-                                                }
+                                                        {
+                                                            headers: {
+                                                                Authorization: "Bearer " + UserManager.GetUserToken(),
+                                                            },
+                                                        }
                                             );
 
                                             if (response.data.status == 0) {
