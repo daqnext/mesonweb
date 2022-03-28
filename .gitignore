@@ -1,9 +1,8 @@
 /build
 /node_modules
-/.vscode/sftp.json
 .idea
 .DS_Store
 .gitignore.swp
 /public/static/terminal
 .DS_Store
-.vscode/settings.json
+
