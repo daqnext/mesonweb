@@ -1355,10 +1355,10 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@inovua/reactdatagrid-community@^4.0.10":
-  version "4.0.10"
-  resolved "https://registry.npm.taobao.org/@inovua/reactdatagrid-community/download/@inovua/reactdatagrid-community-4.0.10.tgz#283a6893f7b72eccf1ae8d8d23e0e91b299b3056"
-  integrity sha1-KDpok/e3Lszxro2NI+DpGymbMFY=
+"@inovua/reactdatagrid-community@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@inovua/reactdatagrid-community/-/reactdatagrid-community-4.2.1.tgz#511bc5ff3d0db30268b74aaafc4177076e0e7293"
+  integrity sha512-ERi6tzs44EghWS8TLPQ0P6UBk4xx4hPTdzDfRzKQuyQv8Mys3nyYTer0N9JYVGijjzEt/srUsHTvaj6fZXQxKQ==
   dependencies:
     "@types/lodash.debounce" "^4.0.6"
     "@types/lodash.throttle" "^4.1.6"
@@ -1368,7 +1368,6 @@
     object-assign "^4.1.1"
     resize-observer-polyfill "^1.5.1"
     shallowequal "0.2.2"
-    tslib "^2.0.0"
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
@@ -2831,6 +2830,11 @@ bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
   version "4.11.8"
   resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.8.tgz#2cde09eb5ee341f484746bb0309b3253b1b1442f"
   integrity sha512-ItfYfPLkWHUjckQCk8xC+LwxgK8NYcXywGigJgSwOP8Y2iyWT4f2vsZnoOXTTbo+o5yXmIUJ4gn5538SO5S3gA==
+
+bn.js@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-5.2.0.tgz#358860674396c6997771a9d051fcc1b57d4ae002"
+  integrity sha512-D7iWRBvnZE8ecXiLj/9wbxH7Tk79fAh8IHaTNq1RWRixsS02W+5qS+iE9yq6RYl0asXx5tw0bLhmT5pIfbSquw==
 
 body-parser@1.19.0:
   version "1.19.0"
@@ -9318,6 +9322,11 @@ react-bootstrap-daterangepicker@^7.0.0:
   resolved "https://registry.npm.taobao.org/react-bootstrap-daterangepicker/download/react-bootstrap-daterangepicker-7.0.0.tgz#172228cccaa3b0f4a42e84eb6d646b4988a0df64"
   integrity sha1-FyIozMqjsPSkLoTrbWRrSYig32Q=
 
+react-bootstrap-sweetalert@^5.1.15:
+  version "5.1.15"
+  resolved "https://registry.npm.taobao.org/react-bootstrap-sweetalert/download/react-bootstrap-sweetalert-5.1.15.tgz#5baab8571d974419be7045b5f24f939eb8841697"
+  integrity sha1-W6q4Vx2XRBm+cEW18k+TnriEFpc=
+
 react-captcha-code@^1.0.7:
   version "1.0.7"
   resolved "https://registry.npm.taobao.org/react-captcha-code/download/react-captcha-code-1.0.7.tgz#2f4bdecb555d2304912ccc88f8934b7a4d7565a4"
@@ -10962,7 +10971,7 @@ ts-pnp@1.1.6, ts-pnp@^1.1.6:
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.1.6.tgz#389a24396d425a0d3162e96d2b4638900fdc289a"
   integrity sha512-CrG5GqAAzMT7144Cl+UIFP7mz/iIhiy+xQ6GGcnjTezhALT02uPMRw7tgDSESgB5MsfKt55+GPWw4ir1kVtMIQ==
 
-tslib@2.0.3, tslib@^2.0.0, tslib@^2.0.3:
+tslib@2.0.3, tslib@^2.0.3:
   version "2.0.3"
   resolved "https://registry.npm.taobao.org/tslib/download/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
   integrity sha1-jgdBrEX8DCJuWKF7/D5kubxsphw=

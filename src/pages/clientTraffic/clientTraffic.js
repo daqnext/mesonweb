@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-10 09:30:35
- * @LastEditTime: 2021-04-08 15:03:46
+ * @LastEditTime: 2021-11-03 08:59:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /coldCDNWeb/src/pages/clientTraffic/clientTraffic.js
@@ -153,7 +153,7 @@ class ClientTraffic extends React.Component {
             <div className="card border-light shadow-sm" style={{marginTop:'20px'}}>
                 <div className="card-body">
 
-                    <div className="row">
+                    <div className="row" style={{marginBottom:"20px"}}>
                         <DateRangePicker
                             className="col-4"
                             initialSettings={{

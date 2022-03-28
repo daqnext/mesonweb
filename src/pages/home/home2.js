@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 20:27:52
- * @LastEditTime: 2021-07-20 20:29:13
+ * @LastEditTime: 2021-11-01 16:28:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/home/home2.js
@@ -9,6 +9,7 @@
 
 import React from "react";
 import ArweaveDemoPage from "../arweaveDemo/arweaveDemo";
+import IpfsDemoPage from "../ipfsDemo/ipfsDemo";
 import FileManagerDemoPage from "../fileManagerDemo/fileManagerDemo";
 import NodeMapPage from "../nodeMap/nodeMap";
 import IndexBlogPage from "../indexBlog/indexBlog";
@@ -718,7 +719,8 @@ class HomePage extends React.Component {
                     // style="margin-top: 60px"
                     style={{ marginTop: "60px" }}
                   >
-                    <FileManagerDemoPage></FileManagerDemoPage>
+                    {/* <FileManagerDemoPage></FileManagerDemoPage> */}
+                    <IpfsDemoPage></IpfsDemoPage>
                     {/* <div 
                     // style="padding-top: 10px;"
                     style={{paddingTop:"10px"}}
@@ -1032,6 +1034,16 @@ class HomePage extends React.Component {
                             data-toggle="tab"
                           >
                             Mining
+                          </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <a
+                            class="nav-link"
+                            href="https://docs.meson.network/faq"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            More FAQ in doc
                           </a>
                         </li>
                       </ul>

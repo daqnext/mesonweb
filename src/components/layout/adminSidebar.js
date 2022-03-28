@@ -77,6 +77,9 @@ class AdminSidebar extends React.Component {
                         <li className= {this.getActive("/adminmachine")+" nav-item"}  ><a className="nav-link" href="/adminmachine"><span>AdminMachine</span></a></li>
                         <li className={this.getActive("/adminpricesetting") + " nav-item"}  ><a className="nav-link" href="/adminpricesetting"><span>AdminPriceSetting</span></a></li>
                         <li className= {this.getActive("/adminbloglist")+" nav-item"}  ><a className="nav-link" href="/adminbloglist"><span>BlogList</span></a></li>
+                        <li className= {this.getActive("/adminairdrop")+" nav-item"}  ><a className="nav-link" href="/adminairdrop"><span>AdminAirdrop</span></a></li>
+                        <li className= {this.getActive("/exchangemgr")+" nav-item"}><a className="nav-link" href="/exchangemgr"><span>ExchangeMgr</span></a></li>
+
                     </ul>
                 </div>
             </li>
@@ -139,9 +142,12 @@ class AdminSidebar extends React.Component {
                     <ul className="flex-column nav">
                         <li className= {this.getActive("/terminals")+" nav-item"}><a className="nav-link" href="/terminals"><span>Terminals</span></a></li>
                         <li className= {this.getActive("/miningrules")+" nav-item"}><a className="nav-link" href="/miningrules"><span>Mining Rules</span></a></li>
+                        <li className= {this.getActive("/bridge")+" nav-item"}><a className="nav-link" href="/bridge"><span>Bridge</span></a></li>
                         <li className= {this.getActive("/terminaltraffic")+" nav-item"}><a className="nav-link" href="/terminaltraffic"><span>Traffic</span></a></li>
-                        <li className={this.getActive("/terminaltotalprofit") + " nav-item"}><a className="nav-link" href="/terminaltotalprofit"><span>Earnings</span></a></li>
+                        <li className= {this.getActive("/terminaltotalprofit") + " nav-item"}><a className="nav-link" href="/terminaltotalprofit"><span>Earnings</span></a></li>
                         <li className= {this.getActive("/terminalbalance")+" nav-item"}><a className="nav-link" href="/terminalbalance"><span>TokenBalance</span></a></li>
+                        <li className= {this.getActive("/stake")+" nav-item"}><a className="nav-link" href="/stake"><span>Stake</span></a></li>
+                        <li className= {this.getActive("/userairdrop")+" nav-item"}><a className="nav-link" href="/userairdrop"><span>Airdrop</span></a></li>  
                     </ul>
                 </div>
             </li>
@@ -173,9 +179,8 @@ class AdminSidebar extends React.Component {
                     <ul className="flex-column nav">
                         <li  className= {this.getActive("/binddomain")+" nav-item"}><a className="nav-link" href="/binddomain"><span>BindDomain</span></a></li>
                         <li className= {this.getActive("/clienttraffic")+" nav-item"}><a className="nav-link" href="/clienttraffic"><span>Traffic</span></a></li>
-                        <li className={this.getActive("/balance") + " nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>
-                        <li className= {this.getActive("/filemanager")+" nav-item"}><a className="nav-link" href="/filemanager"><span>FileManager</span></a></li>
-                        <li className= {this.getActive("/streams")+" nav-item"}><a className="nav-link" href="/streams"><span>Livestreaming</span></a></li>
+                        <li className= {this.getActive("/balance") + " nav-item"}><a className="nav-link" href="/balance"><span>Balance</span></a></li>
+                        <li  className= {this.getActive("/ipfsuploader")+" nav-item"}><a className="nav-link" href="/ipfsuploader"><span>IPFS Uploader</span></a></li>
                     </ul>
                 </div>
             </li>
@@ -235,11 +240,11 @@ class AdminSidebar extends React.Component {
                         <li  className= {this.getActive("/bindemail")+" nav-item"}><a className="nav-link" href="/bindemail"><span>Bind Email</span></a></li>:
                         <li  className= {this.getActive("/changeemail")+" nav-item"}><a className="nav-link" href="/changeemail"><span>Change Email</span></a></li>
                         }
-                        {
+                        {/* {
                         UserManager.IsUserBindPhone()==false?
                         <li  className= {this.getActive("/bindphone")+" nav-item"}><a className="nav-link" href="/bindphone"><span>Bind Phone</span></a></li>:
                         <li  className= {this.getActive("/changephone")+" nav-item"}><a className="nav-link" href="/changephone"><span>Change Phone</span></a></li>
-                        }
+                        } */}
                     
                     </ul>
                 </div>
@@ -296,7 +301,6 @@ class AdminSidebar extends React.Component {
         const UserClientSiderBar = this.renderUserClientSiderBar();
         const UserTerminalSiderBar = this.renderUserTerminalSiderBar();
         const UserBlogSiderBar = this.renderUserBlogSiderBar();
-        const UserLiveStreamingBar = this.renderLiveStreamingSiderBar();
         const CommonUserBar = this.renderCommonUserSiderBar();
         return (
             <div>
@@ -314,7 +318,6 @@ class AdminSidebar extends React.Component {
                 {CommonUserBar}
                 {UserTerminalSiderBar}
                 {UserClientSiderBar}
-                {/* {UserLiveStreamingBar} */}
                 {UserBlogSiderBar}
 
             </div>

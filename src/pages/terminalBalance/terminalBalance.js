@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-02 15:18:47
- * @LastEditTime: 2021-05-26 16:16:27
+ * @LastEditTime: 2021-08-17 09:04:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /mesonweb/src/pages/terminalBalance/terminalBalance.js
@@ -36,7 +36,7 @@ class TerminalBalancePage extends React.Component {
             if(response_rp.data.status==0){
                 this.setState({
                     dataready:this.state.dataready,
-                    token:response_rp.data.data/1000000000,
+                    token:(response_rp.data.data/1000000000).toFixed(5),
                 });
             }
         });
