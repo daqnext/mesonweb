@@ -361,8 +361,8 @@ class LoginPage extends React.Component {
             </form>
             <div className="card-footer text-center ">
               <div className="small">
-                <a className="a-rocket" href="/register">
-                  Need an account? Sign up!
+                <a className="a-rocket" href="https://dashboard.meson.network/login/">
+                  We have upgraded new dashboard, go to Meson 3.0 
                 </a>
               </div>
             </div>
